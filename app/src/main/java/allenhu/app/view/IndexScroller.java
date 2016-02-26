@@ -78,6 +78,9 @@ public class IndexScroller {
 
                 Paint previewTextPaint = new Paint();
                 previewTextPaint.setColor(Color.WHITE);
+                previewTextPaint.setTextSize(50.0f * mScaledDensity);
+                float previewTextWidth = previewTextPaint.measureText(mSections[mCurrentSection]);
+                float previewSize = 2 * indexBarPadding + previewTextPaint.descent() - previewTextPaint.ascent();
             }
         }
     }
