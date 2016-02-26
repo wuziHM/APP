@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="allenhu.app">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.READ_OWNER_DATA" />
+
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.DrawableActivity" />
+        <activity android:name=".activity.GridViewDemoActivity" />
+        <activity android:name=".activity.SpinnerActivity" />
+        <activity android:name=".activity.AnimationActivity" />
+        <activity android:name=".activity.CustomerViewActivity" />
+        <activity android:name=".activity.View1Activity" />
+        <activity android:name=".activity.View2Activity" />
+        <activity android:name=".activity.CaClothes" />
+        <activity
+            android:name=".activity.WeixinActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="56c4354967e58e9995001685" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="huawei" />
+
+        <service android:name=".service.OperationsManager" />
+
+        <activity android:name=".activity.CatalogActivity"></activity>
+    </application>
+
+</manifest>

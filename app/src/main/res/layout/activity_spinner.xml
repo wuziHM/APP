@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择您的排位分段"
+        android:textColor="#44BDED"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/spin_one"
+        android:layout_width="100dp"
+        android:layout_height="64dp"
+        android:entries="@array/data"
+        android:prompt="@string/spin_title"
+        android:spinnerMode="dialog" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="选择你的拿手英雄~"
+        android:textColor="#F5684A"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/spin_two"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp" />
+
+</LinearLayout>
