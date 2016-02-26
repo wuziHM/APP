@@ -2,11 +2,15 @@ package allenhu.app.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.RectF;
 import android.view.MotionEvent;
 import android.widget.Adapter;
 import android.widget.ListView;
 import android.widget.SectionIndexer;
+
+import allenhu.app.bean.PrintA;
 
 /**
  * Created by AllenHu on 2016/2/26.
@@ -51,7 +55,31 @@ public class IndexScroller {
     }
 
     public void draw(Canvas canvas) {
+        // 1、绘制索引条、包括索引条的背景和文本
+        // 2、绘制预览文本和背景
+        // 如果索引条隐藏、不进行绘制
+        if (mState == STATE_HIDDEN) {
+            return;
+        }
+        //设置索引条比诶金的绘制属性
+        Paint indexbarPaint = new Paint();
+        indexbarPaint.setColor(Color.BLACK);
+        indexbarPaint.setAlpha((int) (64 * mAlphaRate));
 
+        //绘制索引条(4个角都是圆角的矩形区域)
+        canvas.drawRoundRect(mIndexBarRect, 5 * mDensity, 5 * mDensity, indexbarPaint);
+        //绘制Sections
+        if (mSections != null && mSections.length > 0) {
+            //绘制预览文本和背景
+            if (mCurrentSection >= 0) {
+                Paint previewPaint = new Paint();
+                previewPaint.setColor(Color.BLACK);
+                previewPaint.setAlpha(96);
+
+                Paint previewTextPaint = new Paint();
+                previewTextPaint.setColor(Color.WHITE);
+            }
+        }
     }
 
     public boolean onTouchEvent(MotionEvent ev) {
