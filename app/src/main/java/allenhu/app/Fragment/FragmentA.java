@@ -18,6 +18,7 @@ import allenhu.app.R;
 import allenhu.app.activity.CustomerViewActivity;
 import allenhu.app.activity.DrawableActivity;
 import allenhu.app.activity.GridViewDemoActivity;
+import allenhu.app.activity.HongbaoActivity;
 import allenhu.app.activity.SpinnerActivity;
 import allenhu.app.activity.WeixinActivity;
 import allenhu.app.adapter.DividerItemDecoration;
@@ -82,6 +83,7 @@ public class FragmentA extends Fragment {
         listContent.add("Spinner");
         listContent.add("自定义View");
         listContent.add("微信个性分享");
+        listContent.add("红包");
 
         listActivity = new ArrayList<>();
         listActivity.add(DrawableActivity.class);
@@ -89,6 +91,7 @@ public class FragmentA extends Fragment {
         listActivity.add(SpinnerActivity.class);
         listActivity.add(CustomerViewActivity.class);
         listActivity.add(WeixinActivity.class);
+        listActivity.add(HongbaoActivity.class);
 //        listContent.add("第二个");
 //        for (int i = 'A'; i < 'z'; i++) {
 //            listContent.add("" + (char) i);

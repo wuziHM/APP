@@ -47,7 +47,8 @@
 
         <service android:name=".service.OperationsManager" />
 
-        <activity android:name=".activity.CatalogActivity"></activity>
+        <activity android:name=".activity.CatalogActivity" />
+        <activity android:name=".activity.HongbaoActivity"></activity>
     </application>
 
 </manifest>
