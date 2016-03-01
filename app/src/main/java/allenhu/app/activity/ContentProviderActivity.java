@@ -1,12 +1,21 @@
 package allenhu.app.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.List;
 
 import allenhu.app.R;
+import allenhu.app.adapter.ContactAdapter;
+import allenhu.app.adapter.DividerItemDecoration;
 import allenhu.app.base.BaseActivity;
+import allenhu.app.bean.ContactBean;
+import allenhu.app.listener.OnItemClickListener;
+import allenhu.app.util.ContactUtil;
 
 public class ContentProviderActivity extends BaseActivity implements View.OnClickListener {
 
@@ -32,7 +41,22 @@ public class ContentProviderActivity extends BaseActivity implements View.OnClic
     }
 
     public void initData() {
+        List<ContactBean> list = ContactUtil.getPhoneContacts(this);
+        ContactAdapter adpter = new ContactAdapter(this, list);
+        recyclerView.setAdapter(adpter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
+        adpter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(ContentProviderActivity.this,"RecycleView的item事件",Toast.LENGTH_SHORT).show();
+            }
 
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        });
     }
 
     @Override

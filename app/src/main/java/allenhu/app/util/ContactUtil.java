@@ -24,7 +24,7 @@ public class ContactUtil {
     /**
      * 得到手机通讯录联系人信息
      **/
-    private List<ContactBean> getPhoneContacts(Context mContext) {
+    public static List<ContactBean> getPhoneContacts(Context mContext) {
 
         ArrayList<ContactBean> contactBeans = new ArrayList<>();
 

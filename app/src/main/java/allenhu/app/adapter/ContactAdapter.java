@@ -2,30 +2,32 @@ package allenhu.app.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
 
 import allenhu.app.R;
+import allenhu.app.bean.ContactBean;
 import allenhu.app.listener.OnItemClickListener;
 
 /**
- * Created by AllenHu on 2016/2/14.
+ * Created by AllenHu on 2016/3/1.
  */
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
+public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactHolder> {
 
-    private List mData;
+
     private Context context;
+    private List list;
     private OnItemClickListener onItemClickListener;
 
-
-    public HomeAdapter(List mData, Context context) {
-        this.mData = mData;
+    public ContactAdapter(Context context, List list) {
         this.context = context;
+        this.list = list;
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
@@ -33,14 +35,19 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        MyViewHolder holder = new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_recycler, parent, false));
+    public ContactHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        ContactHolder holder = new ContactHolder(LayoutInflater.from(context).inflate(R.layout.item_contact, parent, false));
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, int position) {
-        holder.tv.setText(mData.get(position) + "");
+    public void onBindViewHolder(final ContactHolder holder, int position) {
+
+        ContactBean bean = (ContactBean) list.get(position);
+
+        holder.tvName.setText(bean.getName() + "");
+        holder.tvPhone.setText(bean.getPhone() + "");
+        holder.ivHeader.setImageBitmap(bean.getHeaderImg());
 
         // 如果设置了回调，则设置点击事件
         if (onItemClickListener != null) {
@@ -65,17 +72,20 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return list.size();
     }
 
-    class MyViewHolder extends ViewHolder {
+    class ContactHolder extends RecyclerView.ViewHolder {
 
-        TextView tv;
+        private TextView tvName;
+        private TextView tvPhone;
+        private ImageView ivHeader;
 
-        public MyViewHolder(View view) {
-            super(view);
-            tv = (TextView) view.findViewById(R.id.id_num);
+        public ContactHolder(View itemView) {
+            super(itemView);
+            tvName = (TextView) itemView.findViewById(R.id.tv_name);
+            tvPhone = (TextView) itemView.findViewById(R.id.tv_phone);
+            ivHeader = (ImageView) itemView.findViewById(R.id.iv_header);
         }
     }
-
 }

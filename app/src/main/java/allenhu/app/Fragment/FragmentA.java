@@ -25,6 +25,7 @@ import allenhu.app.activity.SpinnerActivity;
 import allenhu.app.activity.WeixinActivity;
 import allenhu.app.adapter.DividerItemDecoration;
 import allenhu.app.adapter.HomeAdapter;
+import allenhu.app.listener.OnItemClickListener;
 
 /**
  * Created by AllenHu on 2016/2/14.
@@ -61,7 +62,7 @@ public class FragmentA extends Fragment {
 //        recyclerView.addItemDecoration(new DividerGridItemDecoration(context));
         recyclerView.setAdapter(homeAdapter);
         //设置监听，监听是自己写的
-        homeAdapter.setOnItemClickLitener(new HomeAdapter.OnItemClickLitener() {
+        homeAdapter.setOnItemClickListener(new OnItemClickListener() {
             Intent intent = null;
 
             @Override
