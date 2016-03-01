@@ -53,26 +53,34 @@ public class HongbaoActivity extends AppCompatActivity {
                     tvShow.setTextColor(Color.RED);
                     return;
                 }
-//                hongbao1(count, fen);
-                long[] result = HongBaoAlgorithm.generate(fen, count, fen-count+1, 1);
-                StringBuffer buffer = new StringBuffer();
-                for (int i = 0; i < result.length; i++) {
-                    buffer.append(result[i]+"   ");
-                }
-                tvShow.setText(buffer.toString());
+                hongbao1(count, fen);
+//                hongbao2(count, fen);
             }
         });
     }
 
+    private void hongbao2(int count, int fen) {
+        long[] result = HongBaoAlgorithm.generate(fen, count);
+        long total = 0;
+        StringBuffer buffer = new StringBuffer();
+        for (int i = 0; i < result.length; i++) {
+            buffer.append(result[i] + "   ");
+            total += result[i];
+        }
+        tvShow.setText(buffer.toString() + "   总额:" + total);
+    }
+
+    /**
+     * 生成随机红包
+     * @param count 红包个数
+     * @param fen   红包金额（分）
+     */
     private void hongbao1(int count, int fen) {
-        int max = 0;
+        int max;
         Random random = new Random();
         StringBuffer buffer = new StringBuffer();
         for (int i = 0; i < count - 1; i++) {
-            max = fen - (count-i-1);
-            LogUtil.e("max:" + max);
-            LogUtil.e("i:" + i);
-            LogUtil.e("fen:" + fen);
+            max = fen - (count - i - 1);
             int result = random.nextInt(max) + 1;
             buffer.append("   " + result);
             fen -= result;

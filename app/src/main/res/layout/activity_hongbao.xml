@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:hint="元"
-        android:numeric="integer"
+        android:numeric="decimal"
         android:padding="2dp" />
 
     <EditText
@@ -22,8 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:numeric="integer"
         android:hint="个数"
+        android:numeric="integer"
         android:padding="2dp" />
 
     <Button

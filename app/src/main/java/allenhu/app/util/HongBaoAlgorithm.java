@@ -1,7 +1,5 @@
 package allenhu.app.util;
 
-import android.util.Log;
-
 import java.util.Random;
 
 /**
@@ -14,31 +12,6 @@ public class HongBaoAlgorithm {
         random.setSeed(System.currentTimeMillis());
     }
 
-//    public static void main(String[] args) {
-//        long max = 200;
-//        long min = 1;
-//
-//        long[] result = HongBaoAlgorithm.generate(100_0000, 10_000, max, min);
-//        long total = 0;
-//        for (int i = 0; i < result.length; i++) {
-//            // System.out.println("result[" + i + "]:" + result[i]);
-//            // System.out.println(result[i]);
-//            total += result[i];
-//        }
-//        //检查生成的红包的总额是否正确
-//        System.out.println("total:" + total);
-//
-//        //统计每个钱数的红包数量，检查是否接近正态分布
-//        int count[] = new int[(int) max + 1];
-//        for (int i = 0; i < result.length; i++) {
-//            count[(int) result[i]] += 1;
-//        }
-//
-//        for (int i = 0; i < count.length; i++) {
-//            System.out.println("" + i + "  " + count[i]);
-//        }
-//    }
-
     /**
      * 生产min和max之间的随机数，但是概率不是平均的，从min到max方向概率逐渐加大。
      * 先平方，然后产生一个平方值范围内的随机数，再开方，这样就产生了一种“膨胀”再“收缩”的效果。
@@ -48,7 +21,6 @@ public class HongBaoAlgorithm {
      * @return
      */
     static long xRandom(long min, long max) {
-        LogUtil.e("xRandom---->min:" + min + "   max:" + max);
         return sqrt(nextLong(sqr(max - min) + 1));
     }
 
@@ -111,6 +83,18 @@ public class HongBaoAlgorithm {
         }
         return result;
     }
+
+    /**
+     * 最小值默认是1的分法
+     *
+     * @param total 红包总额
+     * @param count 红包个数
+     * @return
+     */
+    public static long[] generate(long total, int count) {
+        return generate(total, count, total - count + 1, 1);
+    }
+
 
     static long sqrt(long n) {
         // 改进为查表？
