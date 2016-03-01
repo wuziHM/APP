@@ -1,5 +1,6 @@
 package allenhu.app.Fragment;
 
+import android.content.ContentProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import allenhu.app.R;
+import allenhu.app.activity.ContentProviderActivity;
 import allenhu.app.activity.CustomerViewActivity;
 import allenhu.app.activity.DrawableActivity;
 import allenhu.app.activity.GridViewDemoActivity;
@@ -84,6 +86,7 @@ public class FragmentA extends Fragment {
         listContent.add("自定义View");
         listContent.add("微信个性分享");
         listContent.add("红包");
+        listContent.add("ContentProvider");
 
         listActivity = new ArrayList<>();
         listActivity.add(DrawableActivity.class);
@@ -92,6 +95,7 @@ public class FragmentA extends Fragment {
         listActivity.add(CustomerViewActivity.class);
         listActivity.add(WeixinActivity.class);
         listActivity.add(HongbaoActivity.class);
+        listActivity.add(ContentProviderActivity.class);
 //        listContent.add("第二个");
 //        for (int i = 'A'; i < 'z'; i++) {
 //            listContent.add("" + (char) i);
