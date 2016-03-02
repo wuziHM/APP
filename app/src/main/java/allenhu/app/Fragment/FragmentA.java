@@ -1,6 +1,5 @@
 package allenhu.app.Fragment;
 
-import android.content.ContentProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +23,7 @@ import allenhu.app.activity.CustomerViewActivity;
 import allenhu.app.activity.DrawableActivity;
 import allenhu.app.activity.GridViewDemoActivity;
 import allenhu.app.activity.HongbaoActivity;
+import allenhu.app.activity.ServiceDemoActivity;
 import allenhu.app.activity.SpinnerActivity;
 import allenhu.app.activity.WeixinActivity;
 import allenhu.app.adapter.DividerItemDecoration;
@@ -88,6 +91,7 @@ public class FragmentA extends Fragment {
         listContent.add("微信个性分享");
         listContent.add("红包");
         listContent.add("ContentProvider");
+        listContent.add("Service");
 
         listActivity = new ArrayList<>();
         listActivity.add(DrawableActivity.class);
@@ -97,9 +101,18 @@ public class FragmentA extends Fragment {
         listActivity.add(WeixinActivity.class);
         listActivity.add(HongbaoActivity.class);
         listActivity.add(ContentProviderActivity.class);
+        listActivity.add(ServiceDemoActivity.class);
 //        listContent.add("第二个");
 //        for (int i = 'A'; i < 'z'; i++) {
 //            listContent.add("" + (char) i);
 //        }
+
+        byte[] bytes = new byte[1024];
+        OutputStream outputStream = new ByteArrayOutputStream();
+        try {
+            outputStream.write(bytes);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

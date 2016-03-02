@@ -5,14 +5,10 @@
     android:layout_height="match_parent"
     tools:context="allenhu.app.activity.ContentProviderActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/re_contact"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
 
     <LinearLayout
+        android:id="@+id/ly_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
@@ -33,5 +29,13 @@
             android:layout_weight="1"
             android:text="写" />
     </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/re_contact"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ly_menu">
+
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

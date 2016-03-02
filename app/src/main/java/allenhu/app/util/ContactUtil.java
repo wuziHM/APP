@@ -1,13 +1,18 @@
 package allenhu.app.util;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 
 import java.io.InputStream;
@@ -24,10 +29,11 @@ public class ContactUtil {
     /**
      * 得到手机通讯录联系人信息
      **/
-    public static List<ContactBean> getPhoneContacts(Context mContext) {
+    public static List<ContactBean> getPhoneContacts(Activity mContext) {
 
         ArrayList<ContactBean> contactBeans = new ArrayList<>();
 
+        int rawId = -1;
         /**联系人显示名称**/
         final int PHONES_DISPLAY_NAME_INDEX = 0;
 
@@ -39,16 +45,18 @@ public class ContactUtil {
 
         /**联系人的ID**/
         final int PHONES_CONTACT_ID_INDEX = 3;
+
+        final int PHONES_RAW_CONTACT_ID = 4;
         ContentResolver resolver = mContext.getContentResolver();
 
         /**获取库Phone表字段**/
         final String[] PHONES_PROJECTION = new String[]{
                 ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME, ContactsContract.CommonDataKinds.Phone.NUMBER,
-                ContactsContract.CommonDataKinds.Phone.PHOTO_ID, ContactsContract.CommonDataKinds.Phone.CONTACT_ID};
-
+                ContactsContract.CommonDataKinds.Phone.PHOTO_ID, ContactsContract.CommonDataKinds.Phone.CONTACT_ID,
+                ContactsContract.CommonDataKinds.Phone.RAW_CONTACT_ID};
 
         // 获取手机联系人
-        Cursor phoneCursor = resolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, PHONES_PROJECTION, null, null, null);
+        Cursor phoneCursor = resolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, PHONES_PROJECTION, null, null, "sort_key COLLATE LOCALIZED asc");
 
 
         if (phoneCursor != null) {
@@ -60,6 +68,12 @@ public class ContactUtil {
                 if (TextUtils.isEmpty(phoneNumber))
                     continue;
 
+                int newRawId = phoneCursor.getInt(PHONES_RAW_CONTACT_ID);
+                if (newRawId == rawId)
+                    continue;
+                
+                rawId = newRawId;
+
                 //得到联系人名称
                 String contactName = phoneCursor.getString(PHONES_DISPLAY_NAME_INDEX);
 
@@ -68,6 +82,7 @@ public class ContactUtil {
 
                 //得到联系人头像ID
                 Long photoid = phoneCursor.getLong(PHONES_PHOTO_ID_INDEX);
+
 
                 //得到联系人头像Bitamp
                 Bitmap contactPhoto = null;

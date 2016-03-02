@@ -1,5 +1,6 @@
 package allenhu.app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -14,6 +15,7 @@ import allenhu.app.Fragment.FragmentB;
 import allenhu.app.Fragment.FragmentC;
 import allenhu.app.Fragment.FragmentD;
 import allenhu.app.base.BaseActivity;
+import allenhu.app.service.MyService1;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private FragmentA fragmentA;
@@ -32,6 +34,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         fragmentManager = getSupportFragmentManager();
         initView();
         textView1.performClick();       //模拟点击一次  新学的方法
+
+        startService(new Intent(this, MyService1.class));
     }
 
     private void initView() {
