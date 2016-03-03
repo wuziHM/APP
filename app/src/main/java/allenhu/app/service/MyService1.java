@@ -11,6 +11,7 @@ import android.os.SystemClock;
 import java.util.Date;
 
 import allenhu.app.receive.AlarmReceiver;
+import allenhu.app.receive.NotificationReceiver;
 import allenhu.app.util.LogUtil;
 
 public class MyService1 extends Service {
@@ -21,6 +22,7 @@ public class MyService1 extends Service {
     public void onCreate() {
         super.onCreate();
         LogUtil.e("MyService1--->onCreate");
+        sendBroadcast(new Intent(this,NotificationReceiver.class));
     }
 
     @Override
@@ -34,7 +36,7 @@ public class MyService1 extends Service {
         }).start();
 
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        int anHour = 1 * 10 * 1000; // 这是一小时的毫秒数
+        int anHour = 20 * 60 * 1000; // 这是一小时的毫秒数
         long triggerAtTime = SystemClock.elapsedRealtime() + anHour;
         Intent i = new Intent(this, AlarmReceiver.class);
         PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, 0);
