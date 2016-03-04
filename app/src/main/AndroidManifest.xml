@@ -22,11 +22,9 @@
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
-
                 <action android:name="allenhu.app.main" />
-                <!-- 如果有自定义action时，记得添加下面这句 ，不然会报错-->
+                <!-- 如果有自定义action时，记得添加下面这句 ，不然会报错 -->
                 <category android:name="android.intent.category.DEFAULT" />
-
 
                 <action android:name="android.intent.action.MAIN" />
 
@@ -67,13 +65,15 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="allen.app.myservice" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
 
         <receiver android:name=".receive.AlarmReceiver" />
-        <receiver android:name=".receive.NotificationReceiver"></receiver>
+        <receiver android:name=".receive.NotificationReceiver" />
 
+        <activity android:name=".activity.WebActivity"></activity>
     </application>
 
 </manifest>

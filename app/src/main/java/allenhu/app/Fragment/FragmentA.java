@@ -25,6 +25,7 @@ import allenhu.app.activity.GridViewDemoActivity;
 import allenhu.app.activity.HongbaoActivity;
 import allenhu.app.activity.ServiceDemoActivity;
 import allenhu.app.activity.SpinnerActivity;
+import allenhu.app.activity.WebActivity;
 import allenhu.app.activity.WeixinActivity;
 import allenhu.app.adapter.DividerItemDecoration;
 import allenhu.app.adapter.HomeAdapter;
@@ -92,6 +93,7 @@ public class FragmentA extends Fragment {
         listContent.add("红包");
         listContent.add("ContentProvider");
         listContent.add("Service");
+        listContent.add("与Web交互");
 
         listActivity = new ArrayList<>();
         listActivity.add(DrawableActivity.class);
@@ -102,6 +104,7 @@ public class FragmentA extends Fragment {
         listActivity.add(HongbaoActivity.class);
         listActivity.add(ContentProviderActivity.class);
         listActivity.add(ServiceDemoActivity.class);
+        listActivity.add(WebActivity.class);
 //        listContent.add("第二个");
 //        for (int i = 'A'; i < 'z'; i++) {
 //            listContent.add("" + (char) i);

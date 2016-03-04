@@ -1,0 +1,14 @@
+#div1, #div2 {
+    float: left;
+    width: 100px;
+    height: 35px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+.myClass{
+    background: #92eeff;
+    border:2px solid #a1a1a1;
+    border-radius:10px;
+    padding-left: 20px;
+}

@@ -13,8 +13,6 @@ import android.widget.Adapter;
 import android.widget.ListView;
 import android.widget.SectionIndexer;
 
-import allenhu.app.bean.PrintA;
-
 /**
  * Created by AllenHu on 2016/2/26.
  */

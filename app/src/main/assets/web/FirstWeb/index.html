@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/home.css" type="text/css" rel="stylesheet"/>
+    <script rel="script" src="js/home.js"></script>
+    <title>Hello FirstWeb</title>
+</head>
+<body>
+<p>段落</p>
+<h1>标题</h1>
+
+<a href="http://www.hao123.com">
+    你好
+</a>
+<h4>A Definition List:</h4>
+<dl>
+    <dt>Coffee</dt>
+    <dd>- black hot drink</dd>
+    <dt>Milk</dt>
+    <dd>- white cold drink</dd>
+</dl>
+
+<form action="MAILTO:359222347@qq.com" method="post" enctype="text/plain">
+    Name:</br>
+    <input type="text" name="name" value="your name"></br>
+    E-mail:</br>
+    <input type="text" name="mail" value="your e-mail"/></br>
+    Comment:</br>
+    <input type="text" name="comment" value="your commit" size="50"/></br>
+    <input type="submit" value="Send">
+    <input type="reset" value="Reset">
+</form>
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">
+    您的浏览器不支持 HTML5 canvas 标签。
+
+</canvas>
+
+<script>
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    /*ctx.fillStyle = "#888800";
+     ctx.fillRect(0, 0, 150, 75);
+     ctx.moveTo(0,0);
+     ctx.lineTo(300,111);
+     ctx.stroke();*/
+
+
+    // Create gradient
+    var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
+    grd.addColorStop(0, "red");
+    grd.addColorStop(1, "white");
+
+    // Fill with gradient
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, 180, 180);
+</script>
+
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <img src="img/news1.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+</div>
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+</div>
+<div class="myClass">
+    <p id="demo">点击获取您当前坐标</p>
+    <button onclick="getLocation()">点我</button>
+
+    <p/>
+    <button id="btn1" onclick="clickCounter('btn1')">localStorage统计次数</button>
+    <p/>
+    <button id="btn2" onclick="clickCounter2()">sessionStorage统计次数</button>
+
+
+</div>
+
+
+<form action="demo-form.php">
+    数量 ( 1 到 5 之间): <input type="number" name="quantity" min="1" max="5">
+    <input type="submit">
+</form>
+
+<footer>
+    <h1>这是脚</h1>
+</footer>
+</body>
+</html>

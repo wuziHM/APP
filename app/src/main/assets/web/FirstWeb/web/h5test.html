@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>H5的测试页</title>
+    <script rel="script" src="../js/home.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/h5test.css"/>
+
+
+</head>
+<body>
+
+<a>
+    你好
+</a>
+
+<div id="helloweb" style="margin: 20px">
+    helloWeb
+</div>
+
+<script>
+    var aTag = document.getElementsByTagName('a')[0];
+    aTag.addEventListener('click', function(){
+        //调用android本地方法
+        myObj.fun1FromAndroid("调用android本地方法fun1FromAndroid(String name)！！");
+        return false;
+    }, false);
+
+</script>
+
+</body>
+</html>
