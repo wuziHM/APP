@@ -58,6 +58,10 @@ public class CustomerViewActivity extends BaseActivity implements View.OnClickLi
                 intent.setData(Uri.parse("geo:27.00025,116.2365214?q=花果山"));
                 startActivity(intent);
                 break;
+            case R.id.btn_v4:
+                intent = new Intent(CustomerViewActivity.this, CatalogActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 

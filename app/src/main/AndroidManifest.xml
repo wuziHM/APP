@@ -73,7 +73,8 @@
         <receiver android:name=".receive.AlarmReceiver" />
         <receiver android:name=".receive.NotificationReceiver" />
 
-        <activity android:name=".activity.WebActivity"></activity>
+        <activity android:name=".activity.WebActivity" />
+        <activity android:name=".activity.ScrollerActivity"></activity>
     </application>
 
 </manifest>

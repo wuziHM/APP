@@ -5,6 +5,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 import allenhu.app.util.LogUtil;
 import allenhu.app.util.StringMatcher;
@@ -71,6 +72,23 @@ public class TestDemo extends AndroidTestCase {
     public void testSet() {
         String value = "aadcdaaa";
         String key = "aad";
-        LogUtil.e("" + StringMatcher.mathch(value, key));
+        LogUtil.e("" + StringMatcher.match(value, key));
+    }
+
+    public void testScanner() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请输入你的姓名：");
+        String name = sc.nextLine();
+        System.out.println("请输入你的年龄：");
+
+        int age = sc.nextInt();
+
+        System.out.println("请输入你的工资：");
+
+        float salary = sc.nextFloat();
+
+        System.out.println("你的信息如下：");
+
+        System.out.println("姓名：" + name +"\n"+"年龄："+age +"\n"+"工资："+salary);
     }
 }

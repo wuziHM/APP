@@ -12,7 +12,7 @@ public class StringMatcher {
      * @param key   索引中的字符
      * @return
      */
-    public static boolean mathch(String value, String key) {
+    public static boolean match(String value, String key) {
         if (value == null || key == null) {
             return false;
         }

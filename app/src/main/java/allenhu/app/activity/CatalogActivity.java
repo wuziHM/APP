@@ -1,17 +1,19 @@
 package allenhu.app.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 import allenhu.app.R;
 import allenhu.app.adapter.ContentAdapter;
+import allenhu.app.base.BaseActivity;
+import allenhu.app.view.IndexableListView;
 
-public class CatalogActivity extends AppCompatActivity {
+public class CatalogActivity extends BaseActivity {
 
     private ArrayList mItems;
+    private IndexableListView listview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,9 @@ public class CatalogActivity extends AppCompatActivity {
         mItems.add("Z zero");
         Collections.sort(mItems);
 
-        ContentAdapter adapter = new ContentAdapter(this,android.R.layout.simple_list_item_1,mItems);
-
+        ContentAdapter adapter = new ContentAdapter(this, android.R.layout.simple_list_item_1, mItems);
+        listview = (IndexableListView) findViewById(R.id.listView);
+        listview.setAdapter(adapter);
+        listview.setFastScrollEnabled(true);
     }
 }
