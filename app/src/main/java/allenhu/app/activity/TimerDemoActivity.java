@@ -71,7 +71,7 @@ public class TimerDemoActivity extends BaseActivity implements View.OnClickListe
                 handler.sendMessage(msg);
             }
         };
-        timer.schedule(timerTask, 100);
+        timer.schedule(timerTask, 0, 100);
     }
 
     private void stop() {
@@ -94,10 +94,11 @@ public class TimerDemoActivity extends BaseActivity implements View.OnClickListe
             if (i < 5) {
                 tvtime.setTextColor(Color.RED);
             }
-            if (i > 0)
-                start();
-            else
+            if(i<=0){
                 tvtime.setText("0.0");
+                timer.cancel();
+            }
+
         }
     };
 }
