@@ -1,0 +1,16 @@
+package allenhu.app.activity;
+
+import android.os.Bundle;
+
+import allenhu.app.base.BaseActivity;
+
+/**
+ * Created by AllenHu on 2016/3/7.
+ */
+public class DrawDemoActivity extends BaseActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+}

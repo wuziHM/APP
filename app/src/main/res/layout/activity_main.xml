@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@drawable/selector_one"
-            android:text="one" />
+            android:text="基础" />
 
         <TextView
             android:id="@+id/txt_channe2"
@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@drawable/selector_two"
-            android:text="two" />
+            android:text="进阶" />
 
         <TextView
             android:id="@+id/txt_channe3"
@@ -38,7 +38,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@drawable/selector_three"
-            android:text="three" />
+            android:text="高级" />
 
         <TextView
             android:id="@+id/txt_channe4"
@@ -47,7 +47,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@drawable/selector_four"
-            android:text="four" />
+            android:text="实例" />
 
     </LinearLayout>
 

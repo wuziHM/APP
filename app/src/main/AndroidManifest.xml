@@ -35,7 +35,9 @@
         <activity android:name=".activity.GridViewDemoActivity" />
         <activity android:name=".activity.SpinnerActivity" />
         <activity android:name=".activity.AnimationActivity" />
-        <activity android:name=".activity.CustomerViewActivity" />
+        <activity
+            android:name=".activity.CustomerViewActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".activity.View1Activity" />
         <activity android:name=".activity.View2Activity" />
         <activity android:name=".activity.CaClothes" />
@@ -58,6 +60,9 @@
         <activity
             android:name=".activity.ServiceDemoActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.DrawDemoActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <service
             android:name=".service.MyService1"
@@ -74,7 +79,8 @@
         <receiver android:name=".receive.NotificationReceiver" />
 
         <activity android:name=".activity.WebActivity" />
-        <activity android:name=".activity.ScrollerActivity"></activity>
+        <activity android:name=".activity.ScrollerActivity" />
+        <activity android:name=".activity.TimerDemoActivity"></activity>
     </application>
 
 </manifest>
