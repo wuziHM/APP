@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+    <View
+        android:id="@+id/ivMoreLine"
+        style="@style/ListViewDividerStyle"
+        android:layout_marginLeft="@dimen/dp_0"
+        android:layout_marginTop="@dimen/dp_0"
+        android:visibility="invisible"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivMoreLine"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/pbLoadView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvHintLoadView"
+            style="@style/SingleLineStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="0dp"
+            android:text="更多"
+            android:textColor="#b8b8b8"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,4 +1,4 @@
-package allenhu.app.view.refresh;
+package allenhu.app.view.impl;
 
 import android.view.View;
 
