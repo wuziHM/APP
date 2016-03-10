@@ -64,7 +64,7 @@ public class CustomerViewActivity extends BaseActivity implements View.OnClickLi
                 startActivity(intent);
                 break;
             case R.id.btn_v5:
-                intent = new Intent(CustomerViewActivity.this, DrawDemoActivity.class);
+                intent = new Intent(CustomerViewActivity.this, FirstViewActivity.class);
                 startActivity(intent);
                 break;
         }

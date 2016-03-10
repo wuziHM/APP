@@ -1,6 +1,7 @@
 package allenhu.app.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import allenhu.app.R;
+import allenhu.app.activity.AccelerometerPlayActivity;
 import allenhu.app.adapter.HomeAdapter;
 import allenhu.app.listener.OnItemClickListener;
 import allenhu.app.view.impl.OnMDRefreshListener;
@@ -33,11 +35,8 @@ public class FragmentB extends Fragment {
     private MDRefreshView iRefreshView;
     private MDAutoLoadMoreRecyclerView recyclerView;
     private ArrayList list;
-    private HomeAdapter adpter;
-
-    public FragmentB(String name) {
-
-    }
+    private ArrayList<Class> classes;
+    private HomeAdapter adapter;
 
     @Nullable
     @Override
@@ -70,12 +69,13 @@ public class FragmentB extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         initData();
-        adpter = new HomeAdapter(list, context);
-        recyclerView.setAdapter(adpter);
-        adpter.setOnItemClickListener(new OnItemClickListener() {
+        adapter = new HomeAdapter(list, context);
+        recyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-
+                Intent intent =  new Intent(getActivity(),classes.get(position));
+                startActivity(intent);
             }
 
             @Override
@@ -99,5 +99,8 @@ public class FragmentB extends Fragment {
     private void initData() {
         list = new ArrayList<String>();
         list.add("重力感应");
+
+        classes = new ArrayList<Class>();
+        classes.add(AccelerometerPlayActivity.class);
     }
 }

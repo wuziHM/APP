@@ -86,7 +86,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 setSelected();
                 textView2.setSelected(true);
                 if (fragmentB == null) {
-                    fragmentB = new FragmentB("");
+                    fragmentB = new FragmentB();
                     transaction.add(R.id.fy_content, fragmentB);
                 } else {
                     transaction.show(fragmentB);

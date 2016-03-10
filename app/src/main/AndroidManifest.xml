@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_OWNER_DATA" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -61,7 +62,7 @@
             android:name=".activity.ServiceDemoActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".activity.DrawDemoActivity"
+            android:name=".activity.FirstViewActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <service
