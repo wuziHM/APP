@@ -16,15 +16,16 @@ public class FragmentB extends Fragment {
 
     private View rootView;
 
-    public FragmentB(String name) {
-
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_two,container,false);
         return rootView;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
     }
 }

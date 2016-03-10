@@ -80,7 +80,8 @@
 
         <activity android:name=".activity.WebActivity" />
         <activity android:name=".activity.ScrollerActivity" />
-        <activity android:name=".activity.TimerDemoActivity"></activity>
+        <activity android:name=".activity.TimerDemoActivity" />
+        <activity android:name=".activity.AccelerometerPlayActivity" />
     </application>
 
 </manifest>
