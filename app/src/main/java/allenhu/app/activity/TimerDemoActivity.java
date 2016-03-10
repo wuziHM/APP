@@ -60,8 +60,8 @@ public class TimerDemoActivity extends BaseActivity implements View.OnClickListe
     }
 
     private void start() {
-        if (timer == null)
-            timer = new Timer();
+//        if (timer == null)
+        timer = new Timer();
         timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -94,7 +94,7 @@ public class TimerDemoActivity extends BaseActivity implements View.OnClickListe
             if (i < 5) {
                 tvtime.setTextColor(Color.RED);
             }
-            if(i<=0){
+            if (i <= 0) {
                 tvtime.setText("0.0");
                 timer.cancel();
             }

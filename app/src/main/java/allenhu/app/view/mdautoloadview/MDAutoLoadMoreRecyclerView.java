@@ -84,30 +84,6 @@ public class MDAutoLoadMoreRecyclerView extends RecyclerView implements IAutoLoa
             }
         });
 
-//        addOnScrollListener(new OnScrollListener() {
-//            @Override
-//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-//                super.onScrolled(recyclerView, dx, dy);
-//
-//                int lastVisibleItem = ((LinearLayoutManager) getLayoutManager()).findLastVisibleItemPosition();
-//                int totalItemCount = getLayoutManager().getItemCount();
-//                //lastVisibleItem >= totalItemCount - 4 表示剩下4个item自动加载，各位自由选择
-//                // dy>0 表示向下滑动
-//                if (lastVisibleItem >= totalItemCount - 4 && dy > 0) {
-//                    if (isLoadingMore) {
-//
-//                    } else {
-////                        loadPage();//这里多线程也要手动控制isLoadingMore
-//                        isLoadingMore = false;
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-//                super.onScrollStateChanged(recyclerView, newState);
-//            }
-//        });
 
         AbsListView.LayoutParams params = new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT);
         loadingMoreView = new LinearLayout(getContext());
