@@ -29,4 +29,10 @@
     <declare-styleable name="PtrClassicHeader">
         <attr name="ptr_rotate_ani_time" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="MyFirstView">
+        <attr name="backColor" format="color|reference" />
+        <attr name="mTextColor" format="color|reference" />
+        <attr name="mText" format="string|reference" />
+    </declare-styleable>
 </resources>
