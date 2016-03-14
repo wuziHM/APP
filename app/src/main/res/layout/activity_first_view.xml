@@ -6,11 +6,12 @@
     android:orientation="vertical">
 
     <allenhu.app.view.MyFirstView
+        android:layout_margin="@dimen/dp_20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="20dp"
         first:backColor="@color/colorPrimaryDark"
-        first:mTextColor="#000000"
+        first:mTextColor="#ffff00"
         first:mText="hello world" />
 
 

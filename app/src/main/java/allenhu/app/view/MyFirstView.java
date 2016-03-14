@@ -64,7 +64,6 @@ public class MyFirstView extends View {
                     break;
                 case R.styleable.MyFirstView_mText:
                     mTitle = a.getString(attr);
-                    LogUtil.e("Title:" + mTitle);
                     break;
             }
         }
@@ -77,6 +76,7 @@ public class MyFirstView extends View {
         backPaint.setColor(mBackColor);
 
         mBound = new Rect();
+        textPaint.setTextSize(24);
         textPaint.getTextBounds(mTitle, 0, mTitle.length(), mBound);
     }
 
@@ -115,12 +115,11 @@ public class MyFirstView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-//        canvas.drawRect(0, 0, getMeasuredWidth(), getMeasuredHeight(), backPaint);
-//        backPaint.setColor(mBackColor);
-//        LogUtil.e("getMeasuredWidth:" + getMeasuredWidth() + "   getMeasuredHeight:"
-//                + getMeasuredHeight() + "    getWidth:" + getWidth() + "     getHeight:" + getHeight() +
-//                "   mBound.width:" + mBound.width()+"   mBound.height:"+mBound.height());
-        canvas.drawText(mTitle, (getWidth() - mBound.width()) / 2, (getHeight() + mBound.height()) / 2, backPaint);
+//        Canvas canvas1 = new Canvas();
+//        int max = getMeasuredWidth() > getMeasuredHeight() ? getMeasuredWidth() : getMeasuredHeight();
+//        canvas1.drawCircle(0, 0, max, backPaint);
+        canvas.drawRect(0, 0, getMeasuredWidth(), getMeasuredHeight(), backPaint);
+        canvas.drawText(mTitle, (getWidth() - mBound.width()) / 2, (getHeight() + mBound.height()) / 2, textPaint);
     }
 
     @Override
