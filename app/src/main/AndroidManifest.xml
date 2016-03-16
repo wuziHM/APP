@@ -83,6 +83,9 @@
         <activity android:name=".activity.ScrollerActivity" />
         <activity android:name=".activity.TimerDemoActivity" />
         <activity android:name=".activity.AccelerometerPlayActivity" />
+        <activity android:name=".activity.ControlsActivity" />
+        <activity android:name=".activity.RotateAnimationActivity" />
+        <activity android:name=".activity.VoiceViewActivity"></activity>
     </application>
 
 </manifest>

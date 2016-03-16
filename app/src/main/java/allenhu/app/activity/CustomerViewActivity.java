@@ -29,6 +29,7 @@ public class CustomerViewActivity extends BaseActivity implements View.OnClickLi
         findViewById(R.id.btn_v3).setOnClickListener(this);
         findViewById(R.id.btn_v4).setOnClickListener(this);
         findViewById(R.id.btn_v5).setOnClickListener(this);
+        findViewById(R.id.btn_v6).setOnClickListener(this);
         textView = (TextView) findViewById(R.id.tv_handler);
         myRunnable = new MyRunnable();
     }
@@ -65,6 +66,10 @@ public class CustomerViewActivity extends BaseActivity implements View.OnClickLi
                 break;
             case R.id.btn_v5:
                 intent = new Intent(CustomerViewActivity.this, FirstViewActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_v6:
+                intent = new Intent(CustomerViewActivity.this, VoiceViewActivity.class);
                 startActivity(intent);
                 break;
         }
@@ -108,13 +113,13 @@ public class CustomerViewActivity extends BaseActivity implements View.OnClickLi
     @Override
     public void onStop() {
         super.onStop();
-        logWarning("STOP");
+//        logWarning("STOP");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        logWarning("DESTROY");
+//        logWarning("DESTROY");
     }
 
     private void logEvent(String event) {

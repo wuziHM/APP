@@ -21,7 +21,6 @@ public class MyService1 extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        LogUtil.e("MyService1--->onCreate");
         sendBroadcast(new Intent(this,NotificationReceiver.class));
     }
 

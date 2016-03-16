@@ -11,7 +11,6 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import allenhu.app.R;
-import allenhu.app.util.LogUtil;
 
 /**
  * 作者：燕青 $ on 16/3/10 15:12
@@ -70,7 +69,6 @@ public class MyFirstView extends View {
         a.recycle();
         textPaint = new Paint(TEXTFLAG);
         textPaint.setColor(mTextColor);
-        LogUtil.e("实例化画笔");
 
         backPaint = new Paint(BACKFLAG);
         backPaint.setColor(mBackColor);

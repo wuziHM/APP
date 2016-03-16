@@ -35,4 +35,30 @@
         <attr name="mTextColor" format="color|reference" />
         <attr name="mText" format="string|reference" />
     </declare-styleable>
+
+    <declare-styleable name="MySecondView">
+        <attr name="secText" format="reference|string" />
+        <attr name="secTextSize" format="reference|dimension" />
+        <attr name="secTextColor" format="reference|color" />
+        <attr name="secImage" format="reference" />
+        <attr name="secImageType">
+            <enum name="fitXY" value="0" />
+            <enum name="center" value="1" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="MyThirdView">
+        <attr name="thiBeforeColor" format="color|reference" />
+        <attr name="thiLaterColor" format="color|reference" />
+        <attr name="thiCircleWidth" format="dimension" />
+        <attr name="thiSpeed" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="MyFourthView">
+        <attr name="firstColor" format="color|reference"/>
+        <attr name="secondColor" format="color|reference"/>
+        <attr name="circleWidth" format="dimension|reference"/>
+        <attr name="dotCount" format="integer"/>
+        <attr name="splitSize" format="integer"/>
+        <attr name="bg" format="reference"/>
+    </declare-styleable>
 </resources>

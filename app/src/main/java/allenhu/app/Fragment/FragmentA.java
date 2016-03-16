@@ -18,7 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import allenhu.app.R;
+import allenhu.app.activity.AnimationActivity;
 import allenhu.app.activity.ContentProviderActivity;
+import allenhu.app.activity.ControlsActivity;
 import allenhu.app.activity.CustomerViewActivity;
 import allenhu.app.activity.DrawableActivity;
 import allenhu.app.activity.GridViewDemoActivity;
@@ -86,9 +88,11 @@ public class FragmentA extends Fragment {
 
     private void initData() {
         listContent = new ArrayList<>();
+        listContent.add("基本控件");
+        listContent.add("动画");
         listContent.add("Drawable小结");
-        listContent.add("画廊");
-        listContent.add("Spinner");
+//        listContent.add("画廊");
+//        listContent.add("Spinner");
         listContent.add("自定义View");
         listContent.add("微信个性分享");
         listContent.add("红包");
@@ -98,9 +102,11 @@ public class FragmentA extends Fragment {
         listContent.add("计时器");
 
         listActivity = new ArrayList<>();
+        listActivity.add(ControlsActivity.class);
+        listActivity.add(AnimationActivity.class);
         listActivity.add(DrawableActivity.class);
-        listActivity.add(GridViewDemoActivity.class);
-        listActivity.add(SpinnerActivity.class);
+//        listActivity.add(GridViewDemoActivity.class);
+//        listActivity.add(SpinnerActivity.class);
         listActivity.add(CustomerViewActivity.class);
         listActivity.add(WeixinActivity.class);
         listActivity.add(HongbaoActivity.class);

@@ -62,7 +62,6 @@ public class OperationsManager extends IntentService {
         try {
 //通过休眠来模拟一个长时间的网络操作
             Thread.sleep(5000);
-            LogUtil.e("logWarning  "+name);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -72,7 +71,6 @@ public class OperationsManager extends IntentService {
         try {
 //通过休眠来模拟一个长时间的网络操作
             Thread.sleep(5000);
-            LogUtil.e("logError   "+name);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

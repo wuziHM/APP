@@ -1,18 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:first="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <allenhu.app.view.MyFirstView
-        android:layout_margin="@dimen/dp_20"
-        android:layout_width="wrap_content"
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:first="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        first:backColor="@color/colorPrimaryDark"
-        first:mTextColor="#ffff00"
-        first:mText="hello world" />
+        android:orientation="vertical">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+        <allenhu.app.view.MyFirstView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_20"
+            android:padding="20dp"
+            first:backColor="@color/colorPrimaryDark"
+            first:mText="hello world"
+            first:mTextColor="#ffff00" />
 
-</LinearLayout>
+        <allenhu.app.view.MySecondView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:padding="@dimen/dp_10"
+            first:secImage="@mipmap/ic_launcher"
+            first:secImageType="center"
+            first:secText="hello world"
+            first:secTextColor="@color/lightcoral"
+            first:secTextSize="18sp" />
+
+        <allenhu.app.view.MyThirdView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp"
+            first:thiBeforeColor="#16A3FA"
+            first:thiCircleWidth="24dp"
+            first:thiLaterColor="#D20F02"
+            first:thiSpeed="10" />
+    </LinearLayout>
+</ScrollView>
