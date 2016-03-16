@@ -13,9 +13,6 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
-import java.lang.reflect.Type;
-import java.lang.reflect.TypeVariable;
-
 import allenhu.app.R;
 
 /**
