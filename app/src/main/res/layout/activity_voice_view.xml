@@ -5,35 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="allenhu.app.activity.VoiceViewActivity">
 
-    <allenhu.app.view.FourthView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        first:bg="@mipmap/ic_launcher"
-        first:circleWidth="12dp"
-        first:dotCount="20"
-        first:firstColor="#252420"
-        first:secondColor="#FDFDFD"
-        first:splitSize="25" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="占位" />
 
     <allenhu.app.view.FourthView
-        android:layout_width="180dp"
-        android:layout_height="180dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        first:bg="@mipmap/fengjing1"
+        first:circleWidth="8dp"
+        first:dotCount="20"
+        first:firstColor="#252420"
+        first:secondColor="#FD00FD"
+        first:splitSize="25" />
+<!--
+    <allenhu.app.view.FourthView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        first:bg="@mipmap/looker6"
+        first:bg="@mipmap/ic_launcher"
         first:circleWidth="10dp"
         first:dotCount="10"
         first:firstColor="#00ff00"
         first:secondColor="#ff0000"
-        first:splitSize="40" />
-
+        first:splitSize="30" />-->
+<!--
     <allenhu.app.view.FourthView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -41,10 +42,10 @@
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="10dp"
         first:bg="@mipmap/ic_launcher"
-        first:circleWidth="10dp"
+        first:circleWidth="5dp"
         first:dotCount="8"
         first:firstColor="#ADC6E5"
         first:secondColor="#0362DB"
-        first:splitSize="25" />
+        first:splitSize="25" />-->
 
 </LinearLayout>

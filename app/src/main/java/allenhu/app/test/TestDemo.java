@@ -16,15 +16,19 @@ import allenhu.app.util.StringMatcher;
 public class TestDemo extends AndroidTestCase {
 
     public void testCity1() {
-        Double d = Math.sin(30 * Math.PI / 180);
-        Log.e("wuzi", "" + d);
+        Double d = Math.sin(Math.toRadians(30));
+        LogUtil.e("" + d);
 
         double d2 = Math.asin(0.5) * (180 / Math.PI);
-        Log.e("wuzi", "" + d2);
+        LogUtil.e("" + d2);
 
         double d3 = Math.acos(10.0 / 20.0) * (180 / Math.PI);
-        Log.e("wuzi", "" + d3);
+        LogUtil.e("" + d3);
 
+//        Math.toRadians(1)
+//        double d4 = Math.tan(45 * Math.PI / 180);
+        double d4 = Math.toDegrees(Math.atan(1.0));
+        LogUtil.e("" + d4);
     }
 
     public void testList() {
@@ -89,6 +93,6 @@ public class TestDemo extends AndroidTestCase {
 
         System.out.println("你的信息如下：");
 
-        System.out.println("姓名：" + name +"\n"+"年龄："+age +"\n"+"工资："+salary);
+        System.out.println("姓名：" + name + "\n" + "年龄：" + age + "\n" + "工资：" + salary);
     }
 }
