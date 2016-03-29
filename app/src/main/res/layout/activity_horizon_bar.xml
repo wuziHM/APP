@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="xixiixixix" />
 
+
     <allenhu.app.view.HorizontalBar
         android:id="@+id/bar"
         android:layout_width="wrap_content"
@@ -23,5 +24,10 @@
         app:threeStart="3"
         app:twoStart="2" />
 
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123321123" />
 
 </LinearLayout>
