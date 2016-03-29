@@ -2,6 +2,7 @@ package allenhu.app.test;
 
 import android.test.AndroidTestCase;
 import android.util.Log;
+import android.util.TypedValue;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -129,5 +130,18 @@ public class TestDemo extends AndroidTestCase {
 
         d3Subject.setMsg("苦，才是人生");
         d3Subject.setMsg("累，才是工作");
+    }
+
+
+    public void testUnit(){
+
+        int left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, 10, getContext().getResources().getDisplayMetrics());
+        LogUtil.e("px:"+left);
+
+        left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,10,getContext().getResources().getDisplayMetrics());
+        LogUtil.e("dip:"+left);
+
+        left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,10, getContext().getResources().getDisplayMetrics());
+        LogUtil.e("sp:"+left);
     }
 }

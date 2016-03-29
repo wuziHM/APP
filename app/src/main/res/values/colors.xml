@@ -296,4 +296,11 @@
     <!--海军色 -->
     <color name="black">#000000</color>
     <!--黑色 -->
+
+
+    <color name="oneStart">#FF6600</color>
+    <color name="twoStart">#FF9966</color>
+    <color name="threeStart">#FFCC00</color>
+    <color name="fourStart">#99CC99</color>
+    <color name="fiveStart">#66CC66</color>
 </resources>

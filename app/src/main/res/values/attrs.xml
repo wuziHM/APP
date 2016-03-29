@@ -54,11 +54,21 @@
     </declare-styleable>
 
     <declare-styleable name="MyFourthView">
-        <attr name="firstColor" format="color|reference"/>
-        <attr name="secondColor" format="color|reference"/>
-        <attr name="circleWidth" format="dimension|reference"/>
-        <attr name="dotCount" format="integer"/>
-        <attr name="splitSize" format="integer"/>
-        <attr name="bg" format="reference"/>
+        <attr name="firstColor" format="color|reference" />
+        <attr name="secondColor" format="color|reference" />
+        <attr name="circleWidth" format="dimension|reference" />
+        <attr name="dotCount" format="integer" />
+        <attr name="splitSize" format="integer" />
+        <attr name="bg" format="reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="HorizontalBar">
+        <attr name="oneStart" format="integer" />
+        <attr name="twoStart" format="integer" />
+        <attr name="threeStart" format="integer" />
+        <attr name="fourStart" format="integer" />
+        <attr name="fiveStart" format="integer" />
+        <attr name="horHeight" format="dimension|reference" />
     </declare-styleable>
 </resources>
