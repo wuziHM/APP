@@ -13,6 +13,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.MotionEvent;
 import android.view.View;
 
 import allenhu.app.R;
@@ -37,6 +38,7 @@ public class FourthView extends View {
     private Bitmap mImage = null;
     private int mCurrentCount = 3;
     private float rate = 1.0f;
+    private int xDown, xUp;
 
     public FourthView(Context context) {
         this(context, null);
@@ -154,13 +156,24 @@ public class FourthView extends View {
         /**
          * 计算内切正方形的距离顶部 = mCircleWidth + relRadius - √2/2
          */
+        /**
+         * 这种算法是把图片变形成正方形
+         */
 //        mRect.left = (int) (relRadius - Math.sqrt(2) * 1.0f / 2 * relRadius) + mCircleWidth;
 //        mRect.top = (int) (relRadius - Math.sqrt(2) * 1.0f / 2 * relRadius) + mCircleWidth;
 //        mRect.right = (int) (mRect.left + Math.sqrt(2) * relRadius);
 //        mRect.bottom = (int) (mRect.left + Math.sqrt(2) * relRadius); Math.toDegrees(Math.atan(1.0));
+
+
+        /**
+         * 这种算法是把图片长宽同比例缩小，作为圆的内切
+         */
+        //图片宽度:长度的角度
         double degree = Math.toDegrees(Math.atan((mImage.getWidth() * 1.0f) / (mImage.getHeight() * 1.0f)));
         LogUtil.e("degree:" + degree);
-        int relWidth = (int) (Math.sin(degree *  Math.PI/ 180) * relRadius);
+        //图片在圆里面的宽度
+        int relWidth = (int) (Math.sin(degree * Math.PI / 180) * relRadius);
+        //图片在圆里面的高度
         int relHeight = (int) (Math.cos(degree * Math.PI / 180) * relRadius);
 
         mRect.left = relRadius - relWidth + mCircleWidth;
@@ -202,5 +215,42 @@ public class FourthView extends View {
         for (int i = 0; i < mCurrentCount; i++) {
             canvas.drawArc(oval, i * (itemSize + mSplitSize), itemSize, false, mPaint);
         }
+    }
+
+    /**
+     * 当前数量+1
+     */
+    public void up() {
+        mCurrentCount++;
+        postInvalidate();
+    }
+
+    /**
+     * 当前数量-1
+     */
+    public void down() {
+        mCurrentCount--;
+        postInvalidate();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                xDown = (int) event.getY();
+                break;
+
+            case MotionEvent.ACTION_UP:
+                xUp = (int) event.getY();
+                if (xUp > xDown)// 下滑
+                {
+                    down();
+                } else {
+                    up();
+                }
+                break;
+        }
+
+        return true;
     }
 }

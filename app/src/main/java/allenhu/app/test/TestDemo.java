@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+import allenhu.app.design.Observer.D3Subject;
+import allenhu.app.design.Observer.Observer1;
+import allenhu.app.design.Observer.Observer2;
+import allenhu.app.design.state.VendingMachine;
 import allenhu.app.util.LogUtil;
 import allenhu.app.util.StringMatcher;
 
@@ -94,5 +98,36 @@ public class TestDemo extends AndroidTestCase {
         System.out.println("你的信息如下：");
 
         System.out.println("姓名：" + name + "\n" + "年龄：" + age + "\n" + "工资：" + salary);
+    }
+
+    public void testState(){
+        VendingMachine vendingMachine = new VendingMachine(10);
+        vendingMachine.insertMoney();
+        vendingMachine.insertMoney();
+        vendingMachine.backMoney();
+        vendingMachine.turnCrank();
+        vendingMachine.insertMoney();
+//        vendingMachine.dispense();
+        vendingMachine.turnCrank();
+//        vendingMachine.dispense();
+
+        LogUtil.e("==================");
+        vendingMachine.insertMoney();
+        vendingMachine.backMoney();
+        vendingMachine.backMoney();
+        vendingMachine.turnCrank();// 无效操作
+        vendingMachine.turnCrank();// 无效操作
+        vendingMachine.backMoney();
+    }
+
+    public void testObserver(){
+        D3Subject d3Subject = new D3Subject();
+        Observer1 observer1 = new Observer1(d3Subject);
+        Observer2 observer2 = new Observer2(d3Subject);
+//        d3Subject.registerObserver(observer1);
+//        d3Subject.registerObserver(observer2);
+
+        d3Subject.setMsg("苦，才是人生");
+        d3Subject.setMsg("累，才是工作");
     }
 }
