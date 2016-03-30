@@ -2,18 +2,21 @@ package allenhu.app.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.WindowManager;
+
+import java.util.concurrent.ForkJoinPool;
 
 import allenhu.app.R;
 import allenhu.app.util.CalculateUtil;
-import allenhu.app.util.LogUtil;
 
 /**
  * Author：燕青 $ on 2016/3/28  17:54
@@ -23,12 +26,14 @@ import allenhu.app.util.LogUtil;
  */
 public class HorizontalBar extends View {
 
-
+    private boolean isShowStar;
+    private Bitmap mImage;
     private int oneCount;
     private int twoCount;
     private int threeCount;
     private int fourCount;
     private int fiveCount;
+    private boolean isShowText;
     private Rect rect;
     private int bottom = 10;
     private int left;
@@ -50,6 +55,9 @@ public class HorizontalBar extends View {
 
         left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics());
         bottom = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
+
+        mImage = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_star);
+
 
         TypedArray array = getContext().getTheme().obtainStyledAttributes(attrs,
                 R.styleable.HorizontalBar, defStyleAttr, 0);
@@ -76,6 +84,12 @@ public class HorizontalBar extends View {
                 case R.styleable.HorizontalBar_horHeight:
                     bottom = array.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(
                             TypedValue.COMPLEX_UNIT_PX, 20, getResources().getDisplayMetrics()));
+                    break;
+                case R.styleable.HorizontalBar_showCount:
+                    isShowText = array.getBoolean(attr, false);
+                    break;
+                case R.styleable.HorizontalBar_showStar:
+                    isShowStar = array.getBoolean(attr, false);
                     break;
             }
         }
@@ -127,6 +141,11 @@ public class HorizontalBar extends View {
         invalidate();
     }
 
+    public void setIsShowText(boolean isShowText) {
+        this.isShowText = isShowText;
+        invalidate();
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -134,12 +153,18 @@ public class HorizontalBar extends View {
         int specMode = MeasureSpec.getMode(widthMeasureSpec);
         int specSize = MeasureSpec.getSize(widthMeasureSpec);
 
-        LogUtil.e("measureWidth：" + specSize + "");
         if (specMode == MeasureSpec.EXACTLY) {
             mWidth = specSize;
         } else {
             mWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
-            mWidth1 = mWidth + 3 * bottom;
+            //如果显示后面的字就增加长度
+            mWidth1 = mWidth;
+            if (isShowText) {
+                mWidth1 = mWidth1 + 3 * bottom;
+            }
+            if (isShowStar) {
+                mWidth1 = mWidth1 + mImage.getWidth() * 5;
+            }
         }
 
         specMode = MeasureSpec.getMode(heightMeasureSpec);
@@ -148,7 +173,9 @@ public class HorizontalBar extends View {
         if (specMode == MeasureSpec.EXACTLY) {
             mHeight = specSize;
         } else {
-            mHeight = bottom * 5 + left * 4;
+            mHeight = bottom * 5 + left * 4 + 5;
+            int imgheight = mImage.getHeight() * 5;
+            mHeight = Math.max(mHeight, imgheight);
         }
         setMeasuredDimension(mWidth1, mHeight);
 
@@ -165,60 +192,82 @@ public class HorizontalBar extends View {
             max = 1;
         }
 
-
         rect = new Rect();
-        rect.left = left;
-        rect.bottom = bottom;
-        rect.top = 0;
-        rect.right = (int) (fiveCount * 1.0f / max * mWidth);
+        rect.left = isShowStar ? left + mImage.getWidth() * 5 : left;
+        rect.top = left;
+        rect.bottom = rect.top + bottom;
+        rect.right = (int) (fiveCount * 1.0f / max * mWidth) + rect.left;
 
         Paint textPaint = new Paint();
         textPaint.setColor(Color.GRAY);
         textPaint.setAntiAlias(true);
         textPaint.setStyle(Paint.Style.FILL);
         mBound = new Rect();
-        textPaint.setTextSize(15);
+        int textSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 10, getResources().getDisplayMetrics());
+        textPaint.setTextSize(textSize);
         textPaint.getTextBounds("" + max, 0, ("" + max).length(), mBound);
 
         Paint paint1 = new Paint();
         int myColor = getResources().getColor(R.color.fiveStart);
         paint1.setColor(myColor);
         canvas.drawRect(rect, paint1);
-        canvas.drawText("" + fiveCount, rect.right + left, (rect.top + rect.bottom) / 2 + mBound.width() / 2, textPaint);
-//        paint1.setColor(getResources().getColor(R.color.gray));
-//        canvas.drawText(fiveCount + "", rect.right + 10, 15, paint1);
-
+        if (isShowText)
+            canvas.drawText("" + fiveCount, rect.right + left, (rect.top + rect.bottom) / 2 + mBound.width() / 2, textPaint);
 
         paint1.setColor(getResources().getColor(R.color.fourStart));
         rect.top = rect.bottom + left;
-        rect.right = (int) (fourCount * 1.0f / max * mWidth);
+        rect.right = (int) (fourCount * 1.0f / max * mWidth) + rect.left;
         rect.bottom = rect.top + bottom;
         canvas.drawRect(rect, paint1);
-        canvas.drawText("" + fourCount, rect.right + left, (rect.top + rect.bottom) / 2 + mBound.width() / 2, textPaint);
+        if (isShowText)
+            canvas.drawText("" + fourCount, rect.right + left, (rect.top + rect.bottom) / 2 + mBound.width() / 2, textPaint);
 
 
         paint1.setColor(getResources().getColor(R.color.threeStart));
         rect.top = rect.bottom + left;
-        rect.right = (int) (threeCount * 1.0f / max * mWidth);
+        rect.right = (int) (threeCount * 1.0f / max * mWidth) + rect.left;
         rect.bottom = rect.top + bottom;
         canvas.drawRect(rect, paint1);
-        canvas.drawText("" + threeCount, rect.right + left, (rect.top + rect.bottom) / 2 + mBound.width() / 2, textPaint);
+        if (isShowText)
+            canvas.drawText("" + threeCount, rect.right + left, (rect.top + rect.bottom) / 2 + mBound.width() / 2, textPaint);
 
 
         paint1.setColor(getResources().getColor(R.color.twoStart));
         rect.top = rect.bottom + left;
-        rect.right = (int) (twoCount * 1.0f / max * mWidth);
+        rect.right = (int) (twoCount * 1.0f / max * mWidth) + rect.left;
         rect.bottom = rect.top + bottom;
         canvas.drawRect(rect, paint1);
-        canvas.drawText("" + twoCount, rect.right + left, (rect.top + rect.bottom) / 2 + mBound.width() / 2, textPaint);
+        if (isShowText)
+            canvas.drawText("" + twoCount, rect.right + left, (rect.top + rect.bottom) / 2 + mBound.width() / 2, textPaint);
 
 
         paint1.setColor(getResources().getColor(R.color.oneStart));
         rect.top = rect.bottom + left;
-        rect.right = (int) (oneCount * 1.0f / max * mWidth);
+        rect.right = (int) (oneCount * 1.0f / max * mWidth) + rect.left;
         rect.bottom = rect.top + bottom;
         canvas.drawRect(rect, paint1);
-        canvas.drawText("" + oneCount, rect.right + left, (rect.top + rect.bottom) / 2 + mBound.width() / 2, textPaint);
+        if (isShowText)
+            canvas.drawText("" + oneCount, rect.right + left, (rect.top + rect.bottom) / 2 + mBound.width() / 2, textPaint);
+
+        /**
+         * 如果要画星星
+         */
+        if (isShowStar) {
+            Rect imgRect = new Rect();
+            for (int i = 0; i < 5; i++) {
+                for (int j = i; j < 5; j++) {
+                    imgRect.left = j * mImage.getWidth();
+                    imgRect.right = (j + 1) * mImage.getWidth();
+                    imgRect.top = i * mImage.getHeight();
+                    imgRect.bottom = (i + 1) * mImage.getHeight();
+                    canvas.drawBitmap(mImage, null, imgRect, paint1);
+                }
+            }
+        }
+//        imgRect.left = 0;
+//        imgRect.right = mImage.getWidth();
+//        imgRect.bottom = mImage.getHeight();
+//        imgRect.top = 5;
 
 
     }

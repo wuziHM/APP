@@ -70,5 +70,7 @@
         <attr name="fourStart" format="integer" />
         <attr name="fiveStart" format="integer" />
         <attr name="horHeight" format="dimension|reference" />
+        <attr name="showCount" format="boolean" />
+        <attr name="showStar" format="boolean" />
     </declare-styleable>
 </resources>

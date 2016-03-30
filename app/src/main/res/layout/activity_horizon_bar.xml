@@ -22,6 +22,8 @@
         app:fourStart="4"
         app:oneStart="1"
         app:threeStart="3"
+        app:showCount="true"
+        app:showStar="true"
         app:twoStart="2" />
 
     <Button

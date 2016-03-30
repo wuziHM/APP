@@ -14,10 +14,10 @@ public class HorizonBarActivity extends BaseActivity {
         setContentView(R.layout.activity_horizon_bar);
 
         HorizontalBar bar = (HorizontalBar) findViewById(R.id.bar);
-//        bar.setFiveCount(10);
-//        bar.setFourCount(15);
-//        bar.setThreeCount(9);
-//        bar.setTwoCount(8);
-//        bar.setOneCount(10);
+        bar.setFiveCount(10);
+        bar.setFourCount(15);
+        bar.setThreeCount(9);
+        bar.setTwoCount(8);
+        bar.setOneCount(10);
     }
 }
