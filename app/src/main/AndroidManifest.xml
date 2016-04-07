@@ -87,7 +87,6 @@
         <activity android:name=".activity.RotateAnimationActivity" />
         <activity android:name=".activity.VoiceViewActivity" />
         <activity android:name=".activity.RecycleActivity"></activity>
-        <activity android:name=".activity.VoiceViewActivity" />
         <activity android:name=".activity.HorizonBarActivity"></activity>
     </application>
 
