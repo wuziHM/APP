@@ -15,6 +15,7 @@ public class ControlsActivity extends BaseActivity implements View.OnClickListen
         setContentView(R.layout.activity_controls);
         findViewById(R.id.btn_gallery).setOnClickListener(this);
         findViewById(R.id.btn_spinner).setOnClickListener(this);
+        findViewById(R.id.btn_recycle).setOnClickListener(this);
     }
 
     @Override
@@ -29,6 +30,11 @@ public class ControlsActivity extends BaseActivity implements View.OnClickListen
                 intent = new Intent(ControlsActivity.this,SpinnerActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.btn_recycle:
+                intent = new Intent(ControlsActivity.this,RecycleActivity.class);
+                startActivity(intent);
+                break;
+
         }
     }
 }

@@ -85,7 +85,8 @@
         <activity android:name=".activity.AccelerometerPlayActivity" />
         <activity android:name=".activity.ControlsActivity" />
         <activity android:name=".activity.RotateAnimationActivity" />
-        <activity android:name=".activity.VoiceViewActivity"></activity>
+        <activity android:name=".activity.VoiceViewActivity" />
+        <activity android:name=".activity.RecycleActivity"></activity>
     </application>
 
 </manifest>

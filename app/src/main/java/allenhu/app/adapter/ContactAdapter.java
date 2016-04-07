@@ -44,7 +44,6 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactH
     public void onBindViewHolder(final ContactHolder holder, int position) {
 
         ContactBean bean = (ContactBean) list.get(position);
-
         holder.tvName.setText(bean.getName() + "");
         holder.tvPhone.setText(bean.getPhone() + "");
         holder.ivHeader.setImageBitmap(bean.getHeaderImg());
