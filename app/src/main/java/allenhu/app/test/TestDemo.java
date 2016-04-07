@@ -2,11 +2,16 @@ package allenhu.app.test;
 
 import android.test.AndroidTestCase;
 import android.util.Log;
+import android.util.TypedValue;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+import allenhu.app.design.Observer.D3Subject;
+import allenhu.app.design.Observer.Observer1;
+import allenhu.app.design.Observer.Observer2;
+import allenhu.app.design.state.VendingMachine;
 import allenhu.app.util.LogUtil;
 import allenhu.app.util.StringMatcher;
 
@@ -16,15 +21,19 @@ import allenhu.app.util.StringMatcher;
 public class TestDemo extends AndroidTestCase {
 
     public void testCity1() {
-        Double d = Math.sin(30 * Math.PI / 180);
-        Log.e("wuzi", "" + d);
+        Double d = Math.sin(Math.toRadians(30));
+        LogUtil.e("" + d);
 
         double d2 = Math.asin(0.5) * (180 / Math.PI);
-        Log.e("wuzi", "" + d2);
+        LogUtil.e("" + d2);
 
         double d3 = Math.acos(10.0 / 20.0) * (180 / Math.PI);
-        Log.e("wuzi", "" + d3);
+        LogUtil.e("" + d3);
 
+//        Math.toRadians(1)
+//        double d4 = Math.tan(45 * Math.PI / 180);
+        double d4 = Math.toDegrees(Math.atan(1.0));
+        LogUtil.e("" + d4);
     }
 
     public void testList() {
@@ -89,6 +98,50 @@ public class TestDemo extends AndroidTestCase {
 
         System.out.println("你的信息如下：");
 
-        System.out.println("姓名：" + name +"\n"+"年龄："+age +"\n"+"工资："+salary);
+        System.out.println("姓名：" + name + "\n" + "年龄：" + age + "\n" + "工资：" + salary);
+    }
+
+    public void testState(){
+        VendingMachine vendingMachine = new VendingMachine(10);
+        vendingMachine.insertMoney();
+        vendingMachine.insertMoney();
+        vendingMachine.backMoney();
+        vendingMachine.turnCrank();
+        vendingMachine.insertMoney();
+//        vendingMachine.dispense();
+        vendingMachine.turnCrank();
+//        vendingMachine.dispense();
+
+        LogUtil.e("==================");
+        vendingMachine.insertMoney();
+        vendingMachine.backMoney();
+        vendingMachine.backMoney();
+        vendingMachine.turnCrank();// 无效操作
+        vendingMachine.turnCrank();// 无效操作
+        vendingMachine.backMoney();
+    }
+
+    public void testObserver(){
+        D3Subject d3Subject = new D3Subject();
+        Observer1 observer1 = new Observer1(d3Subject);
+        Observer2 observer2 = new Observer2(d3Subject);
+//        d3Subject.registerObserver(observer1);
+//        d3Subject.registerObserver(observer2);
+
+        d3Subject.setMsg("苦，才是人生");
+        d3Subject.setMsg("累，才是工作");
+    }
+
+
+    public void testUnit(){
+
+        int left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, 10, getContext().getResources().getDisplayMetrics());
+        LogUtil.e("px:"+left);
+
+        left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,10,getContext().getResources().getDisplayMetrics());
+        LogUtil.e("dip:"+left);
+
+        left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,10, getContext().getResources().getDisplayMetrics());
+        LogUtil.e("sp:"+left);
     }
 }

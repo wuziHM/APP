@@ -1,5 +1,6 @@
 package allenhu.app.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -10,10 +11,13 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
+import android.view.MotionEvent;
 import android.view.View;
 
 import allenhu.app.R;
+import allenhu.app.util.LogUtil;
 
 /**
  * Author：燕青 $ on 16/3/15 15:50
@@ -22,6 +26,8 @@ import allenhu.app.R;
  * use to...
  */
 public class FourthView extends View {
+    private int screenWidth;
+    private int screenHight;
     private Rect mRect;
     private Paint mPaint;
     private int mSplitSize;
@@ -31,6 +37,8 @@ public class FourthView extends View {
     private int mCircleWidth;
     private Bitmap mImage = null;
     private int mCurrentCount = 3;
+    private float rate = 1.0f;
+    private int xDown, xUp;
 
     public FourthView(Context context) {
         this(context, null);
@@ -75,6 +83,9 @@ public class FourthView extends View {
         a.recycle();
         mPaint = new Paint();
         mRect = new Rect();
+
+        screenWidth = ((Activity) context).getWindowManager().getDefaultDisplay().getWidth();
+        screenHight = ((Activity) context).getWindowManager().getDefaultDisplay().getHeight();
     }
 
     @Override
@@ -82,11 +93,48 @@ public class FourthView extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+
         int width = 0;
         int height = 0;
-        if(widthMode == MeasureSpec.EXACTLY){
+        if (widthMode == MeasureSpec.EXACTLY) {
             width = widthSize;
+        } else {
+            width = getPaddingLeft() + getPaddingRight() + mCircleWidth + mImage.getWidth();
         }
+
+        if (heightMode == MeasureSpec.EXACTLY) {
+            height = heightSize;
+        } else {
+            height = getPaddingTop() + getPaddingBottom() + mImage.getHeight();
+        }
+        LogUtil.e("width:" + width + "    height:" + height);
+
+
+        if (width > screenWidth) {
+            width = screenWidth - 20;
+        }
+        if (height > screenHight) {
+            width = screenHight - 20;
+        }
+        int min = Math.min(height, width);
+        setMeasuredDimension(min, min);
+        rate = height > width ? (min * 1.00f) / (height * 1.00f) : (min * 1.00f) / (width * 1.00f);
+//        double angle = Math.atan((height * 1.0f) / (width * 1.0f));
+//        double angle = Math.atan((1 * 1.0f) / (1 * 1.0f) * Math.PI);
+//        LogUtil.e("angle:" + angle);
+//
+//        double sin = Math.sin(Math.toRadians(30) );
+//        LogUtil.e("sin:"+sin);
+//
+//
+//        double cos = Math.cos(60);
+//        LogUtil.e("cos:"+cos);
+//        double tan = Math.cos(45);
+//        LogUtil.e("tan:"+tan);
+
     }
 
     @Override
@@ -108,10 +156,34 @@ public class FourthView extends View {
         /**
          * 计算内切正方形的距离顶部 = mCircleWidth + relRadius - √2/2
          */
-        mRect.left = (int) (relRadius - Math.sqrt(2) * 1.0f / 2 * relRadius) + mCircleWidth;
-        mRect.top = (int) (relRadius - Math.sqrt(2) * 1.0f / 2 * relRadius) + mCircleWidth;
-        mRect.right = (int) (mRect.left + Math.sqrt(2) * relRadius);
-        mRect.bottom = (int) (mRect.left + Math.sqrt(2) * relRadius);
+        /**
+         * 这种算法是把图片变形成正方形
+         */
+//        mRect.left = (int) (relRadius - Math.sqrt(2) * 1.0f / 2 * relRadius) + mCircleWidth;
+//        mRect.top = (int) (relRadius - Math.sqrt(2) * 1.0f / 2 * relRadius) + mCircleWidth;
+//        mRect.right = (int) (mRect.left + Math.sqrt(2) * relRadius);
+//        mRect.bottom = (int) (mRect.left + Math.sqrt(2) * relRadius); Math.toDegrees(Math.atan(1.0));
+
+
+        /**
+         * 这种算法是把图片长宽同比例缩小，作为圆的内切
+         */
+        //图片宽度:长度的角度
+        double degree = Math.toDegrees(Math.atan((mImage.getWidth() * 1.0f) / (mImage.getHeight() * 1.0f)));
+        LogUtil.e("degree:" + degree);
+        //图片在圆里面的宽度
+        int relWidth = (int) (Math.sin(degree * Math.PI / 180) * relRadius);
+        //图片在圆里面的高度
+        int relHeight = (int) (Math.cos(degree * Math.PI / 180) * relRadius);
+
+        mRect.left = relRadius - relWidth + mCircleWidth;
+        mRect.right = relRadius + relWidth + mCircleWidth;
+        mRect.top = relRadius - relHeight + mCircleWidth;
+        mRect.bottom = relRadius + relHeight + mCircleWidth;
+
+
+        LogUtil.e("centre:" + centre + "    radius:" + radius + "    relRadius:" + relRadius + "    left:" + mRect.left
+                + "   right:" + mRect.right + "   top:" + mRect.top + "    bottom:" + mRect.bottom);
         /**
          * 如果图片比较小，那么根据图片的尺寸放置到中心
          */
@@ -143,5 +215,42 @@ public class FourthView extends View {
         for (int i = 0; i < mCurrentCount; i++) {
             canvas.drawArc(oval, i * (itemSize + mSplitSize), itemSize, false, mPaint);
         }
+    }
+
+    /**
+     * 当前数量+1
+     */
+    public void up() {
+        mCurrentCount++;
+        postInvalidate();
+    }
+
+    /**
+     * 当前数量-1
+     */
+    public void down() {
+        mCurrentCount--;
+        postInvalidate();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                xDown = (int) event.getY();
+                break;
+
+            case MotionEvent.ACTION_UP:
+                xUp = (int) event.getY();
+                if (xUp > xDown)// 下滑
+                {
+                    down();
+                } else {
+                    up();
+                }
+                break;
+        }
+
+        return true;
     }
 }

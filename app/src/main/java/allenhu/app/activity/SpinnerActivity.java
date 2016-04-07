@@ -1,6 +1,7 @@
 package allenhu.app.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -89,4 +90,5 @@ public class SpinnerActivity extends BaseActivity implements AdapterView.OnItemS
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
 }

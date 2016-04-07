@@ -5,7 +5,7 @@ android {
         debug {
             keyAlias 'allen'
             keyPassword 'allen123'
-            storeFile file('/Users/minhu/Documents/E/weyee/testProgram/key/allen.jks')
+            storeFile file('E:/allenTestSpace/key/allen.jks')
             storePassword 'allen123'
         }
     }

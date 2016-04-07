@@ -106,6 +106,7 @@ public class MyFirstView extends View {
         }
 
 
+//        setMeasuredDimension(width, height);
         setMeasuredDimension(width, height);
 
     }
