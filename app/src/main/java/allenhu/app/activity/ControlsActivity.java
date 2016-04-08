@@ -7,7 +7,9 @@ import android.view.View;
 import allenhu.app.R;
 import allenhu.app.base.BaseActivity;
 
-public class ControlsActivity extends BaseActivity implements View.OnClickListener{
+public class ControlsActivity extends BaseActivity implements View.OnClickListener {
+
+    private static int i = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,22 +18,27 @@ public class ControlsActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.btn_gallery).setOnClickListener(this);
         findViewById(R.id.btn_spinner).setOnClickListener(this);
         findViewById(R.id.btn_recycle).setOnClickListener(this);
+        findViewById(R.id.btn_listView).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         Intent intent = null;
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_gallery:
-                intent = new Intent(ControlsActivity.this,GridViewDemoActivity.class);
+                intent = new Intent(ControlsActivity.this, GridViewDemoActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_spinner:
-                intent = new Intent(ControlsActivity.this,SpinnerActivity.class);
+                intent = new Intent(ControlsActivity.this, SpinnerActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_recycle:
-                intent = new Intent(ControlsActivity.this,RecycleActivity.class);
+                intent = new Intent(ControlsActivity.this, RecycleActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_listView:
+                intent = new Intent(ControlsActivity.this, ListViewActivity.class);
                 startActivity(intent);
                 break;
 

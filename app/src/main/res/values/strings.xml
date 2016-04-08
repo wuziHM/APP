@@ -12,4 +12,11 @@
     <string name="cube_ptr_seconds_ago">&#160;秒之前</string>
     <string name="cube_ptr_minutes_ago">&#160;分钟之前</string>
     <string name="cube_ptr_hours_ago">&#160;小时之前</string>
+
+
+    <string name="action_fastscroll">Fast scroll</string>
+    <string name="action_addpadding">Add padding</string>
+    <string name="action_showShadow">Show shadow</string>
+    <string name="action_showHeaderAndFooter">Show Header &amp; Footer</string>
+    <string name="action_updateDataset">Update dataset</string>
 </resources>

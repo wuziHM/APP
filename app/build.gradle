@@ -2,12 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
-        debug {
-            keyAlias 'allen'
-            keyPassword 'allen123'
+//        debug {
+//            keyAlias 'allen'
+//            keyPassword 'allen123'
 //            storeFile file('E:/allenTestSpace/key/allen.jks')
-            storePassword 'allen123'
-        }
+//            storePassword 'allen123'
+//        }
     }
     compileSdkVersion 23
     buildToolsVersion '23.0.1'

@@ -3,25 +3,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
     tools:context="allenhu.app.activity.ControlsActivity">
+
     <Button
         android:id="@+id/btn_gallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="画廊"/>
+        android:text="画廊" />
+
     <Button
         android:id="@+id/btn_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Spinner"/>
+        android:text="Spinner" />
+
     <Button
         android:id="@+id/btn_recycle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Recycle"/>
+        android:text="Recycle" />
+
+    <Button
+        android:id="@+id/btn_call"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="回调" />
+    <Button
+        android:id="@+id/btn_pinnedSectionList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="回调" />
+    <Button
+        android:id="@+id/btn_listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="listView" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:gravity="center"
+        android:text="1"
+        android:textSize="16sp" />
 </LinearLayout>

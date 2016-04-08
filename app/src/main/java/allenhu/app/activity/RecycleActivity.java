@@ -3,10 +3,10 @@ package allenhu.app.activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.ZipEntry;
 
 import allenhu.app.R;
 import allenhu.app.adapter.DividerItemDecoration;
@@ -15,10 +15,12 @@ import allenhu.app.base.BaseActivity;
 import allenhu.app.bean.Container;
 import allenhu.app.bean.GoodsSize;
 import allenhu.app.bean.PurchaseBean;
+import allenhu.app.impl.CallBackH;
 
-public class RecycleActivity extends BaseActivity {
+public class RecycleActivity extends BaseActivity implements CallBackH {
     private RecyclerView recyclerView;
     private List<Container> listC;
+    private TextView tvCall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,9 @@ public class RecycleActivity extends BaseActivity {
     }
 
     private void initView() {
+
+        tvCall = (TextView) findViewById(R.id.tvCall);
+
         recyclerView = (RecyclerView) findViewById(R.id.recycle);
         recyclerView.setLayoutManager(new LinearLayoutManager(RecycleActivity.this));
         recyclerView.addItemDecoration(new DividerItemDecoration(RecycleActivity.this, DividerItemDecoration.VERTICAL_LIST));
@@ -51,6 +56,13 @@ public class RecycleActivity extends BaseActivity {
             }
             purchaseBean.setGoodsSizes(list);
         }
-        recyclerView.setAdapter(new RecyclerViewAdapter(this, listC));
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, listC);
+        adapter.setCallback(this);
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void test(String s) {
+        tvCall.setText(s);
     }
 }

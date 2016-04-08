@@ -15,9 +15,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Random;
+
+import javax.security.auth.callback.CallbackHandler;
 
 import allenhu.app.R;
 import allenhu.app.bean.Container;
+import allenhu.app.impl.CallBackH;
 
 /**
  * Created by Lijizhou on 2016/2/21.
@@ -27,6 +31,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private Context context;
     //    private String[] titles;
     private List<Container> containers;
+    private CallBackH callback;
 
     //建立枚举 2个item 类型
     public enum ITEM_TYPE {
@@ -39,6 +44,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 //        this.context = context;
 //        mLayoutInflater = LayoutInflater.from(context);
 //    }
+
+
+    public void setCallback(CallBackH callback) {
+        this.callback = callback;
+    }
 
     public RecyclerViewAdapter(Context context, List<Container> containers) {
         this.containers = containers;
@@ -65,7 +75,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             ((Item1ViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    Random random = new Random();
+                    int n = random.nextInt(10000);
+                    callback.test(""+n);
                 }
             });
         } else if (holder instanceof Item2ViewHolder) {
