@@ -18,15 +18,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import allenhu.app.R;
+import allenhu.app.activity.AdapterActivity;
 import allenhu.app.activity.AnimationActivity;
 import allenhu.app.activity.ContentProviderActivity;
 import allenhu.app.activity.ControlsActivity;
 import allenhu.app.activity.CustomerViewActivity;
 import allenhu.app.activity.DrawableActivity;
-import allenhu.app.activity.GridViewDemoActivity;
 import allenhu.app.activity.HongbaoActivity;
 import allenhu.app.activity.ServiceDemoActivity;
-import allenhu.app.activity.SpinnerActivity;
 import allenhu.app.activity.TimerDemoActivity;
 import allenhu.app.activity.WebActivity;
 import allenhu.app.activity.WeixinActivity;
@@ -64,9 +63,6 @@ public class FragmentA extends Fragment {
         HomeAdapter homeAdapter = new HomeAdapter(listContent, context);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL_LIST));
-//        recyclerView.setLayoutManager(new GridLayoutManager(context, 4));
-//        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL));
-//        recyclerView.addItemDecoration(new DividerGridItemDecoration(context));
         recyclerView.setAdapter(homeAdapter);
         //设置监听，监听是自己写的
         homeAdapter.setOnItemClickListener(new OnItemClickListener() {
@@ -91,8 +87,6 @@ public class FragmentA extends Fragment {
         listContent.add("基本控件");
         listContent.add("动画");
         listContent.add("Drawable小结");
-//        listContent.add("画廊");
-//        listContent.add("Spinner");
         listContent.add("自定义View");
         listContent.add("微信个性分享");
         listContent.add("红包");
@@ -100,13 +94,12 @@ public class FragmentA extends Fragment {
         listContent.add("Service");
         listContent.add("与Web交互");
         listContent.add("计时器");
+        listContent.add("Adapter");
 
         listActivity = new ArrayList<>();
         listActivity.add(ControlsActivity.class);
         listActivity.add(AnimationActivity.class);
         listActivity.add(DrawableActivity.class);
-//        listActivity.add(GridViewDemoActivity.class);
-//        listActivity.add(SpinnerActivity.class);
         listActivity.add(CustomerViewActivity.class);
         listActivity.add(WeixinActivity.class);
         listActivity.add(HongbaoActivity.class);
@@ -114,17 +107,14 @@ public class FragmentA extends Fragment {
         listActivity.add(ServiceDemoActivity.class);
         listActivity.add(WebActivity.class);
         listActivity.add(TimerDemoActivity.class);
-//        listContent.add("第二个");
-//        for (int i = 'A'; i < 'z'; i++) {
-//            listContent.add("" + (char) i);
-//        }
+        listActivity.add(AdapterActivity.class);
 
-        byte[] bytes = new byte[1024];
-        OutputStream outputStream = new ByteArrayOutputStream();
-        try {
-            outputStream.write(bytes);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        byte[] bytes = new byte[1024];
+//        OutputStream outputStream = new ByteArrayOutputStream();
+//        try {
+//            outputStream.write(bytes);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 }

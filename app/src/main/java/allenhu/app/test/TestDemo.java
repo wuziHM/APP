@@ -6,6 +6,7 @@ import android.util.TypedValue;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 import allenhu.app.design.Observer.D3Subject;
@@ -101,7 +102,7 @@ public class TestDemo extends AndroidTestCase {
         System.out.println("姓名：" + name + "\n" + "年龄：" + age + "\n" + "工资：" + salary);
     }
 
-    public void testState(){
+    public void testState() {
         VendingMachine vendingMachine = new VendingMachine(10);
         vendingMachine.insertMoney();
         vendingMachine.insertMoney();
@@ -121,7 +122,7 @@ public class TestDemo extends AndroidTestCase {
         vendingMachine.backMoney();
     }
 
-    public void testObserver(){
+    public void testObserver() {
         D3Subject d3Subject = new D3Subject();
         Observer1 observer1 = new Observer1(d3Subject);
         Observer2 observer2 = new Observer2(d3Subject);
@@ -133,15 +134,20 @@ public class TestDemo extends AndroidTestCase {
     }
 
 
-    public void testUnit(){
+    public void testUnit() {
 
         int left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, 10, getContext().getResources().getDisplayMetrics());
-        LogUtil.e("px:"+left);
+        LogUtil.e("px:" + left);
 
-        left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,10,getContext().getResources().getDisplayMetrics());
-        LogUtil.e("dip:"+left);
+        left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getContext().getResources().getDisplayMetrics());
+        LogUtil.e("dip:" + left);
 
-        left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,10, getContext().getResources().getDisplayMetrics());
-        LogUtil.e("sp:"+left);
+        left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 10, getContext().getResources().getDisplayMetrics());
+        LogUtil.e("sp:" + left);
+
+        List list1 = new ArrayList();
+        list1.add("xixi");
+
+        List list2 = list1;
     }
 }
