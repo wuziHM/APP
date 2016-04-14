@@ -91,21 +91,13 @@
         <activity android:name=".activity.ListViewActivity" />
         <activity android:name=".activity.PinnedSectionListActivity" />
         <activity android:name=".activity.AdapterActivity" />
-        <activity android:name=".activity.AlmightyAdapterActivity"></activity>
-
-        <activity
-            android:name=".activity.MultiItemListViewActivity" >
-        </activity>
-        <activity
-            android:name=".activity.RecyclerViewActivity" >
-        </activity>
-        <activity
-            android:name=".activity.MultiItemRvActivity" >
-        </activity>
-        <activity
-            android:name=".activity.RvWidthHeaderActivity">
-        </activity>
-
+        <activity android:name=".activity.AlmightyAdapterActivity" />
+        <activity android:name=".activity.MultiItemListViewActivity" />
+        <activity android:name=".activity.RecyclerViewActivity" />
+        <activity android:name=".activity.MultiItemRvActivity" />
+        <activity android:name=".activity.RvWidthHeaderActivity" />
+        <activity android:name=".activity.GameActivity" />
+        <activity android:name=".activity.WuActivity"></activity>
     </application>
 
 </manifest>

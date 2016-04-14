@@ -10,6 +10,9 @@ import allenhu.app.adapter.ContentAdapter;
 import allenhu.app.base.BaseActivity;
 import allenhu.app.view.IndexableListView;
 
+/**
+ * 右边带索引条的listview
+ */
 public class CatalogActivity extends BaseActivity {
 
     private ArrayList mItems;

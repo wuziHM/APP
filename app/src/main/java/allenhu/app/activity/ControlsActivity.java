@@ -3,6 +3,7 @@ package allenhu.app.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,9 @@ public class ControlsActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.btn_spinner).setOnClickListener(this);
         findViewById(R.id.btn_recycle).setOnClickListener(this);
         findViewById(R.id.btn_listView).setOnClickListener(this);
+        final EditText editText = (EditText) findViewById(R.id.edt_test);
+        editText.setText("是不是设置成了final就不能改变值了？");
+
     }
 
     @Override
