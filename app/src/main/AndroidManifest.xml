@@ -94,10 +94,16 @@
         <activity android:name=".activity.AlmightyAdapterActivity" />
         <activity android:name=".activity.MultiItemListViewActivity" />
         <activity android:name=".activity.RecyclerViewActivity" />
+
         <activity android:name=".activity.MultiItemRvActivity" />
+
         <activity android:name=".activity.RvWidthHeaderActivity" />
+
         <activity android:name=".activity.GameActivity" />
-        <activity android:name=".activity.WuActivity"></activity>
+
+        <activity
+            android:name=".activity.WuActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>
