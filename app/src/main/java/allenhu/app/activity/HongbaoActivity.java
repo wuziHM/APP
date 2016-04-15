@@ -4,8 +4,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +13,6 @@ import java.util.Random;
 
 import allenhu.app.R;
 import allenhu.app.util.HongBaoAlgorithm;
-import allenhu.app.util.LogUtil;
 
 public class HongbaoActivity extends AppCompatActivity {
 
@@ -53,8 +50,8 @@ public class HongbaoActivity extends AppCompatActivity {
                     tvShow.setTextColor(Color.RED);
                     return;
                 }
-                hongbao1(count, fen);
-//                hongbao2(count, fen);
+//                hongbao1(count, fen);
+                hongbao2(count, fen);
             }
         });
     }
