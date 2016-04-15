@@ -5,9 +5,16 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Point;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import allenhu.app.R;
 
@@ -19,13 +26,27 @@ import allenhu.app.R;
  */
 public class WuziqiPanel extends View {
 
-    private int mPanelWidht;
+    private int mPanelWidth;
     private float mLineHeight;
-    private static final int MAX_LINE = 10;
+    private static final int MAX_LINE = 12;
+    private int MAX_COUNT_IN_LINE = 5;
 
     private Bitmap mWhitePiece;
     private Bitmap mBlackPiece;
+    private boolean mIsGameOver;
+    private boolean mIsWhiteWinner;
+
+    private float rationPieceLineHeght = 3 * 1.0f / 4;
+
     private Paint mPaint = new Paint();
+
+    private ArrayList<Point> mWhiteArray = new ArrayList<>();
+    private ArrayList<Point> mBlackeArray = new ArrayList<>();
+
+    /**
+     * 意味着白棋先手  或者是轮到白棋了
+     */
+    private boolean mIswhite = true;
 
     public WuziqiPanel(Context context) {
         this(context, null);
@@ -37,7 +58,7 @@ public class WuziqiPanel extends View {
 
     public WuziqiPanel(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        setBackgroundColor(0x44ff0000);
+//        setBackgroundColor(0x44ff0000);
         init();
 
     }
@@ -72,18 +93,202 @@ public class WuziqiPanel extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        mPanelWidht = w;
-        mLineHeight = mPanelWidht * 1.0f / MAX_LINE;
+        mPanelWidth = w;
+        mLineHeight = mPanelWidth * 1.0f / MAX_LINE;
+
+        int pieceWidth = (int) (mLineHeight * rationPieceLineHeght);
+        mWhitePiece = Bitmap.createScaledBitmap(mWhitePiece, pieceWidth, pieceWidth, false);
+        mBlackPiece = Bitmap.createScaledBitmap(mBlackPiece, pieceWidth, pieceWidth, false);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         drawBoard(canvas);
+        drawPieces(canvas);
+        checkGameOver();
+    }
+
+    private static final String INSTANCE = "instance";
+    private static final String INSTANCE_GAME_OVER = "instance_game_over";
+    private static final String INSTANCE_WHITE_ARRAY = "instance_white_array";
+    private static final String INSTANCE_BLACK_OVER = "instance_black_array";
+
+    @Override
+    protected Parcelable onSaveInstanceState() {
+
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(INSTANCE, super.onSaveInstanceState());
+        bundle.putBoolean(INSTANCE_GAME_OVER, mIsGameOver);
+        bundle.putParcelableArrayList(INSTANCE_WHITE_ARRAY, mWhiteArray);
+        bundle.putParcelableArrayList(INSTANCE_BLACK_OVER, mBlackeArray);
+        return bundle;
+
+    }
+
+    /**
+     * view 的存储于恢复 需要在xml文件中给控件设置id
+     * <p/>
+     * 不设置id的话不能起效果
+     *
+     * @param state
+     */
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+        if (state instanceof Bundle) {
+
+            Bundle bundle = (Bundle) state;
+            mIsGameOver = bundle.getBoolean(INSTANCE_BLACK_OVER);
+            mWhiteArray = bundle.getParcelableArrayList(INSTANCE_WHITE_ARRAY);
+            mBlackeArray = bundle.getParcelableArrayList(INSTANCE_BLACK_OVER);
+            super.onRestoreInstanceState(bundle.getParcelable(INSTANCE));
+        }
+
+//        super.onRestoreInstanceState(state);
+    }
+
+    /**
+     * 判断是否游戏结束
+     */
+    private void checkGameOver() {
+        boolean whiteWin = checkFiveInLine(mWhiteArray);
+        boolean blackWin = checkFiveInLine(mBlackeArray);
+        if (whiteWin || blackWin) {
+            mIsGameOver = true;
+            mIsWhiteWinner = whiteWin;
+            String text = mIsWhiteWinner ? "白棋胜利" : "黑棋胜利";
+            Toast.makeText(getContext(), text, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private boolean checkFiveInLine(List<Point> points) {
+
+
+        for (Point p : points) {
+            int x = p.x;
+            int y = p.y;
+            boolean win = checkHorizontal(x, y, points);
+            if (win) return true;
+            win = checkVetical(x, y, points);
+            if (win) return true;
+            win = checkLeftDiagonal(x, y, points);
+            if (win) return true;
+            win = checkRightDiagonal(x, y, points);
+            if (win) return true;
+
+        }
+
+        return false;
+    }
+
+    /**
+     * 判断x,y位置的棋子是否是横向相连的5个
+     *
+     * @param x
+     * @param y
+     * @param points
+     * @return
+     */
+    private boolean checkHorizontal(int x, int y, List<Point> points) {
+        int count = 1;
+        for (int i = 1; i < MAX_COUNT_IN_LINE; i++) {
+            if (points.contains(new Point((x - i), y)))
+                count++;
+            else
+                break;
+        }
+        if (count == MAX_COUNT_IN_LINE) return true;
+        for (int i = 1; i < MAX_COUNT_IN_LINE; i++) {
+            if (points.contains(new Point((x + i), y)))
+                count++;
+            else
+                break;
+        }
+        if (count == MAX_COUNT_IN_LINE) return true;
+        return false;
+    }
+
+    private boolean checkVetical(int x, int y, List<Point> points) {
+        int count = 1;
+        for (int i = 1; i < MAX_COUNT_IN_LINE; i++) {
+            if (points.contains(new Point(x, (y - i))))
+                count++;
+            else
+                break;
+        }
+        if (count == MAX_COUNT_IN_LINE) return true;
+        for (int i = 1; i < MAX_COUNT_IN_LINE; i++) {
+            if (points.contains(new Point(x, (y + i))))
+                count++;
+            else
+                break;
+        }
+        if (count == MAX_COUNT_IN_LINE) return true;
+        return false;
+    }
+
+    private boolean checkLeftDiagonal(int x, int y, List<Point> points) {
+        int count = 1;
+        for (int i = 1; i < MAX_COUNT_IN_LINE; i++) {
+            if (points.contains(new Point((x - i), (y - i))))
+                count++;
+            else
+                break;
+        }
+        if (count == MAX_COUNT_IN_LINE) return true;
+        for (int i = 1; i < MAX_COUNT_IN_LINE; i++) {
+            if (points.contains(new Point((x + i), (y + i))))
+                count++;
+            else
+                break;
+        }
+        if (count == MAX_COUNT_IN_LINE) return true;
+        return false;
+    }
+
+    /**
+     * 判断右倾斜是否有5子连线
+     *
+     * @param x
+     * @param y
+     * @param points
+     * @return
+     */
+    private boolean checkRightDiagonal(int x, int y, List<Point> points) {
+        int count = 1;
+        for (int i = 1; i < MAX_COUNT_IN_LINE; i++) {
+            if (points.contains(new Point((x - i), (i + y))))
+                count++;
+            else
+                break;
+        }
+        if (count == MAX_COUNT_IN_LINE) return true;
+        for (int i = 1; i < MAX_COUNT_IN_LINE; i++) {
+            if (points.contains(new Point((x + i), (y - i))))
+                count++;
+            else
+                break;
+        }
+        if (count == MAX_COUNT_IN_LINE) return true;
+        return false;
+    }
+
+    private void drawPieces(Canvas canvas) {
+        for (int i = 0, n = mWhiteArray.size(); i < n; i++) {
+            Point whitePoint = mWhiteArray.get(i);
+            canvas.drawBitmap(mWhitePiece, (whitePoint.x + (1 - rationPieceLineHeght) / 2) * mLineHeight,
+                    (whitePoint.y + (1 - rationPieceLineHeght) / 2) * mLineHeight, null);
+        }
+
+        for (int i = 0, n = mBlackeArray.size(); i < n; i++) {
+            Point blackPoint = mBlackeArray.get(i);
+            canvas.drawBitmap(mBlackPiece, (blackPoint.x + (1 - rationPieceLineHeght) / 2) * mLineHeight,
+                    (blackPoint.y + (1 - rationPieceLineHeght) / 2) * mLineHeight, null);
+        }
     }
 
     private void drawBoard(Canvas canvas) {
-        int w = mPanelWidht;
+        int w = mPanelWidth;
         float lineHeight = mLineHeight;
         for (int i = 0; i < MAX_LINE; i++) {
             int startX = (int) (lineHeight / 2);
@@ -97,6 +302,45 @@ public class WuziqiPanel extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
+
+        if (mIsGameOver)
+            return false;
+
+        int action = event.getAction();
+        if (action == MotionEvent.ACTION_UP) {
+            int x = (int) event.getX();
+            int y = (int) event.getY();
+            Point point = getValidPoint(x, y);
+            if (mWhiteArray.contains(point) || mBlackeArray.contains(point)) {
+                return false;
+            }
+
+            if (mIswhite) {
+                mWhiteArray.add(point);
+            } else {
+                mBlackeArray.add(point);
+            }
+            invalidate();
+            mIswhite = !mIswhite;
+        }
+        return true;
+
+    }
+
+    public Point getValidPoint(int x, int y) {
+
+        return new Point((int) (x / mLineHeight), (int) (y / mLineHeight));
+    }
+
+    public void reStart() {
+        mBlackeArray.clear();
+        mWhiteArray.clear();
+        mIsGameOver = false;
+        mIsWhiteWinner = false;
+        invalidate();
+    }
+
+    public boolean ismIsGameOver() {
+        return mIsGameOver;
     }
 }
