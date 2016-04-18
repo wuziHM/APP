@@ -36,17 +36,17 @@ public class WuziqiPanel extends View {
     private boolean mIsGameOver;
     private boolean mIsWhiteWinner;
 
-    private float rationPieceLineHeght = 3 * 1.0f / 4;
+    private float rationPieceLineHeight = 3 * 1.0f / 4;
 
     private Paint mPaint = new Paint();
 
     private ArrayList<Point> mWhiteArray = new ArrayList<>();
-    private ArrayList<Point> mBlackeArray = new ArrayList<>();
+    private ArrayList<Point> mBlackArray = new ArrayList<>();
 
     /**
      * 意味着白棋先手  或者是轮到白棋了
      */
-    private boolean mIswhite = true;
+    private boolean mIsWhite = true;
 
     public WuziqiPanel(Context context) {
         this(context, null);
@@ -96,7 +96,7 @@ public class WuziqiPanel extends View {
         mPanelWidth = w;
         mLineHeight = mPanelWidth * 1.0f / MAX_LINE;
 
-        int pieceWidth = (int) (mLineHeight * rationPieceLineHeght);
+        int pieceWidth = (int) (mLineHeight * rationPieceLineHeight);
         mWhitePiece = Bitmap.createScaledBitmap(mWhitePiece, pieceWidth, pieceWidth, false);
         mBlackPiece = Bitmap.createScaledBitmap(mBlackPiece, pieceWidth, pieceWidth, false);
     }
@@ -121,7 +121,7 @@ public class WuziqiPanel extends View {
         bundle.putParcelable(INSTANCE, super.onSaveInstanceState());
         bundle.putBoolean(INSTANCE_GAME_OVER, mIsGameOver);
         bundle.putParcelableArrayList(INSTANCE_WHITE_ARRAY, mWhiteArray);
-        bundle.putParcelableArrayList(INSTANCE_BLACK_OVER, mBlackeArray);
+        bundle.putParcelableArrayList(INSTANCE_BLACK_OVER, mBlackArray);
         return bundle;
 
     }
@@ -140,7 +140,7 @@ public class WuziqiPanel extends View {
             Bundle bundle = (Bundle) state;
             mIsGameOver = bundle.getBoolean(INSTANCE_BLACK_OVER);
             mWhiteArray = bundle.getParcelableArrayList(INSTANCE_WHITE_ARRAY);
-            mBlackeArray = bundle.getParcelableArrayList(INSTANCE_BLACK_OVER);
+            mBlackArray = bundle.getParcelableArrayList(INSTANCE_BLACK_OVER);
             super.onRestoreInstanceState(bundle.getParcelable(INSTANCE));
         }
 
@@ -152,7 +152,7 @@ public class WuziqiPanel extends View {
      */
     private void checkGameOver() {
         boolean whiteWin = checkFiveInLine(mWhiteArray);
-        boolean blackWin = checkFiveInLine(mBlackeArray);
+        boolean blackWin = checkFiveInLine(mBlackArray);
         if (whiteWin || blackWin) {
             mIsGameOver = true;
             mIsWhiteWinner = whiteWin;
@@ -169,7 +169,7 @@ public class WuziqiPanel extends View {
             int y = p.y;
             boolean win = checkHorizontal(x, y, points);
             if (win) return true;
-            win = checkVetical(x, y, points);
+            win = checkVertical(x, y, points);
             if (win) return true;
             win = checkLeftDiagonal(x, y, points);
             if (win) return true;
@@ -208,7 +208,7 @@ public class WuziqiPanel extends View {
         return false;
     }
 
-    private boolean checkVetical(int x, int y, List<Point> points) {
+    private boolean checkVertical(int x, int y, List<Point> points) {
         int count = 1;
         for (int i = 1; i < MAX_COUNT_IN_LINE; i++) {
             if (points.contains(new Point(x, (y - i))))
@@ -276,14 +276,14 @@ public class WuziqiPanel extends View {
     private void drawPieces(Canvas canvas) {
         for (int i = 0, n = mWhiteArray.size(); i < n; i++) {
             Point whitePoint = mWhiteArray.get(i);
-            canvas.drawBitmap(mWhitePiece, (whitePoint.x + (1 - rationPieceLineHeght) / 2) * mLineHeight,
-                    (whitePoint.y + (1 - rationPieceLineHeght) / 2) * mLineHeight, null);
+            canvas.drawBitmap(mWhitePiece, (whitePoint.x + (1 - rationPieceLineHeight) / 2) * mLineHeight,
+                    (whitePoint.y + (1 - rationPieceLineHeight) / 2) * mLineHeight, null);
         }
 
-        for (int i = 0, n = mBlackeArray.size(); i < n; i++) {
-            Point blackPoint = mBlackeArray.get(i);
-            canvas.drawBitmap(mBlackPiece, (blackPoint.x + (1 - rationPieceLineHeght) / 2) * mLineHeight,
-                    (blackPoint.y + (1 - rationPieceLineHeght) / 2) * mLineHeight, null);
+        for (int i = 0, n = mBlackArray.size(); i < n; i++) {
+            Point blackPoint = mBlackArray.get(i);
+            canvas.drawBitmap(mBlackPiece, (blackPoint.x + (1 - rationPieceLineHeight) / 2) * mLineHeight,
+                    (blackPoint.y + (1 - rationPieceLineHeight) / 2) * mLineHeight, null);
         }
     }
 
@@ -311,17 +311,17 @@ public class WuziqiPanel extends View {
             int x = (int) event.getX();
             int y = (int) event.getY();
             Point point = getValidPoint(x, y);
-            if (mWhiteArray.contains(point) || mBlackeArray.contains(point)) {
+            if (mWhiteArray.contains(point) || mBlackArray.contains(point)) {
                 return false;
             }
 
-            if (mIswhite) {
+            if (mIsWhite) {
                 mWhiteArray.add(point);
             } else {
-                mBlackeArray.add(point);
+                mBlackArray.add(point);
             }
             invalidate();
-            mIswhite = !mIswhite;
+            mIsWhite = !mIsWhite;
         }
         return true;
 
@@ -333,9 +333,10 @@ public class WuziqiPanel extends View {
     }
 
     public void reStart() {
-        mBlackeArray.clear();
+        mBlackArray.clear();
         mWhiteArray.clear();
         mIsGameOver = false;
+        mIsWhite = true;
         mIsWhiteWinner = false;
         invalidate();
     }

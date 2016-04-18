@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
 import allenhu.app.R;
 import allenhu.app.base.BaseActivity;
@@ -20,6 +21,7 @@ public class WuActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wu);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         panel = (WuziqiPanel) findViewById(R.id.wuzi);
         findViewById(R.id.btn_again).setOnClickListener(new View.OnClickListener() {
             @Override
