@@ -6,14 +6,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
-
-import java.util.concurrent.ForkJoinPool;
 
 import allenhu.app.R;
 import allenhu.app.util.CalculateUtil;
@@ -53,12 +50,15 @@ public class HorizontalBar extends View {
     public HorizontalBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics());
-        bottom = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
+        left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
+        bottom = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 6, getResources().getDisplayMetrics());
 
         mImage = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_star);
 
 
+        /**
+         * 获取自定义属性
+         */
         TypedArray array = getContext().getTheme().obtainStyledAttributes(attrs,
                 R.styleable.HorizontalBar, defStyleAttr, 0);
 
@@ -146,6 +146,29 @@ public class HorizontalBar extends View {
         invalidate();
     }
 
+    public void setIsShowStar(boolean isShowStar) {
+        this.isShowStar = isShowStar;
+        invalidate();
+    }
+
+    /**
+     * 设置每个评分等级的评论数
+     *
+     * @param oneStar   1星等级的评论数量
+     * @param twoStar   2星等级的评论数量
+     * @param threeStar 3星等级的评论数量
+     * @param fourStar  4星等级的评论数量
+     * @param fiveStar  5星等级的评论数量
+     */
+    public void setCount(int oneStar, int twoStar, int threeStar, int fourStar, int fiveStar) {
+        this.oneCount = oneStar;
+        this.twoCount = twoStar;
+        this.threeCount = threeStar;
+        this.fourCount = fourStar;
+        this.fiveCount = fiveStar;
+        invalidate();
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -156,14 +179,14 @@ public class HorizontalBar extends View {
         if (specMode == MeasureSpec.EXACTLY) {
             mWidth = specSize;
         } else {
-            mWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
+            mWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 120, getResources().getDisplayMetrics());
             //如果显示后面的字就增加长度
             mWidth1 = mWidth;
             if (isShowText) {
                 mWidth1 = mWidth1 + 3 * bottom;
             }
             if (isShowStar) {
-                mWidth1 = mWidth1 + mImage.getWidth() * 5;
+                mWidth1 = mWidth1 + (left * 2 / 5 + mImage.getWidth()) * 5;
             }
         }
 
@@ -173,9 +196,11 @@ public class HorizontalBar extends View {
         if (specMode == MeasureSpec.EXACTLY) {
             mHeight = specSize;
         } else {
-            mHeight = bottom * 5 + left * 4 + 5;
-            int imgheight = mImage.getHeight() * 5;
-            mHeight = Math.max(mHeight, imgheight);
+            mHeight = bottom * 5 + left * 5;
+            if (isShowStar) {
+                int imgHeight = mImage.getHeight() * 5;
+                mHeight = Math.max(mHeight, imgHeight);
+            }
         }
         setMeasuredDimension(mWidth1, mHeight);
 
@@ -192,12 +217,14 @@ public class HorizontalBar extends View {
             max = 1;
         }
 
+        //五星评分条
         rect = new Rect();
-        rect.left = isShowStar ? left + mImage.getWidth() * 5 : left;
+        rect.left = isShowStar ? left + (left * 2 / 5 + mImage.getWidth()) * 5 : left;
         rect.top = left;
         rect.bottom = rect.top + bottom;
         rect.right = (int) (fiveCount * 1.0f / max * mWidth) + rect.left;
 
+        //各个评分等级的数量
         Paint textPaint = new Paint();
         textPaint.setColor(Color.GRAY);
         textPaint.setAntiAlias(true);
@@ -214,11 +241,15 @@ public class HorizontalBar extends View {
         if (isShowText)
             canvas.drawText("" + fiveCount, rect.right + left, (rect.top + rect.bottom) / 2 + mBound.width() / 2, textPaint);
 
+        /**
+         * 画四星的评分条
+         */
         paint1.setColor(getResources().getColor(R.color.fourStart));
         rect.top = rect.bottom + left;
         rect.right = (int) (fourCount * 1.0f / max * mWidth) + rect.left;
         rect.bottom = rect.top + bottom;
         canvas.drawRect(rect, paint1);
+        //如果要显示文字，就画出来文字
         if (isShowText)
             canvas.drawText("" + fourCount, rect.right + left, (rect.top + rect.bottom) / 2 + mBound.width() / 2, textPaint);
 
@@ -256,19 +287,13 @@ public class HorizontalBar extends View {
             Rect imgRect = new Rect();
             for (int i = 0; i < 5; i++) {
                 for (int j = i; j < 5; j++) {
-                    imgRect.left = j * mImage.getWidth();
-                    imgRect.right = (j + 1) * mImage.getWidth();
-                    imgRect.top = i * mImage.getHeight();
-                    imgRect.bottom = (i + 1) * mImage.getHeight();
+                    imgRect.left = j * (mImage.getWidth() + left * 2 / 5);
+                    imgRect.right = imgRect.left + mImage.getWidth();
+                    imgRect.top = i * bottom + (i + 1) * left - left / 5;
+                    imgRect.bottom = imgRect.top + mImage.getHeight();
                     canvas.drawBitmap(mImage, null, imgRect, paint1);
                 }
             }
         }
-//        imgRect.left = 0;
-//        imgRect.right = mImage.getWidth();
-//        imgRect.bottom = mImage.getHeight();
-//        imgRect.top = 5;
-
-
     }
 }

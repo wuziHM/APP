@@ -17,4 +17,8 @@
     <dimen name="dp_50">50dp</dimen>
     <dimen name="dp_78">78dp</dimen>
     <dimen name="dp_100">100dp</dimen>
+
+    <dimen name="header_text_size">16sp</dimen>
+    <dimen name="product_list_header_text_size">14sp</dimen>
+    <dimen name="common_padding">5dp</dimen>
 </resources>

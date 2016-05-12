@@ -65,19 +65,6 @@
             android:name=".activity.FirstViewActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
-        <service
-            android:name=".service.MyService1"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="allen.app.myservice" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
-
-        <receiver android:name=".receive.AlarmReceiver" />
-        <receiver android:name=".receive.NotificationReceiver" />
 
         <activity android:name=".activity.WebActivity" />
         <activity android:name=".activity.ScrollerActivity" />
@@ -94,16 +81,30 @@
         <activity android:name=".activity.AlmightyAdapterActivity" />
         <activity android:name=".activity.MultiItemListViewActivity" />
         <activity android:name=".activity.RecyclerViewActivity" />
-
         <activity android:name=".activity.MultiItemRvActivity" />
-
         <activity android:name=".activity.RvWidthHeaderActivity" />
-
         <activity android:name=".activity.GameActivity" />
-
+        <activity android:name=".activity.ProductActivity" />
+        <activity android:name=".activity.ShoppingCartActivity" />
         <activity
             android:name=".activity.WuActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".activity.ShoppingCarActivity"/>
+
+        <service
+            android:name=".service.MyService1"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="allen.app.myservice" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".receive.AlarmReceiver" />
+        <receiver android:name=".receive.NotificationReceiver" />
+
     </application>
 
 </manifest>

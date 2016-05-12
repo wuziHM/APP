@@ -1,9 +1,15 @@
 package allenhu.app.bean;
 
+import allenhu.app.util.LogUtil;
+
 /**
  * Created by AllenHu on 2016/2/16.
  */
 public class Hero {
+
+    {
+        LogUtil.e("竟然还有这种非主流的写法");
+    }
 
     private int hIcon;
     private String hName;

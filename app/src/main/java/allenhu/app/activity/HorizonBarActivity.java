@@ -19,5 +19,7 @@ public class HorizonBarActivity extends BaseActivity {
         bar.setThreeCount(9);
         bar.setTwoCount(8);
         bar.setOneCount(10);
+        bar.setIsShowStar(false);
+        bar.setIsShowText(true);
     }
 }
