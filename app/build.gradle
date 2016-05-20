@@ -41,4 +41,5 @@ dependencies {
     compile 'com.android.support:design:23.1.0'
     compile project(':base-adapter-library')
     compile project(path: ':car-library')
+    compile 'com.github.razerdp:BasePopup:v1.1.5'
 }

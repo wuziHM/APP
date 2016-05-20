@@ -64,8 +64,6 @@
         <activity
             android:name=".activity.FirstViewActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
-
         <activity android:name=".activity.WebActivity" />
         <activity android:name=".activity.ScrollerActivity" />
         <activity android:name=".activity.TimerDemoActivity" />
@@ -89,7 +87,7 @@
         <activity
             android:name=".activity.WuActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".activity.ShoppingCarActivity"/>
+        <activity android:name=".activity.ShoppingCarActivity" />
 
         <service
             android:name=".service.MyService1"
@@ -105,6 +103,7 @@
         <receiver android:name=".receive.AlarmReceiver" />
         <receiver android:name=".receive.NotificationReceiver" />
 
+        <activity android:name=".activity.PopupWindowActivity"></activity>
     </application>
 
 </manifest>
