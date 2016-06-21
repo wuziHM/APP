@@ -20,6 +20,7 @@ import java.util.TimerTask;
 
 import allenhu.app.R;
 import allenhu.app.activity.AccelerometerPlayActivity;
+import allenhu.app.activity.HyperTranslateActivity;
 import allenhu.app.activity.ShoppingCarActivity;
 import allenhu.app.activity.ShoppingCartActivity;
 import allenhu.app.adapter.HomeAdapter;
@@ -105,9 +106,11 @@ public class FragmentB extends Fragment {
         list = new ArrayList<String>();
         list.add("重力感应");
         list.add("购物车");
+        list.add("长按复制");
 
         classes = new ArrayList<Class>();
         classes.add(AccelerometerPlayActivity.class);
         classes.add(ShoppingCarActivity.class);
+        classes.add(HyperTranslateActivity.class);
     }
 }

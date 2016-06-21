@@ -34,5 +34,7 @@
     <string name="remove">Remove</string>
     <string name="clear_cart">Clear Cart</string>
     <string name="shop">Shop</string>
+    <string name="init_tip">在任何应用中复制内容，所复制文本将会在显示在屏幕顶部。点击后，内容将会显示在此处。</string>
+    <string name="tip">此为剪贴板中内容，点击查看：</string>
 
 </resources>

@@ -12,6 +12,8 @@
     <uses-permission android:name="android.permission.READ_OWNER_DATA" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:allowBackup="true"
@@ -64,8 +66,6 @@
         <activity
             android:name=".activity.FirstViewActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
-
         <activity android:name=".activity.WebActivity" />
         <activity android:name=".activity.ScrollerActivity" />
         <activity android:name=".activity.TimerDemoActivity" />
@@ -74,7 +74,9 @@
         <activity android:name=".activity.RotateAnimationActivity" />
         <activity android:name=".activity.VoiceViewActivity" />
         <activity android:name=".activity.RecycleActivity" />
-        <activity android:name=".activity.HorizonBarActivity" />
+        <activity
+            android:name=".activity.HorizonBarActivity"
+            android:launchMode="singleInstance" />
         <activity android:name=".activity.ListViewActivity" />
         <activity android:name=".activity.PinnedSectionListActivity" />
         <activity android:name=".activity.AdapterActivity" />
@@ -89,7 +91,7 @@
         <activity
             android:name=".activity.WuActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".activity.ShoppingCarActivity"/>
+        <activity android:name=".activity.ShoppingCarActivity" />
 
         <service
             android:name=".service.MyService1"
@@ -102,9 +104,17 @@
             </intent-filter>
         </service>
 
+        <service
+            android:name=".service.ListenClipboardService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":process"></service>
+
         <receiver android:name=".receive.AlarmReceiver" />
         <receiver android:name=".receive.NotificationReceiver" />
+        <receiver android:name=".receive.BootCompletedReceiver" />
 
+        <activity android:name=".activity.HyperTranslateActivity"></activity>
     </application>
 
 </manifest>
