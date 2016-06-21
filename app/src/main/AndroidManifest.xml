@@ -115,6 +115,7 @@
         <receiver android:name=".receive.BootCompletedReceiver" />
 
         <activity android:name=".activity.HyperTranslateActivity"></activity>
+        <activity android:name=".activity.PopupWindowActivity"></activity>
     </application>
 
 </manifest>

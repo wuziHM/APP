@@ -32,6 +32,6 @@
     <Spinner
         android:id="@+id/spin_two"
         android:layout_width="wrap_content"
-        android:layout_height="64dp" />
+        android:layout_height="64dp"/>
 
 </LinearLayout>

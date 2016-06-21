@@ -5,9 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import allenhu.app.R;
 import allenhu.app.base.BaseActivity;
 
@@ -23,6 +20,7 @@ public class ControlsActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.btn_spinner).setOnClickListener(this);
         findViewById(R.id.btn_recycle).setOnClickListener(this);
         findViewById(R.id.btn_listView).setOnClickListener(this);
+        findViewById(R.id.btn_popupWindow).setOnClickListener(this);
         final EditText editText = (EditText) findViewById(R.id.edt_test);
         editText.setText("是不是设置成了final就不能改变值了？");
 
@@ -48,7 +46,10 @@ public class ControlsActivity extends BaseActivity implements View.OnClickListen
                 intent = new Intent(ControlsActivity.this, ListViewActivity.class);
                 startActivity(intent);
                 break;
-
+            case R.id.btn_popupWindow:
+                intent = new Intent(ControlsActivity.this, PopupWindowActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 }
