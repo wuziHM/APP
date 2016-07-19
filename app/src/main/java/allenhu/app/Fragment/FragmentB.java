@@ -1,4 +1,4 @@
-package allenhu.app.Fragment;
+package allenhu.app.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,14 +14,13 @@ import android.view.ViewGroup;
 import com.zhy.base.adapter.recyclerview.DividerItemDecoration;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import allenhu.app.R;
 import allenhu.app.activity.AccelerometerPlayActivity;
+import allenhu.app.activity.MatrixActivity;
 import allenhu.app.activity.ShoppingCarActivity;
-import allenhu.app.activity.ShoppingCartActivity;
 import allenhu.app.adapter.HomeAdapter;
 import allenhu.app.listener.OnItemClickListener;
 import allenhu.app.view.impl.OnMDRefreshListener;
@@ -70,9 +69,10 @@ public class FragmentB extends Fragment {
         recyclerView.initLoadingMoreViewDefault();
         recyclerView.showLoadingMoreView();
         recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.HORIZONTAL_LIST));
+        recyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL_LIST));
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+
         initData();
         adapter = new HomeAdapter(list, context);
         recyclerView.setAdapter(adapter);
@@ -105,9 +105,11 @@ public class FragmentB extends Fragment {
         list = new ArrayList<String>();
         list.add("重力感应");
         list.add("购物车");
+        list.add("矩阵");
 
         classes = new ArrayList<Class>();
         classes.add(AccelerometerPlayActivity.class);
         classes.add(ShoppingCarActivity.class);
+        classes.add(MatrixActivity.class);
     }
 }

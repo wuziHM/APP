@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="allenhu.app">
+
+    <uses-sdk tools:overrideLibrary="com.yongchun.library"></uses-sdk>
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -103,7 +106,15 @@
         <receiver android:name=".receive.AlarmReceiver" />
         <receiver android:name=".receive.NotificationReceiver" />
 
-        <activity android:name=".activity.PopupWindowActivity"></activity>
+        <activity android:name=".activity.PopupWindowActivity" />
+        <activity android:name=".activity.MatrixActivity"></activity>
+
+        <activity
+            android:name="com.yongchun.library.view.ImageSelectorActivity" />
+        <activity
+            android:name="com.yongchun.library.view.ImagePreviewActivity" />
+        <activity
+            android:name="com.yongchun.library.view.ImageCropActivity" />
     </application>
 
 </manifest>

@@ -14,15 +14,19 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         super(Application.class);
     }
 
-    public void testUnit(){
+    public void testUnit() {
 
         int left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, 10, getApplication().getResources().getDisplayMetrics());
-        LogUtil.e("px:"+left);
+        LogUtil.e("px:" + left);
 
-        left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,10,getApplication().getResources().getDisplayMetrics());
-        LogUtil.e("dip:"+left);
+        left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getApplication().getResources().getDisplayMetrics());
+        LogUtil.e("dip:" + left);
 
-        left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,10,getApplication().getResources().getDisplayMetrics());
-        LogUtil.e("sp:"+left);
+        left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 10, getApplication().getResources().getDisplayMetrics());
+        LogUtil.e("sp:" + left);
+    }
+
+    public void testX() {
+        LogUtil.e("可以测试么");
     }
 }
