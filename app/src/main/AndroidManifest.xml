@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="allenhu.app">
 
+
+
     <uses-sdk tools:overrideLibrary="com.yongchun.library"></uses-sdk>
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -22,6 +24,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <uses-library android:name="android.test.runner" />
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -109,12 +113,9 @@
         <activity android:name=".activity.PopupWindowActivity" />
         <activity android:name=".activity.MatrixActivity"></activity>
 
-        <activity
-            android:name="com.yongchun.library.view.ImageSelectorActivity" />
-        <activity
-            android:name="com.yongchun.library.view.ImagePreviewActivity" />
-        <activity
-            android:name="com.yongchun.library.view.ImageCropActivity" />
+        <activity android:name="com.yongchun.library.view.ImageSelectorActivity" />
+        <activity android:name="com.yongchun.library.view.ImagePreviewActivity" />
+        <activity android:name="com.yongchun.library.view.ImageCropActivity" />
     </application>
 
 </manifest>

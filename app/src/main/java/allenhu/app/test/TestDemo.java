@@ -16,7 +16,6 @@ import allenhu.app.design.Observer.Observer2;
 import allenhu.app.design.state.VendingMachine;
 import allenhu.app.util.LogUtil;
 import allenhu.app.util.StringMatcher;
-import allenhu.app.util.ToastUtils;
 
 /**
  * Created by AllenHu on 2016/2/16.
@@ -28,21 +27,28 @@ public class TestDemo extends AndroidTestCase {
         super.setUp();
     }
 
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }
+
+    @SmallTest
     public void testCity1() {
-        Double d = Math.sin(Math.toRadians(30));
-        LogUtil.e("" + d);
-
-        double d2 = Math.asin(0.5) * (180 / Math.PI);
-        LogUtil.e("" + d2);
-
-        double d3 = Math.acos(10.0 / 20.0) * (180 / Math.PI);
-        LogUtil.e("" + d3);
-
-//        Math.toRadians(1)
-//        double d4 = Math.tan(45 * Math.PI / 180);
-        double d4 = Math.toDegrees(Math.atan(1.0));
-        LogUtil.e("" + d4);
-        ToastUtils.ToastMessage(getContext(),"测试成功了么");
+        assertEquals(3, 2 + 2);
+//        Double d = Math.sin(Math.toRadians(30));
+//        LogUtil.e("" + d);
+//
+//        double d2 = Math.asin(0.5) * (180 / Math.PI);
+//        LogUtil.e("" + d2);
+//
+//        double d3 = Math.acos(10.0 / 20.0) * (180 / Math.PI);
+//        LogUtil.e("" + d3);
+//
+////        Math.toRadians(1)
+////        double d4 = Math.tan(45 * Math.PI / 180);
+//        double d4 = Math.toDegrees(Math.atan(1.0));
+//        LogUtil.e("" + d4);
+//        ToastUtils.ToastMessage(getContext(),"测试成功了么");
     }
 
     public void testList() {

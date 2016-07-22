@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/base-adapter-library/base-adapter-library.iml" filepath="$PROJECT_DIR$/base-adapter-library/base-adapter-library.iml" />
       <module fileurl="file://$PROJECT_DIR$/car-library/car-library.iml" filepath="$PROJECT_DIR$/car-library/car-library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_lib/java_lib.iml" filepath="$PROJECT_DIR$/java_lib/java_lib.iml" />
     </modules>
   </component>
 </project>
