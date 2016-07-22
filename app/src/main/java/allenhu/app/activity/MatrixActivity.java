@@ -138,7 +138,7 @@ public class MatrixActivity extends BaseActivity implements View.OnClickListener
         } else
             smallbig = 0.5f;
         Matrix matrix = new Matrix();
-        matrix.postSkew(0.3f, 0.3f);
+        matrix.preSkew(0.3f, 0.3f);
         matrix.setScale(smallbig, smallbig, bmp.getWidth() / 2, bmp.getHeight() / 2);
         change(matrix);
     }

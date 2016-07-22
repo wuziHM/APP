@@ -1,6 +1,7 @@
 package allenhu.app.test;
 
 import android.test.AndroidTestCase;
+import android.test.suitebuilder.annotation.SmallTest;
 import android.util.Log;
 import android.util.TypedValue;
 
@@ -21,6 +22,11 @@ import allenhu.app.util.ToastUtils;
  * Created by AllenHu on 2016/2/16.
  */
 public class TestDemo extends AndroidTestCase {
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+    }
 
     public void testCity1() {
         Double d = Math.sin(Math.toRadians(30));
@@ -124,6 +130,7 @@ public class TestDemo extends AndroidTestCase {
         vendingMachine.backMoney();
     }
 
+    @SmallTest
     public void testObserver() {
         D3Subject d3Subject = new D3Subject();
         Observer1 observer1 = new Observer1(d3Subject);
