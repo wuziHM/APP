@@ -1,6 +1,8 @@
 package com.example.test;
 
 import com.example.design.Factory.Child;
+import com.example.design.Factory.abs.HotRestaurant;
+import com.example.design.Factory.abs.SweetRestaurant;
 import com.example.design.Factory.method.BreadRestaurant;
 import com.example.design.Factory.method.FishRestaurant;
 import com.example.design.Factory.method.MRestaurant;
@@ -61,5 +63,17 @@ public class JavaTest extends TestCase {
 
         restaurant = new NoodlesRestaurant();
         restaurant.cooking().getFood();
+    }
+
+    public void testAbstractFactory(){
+        com.example.design.Factory.abs.Restaurant restaurant = new SweetRestaurant();
+        restaurant.getBread().getFood();
+        restaurant.getFish().getFood();
+        restaurant.getNoodles().getFood();
+
+        restaurant = new HotRestaurant();
+        restaurant.getBread().getFood();
+        restaurant.getNoodles().getFood();
+        restaurant.getFish().getFood();
     }
 }
