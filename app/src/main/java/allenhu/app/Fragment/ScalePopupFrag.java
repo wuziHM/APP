@@ -1,4 +1,4 @@
-package allenhu.app.Fragment;
+package allenhu.app.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

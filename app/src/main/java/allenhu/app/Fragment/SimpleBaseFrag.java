@@ -1,4 +1,4 @@
-package allenhu.app.Fragment;
+package allenhu.app.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
