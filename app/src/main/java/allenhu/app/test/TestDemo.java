@@ -1,6 +1,8 @@
 package allenhu.app.test;
 
 import android.test.AndroidTestCase;
+import android.test.AndroidTestRunner;
+import android.test.suitebuilder.annotation.SmallTest;
 import android.util.Log;
 import android.util.TypedValue;
 
@@ -20,6 +22,24 @@ import allenhu.app.util.StringMatcher;
  * Created by AllenHu on 2016/2/16.
  */
 public class TestDemo extends AndroidTestCase {
+
+    public TestDemo() {
+    }
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+    }
+
+    @SmallTest
+    public void testAdd() {
+        assertEquals(2, 1 + 1);
+    }
+
+    public void testXX() throws Exception {
+        assertEquals(2, 1 + 1);
+    }
+
 
     public void testCity1() {
         Double d = Math.sin(Math.toRadians(30));

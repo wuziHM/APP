@@ -11,9 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +21,7 @@ import allenhu.app.activity.ContentProviderActivity;
 import allenhu.app.activity.ControlsActivity;
 import allenhu.app.activity.CustomerViewActivity;
 import allenhu.app.activity.DrawableActivity;
+import allenhu.app.activity.FlagAActivity;
 import allenhu.app.activity.GameActivity;
 import allenhu.app.activity.HongbaoActivity;
 import allenhu.app.activity.ServiceDemoActivity;
@@ -97,6 +95,7 @@ public class FragmentA extends Fragment {
         listContent.add("计时器");
         listContent.add("Adapter");
         listContent.add("游戏");
+        listContent.add("Intent Flag");
 
         listActivity = new ArrayList<>();
         listActivity.add(ControlsActivity.class);
@@ -111,6 +110,7 @@ public class FragmentA extends Fragment {
         listActivity.add(TimerDemoActivity.class);
         listActivity.add(AdapterActivity.class);
         listActivity.add(GameActivity.class);
+        listActivity.add(FlagAActivity.class);
 
 //        byte[] bytes = new byte[1024];
 //        OutputStream outputStream = new ByteArrayOutputStream();

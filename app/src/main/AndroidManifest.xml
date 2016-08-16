@@ -15,12 +15,18 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="allenhu.app" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <uses-library android:name="android.test.runner" />
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -103,19 +109,22 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
-
         <service
             android:name=".service.ListenClipboardService"
             android:enabled="true"
             android:exported="true"
-            android:process=":process"></service>
+            android:process=":process" />
 
         <receiver android:name=".receive.AlarmReceiver" />
         <receiver android:name=".receive.NotificationReceiver" />
         <receiver android:name=".receive.BootCompletedReceiver" />
 
-        <activity android:name=".activity.HyperTranslateActivity"></activity>
-        <activity android:name=".activity.PopupWindowActivity"></activity>
+        <activity android:name=".activity.HyperTranslateActivity" />
+        <activity android:name=".activity.PopupWindowActivity" />
+        <activity android:name=".activity.FlagAActivity" />
+        <activity android:name=".activity.FlagBActivity" />
+        <activity android:name=".activity.FlagCActivity" />
+        <activity android:name=".activity.FlagDActivity"></activity>
     </application>
 
 </manifest>

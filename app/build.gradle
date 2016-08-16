@@ -42,4 +42,6 @@ dependencies {
     compile project(':base-adapter-library')
     compile project(path: ':car-library')
     compile 'com.github.razerdp:BasePopup:v1.1.5'
+    // butterknife
+    compile 'com.jakewharton:butterknife:7.0.1'
 }
