@@ -21,6 +21,7 @@ import allenhu.app.activity.ContentProviderActivity;
 import allenhu.app.activity.ControlsActivity;
 import allenhu.app.activity.CustomerViewActivity;
 import allenhu.app.activity.DrawableActivity;
+import allenhu.app.activity.EditTextActvity;
 import allenhu.app.activity.FlagAActivity;
 import allenhu.app.activity.GameActivity;
 import allenhu.app.activity.HongbaoActivity;
@@ -96,6 +97,7 @@ public class FragmentA extends Fragment {
         listContent.add("Adapter");
         listContent.add("游戏");
         listContent.add("Intent Flag");
+        listContent.add("EditText总结");
 
         listActivity = new ArrayList<>();
         listActivity.add(ControlsActivity.class);
@@ -111,6 +113,7 @@ public class FragmentA extends Fragment {
         listActivity.add(AdapterActivity.class);
         listActivity.add(GameActivity.class);
         listActivity.add(FlagAActivity.class);
+        listActivity.add(EditTextActvity.class);
 
 //        byte[] bytes = new byte[1024];
 //        OutputStream outputStream = new ByteArrayOutputStream();

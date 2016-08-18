@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="allenhu.app">
+
+    <uses-sdk tools:overrideLibrary="com.yongchun.library" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -14,10 +17,6 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
-    <instrumentation
-        android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="allenhu.app" />
 
     <application
         android:allowBackup="true"
@@ -122,9 +121,12 @@
         <activity android:name=".activity.HyperTranslateActivity" />
         <activity android:name=".activity.PopupWindowActivity" />
         <activity android:name=".activity.FlagAActivity" />
-        <activity android:name=".activity.FlagBActivity" />
+        <activity
+            android:name=".activity.FlagBActivity"
+            android:launchMode="standard" />
         <activity android:name=".activity.FlagCActivity" />
-        <activity android:name=".activity.FlagDActivity"></activity>
+        <activity android:name=".activity.FlagDActivity" />
+        <activity android:name=".activity.EditTextActvity"></activity>
     </application>
 
 </manifest>

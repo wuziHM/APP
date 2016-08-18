@@ -90,16 +90,19 @@ public class JavaTest extends TestCase {
     public void testIdCard() {
 
 //        String idcard15 = "142431199001145";//15位
-        String idcard18 = "431081199207075297";//18位
+        String idcard18 = "140196199909094237";//18位
 //        String idcard18 = "36232219930109002X";//18位
         IdcardValidator iv = new IdcardValidator();
+        idcard18 = idcard18.substring(0,17);
 
-        System.out.println(iv.isValidatedAllIdcard(idcard18));
-//        String[] ss = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "x", "X"};
-////        System.out.println(iv.isValidatedAllIdcard(idcard15));
-//        for (String s : ss) {
-//            String str = idcard18 + s;
-//            System.out.println(iv.isValidatedAllIdcard(str));
-//        }
+
+        System.out.println(idcard18);
+//        System.out.println(iv.isValidatedAllIdcard(idcard18));
+        String[] ss = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "x", "X"};
+//        System.out.println(iv.isValidatedAllIdcard(idcard15));
+        for (String s : ss) {
+            String str = idcard18 + s;
+            System.out.println(iv.isValidatedAllIdcard(str));
+        }
     }
 }

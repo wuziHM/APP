@@ -11,31 +11,51 @@
         android:id="@+id/btn_a"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:text="A界面" />
 
     <Button
         android:id="@+id/btn_b"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:text="B界面" />
 
     <Button
         android:id="@+id/btn_c"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:text="C界面" />
 
     <Button
         android:id="@+id/btn_d"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:text="D界面" />
 
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
         android:text="D界面" />
+
+    <Button
+        android:id="@+id/btn_operate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_5"
+        android:text="操作" />
+
+    <EditText
+        android:id="@+id/edt_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_5"
+        android:hint="操作" />
 
 
 </LinearLayout>

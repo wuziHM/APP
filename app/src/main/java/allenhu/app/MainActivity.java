@@ -10,11 +10,11 @@ import android.widget.TextView;
 
 import com.umeng.analytics.MobclickAgent;
 
+import allenhu.app.base.BaseActivity;
 import allenhu.app.fragment.FragmentA;
 import allenhu.app.fragment.FragmentB;
 import allenhu.app.fragment.FragmentC;
 import allenhu.app.fragment.FragmentD;
-import allenhu.app.base.BaseActivity;
 import allenhu.app.service.MyService1;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import allenhu.app.R;
+import allenhu.app.util.LogUtil;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -49,5 +50,11 @@ public class FlagBActivity extends AppCompatActivity {
                 startActivity(new Intent(this, FlagDActivity.class));
                 break;
         }
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        LogUtil.e("========onNewIntent========");
     }
 }

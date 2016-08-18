@@ -149,7 +149,6 @@ public class IdcardValidator {
 
 
         String birthday = idcard.substring(8, 14);
-        System.out.println("birthday:" + birthday);
 
         int year = Integer.parseInt(idcard.substring(8, 10));
         int month = Integer.parseInt(idcard.substring(10, 12));
@@ -512,16 +511,6 @@ public class IdcardValidator {
         }
         return a;
     }
-
-//    public static void main(String[] args) throws Exception {
-//
-//        String idcard15 = "142431199001145";//15位
-//        String idcard18 = "121212121212121212";//18位
-//        IdcardValidator iv = new IdcardValidator();
-//        System.out.println(iv.isValidatedAllIdcard(idcard15));
-//        System.out.println(iv.isValidatedAllIdcard(idcard18));
-//
-//    }
 
 
 }
