@@ -24,8 +24,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <uses-library android:name="android.test.runner" />
-
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -126,7 +124,7 @@
             android:launchMode="standard" />
         <activity android:name=".activity.FlagCActivity" />
         <activity android:name=".activity.FlagDActivity" />
-        <activity android:name=".activity.EditTextActvity"></activity>
+        <activity android:name=".activity.EditTextActvity" />
     </application>
 
 </manifest>
