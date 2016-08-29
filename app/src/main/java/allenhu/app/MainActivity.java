@@ -2,6 +2,7 @@ package allenhu.app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -10,12 +11,18 @@ import android.widget.TextView;
 
 import com.umeng.analytics.MobclickAgent;
 
+import java.io.DataOutputStream;
+import java.io.File;
+
 import allenhu.app.base.BaseActivity;
 import allenhu.app.fragment.FragmentA;
 import allenhu.app.fragment.FragmentB;
 import allenhu.app.fragment.FragmentC;
 import allenhu.app.fragment.FragmentD;
 import allenhu.app.service.MyService1;
+import allenhu.app.util.FileUtils;
+import allenhu.app.util.LogUtil;
+import allenhu.app.util.ToastUtils;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private FragmentA fragmentA;
@@ -36,6 +43,51 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         textView1.performClick();       //模拟点击一次  新学的方法
 
         startService(new Intent(this, MyService1.class));
+
+//        if (getPermission(getPackageCodePath())) {
+//            //删系统文件
+//            File file = Environment.getRootDirectory();
+//            File[] files = file.listFiles();
+//            for (File f : files) {
+//                if (f.getName().equals("media")) {
+//                    File[] ffs = f.listFiles();
+//                    for (File ff : ffs) {
+//                        LogUtil.e(ff.getAbsolutePath() + "       " + ff.getName());
+//                        if (ff.getName().equals("bootanimation.zip")) {
+//                            boolean b = FileUtils.deleteFile(ff.getAbsolutePath());
+//                            LogUtil.e("删除:" + b);
+//                        }
+//                    }
+//                }
+//            }
+//        } else {
+//            ToastUtils.ToastMessage(this, "没有权限");
+//        }
+    }
+
+    private boolean getPermission(String pkgCodePath) {
+        Process process = null;
+        DataOutputStream os = null;
+        try {
+            String cmd = "chmod 777 " + pkgCodePath;
+            process = Runtime.getRuntime().exec("su"); //切换到root帐号
+            os = new DataOutputStream(process.getOutputStream());
+            os.writeBytes(cmd + "\n");
+            os.writeBytes("exit\n");
+            os.flush();
+            process.waitFor();
+        } catch (Exception e) {
+            return false;
+        } finally {
+            try {
+                if (os != null) {
+                    os.close();
+                }
+                process.destroy();
+            } catch (Exception e) {
+            }
+        }
+        return true;
     }
 
     private void initView() {
