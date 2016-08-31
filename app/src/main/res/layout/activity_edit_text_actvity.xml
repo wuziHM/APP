@@ -13,36 +13,45 @@
     <EditText
         android:id="@+id/edt_one"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:imeOptions="actionSearch"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/edt_two"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/edt_three"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:imeOptions="actionSend"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/edt_four"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/edt_five"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/edt_six"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/edt_seven"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inputType="text" />
 
 </LinearLayout>

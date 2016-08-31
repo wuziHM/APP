@@ -31,6 +31,7 @@ public class CustomerViewActivity extends BaseActivity implements View.OnClickLi
         findViewById(R.id.btn_v5).setOnClickListener(this);
         findViewById(R.id.btn_v6).setOnClickListener(this);
         findViewById(R.id.btn_v7).setOnClickListener(this);
+        findViewById(R.id.btn_v8).setOnClickListener(this);
         textView = (TextView) findViewById(R.id.tv_handler);
         myRunnable = new MyRunnable();
     }
@@ -72,8 +73,13 @@ public class CustomerViewActivity extends BaseActivity implements View.OnClickLi
             case R.id.btn_v6:
                 intent = new Intent(CustomerViewActivity.this, VoiceViewActivity.class);
                 startActivity(intent);
+                break;
             case R.id.btn_v7:
                 intent = new Intent(CustomerViewActivity.this, HorizonBarActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_v8:
+                intent = new Intent(CustomerViewActivity.this, PieChartActivity.class);
                 startActivity(intent);
                 break;
         }
