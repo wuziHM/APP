@@ -42,27 +42,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         initView();
         textView1.performClick();       //模拟点击一次  新学的方法
 
-        startService(new Intent(this, MyService1.class));
-
-//        if (getPermission(getPackageCodePath())) {
-//            //删系统文件
-//            File file = Environment.getRootDirectory();
-//            File[] files = file.listFiles();
-//            for (File f : files) {
-//                if (f.getName().equals("media")) {
-//                    File[] ffs = f.listFiles();
-//                    for (File ff : ffs) {
-//                        LogUtil.e(ff.getAbsolutePath() + "       " + ff.getName());
-//                        if (ff.getName().equals("bootanimation.zip")) {
-//                            boolean b = FileUtils.deleteFile(ff.getAbsolutePath());
-//                            LogUtil.e("删除:" + b);
-//                        }
-//                    }
-//                }
-//            }
-//        } else {
-//            ToastUtils.ToastMessage(this, "没有权限");
-//        }
+//        startService(new Intent(this, MyService1.class));
     }
 
     private boolean getPermission(String pkgCodePath) {

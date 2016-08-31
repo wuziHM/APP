@@ -48,5 +48,6 @@ dependencies {
     compile 'com.commit451:PhotoView:1.2.4'
     compile 'com.isseiaoki:simplecropview:1.0.13'
     compile 'com.yongchun:com.yongchun.imageselector:1.1.0'
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.0-beta1'
     compile files('libs/pinyin4j-2.5.0.jar')
 }

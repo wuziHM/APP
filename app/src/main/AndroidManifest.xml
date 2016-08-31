@@ -126,6 +126,7 @@
         <activity android:name=".activity.FlagCActivity" />
         <activity android:name=".activity.FlagDActivity" />
         <activity android:name=".activity.EditTextActvity" />
+        <activity android:name=".activity.PieChartActivity"></activity>
     </application>
 
 </manifest>
