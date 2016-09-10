@@ -1,8 +1,6 @@
 package allenhu.app;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -12,17 +10,12 @@ import android.widget.TextView;
 import com.umeng.analytics.MobclickAgent;
 
 import java.io.DataOutputStream;
-import java.io.File;
 
 import allenhu.app.base.BaseActivity;
 import allenhu.app.fragment.FragmentA;
 import allenhu.app.fragment.FragmentB;
 import allenhu.app.fragment.FragmentC;
 import allenhu.app.fragment.FragmentD;
-import allenhu.app.service.MyService1;
-import allenhu.app.util.FileUtils;
-import allenhu.app.util.LogUtil;
-import allenhu.app.util.ToastUtils;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private FragmentA fragmentA;
