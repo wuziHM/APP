@@ -1,0 +1,10 @@
+/build
+gradlew
+gradlew.bat
+pom.xml
+project.properties
+LICENSE.txt
+.project
+/bin
+/gen
+/gradle
