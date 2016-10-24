@@ -33,12 +33,12 @@ public class ContentProviderActivity extends BaseActivity implements View.OnClic
         setContentView(R.layout.activity_content_provider);
         initView();
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
-            //申请WRITE_EXTERNAL_STORAGE权限
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, 37);
-        }else {
-            initData();
-        }
+//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+//            //申请WRITE_EXTERNAL_STORAGE权限
+//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, 37);
+//        }else {
+        initData();
+//        }
 
     }
 

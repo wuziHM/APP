@@ -1,28 +1,22 @@
 package allenhu.app;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.umeng.analytics.MobclickAgent;
 
 import java.io.DataOutputStream;
-import java.io.File;
 
 import allenhu.app.base.BaseActivity;
 import allenhu.app.fragment.FragmentA;
 import allenhu.app.fragment.FragmentB;
 import allenhu.app.fragment.FragmentC;
 import allenhu.app.fragment.FragmentD;
-import allenhu.app.service.MyService1;
-import allenhu.app.util.FileUtils;
-import allenhu.app.util.LogUtil;
-import allenhu.app.util.ToastUtils;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private FragmentA fragmentA;
@@ -82,6 +76,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         textView2.setOnClickListener(this);
         textView3.setOnClickListener(this);
         textView4.setOnClickListener(this);
+
+
+        SlidingMenu menu = new SlidingMenu(this);
+        menu.setMode(SlidingMenu.LEFT);
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        menu.setShadowWidthRes(R.dimen.shadow_width);
+        menu.setShadowDrawable(R.drawable.shadow);
+        menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
+        menu.setFadeDegree(0.35f);
+        menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
+        menu.setMenu(R.layout.menu);
     }
 
     private void setSelected() {
@@ -144,7 +149,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 } else {
                     transaction.show(fragmentD);
                 }
-//                transaction.replace(R.id.fy_content,fragmentD);
                 break;
         }
         transaction.commit();

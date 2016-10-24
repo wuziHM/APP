@@ -18,6 +18,13 @@
     <dimen name="dp_78">78dp</dimen>
     <dimen name="dp_100">100dp</dimen>
 
+
+    <dimen name="slidingmenu_offset">60dp</dimen>
+    <dimen name="list_padding">10dp</dimen>
+    <dimen name="shadow_width">15dp</dimen>
+
+    <integer name="num_cols">1</integer>
+
     <dimen name="header_text_size">16sp</dimen>
     <dimen name="product_list_header_text_size">14sp</dimen>
     <dimen name="common_padding">5dp</dimen>

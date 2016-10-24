@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="allenhu.app">
 
-    <uses-sdk tools:overrideLibrary="com.yongchun.library" />
+    <uses-sdk tools:overrideLibrary="com.yongchun.library,com.j256.ormlite" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -126,7 +126,8 @@
         <activity android:name=".activity.FlagCActivity" />
         <activity android:name=".activity.FlagDActivity" />
         <activity android:name=".activity.EditTextActvity" />
-        <activity android:name=".activity.PieChartActivity"></activity>
+        <activity android:name=".activity.PieChartActivity" />
+        <activity android:name=".activity.CityPickerActivity"></activity>
     </application>
 
 </manifest>

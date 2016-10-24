@@ -1,1 +1,1 @@
-include ':app', ':base-adapter-library', ':car-library', ':java_lib'
+include ':app', ':base-adapter-library', ':car-library', ':java_lib', ':library'

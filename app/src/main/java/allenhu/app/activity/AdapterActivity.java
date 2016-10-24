@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+
 import allenhu.app.R;
 import allenhu.app.base.BaseActivity;
 

@@ -19,6 +19,7 @@ import java.util.TimerTask;
 
 import allenhu.app.R;
 import allenhu.app.activity.AccelerometerPlayActivity;
+import allenhu.app.activity.CityPickerActivity;
 import allenhu.app.activity.HyperTranslateActivity;
 import allenhu.app.activity.ShoppingCarActivity;
 import allenhu.app.adapter.HomeAdapter;
@@ -45,7 +46,7 @@ public class FragmentB extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_two, container, false);
-        this.context = getContext();
+        this.context = getActivity();
         return rootView;
     }
 
@@ -105,12 +106,14 @@ public class FragmentB extends Fragment {
         list.add("重力感应");
         list.add("购物车");
         list.add("长按复制");
+        list.add("选择省市区");
 //        list.add("美团地址选择");
 
         classes = new ArrayList<Class>();
         classes.add(AccelerometerPlayActivity.class);
         classes.add(ShoppingCarActivity.class);
         classes.add(HyperTranslateActivity.class);
+        classes.add(CityPickerActivity.class);
 //        classes.add(MeituanActivity.class);
     }
 }

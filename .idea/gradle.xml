@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/base-adapter-library" />
             <option value="$PROJECT_DIR$/car-library" />
             <option value="$PROJECT_DIR$/java_lib" />
+            <option value="$PROJECT_DIR$/library" />
           </set>
         </option>
         <option name="myModules">
@@ -22,6 +23,7 @@
             <option value="$PROJECT_DIR$/base-adapter-library" />
             <option value="$PROJECT_DIR$/car-library" />
             <option value="$PROJECT_DIR$/java_lib" />
+            <option value="$PROJECT_DIR$/library" />
           </set>
         </option>
       </GradleProjectSettings>
