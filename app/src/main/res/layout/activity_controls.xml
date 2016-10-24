@@ -45,6 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="listView" />
+
     <Button
         android:id="@+id/btn_popupWindow"
         android:layout_width="match_parent"
@@ -68,4 +69,23 @@
         android:gravity="center"
         android:text="1"
         android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_format1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@color/aliceblue"
+        android:gravity="center"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_format2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@color/aliceblue"
+        android:gravity="center"
+        android:textSize="16sp" />
+
 </LinearLayout>

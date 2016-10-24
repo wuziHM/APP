@@ -49,10 +49,4 @@ dependencies {
     compile 'com.isseiaoki:simplecropview:1.0.13'
     compile 'com.yongchun:com.yongchun.imageselector:1.1.0'
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.0-beta1'
-    compile files('libs/pinyin4j-2.5.0.jar')
-    compile project(':library')
-    compile 'com.android.support:support-v4:24.2.0'
-    compile files('libs/gson-2.1.jar')
-    compile files('libs/ormlite-core-4.48.jar')
-    compile files('libs/ormlite-android-4.48.jar')
 }
