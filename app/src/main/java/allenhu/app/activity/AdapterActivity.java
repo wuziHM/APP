@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-
 import allenhu.app.R;
 import allenhu.app.base.BaseActivity;
 
@@ -13,6 +11,15 @@ import allenhu.app.base.BaseActivity;
  * 各种适配器的页面
  */
 public class AdapterActivity extends BaseActivity implements View.OnClickListener {
+
+    /**
+     * 内存恢复
+     * @param level
+     */
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

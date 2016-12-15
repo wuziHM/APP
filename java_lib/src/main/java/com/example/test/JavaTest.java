@@ -15,6 +15,8 @@ import com.example.design.observer.MilkProvider;
 import com.example.design.proxy.Panqiaoyun;
 import com.example.design.proxy.ProxyWang;
 import com.example.other.IdcardValidator;
+import com.example.strategy.Context;
+import com.example.strategy.RechargeTypeEnum;
 
 import junit.framework.TestCase;
 
@@ -93,7 +95,7 @@ public class JavaTest extends TestCase {
         String idcard18 = "140196199909094237";//18位
 //        String idcard18 = "36232219930109002X";//18位
         IdcardValidator iv = new IdcardValidator();
-        idcard18 = idcard18.substring(0,17);
+        idcard18 = idcard18.substring(0, 17);
 
 
         System.out.println(idcard18);
@@ -104,5 +106,27 @@ public class JavaTest extends TestCase {
             String str = idcard18 + s;
             System.out.println(iv.isValidatedAllIdcard(str));
         }
+    }
+
+    public void testStrategy() {
+
+        Context context = new Context();
+        // 网银充值100 需要付多少
+        Double money = context.calRecharge(100D, RechargeTypeEnum.E_BANK.value());
+        System.out.println(money);
+
+        // 商户账户充值100 需要付多少
+        Double money2 = context.calRecharge(100D, RechargeTypeEnum.BUSI_ACCOUNTS.value());
+        System.out.println(money2);
+
+        // 手机充值100 需要付多少
+        Double money3 = context.calRecharge(100D,
+                RechargeTypeEnum.MOBILE.value());
+        System.out.println(money3);
+
+        // 充值卡充值100 需要付多少
+        Double money4 = context.calRecharge(100D,
+                RechargeTypeEnum.CARD_RECHARGE.value());
+        System.out.println(money4);
     }
 }
