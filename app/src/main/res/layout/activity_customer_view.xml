@@ -46,21 +46,45 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="FirstView" />
+
         <Button
             android:id="@+id/btn_v6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="FourthView" />
+
         <Button
             android:id="@+id/btn_v7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Horizon" />
+
         <Button
             android:id="@+id/btn_v8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="饼状图" />
+
+        <allenhu.app.view.DeleteView
+            android:id="@+id/btn_v9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/aquamarine"
+                android:gravity="center"
+                android:text="hha" />
+
+            <TextView
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="wrap_content"
+                android:background="@color/red"
+                android:gravity="center"
+                android:text="删除" />
+
+        </allenhu.app.view.DeleteView>
 
         <TextView
             android:id="@+id/tv_handler"

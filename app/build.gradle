@@ -15,7 +15,7 @@ android {
     defaultConfig {
         applicationId "allenhu.app"
         minSdkVersion 14
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -49,4 +49,8 @@ dependencies {
     compile 'com.isseiaoki:simplecropview:1.0.13'
     compile 'com.yongchun:com.yongchun.imageselector:1.1.0'
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.0-beta1'
+    compile files('libs/ormlite-android-4.48.jar')
+    compile files('libs/ormlite-core-4.48.jar')
+    compile files('libs/gson-2.5.jar')
+    compile project(path: ':library')
 }

@@ -17,8 +17,11 @@ import com.example.design.proxy.ProxyWang;
 import com.example.other.IdcardValidator;
 import com.example.strategy.Context;
 import com.example.strategy.RechargeTypeEnum;
+import com.example.utils.JDomDemo;
 
 import junit.framework.TestCase;
+
+import java.io.UnsupportedEncodingException;
 
 /**
  * Author：燕青 $ on 16/7/22 16:17
@@ -128,5 +131,18 @@ public class JavaTest extends TestCase {
         Double money4 = context.calRecharge(100D,
                 RechargeTypeEnum.CARD_RECHARGE.value());
         System.out.println(money4);
+    }
+
+    public void testBoolean() throws UnsupportedEncodingException {
+
+//        String urlString = URLEncoder.encode("鄂ARF465", "utf-8");
+//        String s = "http://che.weyee.com/?id=" + urlString;
+//        System.out.println(s);
+
+        String path = "/Users/minhu/Documents/E/weyee/program/POS/app/src/main/res/values/dimens.xml";
+        JDomDemo domDemo = new JDomDemo();
+//        domDemo.createXml(path);
+
+        domDemo.parserXml(path);
     }
 }

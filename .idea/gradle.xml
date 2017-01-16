@@ -14,18 +14,10 @@
             <option value="$PROJECT_DIR$/car-library" />
             <option value="$PROJECT_DIR$/java_lib" />
             <option value="$PROJECT_DIR$/library" />
+            <option value="$PROJECT_DIR$/library_swipe" />
           </set>
         </option>
-        <option name="myModules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/base-adapter-library" />
-            <option value="$PROJECT_DIR$/car-library" />
-            <option value="$PROJECT_DIR$/java_lib" />
-            <option value="$PROJECT_DIR$/library" />
-          </set>
-        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>
