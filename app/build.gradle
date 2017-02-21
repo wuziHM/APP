@@ -53,4 +53,5 @@ dependencies {
     compile files('libs/ormlite-core-4.48.jar')
     compile files('libs/gson-2.5.jar')
     compile project(path: ':library')
+    compile project(':library_swipe')
 }

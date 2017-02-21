@@ -9,11 +9,17 @@ public class MyClass {
 //        }
 
 //        List a = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            if (i == 50) {
-                break;
-            }
-            System.out.println(i);
-        }
+//        for (int i = 0; i < 100; i++) {
+//            if (i == 50) {
+//                break;
+//            }
+//            System.out.println(i);
+//        }
+
+        String value = "123";
+        String[] values = value.split(",");
+        System.out.println("size:" + values.length);
+//        int t = AryDemo.calculate(20, 8);
+//        System.out.println("计算结果：" + t);
     }
 }

@@ -127,7 +127,10 @@
         <activity android:name=".activity.FlagDActivity" />
         <activity android:name=".activity.EditTextActvity" />
         <activity android:name=".activity.PieChartActivity" />
-        <activity android:name=".activity.CityPickerActivity"></activity>
+        <activity android:name=".activity.CityPickerActivity" />
+        <activity android:name=".activity.SwipeActivity" />
+        <activity android:name=".activity.ShoppingCar2" />
+        <activity android:name=".activity.Swipe2Activity"></activity>
     </application>
 
 </manifest>

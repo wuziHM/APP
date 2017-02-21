@@ -71,7 +71,7 @@ public class SwipeMenuView extends LinearLayout implements OnClickListener {
         tv.setTextColor(item.getTitleColor());
         return tv;
     }
-    
+
     @Override
     public void onClick(View v) {
         if (onItemClickListener != null && mLayout.isOpen()) {
@@ -93,5 +93,13 @@ public class SwipeMenuView extends LinearLayout implements OnClickListener {
 
     public static interface OnSwipeItemClickListener {
         void onItemClick(SwipeMenuView view, SwipeMenu menu, int index);
+    }
+
+    public static interface OnSwipeGroupListener {
+        void onGroupClick(SwipeMenuView view, SwipeMenu menu, int groupPosition);
+    }
+
+    public static interface OnSwipeChildListener {
+        void onChildClick(SwipeMenuView view, SwipeMenu menu, int groupPosition, int childPosition);
     }
 }
