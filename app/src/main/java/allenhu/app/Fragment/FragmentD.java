@@ -15,6 +15,13 @@ import allenhu.app.R;
 public class FragmentD extends Fragment {
     private View rootView;
 
+    public static FragmentD newInstance() {
+        Bundle args = new Bundle();
+        FragmentD fragment = new FragmentD();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

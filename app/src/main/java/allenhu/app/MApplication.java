@@ -7,7 +7,6 @@ import android.content.res.AssetManager;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.widget.ExpandableListView;
 
 import com.google.gson.Gson;
 
@@ -18,10 +17,7 @@ import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
-import allenhu.app.bean.AreaBean;
-import allenhu.app.bean.CityBean;
 import allenhu.app.bean.PBean;
-import allenhu.app.bean.ProvinceBean;
 import allenhu.app.db.AreaDao;
 import allenhu.app.db.CityDao;
 import allenhu.app.db.ProvinceDao;
@@ -113,20 +109,7 @@ public class MApplication extends Application {
                     if (pb.getChildren() != null) {
                         LogUtil.e(pb.getChildren().size() + "");
                     }
-//                    LogUtil.e("size:" + pb.getCitys().size());
-//                    pdao.add(pb);
-//                    for (CityBean cb : pb.getCitys()) {
-//                        cdao.add(cb);
-//                        for (AreaBean ab : cb.getAreas()) {
-//                            adao.add(ab);
-//                        }
-//                    }
                 }
-
-//                SharedPreferences preferences = getSharedPreferences("city_info", Context.MODE_PRIVATE);
-//                SharedPreferences.Editor edit = preferences.edit();
-//                edit.putInt("isFrist", 1);
-//                edit.commit();
             } else {
                 LogUtil.e("省数组是空的");
             }

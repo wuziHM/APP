@@ -44,6 +44,14 @@ public class FragmentB extends Fragment {
     private ArrayList<Class> classes;
     private HomeAdapter adapter;
 
+    public static FragmentB newInstance() {
+        Bundle args = new Bundle();
+        FragmentB fragment = new FragmentB();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
