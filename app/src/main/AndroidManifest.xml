@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="allenhu.app">
 
-    <uses-sdk tools:overrideLibrary="com.yongchun.library,com.j256.ormlite" />
+    <uses-sdk tools:overrideLibrary="com.yongchun.library,com.j256.ormlite,cn.zhouchaoyuan.excelpanel" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -130,7 +130,8 @@
         <activity android:name=".activity.CityPickerActivity" />
         <activity android:name=".activity.SwipeActivity" />
         <activity android:name=".activity.ShoppingCar2" />
-        <activity android:name=".activity.Swipe2Activity"></activity>
+        <activity android:name=".activity.Swipe2Activity" />
+        <activity android:name=".activity.ExcelActivity"></activity>
     </application>
 
 </manifest>

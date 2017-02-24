@@ -20,6 +20,7 @@ import java.util.TimerTask;
 import allenhu.app.R;
 import allenhu.app.activity.AccelerometerPlayActivity;
 import allenhu.app.activity.CityPickerActivity;
+import allenhu.app.activity.ExcelActivity;
 import allenhu.app.activity.HyperTranslateActivity;
 import allenhu.app.activity.ShoppingCar2;
 import allenhu.app.activity.ShoppingCarActivity;
@@ -119,6 +120,7 @@ public class FragmentB extends Fragment {
         list.add("选择省市区");
         list.add("购物车效果");
         list.add("recycleView滑动");
+        list.add("excel表格");
 
         classes = new ArrayList<Class>();
         classes.add(AccelerometerPlayActivity.class);
@@ -127,5 +129,6 @@ public class FragmentB extends Fragment {
         classes.add(CityPickerActivity.class);
         classes.add(ShoppingCar2.class);
         classes.add(Swipe2Activity.class);
+        classes.add(ExcelActivity.class);
     }
 }

@@ -1,18 +1,38 @@
-# APP
+# APP简介
+####集合了多种效果，和基础知识的一个应用
 
-集合了多种效果，和基础知识的一个应用
+* java_lib 中主要集合了javaSE的一些基础知识，以及一些常用的设计模式demo
+* app的module中是一些安卓的基础知识，特效的demo。包括四大组件的一些总结，一些动画效果的实现，一些框架的使用实例。
+* library_swipe是一个滑动刷新的库
+* base-adapter-library是鸿洋的封装的adapter一个库，挺好用的，有listView的adapter，RecycleView的adapter。
 
-java_lib 中主要集合了javaSE的一些基础知识，以及一些常用的设计模式demo
+####下面是一些界面的截图和说明总结：
+### 首页
+![首页](./screenshot/main.png)
 
-目录结构：
+**首页分为4个部分，基础知识，进阶特效、高级、实例**
 
-![dd](file:///Users/minhu/Downloads/11.jpg)
+#####基础部分
+1. 基本控件:recyclerView的使用、adapter局部更新、PopupWindow使用、Spinner使用等等
+2. 动画：使用属性动画实现位移、旋转、透明等效果，以及一些组合效果。还有插值器的使用。
+3. Drawable：使用drawable、TransitionDrawable实现图片不断循环播放的效果，关键代码如下：
 
-ni hao
-*   轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。
-那河畔的金柳， 是夕阳中的新娘；
-波光里的艳影， 在我的心头荡漾。软泥上的青荇， 油油的在水底招摇； 在康河的柔波里， 我甘心做一条水草！
-*   那榆荫下的一潭， 不是清泉， 是天上虹； 揉碎在浮藻间， 沉淀着彩虹似的梦。
-寻梦？撑一支长篙， 向青草更青处漫溯； 满载一船星辉， 在星辉斑斓里放歌。
-但我不能放歌， 悄悄是别离的笙箫； 夏虫也为我沉默， 沉默是今晚的康桥！
-悄悄的我走了， 正如我悄悄的来； 我挥一挥衣袖， 不带走一片云彩。
+//处理transition的改变
+    
+    private Handler handler = new Handler(new Handler.Callback() {
+        public boolean handleMessage(Message msg) {
+            int duration = msg.arg1;
+            TransitionDrawable transitionDrawable = null;
+            transitionDrawable = 
+            new TransitionDrawable(new Drawable[]{
+                    drawables[change % ids.length],//实现从0 1 2 3 4 5 0 1 2.。。这样的不停转变
+                    drawables[(change + 1) % ids.length]});
+            change++;
+            img.setImageDrawable(transitionDrawable);
+            transitionDrawable.startTransition(duration);
+            return false;
+        }
+    }); 
+
+	
+
