@@ -1,0 +1,63 @@
+ext {
+    // 安卓常规配置
+    android = [
+            compileSdkVersion : 25,
+            buildToolsVersion : "25.0.2",
+            applicationId     : "com.weyee.mobilepos",
+            minSdkVersion     : 14,
+            targetSdkVersion  : 25,
+            versionCode       : 1,       // app版本号
+            versionName       : "1.1.9"  // 接口版本号
+    ]
+
+    // 第三方库
+    libs =  [
+            // android 官方
+            support_v4                  : 'com.android.support:support-v4:25.1.0',
+            appcompat_v7                : 'com.android.support:appcompat-v7:25.1.0',
+            gridlayout_v7               : 'com.android.support:gridlayout-v7:25.1.0',
+            recyclerview_v7             : 'com.android.support:recyclerview-v7:25.1.0',
+            design                      : 'com.android.support:design:25.1.0',
+            constraint_layout           : 'com.android.support.constraint:constraint-layout:1.0.1',
+
+            // 常用 libs
+            // butterknife
+            butterknife                 : 'com.jakewharton:butterknife:8.4.0',
+            butterknife_compiler        : 'com.jakewharton:butterknife-compiler:8.4.0',
+
+            // rxjava
+            rxandroid                   : 'io.reactivex:rxandroid:1.2.1',
+            rxjava                      : 'io.reactivex:rxjava:1.1.6',
+            rxjava_math                 : 'io.reactivex:rxjava-math:1.0.0',
+
+            // dagger2
+            dagger                      : 'com.google.dagger:dagger:2.7',
+            dagger_compiler             : 'com.google.dagger:dagger-compiler:2.7',
+            javax_annotation            : 'org.glassfish:javax.annotation:10.0-b28',
+
+            // 监听键盘
+            keyboardvisibilityevent     : 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.0.1',
+
+            ultra_ptr                   : 'in.srain.cube:ultra-ptr:1.0.11',
+            android_async_http          : 'com.loopj.android:android-async-http:1.4.9',
+            otto                        : 'com.squareup:otto:1.3.8',
+            zxing_library               : 'cn.yipianfengye.android:zxing-library:1.9',
+            sweetalert                  : 'cn.pedant.sweetalert:library:1.3',
+            logger                      : 'com.orhanobut:logger:1.15',
+            gson                        : 'com.google.code.gson:gson:2.8.0',
+            convenientbanner            : 'com.bigkoo:convenientbanner:2.0.5',
+            glide                       : 'com.github.bumptech.glide:glide:3.6.1',
+            photocropper                : 'org.hybridsquad.android.photocropper:library:2.1.0',
+
+
+
+            // 不常用 libs
+            statusbaruitl               : 'com.jaeger.statusbaruitl:library:1.2.8',
+            easypermissions             : 'pub.devrel:easypermissions:0.2.0',
+            scrollablelayoutlib         : 'com.github.cpoopc:scrollablelayoutlib:1.0.1',
+            NestFullListView            : 'com.github.mcxtzhang:NestFullListView:V1.0.0',
+            ExpandableLayout            : 'com.github.SilenceDut:ExpandableLayout:1.2.0',
+            FlycoTabLayout_Lib          : 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar',
+            scrolllayout                : 'com.yinglan.scrolllayout:scrolllayout:1.0.0',
+    ]
+}

@@ -145,4 +145,33 @@ public class JavaTest extends TestCase {
 
         domDemo.parserXml(path);
     }
+
+
+    public void testFlow() {
+        methodA(1);
+        methodB(1);
+        methodC(1);
+        methodD(1);
+    }
+
+    private void methodA(int i) {
+        if (i == 1) {
+            return;
+        }
+        System.out.println("aaaaaaaaa");
+    }
+
+    private void methodB(int i) {
+        System.out.println("bbbbbbbbbbbb");
+    }
+
+    private void methodC(int i) {
+        System.out.println("cccccccccc");
+
+    }
+
+    private void methodD(int i) {
+        System.out.println("dddddddd");
+
+    }
 }
