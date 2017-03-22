@@ -1,11 +1,13 @@
 apply plugin: 'com.android.library'
+def config = gradle.ext
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.2'
+
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 23
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
     }
     buildTypes {
         release {
@@ -18,5 +20,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile config.appcompat_v7
+//    compile 'com.android.support:appcompat-v7:25.2.0'
 }

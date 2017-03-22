@@ -1,25 +1,21 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-}
 apply plugin: 'android-library'
 
+def config = gradle.ext
 dependencies {
-    compile 'com.android.support:support-v4:25.2.0'
+    compile config.support_v4
 }
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.2'
+
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName config.versionName
     }
-
     sourceSets {
         main {
             java.srcDirs = ['src']
