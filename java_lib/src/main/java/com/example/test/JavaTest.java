@@ -22,6 +22,7 @@ import com.example.utils.JDomDemo;
 import junit.framework.TestCase;
 
 import java.io.UnsupportedEncodingException;
+import java.text.DecimalFormat;
 
 /**
  * Author：燕青 $ on 16/7/22 16:17
@@ -173,5 +174,13 @@ public class JavaTest extends TestCase {
     private void methodD(int i) {
         System.out.println("dddddddd");
 
+        System.out.println(formatDouble(32320920190.09088d));
+
+
+    }
+
+    public static String formatDouble(double d) {
+        DecimalFormat df = new DecimalFormat("######0.00");
+        return df.format(d);
     }
 }

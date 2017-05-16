@@ -20,8 +20,10 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile config.appcompat_v7
+    compile config.recyclerview_v7
+
 }
 
 //publish {

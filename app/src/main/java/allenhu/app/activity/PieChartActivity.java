@@ -5,12 +5,9 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
-import android.text.style.ParagraphStyle;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.util.Log;
-import android.view.MenuItem;
-import android.widget.SeekBar;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -21,7 +18,6 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
-import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
@@ -32,7 +28,6 @@ import allenhu.app.base.BaseActivity;
 import allenhu.app.util.LogUtil;
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class PieChartActivity extends BaseActivity implements OnChartValueSelectedListener {
 
@@ -88,7 +83,6 @@ public class PieChartActivity extends BaseActivity implements OnChartValueSelect
 //        l.setXEntrySpace(5f);
 //        l.setYEntrySpace(0f);
 //        l.setXOffset(0f);
-
 
     }
 

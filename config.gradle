@@ -78,7 +78,6 @@ def initProjectEnvironment() {
     gradle.ext.versionName = properties.getProperty('versionName')
     gradle.ext.versionCode = properties.getProperty('versionCode').toInteger().intValue()
 
-
     gradle.ext.support_v4 = properties.getProperty('support_v4')
     gradle.ext.appcompat_v7 = properties.getProperty('appcompat_v7')
     gradle.ext.gridlayout_v7 = properties.getProperty('gridlayout_v7')
