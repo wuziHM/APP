@@ -22,6 +22,7 @@ import allenhu.app.activity.AccelerometerPlayActivity;
 import allenhu.app.activity.CityPickerActivity;
 import allenhu.app.activity.ExcelActivity;
 import allenhu.app.activity.HyperTranslateActivity;
+import allenhu.app.activity.RXjavaActivity;
 import allenhu.app.activity.ShoppingCar2;
 import allenhu.app.activity.ShoppingCarActivity;
 import allenhu.app.activity.Swipe2Activity;
@@ -121,6 +122,7 @@ public class FragmentB extends Fragment {
         list.add("购物车效果");
         list.add("recycleView滑动");
         list.add("excel表格");
+        list.add("RXJava");
 
         classes = new ArrayList<Class>();
         classes.add(AccelerometerPlayActivity.class);
@@ -130,5 +132,6 @@ public class FragmentB extends Fragment {
         classes.add(ShoppingCar2.class);
         classes.add(Swipe2Activity.class);
         classes.add(ExcelActivity.class);
+        classes.add(RXjavaActivity.class);
     }
 }

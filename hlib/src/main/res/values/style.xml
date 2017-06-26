@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- 头部 -->
+    <style name="MHeaderStyle">
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <!-- 头部左菜单 -->
+    <style name="MHeaderLeftViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:minWidth">80dp</item>
+    </style>
+
+    <style name="MHeaderIconViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:src">@mipmap/m_ic_back</item>
+    </style>
+
+    <!-- 头部右菜单 -->
+    <style name="MHeaderRightViewStyle">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:visibility">invisible</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:minWidth">80dp</item>
+    </style>
+
+    <!-- 头部标题 -->
+    <style name="MHeaderTitleStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_toLeftOf">@id/headerViewRightView</item>
+        <item name="android:layout_toRightOf">@id/headerViewLeftView</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+    <style name="MListViewDividerStyle">
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">#e6e6e6</item>
+    </style>
+
+
+    <style name="MDividerStyle" parent="MListViewDividerStyle">
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginLeft">0dp</item>
+    </style>
+
+
+</resources>

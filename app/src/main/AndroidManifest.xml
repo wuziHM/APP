@@ -130,7 +130,8 @@
         <activity android:name=".activity.SwipeActivity" />
         <activity android:name=".activity.ShoppingCar2" />
         <activity android:name=".activity.Swipe2Activity" />
-        <activity android:name=".activity.ExcelActivity"></activity>
+        <activity android:name=".activity.ExcelActivity" />
+        <activity android:name=".activity.RXjavaActivity"></activity>
     </application>
 
 </manifest>

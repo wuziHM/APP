@@ -1,2 +1,2 @@
 apply from: './config.gradle'
-include ':app', ':base-adapter-library', ':car-library', ':java_lib', ':library', ':library_swipe'
+include ':app', ':base-adapter-library', ':car-library', ':java_lib', ':library', ':library_swipe', ':hlib'

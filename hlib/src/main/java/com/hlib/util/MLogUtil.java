@@ -1,28 +1,30 @@
-package allenhu.app.util;
+package com.hlib.util;
 
 import android.util.Log;
 
 /**
- * 日志工具类。统一管理日志信息的显示/隐藏
- *
- * @since 2014-11-26 上午11:13:29
+ * 日志工具类。
+ * Created by moguangjian on 15/10/10 14:57.
  */
-public class LogUtil {
+public class MLogUtil {
+    private static final String TAG = MLogUtil.class.getSimpleName();
 
-    private static final String TAG = "wuzi";
     /**
      * 是否开启debug模式，false则不打印日志
      */
-    private static final boolean isDebug = true;
+    private static final boolean isDebug = false;
+//    private static final boolean isDebug = true;
+
     /**
      * 是否打印e级别异常，开启后，在debug模式也可正常打印
      */
-    private static final boolean isShowE = true;
+    private static final boolean isShowError = true;
 
     /**
      * 是否已经显示佛祖
      */
     private static boolean isShowBuddha = false;
+    private static String tag = "pos";
 
     /**
      * 佛祖显灵
@@ -62,16 +64,10 @@ public class LogUtil {
      * @param msg
      */
     public static void i(String tag, String msg) {
-        if (isDebug) {
-//            Log.i(tag, msg);
-            println(tag, msg);
-        }
-    }
-  public static void i( String msg) {
+        showBuddha();
 
         if (isDebug) {
-//            Log.i(tag, msg);
-            println(TAG, msg);
+            Log.i(tag, msg);
         }
     }
 
@@ -93,9 +89,19 @@ public class LogUtil {
      * @param tag
      * @param msg
      */
-    @SuppressWarnings("unused")
     public static void e(String tag, String msg) {
-        if (isShowE || isDebug) {
+        if (isShowError || isDebug) {
+            Log.e(tag, msg);
+        }
+    }
+
+    /**
+     * 打印log.e日志
+     *
+     * @param msg
+     */
+    public static void e(String msg) {
+        if (isShowError || isDebug) {
             Log.e(tag, msg);
         }
     }
@@ -108,15 +114,4 @@ public class LogUtil {
             System.out.println(TAG + " : " + msg);
         }
     }
-
-
-    /**
-     * 打印log.e日志
-     */
-    public static void e(String msg) {
-        if (isShowE || isDebug) {
-            Log.e(TAG, msg);
-        }
-    }
-
 }

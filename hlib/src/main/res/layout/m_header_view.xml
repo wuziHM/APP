@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/headerView"
+    style="@style/MHeaderStyle"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/headerViewLeftView"
+        style="@style/MHeaderLeftViewStyle"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivHeaderViewLeft"
+            style="@style/MHeaderIconViewStyle"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"/>
+
+        <TextView
+            android:id="@+id/tvHeaderViewLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="返回"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/headerViewRightView"
+        style="@style/MHeaderRightViewStyle"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivHeaderViewRight"
+            style="@style/MHeaderIconViewStyle"
+            android:src="@null"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"/>
+
+        <TextView
+            android:id="@+id/tvHeaderViewRight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="更多"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="visible"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvHeaderViewTitle"
+        style="@style/MHeaderTitleStyle"
+        android:textColor="@android:color/white"
+        tools:text="标题"/>
+
+    <View
+        android:id="@+id/headerViewLineAtBottom"
+        style="@style/MDividerStyle"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/transparent"/>
+</RelativeLayout>

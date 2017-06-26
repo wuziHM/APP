@@ -38,7 +38,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
     compile config.appcompat_v7
     compile config.support_v4
     compile config.gridlayout_v7
@@ -47,24 +46,28 @@ dependencies {
     compile config.design
     compile project(':base-adapter-library')
     compile project(path: ':car-library')
-    compile 'com.github.razerdp:BasePopup:v1.1.5'
     // butterknife
+    compile files('libs/ormlite-android-4.48.jar')
+    compile files('libs/ormlite-core-4.48.jar')
+    compile files('libs/gson-2.5.jar')
+    compile project(path: ':library')
+    compile project(':library_swipe')
+    //可选，用于生成application类
+    //tinker的核心库
+    compile 'com.github.razerdp:BasePopup:v1.1.5'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.github.bumptech.glide:glide:3.6.1'
     compile 'com.commit451:PhotoView:1.2.4'
     compile 'com.isseiaoki:simplecropview:1.0.13'
     compile 'com.yongchun:com.yongchun.imageselector:1.1.0'
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.0-beta1'
-    compile files('libs/ormlite-android-4.48.jar')
-    compile files('libs/ormlite-core-4.48.jar')
-    compile files('libs/gson-2.5.jar')
-    compile project(path: ':library')
-    compile project(':library_swipe')
     compile 'cn.zhouchaoyuan:excelpanel:1.0.1'
-    //可选，用于生成application类
-    provided 'com.tencent.tinker:tinker-android-anno:1.7.7'
-    //tinker的核心库
     compile 'com.tencent.tinker:tinker-android-lib:1.7.7'
+    compile 'io.reactivex:rxjava:1.0.14'
+    compile 'io.reactivex:rxandroid:1.0.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    provided 'com.tencent.tinker:tinker-android-anno:1.7.7'
     compile 'io.reactivex:rxjava:1.0.14'
     compile 'io.reactivex:rxandroid:1.0.1'
 }
