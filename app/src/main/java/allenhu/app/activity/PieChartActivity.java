@@ -42,9 +42,18 @@ public class PieChartActivity extends BaseActivity implements OnChartValueSelect
     };
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_pie_chart;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pie_chart);
         ButterKnife.bind(this);
         initView();
     }

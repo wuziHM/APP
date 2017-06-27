@@ -21,6 +21,16 @@ public class CustomerViewActivity extends BaseActivity implements View.OnClickLi
     private MyRunnable myRunnable;
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_customer_view;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_view);

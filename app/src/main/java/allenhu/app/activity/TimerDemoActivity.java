@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,7 +13,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import allenhu.app.R;
-import allenhu.app.adapter.SpinnerAdapter;
 import allenhu.app.base.BaseActivity;
 import allenhu.app.util.LogUtil;
 
@@ -29,9 +27,18 @@ public class TimerDemoActivity extends BaseActivity implements View.OnClickListe
     private int f = 0;
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_timer_demo;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_timer_demo);
 
         initView();
 

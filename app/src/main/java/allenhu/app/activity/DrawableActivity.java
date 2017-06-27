@@ -22,9 +22,18 @@ public class DrawableActivity extends BaseActivity {
     private ImageView img;
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_drawable;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drawable);
         img = (ImageView) findViewById(R.id.draw_img);
 //        TransitionDrawable drawable = (TransitionDrawable) img.getDrawable();
 //        drawable.startTransition(3000);

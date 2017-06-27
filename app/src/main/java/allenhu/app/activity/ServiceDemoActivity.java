@@ -31,9 +31,18 @@ public class ServiceDemoActivity extends BaseActivity implements View.OnClickLis
     };
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_service_demo;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_service_demo);
 
         btnService1 = (Button) findViewById(R.id.btn_service1);
         btnService1.setOnClickListener(this);

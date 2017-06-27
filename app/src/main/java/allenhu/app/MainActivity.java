@@ -25,11 +25,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private FragmentManager fragmentManager;
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+        setSwipeBackEnable(false);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         fragmentManager = getSupportFragmentManager();
         initFragment();
-        setContentView(R.layout.activity_main);
         initView();
         textView1.performClick();       //模拟点击一次  新学的方法
     }

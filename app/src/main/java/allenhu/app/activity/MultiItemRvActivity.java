@@ -1,7 +1,6 @@
 package allenhu.app.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -12,18 +11,28 @@ import com.zhy.base.adapter.recyclerview.OnItemClickListener;
 
 import allenhu.app.R;
 import allenhu.app.adapter.ChatAdapterForRv;
+import allenhu.app.base.BaseActivity;
 import allenhu.app.bean.ChatMessage;
 
 
-public class MultiItemRvActivity extends AppCompatActivity
+public class MultiItemRvActivity extends BaseActivity
 {
     private RecyclerView mRecyclerView;
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_recyclerview;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recyclerview);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
 

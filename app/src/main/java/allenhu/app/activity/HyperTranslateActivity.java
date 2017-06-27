@@ -8,13 +8,22 @@ import android.widget.TextView;
 
 import allenhu.app.R;
 import allenhu.app.base.BaseActivity;
-import allenhu.app.service.ListenClipboardService;
 import allenhu.app.util.Utils;
 
 public class HyperTranslateActivity extends BaseActivity {
 
     private final static String KEY_CONTENT = "content";
     private TextView mTextView;
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_hyper_translate;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

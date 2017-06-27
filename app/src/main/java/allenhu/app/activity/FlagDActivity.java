@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -15,12 +14,13 @@ import android.widget.Toast;
 import java.io.File;
 
 import allenhu.app.R;
+import allenhu.app.base.BaseActivity;
 import allenhu.app.util.LogUtil;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class FlagDActivity extends AppCompatActivity {
+public class FlagDActivity extends BaseActivity {
 
     @Bind(R.id.btn_a)
     Button btnA;
@@ -36,9 +36,18 @@ public class FlagDActivity extends AppCompatActivity {
     Button btnOperate;
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_flag;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flag);
         ButterKnife.bind(this);
         text.setText("D界面");
     }

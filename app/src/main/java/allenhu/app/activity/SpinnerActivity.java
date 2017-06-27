@@ -27,9 +27,18 @@ public class SpinnerActivity extends BaseActivity implements AdapterView.OnItemS
     private BaseAdapter myAdadpter = null;
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_spinner;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spinner);
         spin_one = (Spinner) findViewById(R.id.spin_one);
         spin_two = (Spinner) findViewById(R.id.spin_two);
         mContext = SpinnerActivity.this;

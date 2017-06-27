@@ -1,6 +1,5 @@
 package allenhu.app.activity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,10 +13,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 import allenhu.app.R;
+import allenhu.app.base.BaseActivity;
 import allenhu.app.view.SwipeDismissRecyclerViewTouchListener;
 
 
-public class Swipe2Activity extends Activity {
+public class Swipe2Activity extends BaseActivity {
 
     private void showDialog(String msg) {
         AlertDialog alert = new AlertDialog.Builder(Swipe2Activity.this)
@@ -30,9 +30,18 @@ public class Swipe2Activity extends Activity {
     }
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_swipe2;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_swipe2);
 
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         final RecyclerView anotherRecyclerView = (RecyclerView) findViewById(R.id.recyclerHorizontalView);

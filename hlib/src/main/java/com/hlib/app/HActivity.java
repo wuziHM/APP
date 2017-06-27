@@ -28,7 +28,7 @@ import com.hlib.widget.header.MHeaderViewAble;
  * <p>
  * use to...
  */
-public abstract class HActivity extends SwipeBackActivity {
+public abstract class HActivity extends SwipeBackActivity implements HActivityAble{
 
 
     private static final String TAG = HActivity.class.getSimpleName();
@@ -60,7 +60,7 @@ public abstract class HActivity extends SwipeBackActivity {
         setContentView(getLayoutId());
 
         initSwipeBackLayout();
-        initHeaderView();
+//        initHeaderView();
         onMCreate(savedInstanceState);
     }
 

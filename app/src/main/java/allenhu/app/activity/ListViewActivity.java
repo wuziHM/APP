@@ -21,10 +21,19 @@ public class ListViewActivity extends BaseActivity {
     private String[] ss = {"11111", "2222", "3333", "4444"};
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_list_view;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_list_view);
         l1 = (ListView) findViewById(R.id.listView1);
         l2 = (ListView) findViewById(R.id.listView1);
 

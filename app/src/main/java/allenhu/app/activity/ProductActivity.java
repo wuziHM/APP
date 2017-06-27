@@ -2,7 +2,6 @@ package allenhu.app.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,14 +9,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+
 import com.android.tonyvu.sc.model.Cart;
 import com.android.tonyvu.sc.util.CartHelper;
 
 import allenhu.app.R;
+import allenhu.app.base.BaseActivity;
 import allenhu.app.bean.Product;
 import allenhu.app.util.Constant;
 
-public class ProductActivity extends AppCompatActivity {
+public class ProductActivity extends BaseActivity {
     private static final String TAG = "ProductActivity";
 
     TextView tvProductName;
@@ -27,10 +28,18 @@ public class ProductActivity extends AppCompatActivity {
     Product product;
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_product;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_product);
 
         Bundle data = getIntent().getExtras();
         product = (Product) data.getSerializable("product");

@@ -17,9 +17,18 @@ public class WebActivity extends BaseActivity {
     private Button btnWeb;
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_web;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web);
         initView();
         //设置编码
         mWebView.getSettings().setDefaultTextEncodingName("utf-8");

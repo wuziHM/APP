@@ -35,9 +35,18 @@ public class MatrixActivity extends BaseActivity implements View.OnClickListener
     private Bitmap bmp; //原始图片
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_matrix;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_matrix);
         initView();
     }
 

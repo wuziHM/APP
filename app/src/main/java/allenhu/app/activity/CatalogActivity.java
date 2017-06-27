@@ -1,5 +1,6 @@
 package allenhu.app.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -7,13 +8,12 @@ import java.util.Collections;
 
 import allenhu.app.R;
 import allenhu.app.adapter.ContentAdapter;
-import allenhu.app.base.BaseActivity;
 import allenhu.app.view.IndexableListView;
 
 /**
  * 右边带索引条的listview
  */
-public class CatalogActivity extends BaseActivity {
+public class CatalogActivity extends Activity {
 
     private ArrayList mItems;
     private IndexableListView listview;

@@ -9,6 +9,16 @@ import allenhu.app.view.HorizontalBar;
 public class HorizonBarActivity extends BaseActivity {
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_horizon_bar;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_horizon_bar);

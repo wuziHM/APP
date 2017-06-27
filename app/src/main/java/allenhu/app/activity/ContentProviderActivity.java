@@ -1,10 +1,7 @@
 package allenhu.app.activity;
 
-import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -28,18 +25,20 @@ public class ContentProviderActivity extends BaseActivity implements View.OnClic
     private Button read, write;
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_content_provider;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_content_provider);
         initView();
-
-//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
-//            //申请WRITE_EXTERNAL_STORAGE权限
-//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, 37);
-//        }else {
         initData();
-//        }
-
     }
 
     private void initView() {

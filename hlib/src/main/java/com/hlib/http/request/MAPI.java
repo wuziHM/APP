@@ -2,9 +2,9 @@ package com.hlib.http.request;
 
 import android.content.Context;
 
-import com.mrmo.mrmoandroidlib.MConfig;
-import com.mrmo.mrmoandroidlib.util.MLogUtil;
-import com.mrmo.mrmoandroidlib.util.MStringUtil;
+import com.hlib.BuildConfig;
+import com.hlib.util.MLogUtil;
+import com.hlib.util.MStringUtil;
 
 import java.util.Map;
 
@@ -53,7 +53,7 @@ public abstract class MAPI {
 
     protected String getApiServer() {
         String apiServer;
-        if (MConfig.isDebug()) {
+        if (BuildConfig.DEBUG) {
             apiServer = getApiServerPrefixDebug();
         } else {
             apiServer = getApiServerPrefix();

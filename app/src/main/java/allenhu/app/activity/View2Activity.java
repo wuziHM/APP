@@ -33,9 +33,18 @@ public class View2Activity extends BaseActivity implements AdapterView.OnItemSel
     private int index = 0;
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_view2;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view2);
         initView();
     }
 

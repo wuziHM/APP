@@ -3,7 +3,6 @@ package allenhu.app.activity;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -15,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 
+import allenhu.app.R;
+import allenhu.app.base.BaseActivity;
 import allenhu.app.fragment.CommentPopupFrag;
 import allenhu.app.fragment.CustomInterpolatorPopupFrag;
 import allenhu.app.fragment.DialogPopupFrag;
@@ -23,9 +24,8 @@ import allenhu.app.fragment.ListPopupFrag;
 import allenhu.app.fragment.MenuPopupFrag;
 import allenhu.app.fragment.ScalePopupFrag;
 import allenhu.app.fragment.SlideFromBottomPopupFrag;
-import allenhu.app.R;
 
-public class PopupWindowActivity extends FragmentActivity {
+public class PopupWindowActivity extends BaseActivity {
     private FragmentManager mFragmentManager;
     private ScalePopupFrag mNormalPopupFrag;
     private SlideFromBottomPopupFrag mSlideFromBottomPopupFrag;
@@ -40,9 +40,18 @@ public class PopupWindowActivity extends FragmentActivity {
     private LinearLayout linearLayout;
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_popup_window;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_popup_window);
         initView();
         initFragment();
 

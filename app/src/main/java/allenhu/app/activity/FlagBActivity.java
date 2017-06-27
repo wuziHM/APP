@@ -1,19 +1,19 @@
 package allenhu.app.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import allenhu.app.R;
+import allenhu.app.base.BaseActivity;
 import allenhu.app.util.LogUtil;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class FlagBActivity extends AppCompatActivity {
+public class FlagBActivity extends BaseActivity {
 
     @Bind(R.id.btn_a)
     Button btnA;
@@ -27,9 +27,18 @@ public class FlagBActivity extends AppCompatActivity {
     TextView text;
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_flag;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flag);
         ButterKnife.bind(this);
         text.setText("B界面");
     }

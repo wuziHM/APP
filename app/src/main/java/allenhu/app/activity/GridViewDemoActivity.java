@@ -1,7 +1,6 @@
 package allenhu.app.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,10 +11,11 @@ import java.util.List;
 import allenhu.app.R;
 import allenhu.app.adapter.DividerItemDecoration;
 import allenhu.app.adapter.GalleryAdapter;
+import allenhu.app.base.BaseActivity;
 import allenhu.app.bean.ImageInfo;
 import allenhu.app.view.MyRecyclerView;
 
-public class GridViewDemoActivity extends AppCompatActivity {
+public class GridViewDemoActivity extends BaseActivity {
 
     private ImageView image;
     private MyRecyclerView recycle;
@@ -25,9 +25,18 @@ public class GridViewDemoActivity extends AppCompatActivity {
 
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_gird_view_demo;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gird_view_demo);
         recycle = (MyRecyclerView) findViewById(R.id.re_gallery);
         image = (ImageView) findViewById(R.id.id_content);
         initData();

@@ -27,9 +27,18 @@ public class ControlsActivity extends BaseActivity implements View.OnClickListen
 
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_controls;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_controls);
 
         findViewById(R.id.btn_gallery).setOnClickListener(this);
         findViewById(R.id.btn_spinner).setOnClickListener(this);

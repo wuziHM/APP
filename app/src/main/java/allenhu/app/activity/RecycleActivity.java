@@ -23,9 +23,18 @@ public class RecycleActivity extends BaseActivity implements CallBackH {
     private TextView tvCall;
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_recycle;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycle);
 
         initView();
     }

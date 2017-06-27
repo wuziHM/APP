@@ -1,5 +1,6 @@
 package allenhu.app.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,9 +15,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
 
-public class AlmightyAdapterActivity extends BaseActivity {
+public class AlmightyAdapterActivity extends Activity {
 
     private List<String> mDatas = new ArrayList<>(Arrays.asList("MultiItem ListView",
             "RecyclerView",

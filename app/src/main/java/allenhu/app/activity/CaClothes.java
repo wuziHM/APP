@@ -1,5 +1,6 @@
 package allenhu.app.activity;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -11,12 +12,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
-import java.util.concurrent.ForkJoinPool;
-
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
 
-public class CaClothes extends BaseActivity implements View.OnTouchListener {
+public class CaClothes extends Activity implements View.OnTouchListener {
 
     private ImageView imgbefore;
     private ImageView imgafter;

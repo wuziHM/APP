@@ -17,9 +17,18 @@ import rx.functions.Func1;
 public class RXjavaActivity extends BaseActivity {
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_rxjava;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rxjava);
 
         rxjavaTest();
 

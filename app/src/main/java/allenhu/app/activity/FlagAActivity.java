@@ -26,9 +26,18 @@ public class FlagAActivity extends BaseActivity {
     TextView text;
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_flag;
+    }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flag);
         ButterKnife.bind(this);
         text.setText("A界面");
     }

@@ -10,8 +10,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.PopupWindow;
-import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +24,7 @@ import allenhu.app.activity.DrawableActivity;
 import allenhu.app.activity.EditTextActvity;
 import allenhu.app.activity.FlagAActivity;
 import allenhu.app.activity.GameActivity;
+import allenhu.app.activity.HLibTestActivity;
 import allenhu.app.activity.HongbaoActivity;
 import allenhu.app.activity.ServiceDemoActivity;
 import allenhu.app.activity.TimerDemoActivity;
@@ -108,6 +107,7 @@ public class FragmentA extends Fragment {
         listContent.add("游戏");
         listContent.add("Intent Flag");
         listContent.add("EditText总结");
+        listContent.add("框架测试");
 
 
         listActivity = new ArrayList<>();
@@ -125,13 +125,7 @@ public class FragmentA extends Fragment {
         listActivity.add(GameActivity.class);
         listActivity.add(FlagAActivity.class);
         listActivity.add(EditTextActvity.class);
+        listActivity.add(HLibTestActivity.class);
 
-//        byte[] bytes = new byte[1024];
-//        OutputStream outputStream = new ByteArrayOutputStream();
-//        try {
-//            outputStream.write(bytes);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 }

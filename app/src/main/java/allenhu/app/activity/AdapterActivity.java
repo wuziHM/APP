@@ -22,12 +22,15 @@ public class AdapterActivity extends BaseActivity implements View.OnClickListene
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_adapter);
-        initView();
-
+    protected int getLayoutId() {
+        return R.layout.activity_adapter;
     }
+
+    @Override
+    protected void onMCreate(Bundle savedInstanceState) {
+        initView();
+    }
+
 
     private void initView() {
         findViewById(R.id.btn1).setOnClickListener(this);
