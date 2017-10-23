@@ -123,6 +123,7 @@ public class FragmentB extends Fragment {
         list.add("recycleView滑动");
         list.add("excel表格");
         list.add("RXJava");
+        list.add("高德地图");
 
         classes = new ArrayList<Class>();
         classes.add(AccelerometerPlayActivity.class);

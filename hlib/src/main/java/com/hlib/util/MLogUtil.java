@@ -12,8 +12,8 @@ public class MLogUtil {
     /**
      * 是否开启debug模式，false则不打印日志
      */
-    private static final boolean isDebug = false;
-//    private static final boolean isDebug = true;
+//    private static final boolean isDebug = false;
+    private static final boolean isDebug = true;
 
     /**
      * 是否打印e级别异常，开启后，在debug模式也可正常打印
@@ -64,7 +64,6 @@ public class MLogUtil {
      * @param msg
      */
     public static void i(String tag, String msg) {
-        showBuddha();
 
         if (isDebug) {
             Log.i(tag, msg);

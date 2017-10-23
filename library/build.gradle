@@ -3,7 +3,11 @@ apply plugin: 'android-library'
 def config = gradle.ext
 dependencies {
     compile config.support_v4
+    compile files('libs/osbcp-css-parser-1.4.jar')
+    compile 'org.sufficientlysecure:html-textview:3.4'
+    compile 'net.sourceforge.htmlcleaner:htmlcleaner:2.16'
 }
+
 
 android {
 

@@ -26,14 +26,14 @@ public class TestAPI extends HAPI {
      */
     public void testServer(MHttpResponseAble res) {
         Map<String, Object> map = new HashMap<>();
-        map.put("token", "TRR9TBnxAU0=");
-        map.put("userId", "752");
-        map.put("prodId", "2571");
-        map.put("pageSize", "10");
-        map.put("pageNo", "1");
-        map.put("storeId", "611");
+//        map.put("token", "TRR9TBnxAU0=");
+//        map.put("userId", "752");
+//        map.put("prodId", "2571");
+//        map.put("pageSize", "10");
+//        map.put("pageNo", "1");
+//        map.put("storeId", "611");
 
-        post("/api/v1/prod/detail/prodRateRecord.json", map, MModel.class, res);
+        post("/static/json/meal_desc.json", map, MModel.class, res);
     }
 
 }

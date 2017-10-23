@@ -21,6 +21,12 @@ import com.example.utils.JDomDemo;
 
 import junit.framework.TestCase;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
 
@@ -182,5 +188,40 @@ public class JavaTest extends TestCase {
     public static String formatDouble(double d) {
         DecimalFormat df = new DecimalFormat("######0.00");
         return df.format(d);
+    }
+
+    public void testIO() {
+
+        File file = new File("test.txt");
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream(file);
+            //Construct BufferedReader from InputStreamReader
+            BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+                System.out.println("====");
+            }
+
+            FileInputStream inputStream = new FileInputStream(file);
+            byte[] buf = new byte[10];
+            int len;
+            while ((len = inputStream.read(buf)) != -1) {
+
+                System.out.println("11111");
+                System.out.println(new String(buf, 0, len));
+            }
+
+            System.out.println("22222");
+
+            br.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

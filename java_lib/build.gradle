@@ -5,7 +5,7 @@ apply plugin: 'java'
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'junit:junit:4.12'
-    compile files('/Users/minhu/Documents/E/weyee/testProgram/APP/app/libs/jdom.jar')
+    compile files('libs/jdom.jar')
 }
 tasks.withType(Compile) {
     options.encoding = 'UTF-8'

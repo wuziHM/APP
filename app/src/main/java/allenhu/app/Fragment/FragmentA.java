@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -81,7 +83,14 @@ public class FragmentA extends Fragment {
             public void onItemClick(View view, int position) {
 //                Toast.makeText(context, "这是第" + position + "个item", Toast.LENGTH_SHORT).show();
                 intent = new Intent(context, listActivity.get(position));
-                startActivity(intent);
+
+                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        getActivity(),
+                        view.findViewById(R.id.iv_logo),
+                        getString(R.string.transition_wechat_img)
+                );
+
+                ActivityCompat.startActivity(getContext(), intent, optionsCompat.toBundle());
             }
 
             @Override

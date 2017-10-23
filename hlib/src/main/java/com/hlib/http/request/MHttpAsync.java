@@ -3,12 +3,9 @@ package com.hlib.http.request;
 import android.content.Context;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 import com.hlib.app.HActivityAble;
 import com.hlib.util.MLogUtil;
 import com.hlib.util.MStringUtil;
-import com.hlib.util.MToastUtil;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.MySSLSocketFactory;
 import com.loopj.android.http.RequestParams;
@@ -184,8 +181,8 @@ public class MHttpAsync implements MHttpAble {
 
             try {
                 Gson gson = new Gson();
-                JsonElement jsonElement = new JsonParser().parse(response);
-                MLogUtil.w(TAG, "response:" + gson.toJson(jsonElement));
+//                JsonElement jsonElement = new JsonParser().parse(response);
+                MLogUtil.w(TAG, "response:" + response);
 
                 if (isHandleParentServerResponse) {
                     MStatusModel mStatusModel = gson.fromJson(response, MStatusModel.class);
@@ -209,18 +206,18 @@ public class MHttpAsync implements MHttpAble {
         }
 
         private void dealSlowly(int statusCode, MStatusModel mStatusModel, Gson gson, String response) {
-            if (mStatusModel.getCode() == 200) {
+            if (statusCode == 200) {
                 MModel mModel = gson.fromJson(response, this.mModel);
                 mHttpResponseAble.onSuccess(statusCode, mModel);
 
             } else {
-                String msg = mStatusModel.getMsg();
-                if (MStringUtil.isEmpty(msg)) {
-                    msg = "网络不给力";
-                }
-                MToastUtil.show(context, msg);
+//                String msg = mStatusModel.getMsg();
+//                if (MStringUtil.isEmpty(msg)) {
+//                    msg = "网络不给力";
+//                }
+//                MToastUtil.show(context, msg);
 
-                mHttpResponseAble.onFailure(context, statusCode, msg);
+                mHttpResponseAble.onFailure(context, statusCode, "网络不给力");
             }
         }
     }

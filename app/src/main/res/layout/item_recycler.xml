@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_5"
+        android:layout_gravity="center_vertical"
+        android:transitionName="@string/transition_wechat_img"
+        android:src="@mipmap/ic_logo"/>
 
     <TextView
         android:id="@+id/id_num"
@@ -11,7 +20,7 @@
         android:padding="5dp"
         android:text="1"
         android:textColor="@android:color/holo_red_light"
-        android:textSize="18sp" />
+        android:textSize="18sp"/>
 
 
 </LinearLayout>

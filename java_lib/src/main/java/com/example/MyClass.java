@@ -8,7 +8,6 @@ public class MyClass {
         String a = "18874442357";
         System.out.println(a.substring(0, 4));
         System.out.println(a.substring(4, a.length()));
-
         System.out.println(formatDouble(3332323232.32));
 
     }

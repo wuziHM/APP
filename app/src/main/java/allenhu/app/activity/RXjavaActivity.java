@@ -1,6 +1,9 @@
 package allenhu.app.activity;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +12,8 @@ import allenhu.app.R;
 import allenhu.app.base.BaseActivity;
 import allenhu.app.util.LogUtil;
 import allenhu.app.util.StringUtils;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Action1;
@@ -16,21 +21,37 @@ import rx.functions.Func1;
 
 public class RXjavaActivity extends BaseActivity {
 
+
+    @Bind(R.id.tv_test)
+    TextView tvTest;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_rxjava;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onMCreate(Bundle savedInstanceState) {
+        ButterKnife.bind(this);
+
+//        String html = "<p><font style=\\\"font-size:16px\\\">备注：</font></p><p><font style=\\\"font-size:16px\\\">1、培训内容：网点租金、广告位、开店指导、如何分享网点运营、平台操作等。&nbsp;</font></p><p><font style=\\\"font-size:16px\\\">2、<font style=\\\"color:#e74c3c\\\">*</font>注意：(网点租金、广告位、电子名片)和通过网点运营培训考试(网点运营培训或者在线或者线程进行，考试通过由震海电商大学办理结业证)在校学生军人和残疾人免费在线或者现场培训,  开始通过, 无结业证</font></p>";
+//        tvTest.setText(Html.fromHtml(html,Html.FROM_HTML_MODE_COMPACT));
+
+//        tvTest.setText(Html.fromHtml("运行代码,点击  Sign in or register  按钮" + "<br>" +
+//                "<font color=" +
+//                getResources().getColor(R.color.colorAccent) +
+//                ">" +
+//                "即可输出Log值" +
+//                "</font>" + "<br>" + "查看MVP模式下登录的方法执行顺序"));
 
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         rxjavaTest();
+
 
     }
 

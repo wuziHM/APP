@@ -50,7 +50,7 @@ public class HAPI extends MAPI {
     protected void requestHttpPrepare(int method, String url, Map<String, Object> params, Class<? extends MModel> mModel, MHttpResponseAble mHttpResponseAble) {
 
         //设置一些通用的参数，每个接口都需要的参数
-//        params.put("access_token", GUserMsgUtil.getToken(context));
+
 //        params.put("vendor_user_id", GUserMsgUtil.getUserId(context));
 //        params.put("app_ver", MPackageUtil.getAppVersionName(context));             // 应用版本号
 //        params.put("ver", GConfig.API_VERSION);                                     // 接口版本号

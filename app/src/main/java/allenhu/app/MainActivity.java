@@ -3,6 +3,7 @@ package allenhu.app;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,6 +14,9 @@ import allenhu.app.fragment.FragmentA;
 import allenhu.app.fragment.FragmentB;
 import allenhu.app.fragment.FragmentC;
 import allenhu.app.fragment.FragmentD;
+import allenhu.app.util.HomeWatcher;
+import allenhu.app.util.LogUtil;
+import allenhu.app.util.ToastUtils;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -20,9 +24,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private FragmentB fragmentB;
     private FragmentC fragmentC;
     private FragmentD fragmentD;
+    public static final int FLAG_HOMEKEY_DISPATCHED = 0x80000000; //需要自己定义标志
 
     private TextView textView1, textView2, textView3, textView4;
     private FragmentManager fragmentManager;
+    private HomeWatcher mHomeWatcher;
 
     @Override
     protected int getLayoutId() {
@@ -36,11 +42,36 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        this.getWindow().setFlags(FLAG_HOMEKEY_DISPATCHED, FLAG_HOMEKEY_DISPATCHED);//关键代码
         super.onCreate(savedInstanceState);
         fragmentManager = getSupportFragmentManager();
         initFragment();
         initView();
         textView1.performClick();       //模拟点击一次  新学的方法
+
+
+        initHomeEvent();
+
+//        getWindow().setExitTransition(TransitionInflater.from(this).inflateTransition(R.transition.slide));
+    }
+
+    private void initHomeEvent() {
+        mHomeWatcher = new HomeWatcher(this);
+        mHomeWatcher.setOnHomePressedListener(new HomeWatcher.OnHomePressedListener() {
+            @Override
+            public void onHomePressed() {
+                //按了HOME键
+                ToastUtils.ToastMessage(MainActivity.this, "按了home键");
+            }
+
+            @Override
+            public void onHomeLongPressed() {
+                //长按HOME键
+                ToastUtils.ToastMessage(MainActivity.this, "长按home键");
+            }
+        });
+        mHomeWatcher.startWatch();
     }
 
     private void initFragment() {
@@ -112,6 +143,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
     @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == event.KEYCODE_HOME) {
+            LogUtil.e("==KEYCODE_HOME==");
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         MobclickAgent.onResume(this);
@@ -121,5 +161,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onPause() {
         super.onPause();
         MobclickAgent.onPause(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mHomeWatcher != null)
+            mHomeWatcher.stopWatch();// 在销毁时停止监听，不然会报错的。
     }
 }

@@ -19,6 +19,7 @@
     <string name="action_showShadow">Show shadow</string>
     <string name="action_showHeaderAndFooter">Show Header &amp; Footer</string>
     <string name="action_updateDataset">Update dataset</string>
+    <string name="transition_wechat_img">transition_wechat_img</string>
 
 
     <string name="product_list">Product List</string>
@@ -36,5 +37,6 @@
     <string name="shop">Shop</string>
     <string name="init_tip">在任何应用中复制内容，所复制文本将会在显示在屏幕顶部。点击后，内容将会显示在此处。</string>
     <string name="tip">此为剪贴板中内容，点击查看：</string>
+    <string name="asset_statements" translatable="false">[{\n  \"relation\": [\"delegate_permission/common.handle_all_urls\"],\n  \"target\": {\n    \"namespace\": \"web\",\n    \"site\": \"http://127.0.0.1:8020\",\n  }\n}]</string>
 
 </resources>

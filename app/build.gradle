@@ -6,12 +6,18 @@ def config = gradle.ext
 
 android {
     signingConfigs {
-//        debug {
-//            keyAlias 'allen'
-//            keyPassword 'allen123'
-//            storeFile file('E:/allenTestSpace/key/allen.jks')
-//            storePassword 'allen123'
-//        }
+        release {
+            keyAlias 'key0'
+            keyPassword 'allenrelease'
+            storeFile file('/Users/minhu/Documents/E/keystore/发布/release.jks')
+            storePassword 'allenrelease'
+        }
+        debug {
+            keyAlias 'allen'
+            keyPassword 'allen123'
+            storeFile file('/Users/minhu/Documents/E/keystore/测试/allen.jks')
+            storePassword 'allen123'
+        }
     }
     compileSdkVersion config.compileSdkVersion
     buildToolsVersion config.buildToolsVersion

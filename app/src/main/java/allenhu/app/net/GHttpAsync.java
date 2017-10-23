@@ -6,7 +6,6 @@ import com.google.gson.Gson;
 import com.hlib.http.request.MHttpAsync;
 import com.hlib.http.request.MHttpResponseAble;
 import com.hlib.http.request.MModel;
-import com.hlib.util.MLogUtil;
 
 import java.util.Map;
 
@@ -39,7 +38,6 @@ public class GHttpAsync extends MHttpAsync {
     @Override
     protected void onServerResponse(int statusCode, Class<? extends MModel> mModel, Gson gson, String response, MHttpResponseAble mHttpResponseAble) {
         super.onServerResponse(statusCode, mModel, gson, response, mHttpResponseAble);
-        MLogUtil.e("response:" + response);
         mHttpResponseAble.onSuccess(statusCode, response);
     }
 }

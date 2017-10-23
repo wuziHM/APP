@@ -1,137 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="allenhu.app">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="allenhu.app">
 
-    <uses-sdk tools:overrideLibrary="com.yongchun.library,com.j256.ormlite,cn.zhouchaoyuan.excelpanel" />
+    <uses-sdk tools:overrideLibrary="com.yongchun.library,com.j256.ormlite,cn.zhouchaoyuan.excelpanel"/>
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_OWNER_DATA" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_OWNER_DATA"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
 
+        <meta-data
+            android:name="asset_statements"
+            android:resource="@string/asset_statements"/>
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/mainStyle">
+
+
             <intent-filter>
-                <action android:name="allenhu.app.main" />
+                <action android:name="allenhu.app.main"/>
                 <!-- 如果有自定义action时，记得添加下面这句 ，不然会报错 -->
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
 
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:host="127.0.0.1"
+                    android:path="/main"
+                    android:port="8020"
+                    android:scheme="http"/>
+            </intent-filter>
+
         </activity>
-        <activity android:name=".activity.DrawableActivity" />
-        <activity android:name=".activity.GridViewDemoActivity" />
-        <activity android:name=".activity.SpinnerActivity" />
-        <activity android:name=".activity.AnimationActivity" />
+        <activity android:name=".activity.DrawableActivity"/>
+        <activity android:name=".activity.GridViewDemoActivity"/>
+        <activity android:name=".activity.SpinnerActivity"/>
+        <activity android:name=".activity.AnimationActivity"/>
         <activity
             android:name=".activity.CustomerViewActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".activity.View1Activity" />
-        <activity android:name=".activity.View2Activity" />
-        <activity android:name=".activity.CaClothes" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".activity.View1Activity"/>
+        <activity android:name=".activity.View2Activity"/>
+        <activity android:name=".activity.CaClothes"/>
         <activity
             android:name=".activity.WeixinActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="56c4354967e58e9995001685" />
+            android:value="56c4354967e58e9995001685"/>
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="huawei" />
+            android:value="huawei"/>
 
-        <service android:name=".service.OperationsManager" />
+        <service android:name=".service.OperationsManager"/>
 
-        <activity android:name=".activity.CatalogActivity" />
-        <activity android:name=".activity.HongbaoActivity" />
-        <activity android:name=".activity.ContentProviderActivity" />
+        <activity android:name=".activity.CatalogActivity"/>
+        <activity android:name=".activity.HongbaoActivity"/>
+        <activity android:name=".activity.ContentProviderActivity"/>
         <activity
             android:name=".activity.ServiceDemoActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".activity.FirstViewActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".activity.WebActivity" />
-        <activity android:name=".activity.ScrollerActivity" />
-        <activity android:name=".activity.TimerDemoActivity" />
-        <activity android:name=".activity.AccelerometerPlayActivity" />
-        <activity android:name=".activity.ControlsActivity" />
-        <activity android:name=".activity.RotateAnimationActivity" />
-        <activity android:name=".activity.VoiceViewActivity" />
-        <activity android:name=".activity.RecycleActivity" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".activity.WebActivity"/>
+        <activity android:name=".activity.ScrollerActivity"/>
+        <activity android:name=".activity.TimerDemoActivity"/>
+        <activity android:name=".activity.AccelerometerPlayActivity"/>
+        <activity android:name=".activity.ControlsActivity"/>
+        <activity android:name=".activity.RotateAnimationActivity"/>
+        <activity android:name=".activity.VoiceViewActivity"/>
+        <activity android:name=".activity.RecycleActivity"/>
         <activity
             android:name=".activity.HorizonBarActivity"
-            android:launchMode="singleInstance" />
-        <activity android:name=".activity.ListViewActivity" />
-        <activity android:name=".activity.PinnedSectionListActivity" />
-        <activity android:name=".activity.AdapterActivity" />
-        <activity android:name=".activity.AlmightyAdapterActivity" />
-        <activity android:name=".activity.MultiItemListViewActivity" />
-        <activity android:name=".activity.RecyclerViewActivity" />
-        <activity android:name=".activity.MultiItemRvActivity" />
-        <activity android:name=".activity.RvWidthHeaderActivity" />
-        <activity android:name=".activity.GameActivity" />
-        <activity android:name=".activity.ProductActivity" />
-        <activity android:name=".activity.ShoppingCartActivity" />
-        <activity android:name=".activity.WuActivity" />
-        <activity android:name=".activity.ShoppingCarActivity" />
+            android:launchMode="singleInstance"/>
+        <activity android:name=".activity.ListViewActivity"/>
+        <activity android:name=".activity.PinnedSectionListActivity"/>
+        <activity android:name=".activity.AdapterActivity"/>
+        <activity android:name=".activity.AlmightyAdapterActivity"/>
+        <activity android:name=".activity.MultiItemListViewActivity"/>
+        <activity android:name=".activity.RecyclerViewActivity"/>
+        <activity android:name=".activity.MultiItemRvActivity"/>
+        <activity android:name=".activity.RvWidthHeaderActivity"/>
+        <activity android:name=".activity.GameActivity"/>
+        <activity android:name=".activity.ProductActivity"/>
+        <activity android:name=".activity.ShoppingCartActivity"/>
+        <activity android:name=".activity.WuActivity"/>
+        <activity android:name=".activity.ShoppingCarActivity"/>
 
         <service
             android:name=".service.MyService1"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="allen.app.myservice" />
+                <action android:name="allen.app.myservice"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>
         <service
             android:name=".service.ListenClipboardService"
             android:enabled="true"
             android:exported="true"
-            android:process=":process" />
+            android:process=":process"/>
 
-        <receiver android:name=".receive.AlarmReceiver" />
-        <receiver android:name=".receive.NotificationReceiver" />
-        <receiver android:name=".receive.BootCompletedReceiver" />
+        <receiver android:name=".receive.AlarmReceiver"/>
+        <receiver android:name=".receive.NotificationReceiver"/>
+        <receiver android:name=".receive.BootCompletedReceiver"/>
 
-        <activity android:name=".activity.HyperTranslateActivity" />
-        <activity android:name=".activity.PopupWindowActivity" />
-        <activity android:name=".activity.FlagAActivity" />
+        <activity android:name=".activity.HyperTranslateActivity"/>
+        <activity android:name=".activity.PopupWindowActivity"/>
+        <activity android:name=".activity.FlagAActivity"/>
         <activity
             android:name=".activity.FlagBActivity"
-            android:launchMode="standard" />
-        <activity android:name=".activity.FlagCActivity" />
-        <activity android:name=".activity.FlagDActivity" />
-        <activity android:name=".activity.EditTextActvity" />
-        <activity android:name=".activity.PieChartActivity" />
-        <activity android:name=".activity.CityPickerActivity" />
-        <activity android:name=".activity.SwipeActivity" />
-        <activity android:name=".activity.ShoppingCar2" />
-        <activity android:name=".activity.Swipe2Activity" />
-        <activity android:name=".activity.ExcelActivity" />
-        <activity android:name=".activity.RXjavaActivity" />
+            android:launchMode="standard"/>
+        <activity android:name=".activity.FlagCActivity"/>
+        <activity android:name=".activity.FlagDActivity"/>
+        <activity android:name=".activity.EditTextActvity"/>
+        <activity android:name=".activity.PieChartActivity"/>
+        <activity android:name=".activity.CityPickerActivity"/>
+        <activity android:name=".activity.SwipeActivity"/>
+        <activity android:name=".activity.ShoppingCar2"/>
+        <activity android:name=".activity.Swipe2Activity"/>
+        <activity android:name=".activity.ExcelActivity"/>
+        <activity android:name=".activity.RXjavaActivity"/>
         <activity android:name=".activity.HLibTestActivity"></activity>
     </application>
 

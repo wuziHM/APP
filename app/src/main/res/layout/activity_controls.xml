@@ -86,6 +86,7 @@
         android:layout_marginTop="@dimen/dp_20"
         android:background="@color/aliceblue"
         android:gravity="center"
+        android:transitionName="@string/transition_wechat_img"
         android:textSize="16sp" />
 
 </LinearLayout>
