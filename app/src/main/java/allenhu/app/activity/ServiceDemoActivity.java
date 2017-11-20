@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.service.MyService1;
 
 public class ServiceDemoActivity extends BaseActivity implements View.OnClickListener {

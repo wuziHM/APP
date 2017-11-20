@@ -11,7 +11,7 @@ import java.util.List;
 import allenhu.app.R;
 import allenhu.app.adapter.DividerItemDecoration;
 import allenhu.app.adapter.GalleryAdapter;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.bean.ImageInfo;
 import allenhu.app.view.MyRecyclerView;
 

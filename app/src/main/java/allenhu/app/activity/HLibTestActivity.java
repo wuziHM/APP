@@ -7,18 +7,18 @@ import android.widget.TextView;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.net.TestAPI;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
 public class HLibTestActivity extends BaseActivity {
 
-    @Bind(R.id.textView)
+    @BindView(R.id.textView)
     TextView textView;
 
-    @Bind(R.id.textView3)
+    @BindView(R.id.textView3)
     HtmlTextView textView3;
 
 

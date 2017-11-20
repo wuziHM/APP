@@ -14,25 +14,25 @@ import android.widget.Toast;
 import java.io.File;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.util.LogUtil;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class FlagDActivity extends BaseActivity {
 
-    @Bind(R.id.btn_a)
+    @BindView(R.id.btn_a)
     Button btnA;
-    @Bind(R.id.btn_b)
+    @BindView(R.id.btn_b)
     Button btnB;
-    @Bind(R.id.btn_c)
+    @BindView(R.id.btn_c)
     Button btnC;
-    @Bind(R.id.btn_d)
+    @BindView(R.id.btn_d)
     Button btnD;
-    @Bind(R.id.text)
+    @BindView(R.id.text)
     TextView text;
-    @Bind(R.id.btn_operate)
+    @BindView(R.id.btn_operate)
     Button btnOperate;
 
     @Override

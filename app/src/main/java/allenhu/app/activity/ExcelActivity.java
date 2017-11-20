@@ -4,13 +4,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import allenhu.app.R;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.zhouchaoyuan.excelpanel.ExcelPanel;
 
 public class ExcelActivity extends AppCompatActivity {
 
-    @Bind(R.id.content_container)
+    @BindView(R.id.content_container)
     ExcelPanel contentContainer;
 
     @Override

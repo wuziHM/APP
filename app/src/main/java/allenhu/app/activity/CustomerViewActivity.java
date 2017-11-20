@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.Calendar;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.service.OperationsManager;
 
 public class CustomerViewActivity extends BaseActivity implements View.OnClickListener {

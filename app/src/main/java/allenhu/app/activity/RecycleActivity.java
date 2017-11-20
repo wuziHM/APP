@@ -11,7 +11,7 @@ import java.util.List;
 import allenhu.app.R;
 import allenhu.app.adapter.DividerItemDecoration;
 import allenhu.app.adapter.RecyclerViewAdapter;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.bean.Container;
 import allenhu.app.bean.GoodsSize;
 import allenhu.app.bean.PurchaseBean;

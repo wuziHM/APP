@@ -14,7 +14,7 @@ import com.android.tonyvu.sc.model.Cart;
 import com.android.tonyvu.sc.util.CartHelper;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.bean.Product;
 import allenhu.app.util.Constant;
 

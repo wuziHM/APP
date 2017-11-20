@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import allenhu.app.R;
 import allenhu.app.adapter.MeiziAdapter;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 
 public class View2Activity extends BaseActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 

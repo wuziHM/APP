@@ -13,7 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.view.SwipeDismissRecyclerViewTouchListener;
 
 

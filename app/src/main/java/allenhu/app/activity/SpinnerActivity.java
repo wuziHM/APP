@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 import allenhu.app.R;
 import allenhu.app.adapter.SpinnerAdapter;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.bean.Hero;
 
 public class SpinnerActivity extends BaseActivity implements AdapterView.OnItemSelectedListener {

@@ -3,7 +3,7 @@ package allenhu.app.activity;
 import android.os.Bundle;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 
 public class VoiceViewActivity extends BaseActivity {
 

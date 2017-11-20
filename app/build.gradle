@@ -40,20 +40,16 @@ android {
             assets.srcDirs = ['src/main/assets']
         }
     }
+    flavorDimensions "color"
 
     //多渠道打包
     productFlavors {
-        weyee {}
-        yingyongbao {}
-        _360 {}
-        baidu {}
-        wandoujia {}
-        anzhi {}
-        pp {}
-        xiaomi {}
-        huawei {}
-        meizu {}
-        samsung {}
+        weyee { dimension "color" }
+        yingyongbao { dimension "color" }
+        _360 { dimension "color" }
+        baidu { dimension "color" }
+        wandoujia { dimension "color" }
+        anzhi { dimension "color" }
     }
 }
 
@@ -77,22 +73,21 @@ dependencies {
     compile project(':hlib')
     //可选，用于生成application类
     //tinker的核心库
-    compile 'io.reactivex:rxjava:1.0.14'
-    compile 'io.reactivex:rxandroid:1.0.1'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.5'
     compile 'com.github.razerdp:BasePopup:v1.1.5'
-    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'com.github.bumptech.glide:glide:3.6.1'
     compile 'com.commit451:PhotoView:1.2.4'
     compile 'com.isseiaoki:simplecropview:1.0.13'
     compile 'com.yongchun:com.yongchun.imageselector:1.1.0'
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.0-beta1'
     compile 'cn.zhouchaoyuan:excelpanel:1.0.1'
-    compile 'com.tencent.tinker:tinker-android-lib:1.7.7'
-    compile 'io.reactivex:rxjava:1.0.14'
-    compile 'io.reactivex:rxandroid:1.0.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-    provided 'com.tencent.tinker:tinker-android-anno:1.7.7'
-    compile 'cn.pedant.sweetalert:library:1.3'
+    compile 'com.wang.avi:library:2.1.3'
+
+    compile 'com.github.maning0303:MNProgressHUD:V1.0.2'
 
 }

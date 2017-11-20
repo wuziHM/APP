@@ -7,7 +7,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.util.ObjectFormatUtil;
 
 public class ControlsActivity extends BaseActivity implements View.OnClickListener {

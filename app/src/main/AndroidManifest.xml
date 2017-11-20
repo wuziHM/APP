@@ -3,7 +3,7 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="allenhu.app">
 
-    <uses-sdk tools:overrideLibrary="com.yongchun.library,com.j256.ormlite,cn.zhouchaoyuan.excelpanel"/>
+    <uses-sdk tools:overrideLibrary="com.yongchun.library,com.j256.ormlite,cn.zhouchaoyuan.excelpanel,com.maning.mndialoglibrary"/>
 
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -26,7 +26,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-
         <meta-data
             android:name="asset_statements"
             android:resource="@string/asset_statements"/>
@@ -34,8 +33,6 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/mainStyle">
-
-
             <intent-filter>
                 <action android:name="allenhu.app.main"/>
                 <!-- 如果有自定义action时，记得添加下面这句 ，不然会报错 -->
@@ -45,7 +42,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW"/>
 
@@ -58,7 +54,6 @@
                     android:port="8020"
                     android:scheme="http"/>
             </intent-filter>
-
         </activity>
         <activity android:name=".activity.DrawableActivity"/>
         <activity android:name=".activity.GridViewDemoActivity"/>
@@ -153,7 +148,9 @@
         <activity android:name=".activity.Swipe2Activity"/>
         <activity android:name=".activity.ExcelActivity"/>
         <activity android:name=".activity.RXjavaActivity"/>
-        <activity android:name=".activity.HLibTestActivity"></activity>
+        <activity android:name=".activity.HLibTestActivity"/>
+        <activity android:name=".activity.LEDActivity">
+        </activity>
     </application>
 
 </manifest>

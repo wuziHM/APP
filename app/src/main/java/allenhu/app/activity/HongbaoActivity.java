@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.util.HongBaoAlgorithm;
 
 public class HongbaoActivity extends BaseActivity {

@@ -11,7 +11,7 @@ import com.zhy.base.adapter.recyclerview.OnItemClickListener;
 
 import allenhu.app.R;
 import allenhu.app.adapter.ChatAdapterForRv;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.bean.ChatMessage;
 
 

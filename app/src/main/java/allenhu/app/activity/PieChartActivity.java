@@ -24,14 +24,14 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.util.LogUtil;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class PieChartActivity extends BaseActivity implements OnChartValueSelectedListener {
 
-    @Bind(R.id.pie_chart)
+    @BindView(R.id.pie_chart)
     PieChart pieChart;
 
     protected String[] mParties = new String[]{

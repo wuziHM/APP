@@ -11,7 +11,7 @@ import android.os.Message;
 import android.widget.ImageView;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 
 public class DrawableActivity extends BaseActivity {
 

@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 
 public class GameActivity extends BaseActivity implements View.OnClickListener {
 

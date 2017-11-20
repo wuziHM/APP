@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.umeng.analytics.MobclickAgent;
 
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.fragment.FragmentA;
 import allenhu.app.fragment.FragmentB;
 import allenhu.app.fragment.FragmentC;
@@ -17,6 +17,13 @@ import allenhu.app.fragment.FragmentD;
 import allenhu.app.util.HomeWatcher;
 import allenhu.app.util.LogUtil;
 import allenhu.app.util.ToastUtils;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -57,6 +64,54 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void initHomeEvent() {
+
+
+        showProgress();
+
+
+        Observable observable = Observable.create(new ObservableOnSubscribe() {
+            @Override
+            public void subscribe(final ObservableEmitter e) throws Exception {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(5000);
+                            e.onNext(1);
+                        } catch (InterruptedException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                }).start();
+            }
+        });
+
+        Observer observer = new Observer() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(Object o) {
+                hideProgress();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+
+        observable.subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+
         mHomeWatcher = new HomeWatcher(this);
         mHomeWatcher.setOnHomePressedListener(new HomeWatcher.OnHomePressedListener() {
             @Override

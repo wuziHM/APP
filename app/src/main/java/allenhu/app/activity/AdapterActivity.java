@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 
 /**
  * 各种适配器的页面

@@ -8,7 +8,7 @@ import android.widget.ListView;
 
 import allenhu.app.R;
 import allenhu.app.adapter.ProductAdapter;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.bean.Product;
 import allenhu.app.util.Constant;
 import allenhu.app.util.LogUtil;

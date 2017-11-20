@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.util.LogUtil;
 
 public class RvWidthHeaderActivity extends BaseActivity {

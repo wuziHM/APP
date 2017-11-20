@@ -19,7 +19,7 @@ import com.yongchun.library.view.ImageSelectorActivity;
 import java.util.ArrayList;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.util.LogUtil;
 
 public class MatrixActivity extends BaseActivity implements View.OnClickListener {

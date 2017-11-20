@@ -13,7 +13,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.util.LogUtil;
 
 public class TimerDemoActivity extends BaseActivity implements View.OnClickListener {

@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.util.JavaScriptObject;
 
 public class WebActivity extends BaseActivity {

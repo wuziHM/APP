@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.fragment.CommentPopupFrag;
 import allenhu.app.fragment.CustomInterpolatorPopupFrag;
 import allenhu.app.fragment.DialogPopupFrag;

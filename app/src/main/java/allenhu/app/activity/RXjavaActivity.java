@@ -9,21 +9,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import allenhu.app.R;
-import allenhu.app.base.BaseActivity;
-import allenhu.app.util.LogUtil;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.util.StringUtils;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.Observable;
-import rx.Subscriber;
-import rx.functions.Action1;
-import rx.functions.Func1;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 public class RXjavaActivity extends BaseActivity {
 
 
-    @Bind(R.id.tv_test)
-    TextView tvTest;
+    @BindView(R.id.tv_test)
+    TextView
+            tvTest;
 
     @Override
     protected int getLayoutId() {
@@ -50,29 +51,71 @@ public class RXjavaActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        rxjavaTest();
+//        rxjavaTest();
+
+        rxJava2Test();
 
 
     }
 
+    private void rxJava2Test() {
+        final Observable<String> observable = Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> e) throws Exception {
+                //执行一些其他操作
+                //.............
+                //执行完毕，触发回调，通知观察者
+                e.onNext("我来发射数据");
+            }
+        });
+
+
+
+        Observer<String> observer = new Observer<String>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            //观察者接收到通知,进行相关操作
+            public void onNext(String aLong) {
+                System.out.println("我接收到数据了");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+
+        observable.subscribe(observer);
+
+    }
+
     private void rxjavaTest() {
-        Observable observable1 = Observable.create(new Observable.OnSubscribe<String>() {
-            @Override
-            public void call(Subscriber<? super String> subscriber) {
-                subscriber.onNext("Hello");
-                subscriber.onNext("Hi");
-                subscriber.onNext("Aloha");
-                subscriber.onCompleted();
-            }
-        });
-
-        observable1.subscribe(new Action1<String>() {
-            @Override
-            public void call(String o) {
-                LogUtil.i("o:" + o);
-
-            }
-        });
+//        Observable observable1 = Observable.create(new Observable.OnSubscribe<String>() {
+//            @Override
+//            public void call(Subscriber<? super String> subscriber) {
+//                subscriber.onNext("Hello");
+//                subscriber.onNext("Hi");
+//                subscriber.onNext("Aloha");
+//                subscriber.onCompleted();
+//            }
+//        });
+//
+//        observable1.subscribe(new Action1<String>() {
+//            @Override
+//            public void call(String o) {
+//                LogUtil.i("o:" + o);
+//
+//            }
+//        });
 
 //        observable1.subscribe(new Observer<String>() {
 //            @Override
@@ -126,29 +169,29 @@ public class RXjavaActivity extends BaseActivity {
 //                    }
 //                });
 
-        Subscriber<Course> subscriber2 = new Subscriber<Course>() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(Course course) {
-                LogUtil.i(course.cName);
-            }
-        };
-
-        Observable.from(createStudents()).flatMap(new Func1<Student, Observable<Course>>() {
-            @Override
-            public Observable<Course> call(Student student) {
-                return Observable.from(student.getCourse());
-            }
-        }).subscribe(subscriber2);
+//        Subscriber<Course> subscriber2 = new Subscriber<Course>() {
+//            @Override
+//            public void onCompleted() {
+//
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//
+//            }
+//
+//            @Override
+//            public void onNext(Course course) {
+//                LogUtil.i(course.cName);
+//            }
+//        };
+//
+//        Observable.from(createStudents()).flatMap(new Func1<Student, Observable<Course>>() {
+//            @Override
+//            public Observable<Course> call(Student student) {
+//                return Observable.from(student.getCourse());
+//            }
+//        }).subscribe(subscriber2);
 
     }
 

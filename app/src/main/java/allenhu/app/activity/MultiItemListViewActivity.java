@@ -5,7 +5,7 @@ import android.widget.ListView;
 
 import allenhu.app.R;
 import allenhu.app.adapter.ChatAdapter;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.bean.ChatMessage;
 
 public class MultiItemListViewActivity extends BaseActivity {

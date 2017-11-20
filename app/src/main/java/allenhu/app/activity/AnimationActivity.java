@@ -13,15 +13,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import allenhu.app.R;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class AnimationActivity extends Activity {
 
-    @Bind(R.id.btn_rotate)
+    @BindView(R.id.btn_rotate)
     Button btnRotate;
-    @Bind(R.id.iv_home_down)
+    @BindView(R.id.iv_home_down)
     ImageView ivHomeDown;
     private ObjectAnimator animator;
     private ObjectAnimator animator1;

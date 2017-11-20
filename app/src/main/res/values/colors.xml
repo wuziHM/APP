@@ -6,6 +6,7 @@
     <color name="yellow">#f7ff00</color>
     <color name="gray">#666666</color>
     <color name="transparent">#00000000</color>
+    <color name="half_transparent">#aaffffff</color>
     <color name="white">#ffffff</color>
     <color name="div_white">#eaeaea</color>
 

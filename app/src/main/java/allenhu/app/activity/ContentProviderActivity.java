@@ -13,7 +13,7 @@ import java.util.List;
 import allenhu.app.R;
 import allenhu.app.adapter.ContactAdapter;
 import allenhu.app.adapter.DividerItemDecoration;
-import allenhu.app.base.BaseActivity;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.bean.ContactBean;
 import allenhu.app.listener.OnItemClickListener;
 import allenhu.app.util.ContactUtil;
