@@ -117,7 +117,7 @@
     <!--洋李色 -->
     <color name="gainsboro">#DCDCDC</color>
     <!--淡灰色 -->
-    <color name="crimson">#DC143C</color>
+    <color name="crimson">#dc143c</color>
     <!--暗深红色 -->
     <color name="palevioletred">#DB7093</color>
     <!--苍紫罗兰色 -->
@@ -327,5 +327,13 @@
     <color name="liji_material_blue_700">#0288d1</color>
     <color name="liji_material_red_500">#e51c23</color>
     <color name="liji_material_red_700">#d01716</color>
+
+
+    <color name="c_fafafa">#fafafa</color>
+    <color name="c_a3181818">#a3181818</color>
+    <color name="c_454545">#454545</color>
+    <color name="c_eaeaea">#eaeaea</color>
+    <color name="c_c6c6c6">#c6c6c6</color>
+    <color name="c_fa4242">#fa4242</color>
 
 </resources>

@@ -1,8 +1,8 @@
 package allenhu.app.design.state;
 
-import java.util.Random;
+import com.hlib.util.MLogUtil;
 
-import allenhu.app.util.LogUtil;
+import java.util.Random;
 
 /**
  * Author：燕青 $ on 2016/3/17  15:34
@@ -23,18 +23,18 @@ public class HasMoneyState implements State {
     @Override
     public void insertMoney() {
 
-        LogUtil.e("HasMoneyState---->已经投过了，不需要再投了！");
+        MLogUtil.e("HasMoneyState---->已经投过了，不需要再投了！");
     }
 
     @Override
     public void backMoney() {
-        LogUtil.e("HasMoneyState---->退币成功！");
+        MLogUtil.e("HasMoneyState---->退币成功！");
         machine.setCurrentState(machine.getNoMoneyState());
     }
 
     @Override
     public void turnCrank() {
-        LogUtil.e("HasMoneyState---->你转动了手柄！");
+        MLogUtil.e("HasMoneyState---->你转动了手柄！");
         int winner = random.nextInt(10);
         if (winner == 0 && machine.getCount() > 1) {
             machine.setState(machine.getWinnerState());

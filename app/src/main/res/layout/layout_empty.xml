@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 无消息内容提示 -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/noContent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/c_c6c6c6"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="@dimen/dp_250"
+        android:layout_height="@dimen/dp_200"
+        android:background="@mipmap/icon_no_content"
+        android:contentDescription="暂无内容"
+        android:scaleType="centerInside"/>
+
+    <TextView
+        android:id="@+id/noMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_15"
+        android:gravity="center|center_horizontal"
+        android:text="暂无内容"
+        android:textColor="@color/c_454545"
+        android:textSize="@dimen/mini_text_size"/>
+</LinearLayout>

@@ -8,11 +8,12 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.SystemClock;
 
+import com.hlib.util.MLogUtil;
+
 import java.util.Date;
 
 import allenhu.app.receive.AlarmReceiver;
 import allenhu.app.receive.NotificationReceiver;
-import allenhu.app.util.LogUtil;
 
 public class MyService1 extends Service {
 
@@ -30,7 +31,7 @@ public class MyService1 extends Service {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                LogUtil.e("executed at " + new Date().toString());
+                MLogUtil.e("executed at " + new Date().toString());
             }
         }).start();
 
@@ -55,11 +56,11 @@ public class MyService1 extends Service {
 
     public class MyBinder extends Binder {
         public void eat() {
-            LogUtil.e("吃吃喝喝，朱门酒肉臭,路有冻死骨");
+            MLogUtil.e("吃吃喝喝，朱门酒肉臭,路有冻死骨");
         }
 
         public void sleep() {
-            LogUtil.e("悠悠生死别经年，魂魄不曾来入梦。");
+            MLogUtil.e("悠悠生死别经年，魂魄不曾来入梦。");
         }
     }
 }

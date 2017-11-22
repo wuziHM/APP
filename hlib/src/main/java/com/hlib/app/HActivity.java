@@ -28,7 +28,7 @@ import com.hlib.widget.header.MHeaderViewAble;
  * <p>
  * use to...
  */
-public abstract class HActivity extends SwipeBackActivity implements HActivityAble{
+public abstract class HActivity extends SwipeBackActivity implements HActivityAble {
 
 
     private static final String TAG = HActivity.class.getSimpleName();
@@ -50,7 +50,9 @@ public abstract class HActivity extends SwipeBackActivity implements HActivityAb
      *
      * @param savedInstanceState
      */
-    protected abstract void onMCreate(Bundle savedInstanceState);
+    protected void onMCreate(Bundle savedInstanceState) {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,7 +172,7 @@ public abstract class HActivity extends SwipeBackActivity implements HActivityAb
     }
 
 
-    public MHeaderViewAble getHeaderViewAble(){
+    public MHeaderViewAble getHeaderViewAble() {
         return mHeaderViewAble;
     }
 

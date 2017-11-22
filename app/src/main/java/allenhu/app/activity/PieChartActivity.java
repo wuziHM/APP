@@ -20,12 +20,12 @@ import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.hlib.util.MLogUtil;
 
 import java.util.ArrayList;
 
 import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
-import allenhu.app.util.LogUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -156,7 +156,7 @@ public class PieChartActivity extends BaseActivity implements OnChartValueSelect
 
         if (e == null)
             return;
-        LogUtil.e(
+        MLogUtil.e(
                 "Value: " + e.getY() + ", index: " + h.getX()
                         + ", DataSet index: " + h.getDataSetIndex());
     }

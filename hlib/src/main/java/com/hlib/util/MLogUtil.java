@@ -24,7 +24,7 @@ public class MLogUtil {
      * 是否已经显示佛祖
      */
     private static boolean isShowBuddha = false;
-    private static String tag = "pos";
+    private static String tag = "wuzi";
 
     /**
      * 佛祖显灵
@@ -68,6 +68,10 @@ public class MLogUtil {
         if (isDebug) {
             Log.i(tag, msg);
         }
+    }
+
+    public static void i(String msg) {
+        i(tag, msg);
     }
 
     /**

@@ -1,13 +1,8 @@
 package allenhu.app;
 
-import android.os.Environment;
-
 import org.junit.Test;
 
-import java.io.File;
-
 import allenhu.app.util.FileUtils;
-import allenhu.app.util.LogUtil;
 
 import static org.junit.Assert.*;
 

@@ -6,9 +6,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.hlib.util.MLogUtil;
+
 import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
-import allenhu.app.util.LogUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -64,6 +65,6 @@ public class FlagBActivity extends BaseActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        LogUtil.e("========onNewIntent========");
+        MLogUtil.e("========onNewIntent========");
     }
 }

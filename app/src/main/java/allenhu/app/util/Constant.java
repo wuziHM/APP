@@ -8,6 +8,16 @@ import allenhu.app.bean.Product;
 
 
 public final class Constant {
+
+
+    public static final String APP_ID = "wxa84b103c1fbded80";
+
+
+    public static final String SHOW_API_ID = "0f65d73ce2134168b357ad3519cc33c8";
+
+    public static final String BAIDU_API_ID = "66c809c8b137a8f9968fd5fb9a27ca9e";
+
+
     public static final List<Integer> QUANTITY_LIST = new ArrayList<Integer>();
 
     static {

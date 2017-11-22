@@ -9,7 +9,6 @@ import android.text.TextUtils;
 
 import allenhu.app.listener.clipboard.ClipboardManagerCompat;
 import allenhu.app.receive.BootCompletedReceiver;
-import allenhu.app.util.Utils;
 import allenhu.app.view.TipViewController;
 
 
@@ -78,7 +77,6 @@ public final class ListenClipboardService extends Service implements TipViewCont
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        Utils.printIntent("onStartCommand", intent);
 
         if (intent != null) {
             // remove wake lock

@@ -11,13 +11,13 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.hlib.util.MLogUtil;
+
 import allenhu.app.R;
-import allenhu.app.util.LogUtil;
 
 /**
  * Author：燕青 $ on 16/3/15 15:50
@@ -110,7 +110,7 @@ public class FourthView extends View {
         } else {
             height = getPaddingTop() + getPaddingBottom() + mImage.getHeight();
         }
-        LogUtil.e("width:" + width + "    height:" + height);
+        MLogUtil.e("width:" + width + "    height:" + height);
 
 
         if (width > screenWidth) {
@@ -124,16 +124,16 @@ public class FourthView extends View {
         rate = height > width ? (min * 1.00f) / (height * 1.00f) : (min * 1.00f) / (width * 1.00f);
 //        double angle = Math.atan((height * 1.0f) / (width * 1.0f));
 //        double angle = Math.atan((1 * 1.0f) / (1 * 1.0f) * Math.PI);
-//        LogUtil.e("angle:" + angle);
+//        MLogUtil.e("angle:" + angle);
 //
 //        double sin = Math.sin(Math.toRadians(30) );
-//        LogUtil.e("sin:"+sin);
+//        MLogUtil.e("sin:"+sin);
 //
 //
 //        double cos = Math.cos(60);
-//        LogUtil.e("cos:"+cos);
+//        MLogUtil.e("cos:"+cos);
 //        double tan = Math.cos(45);
-//        LogUtil.e("tan:"+tan);
+//        MLogUtil.e("tan:"+tan);
 
     }
 
@@ -170,7 +170,7 @@ public class FourthView extends View {
          */
         //图片宽度:长度的角度
         double degree = Math.toDegrees(Math.atan((mImage.getWidth() * 1.0f) / (mImage.getHeight() * 1.0f)));
-        LogUtil.e("degree:" + degree);
+        MLogUtil.e("degree:" + degree);
         //图片在圆里面的宽度
         int relWidth = (int) (Math.sin(degree * Math.PI / 180) * relRadius);
         //图片在圆里面的高度
@@ -182,7 +182,7 @@ public class FourthView extends View {
         mRect.bottom = relRadius + relHeight + mCircleWidth;
 
 
-        LogUtil.e("centre:" + centre + "    radius:" + radius + "    relRadius:" + relRadius + "    left:" + mRect.left
+        MLogUtil.e("centre:" + centre + "    radius:" + radius + "    relRadius:" + relRadius + "    left:" + mRect.left
                 + "   right:" + mRect.right + "   top:" + mRect.top + "    bottom:" + mRect.bottom);
         /**
          * 如果图片比较小，那么根据图片的尺寸放置到中心

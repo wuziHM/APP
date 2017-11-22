@@ -6,12 +6,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.hlib.util.MLogUtil;
+
 import allenhu.app.R;
 import allenhu.app.adapter.ProductAdapter;
 import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.bean.Product;
 import allenhu.app.util.Constant;
-import allenhu.app.util.LogUtil;
 
 public class ShoppingCarActivity extends BaseActivity {
 
@@ -33,7 +34,7 @@ public class ShoppingCarActivity extends BaseActivity {
         lvProducts.addHeaderView(getLayoutInflater().inflate(R.layout.product_list_header, lvProducts, false));
 
         ProductAdapter productAdapter = new ProductAdapter(this);
-        LogUtil.e("PRODUCT_LIST长度:" + Constant.PRODUCT_LIST.size());
+        MLogUtil.e("PRODUCT_LIST长度:" + Constant.PRODUCT_LIST.size());
         productAdapter.updateProducts(Constant.PRODUCT_LIST);
 
         lvProducts.setAdapter(productAdapter);
@@ -46,7 +47,7 @@ public class ShoppingCarActivity extends BaseActivity {
                 Intent intent = new Intent(ShoppingCarActivity.this, ProductActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("product", product);
-                LogUtil.e("View product: " + product.getName());
+                MLogUtil.e("View product: " + product.getName());
                 intent.putExtras(bundle);
                 startActivity(intent);
             }

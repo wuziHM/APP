@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 
+import com.hlib.util.MLogUtil;
+
 /**
  * Author：HM $ on 17/9/5 09:48
  * E-mail：359222347@qq.com
@@ -76,7 +78,7 @@ public class HomeWatcher {
                 String reason = intent.getStringExtra(SYSTEM_DIALOG_REASON_KEY);
 
                 if (reason != null) {
-                    LogUtil.i(TAG, "action:" + action + ",reason:" + reason);
+                    MLogUtil.i("action:" + action + ",reason:" + reason);
                     if (mListener != null) {
                         if (reason.equals(SYSTEM_DIALOG_REASON_HOME_KEY)) {
                             // 短按home键

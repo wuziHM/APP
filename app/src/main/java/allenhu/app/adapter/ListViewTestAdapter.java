@@ -7,11 +7,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.hlib.util.MLogUtil;
+
 import java.util.List;
 
 import allenhu.app.R;
 import allenhu.app.bean.GoodsSize;
-import allenhu.app.util.LogUtil;
 
 /**
  * Author：燕青 $ on 16/4/7 20:53
@@ -56,7 +57,7 @@ public class ListViewTestAdapter extends BaseAdapter {
 //                ((GoodsSize) getItem(position)).setColor("黑色");
                 ((GoodsSize) list.get(position)).setColor("黑色");
                 notifyDataSetChanged();
-                LogUtil.e("点了TextView");
+                MLogUtil.e("点了TextView");
             }
         });
         return convertView;

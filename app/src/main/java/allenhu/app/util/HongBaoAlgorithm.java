@@ -1,5 +1,7 @@
 package allenhu.app.util;
 
+import com.hlib.util.MLogUtil;
+
 import java.util.Random;
 
 /**
@@ -32,10 +34,10 @@ public class HongBaoAlgorithm {
      * @return 存放生成的每个小红包的值的数组
      */
     public static long[] generate(long total, int count, long max, long min) {
-        LogUtil.e("generate-->total:" + total + "   count:" + count + "   max" + max + "   min:" + min);
+        MLogUtil.e("generate-->total:" + total + "   count:" + count + "   max" + max + "   min:" + min);
         long[] result = new long[count];
         long average = total / count;
-        LogUtil.e("average:" + average);
+        MLogUtil.e("average:" + average);
         long a = average - min;
         long b = max - min;
 

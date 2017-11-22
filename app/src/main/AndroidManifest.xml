@@ -151,6 +151,13 @@
         <activity android:name=".activity.HLibTestActivity"/>
         <activity android:name=".activity.LEDActivity">
         </activity>
+        <activity
+            android:name=".activity.ImageAppActivity"
+            android:label="@string/title_activity_image_app"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name=".activity.ImageCateActivity">
+        </activity>
     </application>
 
 </manifest>

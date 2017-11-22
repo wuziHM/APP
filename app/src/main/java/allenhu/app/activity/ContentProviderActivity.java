@@ -8,16 +8,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.hlib.util.MLogUtil;
+
 import java.util.List;
 
 import allenhu.app.R;
+import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.adapter.ContactAdapter;
 import allenhu.app.adapter.DividerItemDecoration;
-import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.bean.ContactBean;
 import allenhu.app.listener.OnItemClickListener;
 import allenhu.app.util.ContactUtil;
-import allenhu.app.util.LogUtil;
 
 public class ContentProviderActivity extends BaseActivity implements View.OnClickListener {
 
@@ -94,7 +95,7 @@ public class ContentProviderActivity extends BaseActivity implements View.OnClic
 
     private void doNext(int requestCode, int[] grantResults) {
         if (requestCode == 37) {
-            LogUtil.e("权限获取结果:" + grantResults[0] + "");
+            MLogUtil.e("权限获取结果:" + grantResults[0] + "");
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Permission Granted
                 initData();

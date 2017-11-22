@@ -1,6 +1,6 @@
 package allenhu.app.bean;
 
-import allenhu.app.util.LogUtil;
+import com.hlib.util.MLogUtil;
 
 /**
  * Created by AllenHu on 2016/2/16.
@@ -8,7 +8,7 @@ import allenhu.app.util.LogUtil;
 public class Hero {
 
     {
-        LogUtil.e("竟然还有这种非主流的写法");
+        MLogUtil.e("竟然还有这种非主流的写法");
     }
 
     private int hIcon;

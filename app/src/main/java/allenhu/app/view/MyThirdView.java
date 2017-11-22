@@ -10,8 +10,9 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
+import com.hlib.util.MLogUtil;
+
 import allenhu.app.R;
-import allenhu.app.util.LogUtil;
 
 /**
  * Author：燕青 $ on 16/3/14 17:15
@@ -89,13 +90,13 @@ public class MyThirdView extends View {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        LogUtil.e("onAttachedToWindow");
+        MLogUtil.e("onAttachedToWindow");
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        LogUtil.e("third-->onMeasure");
+        MLogUtil.e("third-->onMeasure");
     }
 
 
@@ -107,7 +108,7 @@ public class MyThirdView extends View {
         mPaint.setStrokeWidth(circleWidth); // 设置圆环的宽度
         mPaint.setAntiAlias(true); // 消除锯齿
         mPaint.setStyle(Paint.Style.STROKE); // 设置空心
-        LogUtil.e("centre:" + centre + "    radius:" + radius + "     circleWidth:" + circleWidth);
+        MLogUtil.e("centre:" + centre + "    radius:" + radius + "     circleWidth:" + circleWidth);
         RectF oval = new RectF(centre - radius, centre - radius, centre + radius, centre + radius); // 用 于定义的圆弧的形状和大小的界限
         if (!isNext) {// 第一颜色的圈完整，第二颜色跑
             mPaint.setColor(before); // 设置圆环的颜色
@@ -127,7 +128,7 @@ public class MyThirdView extends View {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        LogUtil.e("onDetachedFromWindow");
+        MLogUtil.e("onDetachedFromWindow");
 //        otherThread.stop();
     }
 }

@@ -11,11 +11,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hlib.util.MLogUtil;
+
 import java.io.File;
 
 import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
-import allenhu.app.util.LogUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -102,7 +103,7 @@ public class FlagDActivity extends BaseActivity {
             } else {
                 path = uri.getPath();
             }
-            LogUtil.e("path:" + path);
+            MLogUtil.e("path:" + path);
         } else {
             Toast.makeText(this, "图片没找到", Toast.LENGTH_SHORT).show();
             return;

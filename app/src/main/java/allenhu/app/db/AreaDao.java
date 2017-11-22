@@ -1,14 +1,13 @@
 package allenhu.app.db;
 
 import android.content.Context;
-import android.view.ViewGroup;
 
+import com.hlib.util.MLogUtil;
 import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
 
 import allenhu.app.bean.AreaBean;
-import allenhu.app.util.LogUtil;
 
 public class AreaDao {
 
@@ -30,7 +29,7 @@ public class AreaDao {
     public void add(AreaBean bean) {
         try {
             aDaoOpe.create(bean);
-            LogUtil.e("添加成功" + bean.getKey() + "    " + bean.getValue());
+            MLogUtil.e("添加成功" + bean.getKey() + "    " + bean.getValue());
         } catch (SQLException e) {
             e.printStackTrace();
         }

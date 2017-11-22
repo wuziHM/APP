@@ -1,10 +1,11 @@
 package allenhu.app.test;
 
 import android.test.AndroidTestCase;
-import android.test.AndroidTestRunner;
 import android.test.suitebuilder.annotation.SmallTest;
 import android.util.Log;
 import android.util.TypedValue;
+
+import com.hlib.util.MLogUtil;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -15,7 +16,6 @@ import allenhu.app.design.Observer.D3Subject;
 import allenhu.app.design.Observer.Observer1;
 import allenhu.app.design.Observer.Observer2;
 import allenhu.app.design.state.VendingMachine;
-import allenhu.app.util.LogUtil;
 import allenhu.app.util.StringMatcher;
 
 /**
@@ -43,18 +43,18 @@ public class TestDemo extends AndroidTestCase {
 
     public void testCity1() {
         Double d = Math.sin(Math.toRadians(30));
-        LogUtil.e("" + d);
+        MLogUtil.e("" + d);
 
         double d2 = Math.asin(0.5) * (180 / Math.PI);
-        LogUtil.e("" + d2);
+        MLogUtil.e("" + d2);
 
         double d3 = Math.acos(10.0 / 20.0) * (180 / Math.PI);
-        LogUtil.e("" + d3);
+        MLogUtil.e("" + d3);
 
 //        Math.toRadians(1)
 //        double d4 = Math.tan(45 * Math.PI / 180);
         double d4 = Math.toDegrees(Math.atan(1.0));
-        LogUtil.e("" + d4);
+        MLogUtil.e("" + d4);
     }
 
     public void testList() {
@@ -102,7 +102,7 @@ public class TestDemo extends AndroidTestCase {
     public void testSet() {
         String value = "aadcdaaa";
         String key = "aad";
-        LogUtil.e("" + StringMatcher.match(value, key));
+        MLogUtil.e("" + StringMatcher.match(value, key));
     }
 
     public void testScanner() {
@@ -133,7 +133,7 @@ public class TestDemo extends AndroidTestCase {
         vendingMachine.turnCrank();
 //        vendingMachine.dispense();
 
-        LogUtil.e("==================");
+        MLogUtil.e("==================");
         vendingMachine.insertMoney();
         vendingMachine.backMoney();
         vendingMachine.backMoney();
@@ -157,13 +157,13 @@ public class TestDemo extends AndroidTestCase {
     public void testUnit() {
 
         int left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, 10, getContext().getResources().getDisplayMetrics());
-        LogUtil.e("px:" + left);
+        MLogUtil.e("px:" + left);
 
         left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getContext().getResources().getDisplayMetrics());
-        LogUtil.e("dip:" + left);
+        MLogUtil.e("dip:" + left);
 
         left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 10, getContext().getResources().getDisplayMetrics());
-        LogUtil.e("sp:" + left);
+        MLogUtil.e("sp:" + left);
 
         List list1 = new ArrayList();
         list1.add("xixi");

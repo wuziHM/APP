@@ -3,7 +3,6 @@ package allenhu.app.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.hlib.util.MLogUtil;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.WXImageObject;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
@@ -20,11 +20,8 @@ import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
-import java.io.File;
-
 import allenhu.app.R;
-import allenhu.app.util.Constants;
-import allenhu.app.util.LogUtil;
+import allenhu.app.util.Constant;
 
 public class WeixinActivity extends Activity {
 
@@ -37,7 +34,7 @@ public class WeixinActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weixin);
-        iwxapi = WXAPIFactory.createWXAPI(this, Constants.APP_ID);
+        iwxapi = WXAPIFactory.createWXAPI(this, Constant.APP_ID);
         initView();
 
     }
@@ -92,7 +89,7 @@ public class WeixinActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == 100) {
             if (data != null) {
-                LogUtil.e(data.getData().toString());
+                MLogUtil.e(data.getData().toString());
                 Uri uri = data.getData();
                 ivChoose.setImageURI(uri);
             }

@@ -1,6 +1,6 @@
 package allenhu.app.design.state;
 
-import allenhu.app.util.LogUtil;
+import com.hlib.util.MLogUtil;
 
 /**
  * Author：燕青 $ on 2016/3/17  15:26
@@ -46,7 +46,7 @@ public class VendingMachine {
     }
 
     public void dispense() {
-        LogUtil.e("发出一件商品...");
+        MLogUtil.e("发出一件商品...");
         if (count != 0) {
             count -= 1;
         }

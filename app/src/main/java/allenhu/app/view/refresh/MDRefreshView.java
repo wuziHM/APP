@@ -13,8 +13,9 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
+import com.hlib.util.MLogUtil;
+
 import allenhu.app.R;
-import allenhu.app.util.LogUtil;
 import allenhu.app.view.impl.IRefreshView;
 import allenhu.app.view.impl.OnMDRefreshListener;
 import allenhu.app.view.mdautoloadview.MDAutoLoadMoreListView;
@@ -173,7 +174,7 @@ public class MDRefreshView extends RelativeLayout implements IRefreshView {
     public void setOnMDRefreshListener(OnMDRefreshListener onMDRefreshListener) {
         this.onMDRefreshListener = onMDRefreshListener;
         if (onMDRefreshListener == null) {
-            LogUtil.e("onMDRefreshListener is null");
+            MLogUtil.e("onMDRefreshListener is null");
         }
     }
 

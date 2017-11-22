@@ -14,13 +14,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.hlib.util.MLogUtil;
 import com.yongchun.library.view.ImageSelectorActivity;
 
 import java.util.ArrayList;
 
 import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
-import allenhu.app.util.LogUtil;
 
 public class MatrixActivity extends BaseActivity implements View.OnClickListener {
 
@@ -122,7 +122,7 @@ public class MatrixActivity extends BaseActivity implements View.OnClickListener
             saturation = 0f;
         }
         saturation = saturation + 0.1f;
-        LogUtil.e("saturation:" + saturation);
+        MLogUtil.e("saturation:" + saturation);
         cm.setSaturation(saturation);
         Paint paint = new Paint();
         paint.setColorFilter(new ColorMatrixColorFilter(cm));
@@ -194,7 +194,7 @@ public class MatrixActivity extends BaseActivity implements View.OnClickListener
             int height = dm.heightPixels;  //手机屏幕垂直分辨率
             for (String s : images) {
 //                Glide.with(MatrixActivity.this).load(new File(s)).centerCrop().into(ivOrigin);
-                LogUtil.e("地址:" + s);
+                MLogUtil.e("地址:" + s);
                 BitmapFactory.Options option = new BitmapFactory.Options();
                 option.inJustDecodeBounds = true;
                 bmp = BitmapFactory.decodeFile(s, option);
@@ -209,7 +209,7 @@ public class MatrixActivity extends BaseActivity implements View.OnClickListener
                 }
                 option.inJustDecodeBounds = false;
                 bmp = BitmapFactory.decodeFile(s, option);
-                LogUtil.e("宽:" + bmp.getWidth() + "   高" + bmp.getHeight());
+                MLogUtil.e("宽:" + bmp.getWidth() + "   高" + bmp.getHeight());
                 ivOrigin.setImageBitmap(bmp);
                 ivAfter.setImageBitmap(bmp);
             }

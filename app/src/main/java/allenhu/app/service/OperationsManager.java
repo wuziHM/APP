@@ -6,7 +6,7 @@ import android.content.IntentFilter;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import allenhu.app.util.LogUtil;
+import com.hlib.util.MLogUtil;
 
 /**
  * Created by AllenHu on 2016/2/24.
@@ -52,7 +52,7 @@ public class OperationsManager extends IntentService {
         try {
 //通过休眠来模拟一个长时间的网络操作
             Thread.sleep(5000);
-            LogUtil.e(name);
+            MLogUtil.e(name);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

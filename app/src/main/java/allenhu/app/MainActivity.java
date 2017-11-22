@@ -7,6 +7,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
+import com.hlib.util.MLogUtil;
 import com.umeng.analytics.MobclickAgent;
 
 import allenhu.app.activity.base.BaseActivity;
@@ -14,16 +15,6 @@ import allenhu.app.fragment.FragmentA;
 import allenhu.app.fragment.FragmentB;
 import allenhu.app.fragment.FragmentC;
 import allenhu.app.fragment.FragmentD;
-import allenhu.app.util.HomeWatcher;
-import allenhu.app.util.LogUtil;
-import allenhu.app.util.ToastUtils;
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -35,7 +26,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private TextView textView1, textView2, textView3, textView4;
     private FragmentManager fragmentManager;
-    private HomeWatcher mHomeWatcher;
+//    private HomeWatcher mHomeWatcher;
 
     @Override
     protected int getLayoutId() {
@@ -50,7 +41,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        this.getWindow().setFlags(FLAG_HOMEKEY_DISPATCHED, FLAG_HOMEKEY_DISPATCHED);//关键代码
+//        this.getWindow().setFlags(FLAG_HOMEKEY_DISPATCHED, FLAG_HOMEKEY_DISPATCHED);//关键代码
         super.onCreate(savedInstanceState);
         fragmentManager = getSupportFragmentManager();
         initFragment();
@@ -66,67 +57,67 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void initHomeEvent() {
 
 
-        showProgress();
+//        showProgress();
 
 
-        Observable observable = Observable.create(new ObservableOnSubscribe() {
-            @Override
-            public void subscribe(final ObservableEmitter e) throws Exception {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(5000);
-                            e.onNext(1);
-                        } catch (InterruptedException e1) {
-                            e1.printStackTrace();
-                        }
-                    }
-                }).start();
-            }
-        });
+//        Observable observable = Observable.create(new ObservableOnSubscribe() {
+//            @Override
+//            public void subscribe(final ObservableEmitter e) throws Exception {
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        try {
+//                            Thread.sleep(5000);
+//                            e.onNext(1);
+//                        } catch (InterruptedException e1) {
+//                            e1.printStackTrace();
+//                        }
+//                    }
+//                }).start();
+//            }
+//        });
+//
+//        Observer observer = new Observer() {
+//            @Override
+//            public void onSubscribe(Disposable d) {
+//
+//            }
+//
+//            @Override
+//            public void onNext(Object o) {
+//                hideProgress();
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//
+//            }
+//
+//            @Override
+//            public void onComplete() {
+//
+//            }
+//        };
+//
+//        observable.subscribeOn(Schedulers.newThread())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(observer);
 
-        Observer observer = new Observer() {
-            @Override
-            public void onSubscribe(Disposable d) {
-
-            }
-
-            @Override
-            public void onNext(Object o) {
-                hideProgress();
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        };
-
-        observable.subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(observer);
-
-        mHomeWatcher = new HomeWatcher(this);
-        mHomeWatcher.setOnHomePressedListener(new HomeWatcher.OnHomePressedListener() {
-            @Override
-            public void onHomePressed() {
-                //按了HOME键
-                ToastUtils.ToastMessage(MainActivity.this, "按了home键");
-            }
-
-            @Override
-            public void onHomeLongPressed() {
-                //长按HOME键
-                ToastUtils.ToastMessage(MainActivity.this, "长按home键");
-            }
-        });
-        mHomeWatcher.startWatch();
+//        mHomeWatcher = new HomeWatcher(this);
+//        mHomeWatcher.setOnHomePressedListener(new HomeWatcher.OnHomePressedListener() {
+//            @Override
+//            public void onHomePressed() {
+//                //按了HOME键
+//                ToastUtils.ToastMessage(MainActivity.this, "按了home键");
+//            }
+//
+//            @Override
+//            public void onHomeLongPressed() {
+//                //长按HOME键
+//                ToastUtils.ToastMessage(MainActivity.this, "长按home键");
+//            }
+//        });
+//        mHomeWatcher.startWatch();
     }
 
     private void initFragment() {
@@ -200,7 +191,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == event.KEYCODE_HOME) {
-            LogUtil.e("==KEYCODE_HOME==");
+            MLogUtil.e("==KEYCODE_HOME==");
             return true;
         }
         return super.onKeyDown(keyCode, event);
@@ -221,7 +212,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mHomeWatcher != null)
-            mHomeWatcher.stopWatch();// 在销毁时停止监听，不然会报错的。
+//        if (mHomeWatcher != null)
+//            mHomeWatcher.stopWatch();// 在销毁时停止监听，不然会报错的。
     }
 }

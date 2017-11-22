@@ -11,8 +11,9 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.hlib.util.MLogUtil;
+
 import allenhu.app.R;
-import allenhu.app.util.LogUtil;
 import allenhu.app.view.GridViewWithHeaderAndFooter;
 
 /**
@@ -110,7 +111,7 @@ public class MDAutoLoadMoreGridView extends GridViewWithHeaderAndFooter implemen
 
     @Override
     public void setOnItemClickExceptHeaderFooterViewListener(OnItemClickExceptHeaderFooterViewListener onItemClickExceptHeaderFooterViewListener) {
-        LogUtil.e("setOnItemClickExceptHeaderFooterViewListener is not implements");
+        MLogUtil.e("setOnItemClickExceptHeaderFooterViewListener is not implements");
     }
 
     @Override

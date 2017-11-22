@@ -1,6 +1,6 @@
 package allenhu.app.design.Observer;
 
-import allenhu.app.util.LogUtil;
+import com.hlib.util.MLogUtil;
 
 /**
  * Author：燕青 $ on 2016/3/17  17:27
@@ -20,6 +20,6 @@ public class Observer1 implements Observer {
 
     @Override
     public void update(String msg) {
-        LogUtil.e("observer1 得到 3D 号码  -->" + msg + ", 我要记下来。");
+        MLogUtil.e("observer1 得到 3D 号码  -->" + msg + ", 我要记下来。");
     }
 }

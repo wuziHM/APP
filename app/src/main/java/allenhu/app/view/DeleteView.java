@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
-import allenhu.app.util.LogUtil;
+import com.hlib.util.MLogUtil;
 
 /**
  * Author：燕青 $ on 17/1/13 18:32
@@ -40,7 +40,7 @@ public class DeleteView extends LinearLayout {
                 break;
             case MotionEvent.ACTION_MOVE:
                 shiftX = (int) (x - event.getX());
-                LogUtil.e("x:" + x + "   shiftX:" + shiftX);
+                MLogUtil.e("x:" + x + "   shiftX:" + shiftX);
                 if (shiftX > 100) {
                     scrollBy(shiftX, 0);
                 }

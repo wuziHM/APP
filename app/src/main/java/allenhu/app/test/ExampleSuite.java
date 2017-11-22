@@ -1,6 +1,5 @@
 package allenhu.app.test;
 
-import android.test.suitebuilder.annotation.SmallTest;
 
 import junit.framework.TestSuite;
 

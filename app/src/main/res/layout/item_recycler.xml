@@ -9,8 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_5"
         android:layout_gravity="center_vertical"
-        android:transitionName="@string/transition_wechat_img"
-        android:src="@mipmap/ic_logo"/>
+        android:transitionName="@string/transition_wechat_img"/>
 
     <TextView
         android:id="@+id/id_num"

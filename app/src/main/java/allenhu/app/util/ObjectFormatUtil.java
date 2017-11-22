@@ -1,5 +1,7 @@
 package allenhu.app.util;
 
+import com.hlib.util.MLogUtil;
+
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -44,7 +46,7 @@ public class ObjectFormatUtil {
             s = nf.format(d);
         } catch (Exception e) {
             e.printStackTrace();
-            LogUtil.e(" formatNumber is error!");
+            MLogUtil.e(" formatNumber is error!");
         }
         return s;
     }
@@ -78,7 +80,7 @@ public class ObjectFormatUtil {
             s = nf.format(d);
         } catch (Exception e) {
             e.printStackTrace();
-            LogUtil.e(" formatNumber is error!");
+            MLogUtil.e(" formatNumber is error!");
         }
         return s;
     }
@@ -108,7 +110,7 @@ public class ObjectFormatUtil {
             s = nf.format(d);
         } catch (Exception e) {
             e.printStackTrace();
-            LogUtil.e(" formatNumber is error!");
+            MLogUtil.e(" formatNumber is error!");
         }
         return s;
     }
@@ -128,7 +130,7 @@ public class ObjectFormatUtil {
             df.applyPattern(pattern);
             s = df.format(d);
         } catch (Exception e) {
-            LogUtil.e("formatPercent is error!");
+            MLogUtil.e("formatPercent is error!");
         }
         return s;
     }
@@ -156,7 +158,7 @@ public class ObjectFormatUtil {
             DecimalFormat df = (DecimalFormat) NumberFormat.getPercentInstance();
             s = df.format(d);
         } catch (Exception e) {
-            LogUtil.e("formatPercent is error!");
+            MLogUtil.e("formatPercent is error!");
         }
         return s;
     }

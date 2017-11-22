@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
-import allenhu.app.util.Utils;
 
 public class HyperTranslateActivity extends BaseActivity {
 
@@ -59,9 +58,6 @@ public class HyperTranslateActivity extends BaseActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-
-        Utils.printIntent("MainActivity::onNewIntent()", intent);
-
         tryToShowContent(intent);
     }
 }

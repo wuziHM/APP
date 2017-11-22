@@ -1,6 +1,6 @@
 package allenhu.app.design.state;
 
-import allenhu.app.util.LogUtil;
+import com.hlib.util.MLogUtil;
 
 /**
  * Author：燕青 $ on 2016/3/17  15:51
@@ -18,21 +18,21 @@ public class SoldOutState implements State {
 
     @Override
     public void insertMoney() {
-        LogUtil.e("SoldOutState---->没货了，别投币了");
+        MLogUtil.e("SoldOutState---->没货了，别投币了");
     }
 
     @Override
     public void backMoney() {
-        LogUtil.e("SoldOutState---->你都没投币，怎么退钱???");
+        MLogUtil.e("SoldOutState---->你都没投币，怎么退钱???");
     }
 
     @Override
     public void turnCrank() {
-        LogUtil.e("SoldOutState---->没货了，你转动木柄也没用");
+        MLogUtil.e("SoldOutState---->没货了，你转动木柄也没用");
     }
 
     @Override
     public void dispense() {
-        LogUtil.e("SoldOutState---->没货了，不可能出货的");
+        MLogUtil.e("SoldOutState---->没货了，不可能出货的");
     }
 }

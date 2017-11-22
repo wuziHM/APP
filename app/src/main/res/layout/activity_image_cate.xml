@@ -1,0 +1,32 @@
+<com.aspsine.swipetoloadlayout.SwipeToLoadLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeToLoadLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/c_fafafa"
+    app:swipe_style="classic">
+
+    <include
+        android:id="@id/swipe_refresh_header"
+        layout="@layout/layout_refresh_header"/>
+
+
+    <com.zhy.base.adapter.recyclerview.EmptyRecyclerView
+        android:id="@+id/swipe_target"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/c_fafafa"
+        android:clipToPadding="false"
+        android:fadeScrollbars="true"
+        android:paddingBottom="10dp"
+        android:paddingLeft="6dp"
+        android:paddingStart="6dp"
+        android:paddingTop="6dp"
+        android:scrollbars="vertical"/>
+
+    <include
+        android:id="@id/swipe_load_more_footer"
+        layout="@layout/layout_refresh_footer"/>
+
+</com.aspsine.swipetoloadlayout.SwipeToLoadLayout>

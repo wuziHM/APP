@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.hlib.util.MLogUtil;
 import com.tencent.mm.sdk.constants.ConstantsAPI;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
@@ -17,8 +18,7 @@ import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
 import allenhu.app.R;
-import allenhu.app.util.Constants;
-import allenhu.app.util.LogUtil;
+import allenhu.app.util.Constant;
 
 public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
 
@@ -32,7 +32,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         setContentView(R.layout.entry);
 
         // 通过WXAPIFactory工厂，获取IWXAPI的实例
-        api = WXAPIFactory.createWXAPI(this, Constants.APP_ID, false);
+        api = WXAPIFactory.createWXAPI(this, Constant.APP_ID, false);
 
     }
 
@@ -99,7 +99,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         msg.append("\n");
         msg.append("filePath: ");
         msg.append(obj.filePath);
-        LogUtil.e("msg:" + msg.toString());
+        MLogUtil.e("msg:" + msg.toString());
         finish();
     }
 }

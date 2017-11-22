@@ -58,4 +58,26 @@ public class MUnitConversionUtil {
         return (int) (spValue * fontScale + 0.5f);
     }
 
+    /**
+     * 获取屏幕宽度
+     *
+     * @date 2013年7月23日
+     * @param context
+     * @return
+     */
+    public static int getWidth(Context context) {
+        return context.getResources().getDisplayMetrics().widthPixels;
+    }
+
+    /**
+     * 获取屏幕高度
+     *
+     * @date 2013年7月23日
+     * @param context
+     * @return
+     */
+    public static int getHeight(Context context) {
+        return context.getResources().getDisplayMetrics().heightPixels;
+    }
+
 }

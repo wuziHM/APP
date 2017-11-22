@@ -8,13 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.hlib.util.MLogUtil;
+
 import java.text.DecimalFormat;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
-import allenhu.app.util.LogUtil;
 
 public class TimerDemoActivity extends BaseActivity implements View.OnClickListener {
 
@@ -89,11 +90,11 @@ public class TimerDemoActivity extends BaseActivity implements View.OnClickListe
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            LogUtil.e("arg1：" + msg.arg1);
+            MLogUtil.e("arg1：" + msg.arg1);
             float t = msg.arg1 / 10.0f;
-            LogUtil.e("t：" + t);
+            MLogUtil.e("t：" + t);
             float i = 20.0f - t;
-            LogUtil.e("i:" + i);
+            MLogUtil.e("i:" + i);
 
             DecimalFormat fnum = new DecimalFormat("##0.0");
             String dd = fnum.format(i);

@@ -1,6 +1,6 @@
 package allenhu.app.design.state;
 
-import allenhu.app.util.LogUtil;
+import com.hlib.util.MLogUtil;
 
 /**
  * Author：燕青 $ on 2016/3/17  15:21
@@ -17,22 +17,22 @@ public class NoMoneyState implements State {
 
     @Override
     public void insertMoney() {
-        LogUtil.e("NoMoneyState---->投币成功！");
+        MLogUtil.e("NoMoneyState---->投币成功！");
         machine.setCurrentState(machine.getHasMoneyState());
     }
 
     @Override
     public void backMoney() {
-        LogUtil.e("NoMoneyState---->没投币，你想退钱？？？");
+        MLogUtil.e("NoMoneyState---->没投币，你想退钱？？？");
     }
 
     @Override
     public void turnCrank() {
-        LogUtil.e("NoMoneyState---->没投币，你想拿东西么???");
+        MLogUtil.e("NoMoneyState---->没投币，你想拿东西么???");
     }
 
     @Override
     public void dispense() {
-        LogUtil.e("NoMoneyState---->没投币式不肯能出货的~~~");
+        MLogUtil.e("NoMoneyState---->没投币式不肯能出货的~~~");
     }
 }

@@ -73,4 +73,65 @@
         <attr name="showCount" format="boolean" />
         <attr name="showStar" format="boolean" />
     </declare-styleable>
+
+
+    <declare-styleable name="ProgressWheel">
+        <attr name="matProg_progressIndeterminate" format="boolean" />
+        <attr name="matProg_barColor" format="color" />
+        <attr name="matProg_rimColor" format="color" />
+        <attr name="matProg_rimWidth" format="dimension" />
+        <attr name="matProg_spinSpeed" format="float" />
+        <attr name="matProg_barSpinCycleTime" format="integer" />
+        <attr name="matProg_circleRadius" format="dimension" />
+        <attr name="matProg_fillRadius" format="boolean" />
+        <attr name="matProg_barWidth" format="dimension" />
+        <attr name="matProg_linearProgress" format="boolean" />
+    </declare-styleable>
+
+
+
+
+    <!--&lt;!&ndash;夜间模式自定义属性&ndash;&gt;
+    <attr name="app_background" format="reference|color" />
+    <attr name="app_toolbar_bg" format="reference|color" />
+    <attr name="toolbar_line_color" format="reference|color" />
+    <attr name="item_bg" format="reference|color" />
+    <attr name="item_setting_bg" format="reference|color" />
+    <attr name="lineColor" format="reference" />
+    <attr name="setting_text_color" format="reference|color" />
+    <attr name="setting_small_text_color" format="reference|color" />
+    <attr name="text1_color" format="reference|color" />
+    <attr name="setting_arrow_right" format="reference" />
+    <attr name="navigation_bg" format="reference|color" />
+    <attr name="navigation_menu_item_color" format="reference|color" />
+    <attr name="head_lines_bg" format="reference|color" />
+    <attr name="head_lines_text1_color" format="reference|color" />
+    <attr name="head_lines_text2_color" format="reference|color" />
+    <attr name="girl_pic_trans_item" format="reference|color" />
+    <attr name="girl_pic_trans_item_text_color" format="reference|color" />
+    <attr name="icon_like_yes" format="reference|color" />
+    <attr name="icon_like_no" format="reference|color" />
+    <attr name="icon_like_color" format="reference|color" />
+    <attr name="girl_pic_trans_shade" format="reference|color" />   &lt;!&ndash;福利页面图片夜间模式遮罩层&ndash;&gt;
+    <attr name="refresh_bg" format="reference|color" />
+    <attr name="refresh_text_color" format="reference|color" />
+    <attr name="refresh_arrow_icon" format="reference|color" />
+    <attr name="refresh_success_icon" format="reference|color" />
+    <attr name="tablayout_bg" format="reference|color" />
+    <attr name="tablayout_text_color" format="reference|color" />
+    <attr name="tablayout_indicator_color" format="reference|color" />
+    <attr name="main_text_color" format="reference|color" />
+    <attr name="progressbar_color" format="reference|color" />
+    <attr name="toolbar_title_color" format="reference|color" />
+    <attr name="black_text1_color" format="reference|color" />
+    <attr name="black_text2_color" format="reference|color" />
+    <attr name="black_text3_color" format="reference|color" />
+    <attr name="app_icon_menu" format="reference|color" />
+    <attr name="webview_progress_bg_color" format="reference|color" />
+    <attr name="webview_progress_color" format="reference|color" />
+    <attr name="app_icon_search" format="reference|color" />
+    <attr name="arrow_down_white" format="reference" />
+    &lt;!&ndash;收藏按钮的边界线颜色&ndash;&gt;
+    <attr name="collect_btn_border" format="reference|color" />-->
+
 </resources>

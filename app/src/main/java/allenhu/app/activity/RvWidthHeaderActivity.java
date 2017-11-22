@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.hlib.util.MLogUtil;
 import com.zhy.base.adapter.ViewHolder;
 import com.zhy.base.adapter.recyclerview.DividerItemDecoration;
 import com.zhy.base.adapter.recyclerview.OnItemClickListener;
@@ -20,7 +21,6 @@ import java.util.List;
 
 import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
-import allenhu.app.util.LogUtil;
 
 public class RvWidthHeaderActivity extends BaseActivity {
 
@@ -60,7 +60,7 @@ public class RvWidthHeaderActivity extends BaseActivity {
 
             @Override
             public String getTitle(String s) {
-                LogUtil.e("getTitle:" + s);
+                MLogUtil.e("getTitle:" + s);
                 return s.substring(0, 1);
             }
         };
