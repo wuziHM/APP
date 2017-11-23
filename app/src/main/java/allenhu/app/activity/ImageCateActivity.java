@@ -149,6 +149,7 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
     }
 
     private void getData() {
+        showProgress();
         NetWork.getImageApi()
                 .getImageShow(typeId, page)
                 .subscribeOn(Schedulers.io())
@@ -157,7 +158,7 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
     }
 
     private void overRefresh() {
-
+        hideProgress();
         swipeToLoadLayout.setRefreshing(false);
         swipeToLoadLayout.setLoadingMore(false);
 
@@ -175,6 +176,7 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
 
         @Override
         public void onNext(ShowImgBean showImgBean) {
+
             if (showImgBean != null && showImgBean.getShowapi_res_code() == 0) {
                 if (page == 1) {
                     imgList.clear();
@@ -194,6 +196,7 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
 
         @Override
         public void onError(Throwable e) {
+
             overRefresh();
         }
 
