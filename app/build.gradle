@@ -115,4 +115,8 @@ dependencies {
     compile 'com.ldoublem.thumbUplib:ThumbUplib:0.5'
 
 
+//    /*提示库*/
+//    compile 'com.bigkoo:svprogresshud:1.0.4'
+
+
 }

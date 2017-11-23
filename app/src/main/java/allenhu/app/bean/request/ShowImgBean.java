@@ -1,5 +1,6 @@
 package allenhu.app.bean.request;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * <p>
  * use to...
  */
-public class ShowImgBean {
+public class ShowImgBean implements Serializable {
 
 
     /**
@@ -23,7 +24,14 @@ public class ShowImgBean {
         ShowapiResBodyEntity.PagebeanEntity pageBean = showImgBean.getShowapi_res_body().getPagebean();
         for (ShowapiResBodyEntity.PagebeanEntity.ContentlistEntity entity : pageBean.getContentlist()) {
             for (ShowapiResBodyEntity.PagebeanEntity.ContentlistEntity.ListEntity e : entity.getList()) {
-                e.setDate(entity.getCt());
+
+                e.setTitle(entity.getTitle());
+
+                String date = "";
+                if (entity.getCt() != null && entity.getCt().length() > 10) {
+                    date = entity.getCt().substring(0, 10);
+                }
+                e.setDate(date);
                 arrayList.add(e);
             }
         }
@@ -70,7 +78,7 @@ public class ShowImgBean {
         this.showapi_res_body = showapi_res_body;
     }
 
-    public static class ShowapiResBodyEntity {
+    public static class ShowapiResBodyEntity implements Serializable {
         /**
          * allNum : 1041
          * allPages : 53
@@ -98,11 +106,12 @@ public class ShowImgBean {
             this.ret_code = ret_code;
         }
 
-        public static class PagebeanEntity {
+        public static class PagebeanEntity implements Serializable {
             private int allNum;
             private int allPages;
             private int currentPage;
             private int maxResult;
+
             /**
              * ct : 2015-10-17 16:41:01.468
              * itemId : 37070983
@@ -154,7 +163,7 @@ public class ShowImgBean {
                 this.contentlist = contentlist;
             }
 
-            public static class ContentlistEntity {
+            public static class ContentlistEntity implements Serializable {
                 private String ct;
                 private String itemId;
                 private String title;
@@ -216,11 +225,20 @@ public class ShowImgBean {
                     this.list = list;
                 }
 
-                public static class ListEntity {
+                public static class ListEntity implements Serializable {
                     private String big;
                     private String middle;
                     private String small;
                     private String date;
+                    private String title;
+
+                    public String getTitle() {
+                        return title;
+                    }
+
+                    public void setTitle(String title) {
+                        this.title = title;
+                    }
 
                     public String getDate() {
                         return date;

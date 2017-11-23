@@ -16,6 +16,7 @@ import allenhu.app.R;
 public abstract class BaseActivity extends HActivity {
 
     protected static final String PARAM1 = "data_param";
+    protected static final String PARAM2 = "data_param2";
 
     //    private AlertDialog progressDialog;
     private MProgressDialog mMProgressDialog;

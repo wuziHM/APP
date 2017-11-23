@@ -158,6 +158,10 @@
         </activity>
         <activity android:name=".activity.ImageCateActivity">
         </activity>
+        <activity
+            android:name=".activity.ImageBrowserActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ImageBrowserTheme"/>
     </application>
 
 </manifest>

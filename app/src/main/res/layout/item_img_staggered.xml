@@ -1,23 +1,24 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rl_root"
-    android:layout_width="match_parent"
-    android:layout_height="240dp"
-    android:background="@color/c_fafafa"
-    android:paddingRight="6dp"
-    android:paddingTop="6dp">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/rl_root"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:background="@color/c_fafafa"
+                android:paddingRight="6dp"
+                android:paddingTop="6dp">
 
     <ImageView
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@color/c_eaeaea" />
+        android:src="@color/c_eaeaea"
+        android:transitionName="@string/transition_wechat_img"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/transparent" />
+        android:background="@color/transparent"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -36,7 +37,7 @@
             app:cracksColor="@color/transparent"
             app:edgeColor="@color/c_c6c6c6"
             app:fillColor="@color/c_fa4242"
-            app:unlikeType="0" />
+            app:unlikeType="0"/>
 
 
         <TextView
@@ -48,7 +49,7 @@
             android:gravity="center"
             android:text="时间"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
     </RelativeLayout>
 

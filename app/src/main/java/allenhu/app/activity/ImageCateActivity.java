@@ -3,9 +3,13 @@ package allenhu.app.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +18,7 @@ import com.aspsine.swipetoloadlayout.OnRefreshListener;
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.hlib.util.MToastUtil;
 import com.zhy.base.adapter.recyclerview.EmptyRecyclerView;
+import com.zhy.base.adapter.recyclerview.OnItemClickListener;
 
 import java.util.ArrayList;
 
@@ -47,6 +52,7 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
     @BindView(R.id.swipeToLoadLayout)
     SwipeToLoadLayout swipeToLoadLayout;
 
+
     private ImageShowAdapter adapter;
 
     private int maxPage;
@@ -76,6 +82,7 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
 
     }
 
+
     private void initView() {
 
         typeId = getIntent().getExtras().getString(PARAM1);
@@ -85,10 +92,34 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
         swipeToLoadLayout.setOnLoadMoreListener(this);
 
         adapter = new ImageShowAdapter(getMContext(), R.layout.item_img_staggered, imgList);
+
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         staggeredGridLayoutManager.setItemPrefetchEnabled(false);
         swipeTarget.setLayoutManager(staggeredGridLayoutManager);
         swipeTarget.setItemAnimator(new DefaultItemAnimator());
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(ViewGroup parent, View view, Object o, int position) {
+                Intent intent = new Intent(ImageCateActivity.this, ImageBrowserActivity.class);
+                intent.putExtra(PARAM1, imgList);
+                intent.putExtra(PARAM2, position);
+
+
+                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        ImageCateActivity.this,
+                        view.findViewById(R.id.image),
+                        getString(R.string.transition_wechat_img)
+                );
+
+                ActivityCompat.startActivity(ImageCateActivity.this, intent, optionsCompat.toBundle());
+//                startActivity(intent);
+            }
+
+            @Override
+            public boolean onItemLongClick(ViewGroup parent, View view, Object o, int position) {
+                return false;
+            }
+        });
         swipeTarget.setAdapter(adapter);
         swipeTarget.setEmptyView(LayoutInflater.from(this).inflate(R.layout.layout_empty, null));
 

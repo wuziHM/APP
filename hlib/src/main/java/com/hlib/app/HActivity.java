@@ -7,20 +7,14 @@ import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
-import android.support.design.widget.CoordinatorLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.hlib.R;
 import com.hlib.app.SwipeBack.SwipeBackActivity;
 import com.hlib.app.SwipeBack.SwipeBackLayout;
 import com.hlib.util.MCommonUtil;
-import com.hlib.widget.header.MHeaderView;
-import com.hlib.widget.header.MHeaderViewAble;
 
 /**
  * Author：燕青 $ on 17/6/24 18:06
@@ -34,8 +28,8 @@ public abstract class HActivity extends SwipeBackActivity implements HActivityAb
     private static final String TAG = HActivity.class.getSimpleName();
     private Context context;
     private SwipeBackLayout swipeBackLayout;
-    private RelativeLayout mRootView;
-    protected MHeaderViewAble mHeaderViewAble;
+//    private RelativeLayout mRootView;
+//    protected MHeaderViewAble mHeaderViewAble;
 
 
     /**
@@ -79,23 +73,23 @@ public abstract class HActivity extends SwipeBackActivity implements HActivityAb
 
     @Override
     public void setContentView(View view) {
-        CoordinatorLayout coordinatorLayout = null;
-        try {
-            coordinatorLayout = (CoordinatorLayout) LayoutInflater.from(this).inflate(R.layout.m_root_view, null, false);
-            if (coordinatorLayout == null || null == view) {
-                return;
-            }
-            mRootView = (RelativeLayout) coordinatorLayout.findViewById(R.id.mRootView);
-            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            view.setLayoutParams(params);
+//        CoordinatorLayout coordinatorLayout = null;
+//        try {
+//            coordinatorLayout = (CoordinatorLayout) LayoutInflater.from(this).inflate(R.layout.m_root_view, null, false);
+//            if (coordinatorLayout == null || null == view) {
+//                return;
+//            }
+//            mRootView = (RelativeLayout) coordinatorLayout.findViewById(R.id.mRootView);
+//            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+//            view.setLayoutParams(params);
+//
+//            mRootView.addView(view);
+//        } catch (Exception e) {
+//            Log.e(TAG, "setContentView is fault");
+//            e.printStackTrace();
+//        }
 
-            mRootView.addView(view);
-        } catch (Exception e) {
-            Log.e(TAG, "setContentView is fault");
-            e.printStackTrace();
-        }
-
-        super.setContentView(coordinatorLayout);
+        super.setContentView(view);
     }
 
 
@@ -121,14 +115,14 @@ public abstract class HActivity extends SwipeBackActivity implements HActivityAb
     }
 
 
-    public void disableSwipeBack(boolean isDisable) {
-        swipeBackLayout.setEnableGesture(!isDisable);
-    }
+//    public void disableSwipeBack(boolean isDisable) {
+//        swipeBackLayout.setEnableGesture(!isDisable);
+//    }
 
 
-    public void initHeaderView() {
-        mHeaderViewAble = new MHeaderView(this, getMRootView());
-    }
+//    public void initHeaderView() {
+//        mHeaderViewAble = new MHeaderView(this, getMRootView());
+//    }
 
 
     @Override
@@ -172,14 +166,14 @@ public abstract class HActivity extends SwipeBackActivity implements HActivityAb
     }
 
 
-    public MHeaderViewAble getHeaderViewAble() {
-        return mHeaderViewAble;
-    }
-
-
-    public RelativeLayout getMRootView() {
-        return mRootView;
-    }
+//    public MHeaderViewAble getHeaderViewAble() {
+//        return mHeaderViewAble;
+//    }
+//
+//
+//    public RelativeLayout getMRootView() {
+//        return mRootView;
+//    }
 
     public static void finishActivity(Context context) {
         ((Activity) context).finish();

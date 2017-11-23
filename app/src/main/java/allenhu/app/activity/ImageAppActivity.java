@@ -29,9 +29,6 @@ import io.reactivex.schedulers.Schedulers;
 public class ImageAppActivity extends BaseActivity {
 
 
-    public final String[] TITLES = {
-            "张三", "李四", "王老五", "朱刘", "凌老大"
-    };
 
 
     @BindView(R.id.smartTabLayout)
