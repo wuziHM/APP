@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/browser_root"
     android:layout_width="match_parent"
@@ -17,19 +18,29 @@
         android:background="#000000"/>
 
 
-    <allenhu.app.view.ganhuo.MNGestureView
-        android:id="@+id/mnGestureView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--<allenhu.app.view.ganhuo.MNGestureView-->
+        <!--android:id="@+id/mnGestureView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
-        <allenhu.app.view.ViewPager
-            android:id="@+id/viewPagerBrowser"
+        <com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager
+            android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:transitionName="@string/transition_wechat_img"/>
+            android:clipToPadding="false"
+            android:transitionName="@string/transition_wechat_img"
+            app:rvp_singlePageFling="true"
+            app:rvp_triggerOffset="0.1"/>
+        <!--
 
-    </allenhu.app.view.ganhuo.MNGestureView>
+                <
+                    android:id="@+id/viewPagerBrowser"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:transitionName="@string/transition_wechat_img"/>
+        -->
 
+    <!--</allenhu.app.view.ganhuo.MNGestureView>-->
 
 
     <TextView

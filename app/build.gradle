@@ -58,6 +58,7 @@ android {
 // 改包名end
 
 dependencies {
+    implementation 'com.android.support:support-v4:25.4.0'
     compile fileTree(include: ['*.jar'], dir: 'libs')
 //    compile config.design
     compile files('libs/umeng-analytics-v5.6.4.jar')
@@ -114,6 +115,7 @@ dependencies {
     /*点赞收藏按钮*/
     compile 'com.ldoublem.thumbUplib:ThumbUplib:0.5'
 
+    compile 'com.github.lsjwzh.RecyclerViewPager:lib:v1.1.2@aar'
 
 //    /*提示库*/
 //    compile 'com.bigkoo:svprogresshud:1.0.4'

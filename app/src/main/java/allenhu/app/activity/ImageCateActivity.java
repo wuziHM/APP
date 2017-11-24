@@ -100,7 +100,7 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(ViewGroup parent, View view, Object o, int position) {
-                Intent intent = new Intent(ImageCateActivity.this, ImageBrowserActivity.class);
+                Intent intent = new Intent(ImageCateActivity.this, ImageBrowser1Activity.class);
                 intent.putExtra(PARAM1, imgList);
                 intent.putExtra(PARAM2, position);
 
