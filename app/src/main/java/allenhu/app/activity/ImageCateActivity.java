@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.adapter.ImageShowAdapter;
+import allenhu.app.bean.ImageBean;
 import allenhu.app.bean.request.ShowImgBean;
 import allenhu.app.net.retrofit2.NetWork;
 import butterknife.BindView;
@@ -58,7 +59,7 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
     private int maxPage;
 
 
-    private ArrayList<ShowImgBean.ShowapiResBodyEntity.PagebeanEntity.ContentlistEntity.ListEntity> imgList;
+    private ArrayList<ImageBean> imgList;
 
     private String typeId;
     private int page = 1;

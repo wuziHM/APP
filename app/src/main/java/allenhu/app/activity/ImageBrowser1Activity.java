@@ -23,7 +23,7 @@ import java.util.LinkedHashMap;
 
 import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
-import allenhu.app.bean.request.ShowImgBean;
+import allenhu.app.bean.ImageBean;
 import allenhu.app.fragment.ImgBrowserFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,7 +58,7 @@ public class ImageBrowser1Activity extends BaseActivity {
     RecyclerViewPager mRecyclerView;
 
     private Context context;
-    private ArrayList<ShowImgBean.ShowapiResBodyEntity.PagebeanEntity.ContentlistEntity.ListEntity> arrayList;
+    private ArrayList<ImageBean> arrayList;
     private int position;
 
 
@@ -100,7 +100,7 @@ public class ImageBrowser1Activity extends BaseActivity {
     private void initIntent() {
 
 
-        arrayList = (ArrayList<ShowImgBean.ShowapiResBodyEntity.PagebeanEntity.ContentlistEntity.ListEntity>) getIntent().getExtras().get(PARAM1);
+        arrayList = (ArrayList<ImageBean>) getIntent().getExtras().get(PARAM1);
         position = getIntent().getIntExtra(PARAM2, 1);
 
 

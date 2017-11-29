@@ -1,6 +1,4 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'android-apt'
-//apply plugin: 'me.tatarka.retrolambda'
 
 def config = gradle.ext
 
@@ -111,11 +109,13 @@ dependencies {
     compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
 
     /*下拉刷新框架*/
-    compile 'com.github.Aspsine:SwipeToLoadLayout:v1.0.4'
+    compile 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
     /*点赞收藏按钮*/
     compile 'com.ldoublem.thumbUplib:ThumbUplib:0.5'
 
     compile 'com.github.lsjwzh.RecyclerViewPager:lib:v1.1.2@aar'
+
+    compile 'com.orhanobut:logger:2.1.1'
 
 //    /*提示库*/
 //    compile 'com.bigkoo:svprogresshud:1.0.4'

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import allenhu.app.bean.ImageBean;
+
 /**
  * Author：HM $ on 17/11/22 14:05
  * E-mail：359222347@qq.com
@@ -19,11 +21,11 @@ public class ShowImgBean implements Serializable {
      * @param showImgBean
      * @return
      */
-    public static ArrayList<ShowapiResBodyEntity.PagebeanEntity.ContentlistEntity.ListEntity> getListEn(ShowImgBean showImgBean) {
-        ArrayList<ShowImgBean.ShowapiResBodyEntity.PagebeanEntity.ContentlistEntity.ListEntity> arrayList = new ArrayList<>();
+    public static ArrayList<ImageBean> getListEn(ShowImgBean showImgBean) {
+        ArrayList<ImageBean> arrayList = new ArrayList<>();
         ShowapiResBodyEntity.PagebeanEntity pageBean = showImgBean.getShowapi_res_body().getPagebean();
         for (ShowapiResBodyEntity.PagebeanEntity.ContentlistEntity entity : pageBean.getContentlist()) {
-            for (ShowapiResBodyEntity.PagebeanEntity.ContentlistEntity.ListEntity e : entity.getList()) {
+            for (ImageBean e : entity.getList()) {
 
                 e.setTitle(entity.getTitle());
 
@@ -175,7 +177,7 @@ public class ShowImgBean implements Serializable {
                  * small : http: //image.tianjimedia.com/uploadImages/2014/126/14/99DPC7722YXH_113.jpg
                  */
 
-                private List<ListEntity> list;
+                private List<ImageBean> list;
 
                 public String getCt() {
                     return ct;
@@ -217,61 +219,61 @@ public class ShowImgBean implements Serializable {
                     this.typeName = typeName;
                 }
 
-                public List<ListEntity> getList() {
+                public List<ImageBean> getList() {
                     return list;
                 }
 
-                public void setList(List<ListEntity> list) {
+                public void setList(List<ImageBean> list) {
                     this.list = list;
                 }
 
-                public static class ListEntity implements Serializable {
-                    private String big;
-                    private String middle;
-                    private String small;
-                    private String date;
-                    private String title;
-
-                    public String getTitle() {
-                        return title;
-                    }
-
-                    public void setTitle(String title) {
-                        this.title = title;
-                    }
-
-                    public String getDate() {
-                        return date;
-                    }
-
-                    public void setDate(String date) {
-                        this.date = date;
-                    }
-
-                    public String getBig() {
-                        return big;
-                    }
-
-                    public void setBig(String big) {
-                        this.big = big;
-                    }
-
-                    public String getMiddle() {
-                        return middle;
-                    }
-
-                    public void setMiddle(String middle) {
-                        this.middle = middle;
-                    }
-
-                    public String getSmall() {
-                        return small;
-                    }
-
-                    public void setSmall(String small) {
-                        this.small = small;
-                    }
-                }
+//                public static class ListEntity implements Serializable {
+//                    private String big;
+//                    private String middle;
+//                    private String small;
+//                    private String date;
+//                    private String title;
+//
+//                    public String getTitle() {
+//                        return title;
+//                    }
+//
+//                    public void setTitle(String title) {
+//                        this.title = title;
+//                    }
+//
+//                    public String getDate() {
+//                        return date;
+//                    }
+//
+//                    public void setDate(String date) {
+//                        this.date = date;
+//                    }
+//
+//                    public String getBig() {
+//                        return big;
+//                    }
+//
+//                    public void setBig(String big) {
+//                        this.big = big;
+//                    }
+//
+//                    public String getMiddle() {
+//                        return middle;
+//                    }
+//
+//                    public void setMiddle(String middle) {
+//                        this.middle = middle;
+//                    }
+//
+//                    public String getSmall() {
+//                        return small;
+//                    }
+//
+//                    public void setSmall(String small) {
+//                        this.small = small;
+//                    }
+//                }
             }
         }
 

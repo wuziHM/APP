@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<in.srain.cube.views.ptr.PtrClassicFrameLayout
+<android.support.v4.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:id="@+id/swipe"
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/mdContainView"
@@ -22,4 +22,4 @@
 
     </RelativeLayout>
 
-</in.srain.cube.views.ptr.PtrClassicFrameLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

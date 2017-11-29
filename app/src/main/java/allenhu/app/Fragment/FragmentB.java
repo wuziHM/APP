@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
@@ -14,8 +15,6 @@ import android.view.ViewGroup;
 import com.zhy.base.adapter.recyclerview.DividerItemDecoration;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import allenhu.app.R;
 import allenhu.app.activity.AccelerometerPlayActivity;
@@ -28,9 +27,7 @@ import allenhu.app.activity.ShoppingCarActivity;
 import allenhu.app.activity.Swipe2Activity;
 import allenhu.app.adapter.HomeAdapter;
 import allenhu.app.listener.OnItemClickListener;
-import allenhu.app.view.impl.OnMDRefreshListener;
 import allenhu.app.view.mdautoloadview.MDAutoLoadMoreRecyclerView;
-import allenhu.app.view.refresh.MDRefreshView;
 
 /**
  * Created by AllenHu on 2016/2/14.
@@ -40,7 +37,7 @@ public class FragmentB extends Fragment {
     private View rootView;
     private Context context;
 
-    private MDRefreshView iRefreshView;
+    private SwipeRefreshLayout iRefreshView;
     private MDAutoLoadMoreRecyclerView recyclerView;
     private ArrayList list;
     private ArrayList<Class> classes;
@@ -69,12 +66,13 @@ public class FragmentB extends Fragment {
     }
 
     private void initView() {
-        iRefreshView = (MDRefreshView) rootView.findViewById(R.id.md_fresh);
+        iRefreshView = (SwipeRefreshLayout) rootView.findViewById(R.id.md_fresh);
         recyclerView = (MDAutoLoadMoreRecyclerView) rootView.findViewById(R.id.md_recycle);
 
-        iRefreshView.setOnMDRefreshListener(new OnMDRefreshListener() {
+
+        iRefreshView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onRefresh(View view) {
+            public void onRefresh() {
                 fresh();
             }
         });
@@ -103,14 +101,14 @@ public class FragmentB extends Fragment {
     }
 
     private void fresh() {
-        Timer timer = new Timer();
-        TimerTask timerTask = new TimerTask() {
+
+        iRefreshView.postDelayed(new Runnable() {
             @Override
             public void run() {
-                iRefreshView.refreshComplete();
+
+                iRefreshView.setRefreshing(false);
             }
-        };
-        timer.schedule(timerTask, 1000);
+        },1000);
     }
 
     private void initData() {

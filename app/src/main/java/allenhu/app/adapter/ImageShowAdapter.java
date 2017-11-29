@@ -15,14 +15,17 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.hlib.util.MUnitConversionUtil;
+import com.ldoublem.thumbUplib.ThumbUpView;
 import com.zhy.base.adapter.ViewHolder;
 import com.zhy.base.adapter.recyclerview.CommonAdapter;
 
 import java.util.List;
 
 import allenhu.app.R;
+import allenhu.app.bean.ImageBean;
 import allenhu.app.bean.PicSizeEntity;
-import allenhu.app.bean.request.ShowImgBean;
+import allenhu.app.db.ILikeDao;
+import allenhu.app.util.MySnackbar;
 
 /**
  * Author：HM $ on 17/11/22 14:26
@@ -30,12 +33,13 @@ import allenhu.app.bean.request.ShowImgBean;
  * <p>
  * use to...
  */
-public class ImageShowAdapter extends CommonAdapter<ShowImgBean.ShowapiResBodyEntity.PagebeanEntity.ContentlistEntity.ListEntity> {
+public class ImageShowAdapter extends CommonAdapter<ImageBean> {
 
 
     private RequestOptions options;
     private int screenWidth;
 
+    private ILikeDao likeDao;
     private ArrayMap<String, PicSizeEntity> picSizeEntityArrayMap = new ArrayMap<>();
 
 
@@ -47,6 +51,8 @@ public class ImageShowAdapter extends CommonAdapter<ShowImgBean.ShowapiResBodyEn
         options.diskCacheStrategy(DiskCacheStrategy.ALL);
         screenWidth = MUnitConversionUtil.getWidth(context);
 
+        likeDao = new ILikeDao(mContext);
+
 
     }
 
@@ -56,7 +62,7 @@ public class ImageShowAdapter extends CommonAdapter<ShowImgBean.ShowapiResBodyEn
 //    }
 
     @Override
-    public void convert(final ViewHolder holder, final ShowImgBean.ShowapiResBodyEntity.PagebeanEntity.ContentlistEntity.ListEntity o) {
+    public void convert(final ViewHolder holder, final ImageBean o) {
         holder.setText(R.id.tvShowTime, o.getDate());
         String url = o.getMiddle();
         PicSizeEntity picSizeEntity = picSizeEntityArrayMap.get(o.getMiddle());
@@ -96,6 +102,36 @@ public class ImageShowAdapter extends CommonAdapter<ShowImgBean.ShowapiResBodyEn
                     }
                 })
                 .into((ImageView) holder.getView(R.id.image));
+
+        final ThumbUpView upView = holder.getView(R.id.btn_collect2);
+        boolean isLike = likeDao.isExist(o.getBig());
+        if (isLike)
+            upView.Like();
+        else {
+            upView.UnLike();
+        }
+        upView.setOnThumbUp(new ThumbUpView.OnThumbUp() {
+            @Override
+            public void like(boolean like) {
+                if (like) {
+                    boolean insertResult = likeDao.add(o);
+                    if (insertResult) {
+                        MySnackbar.makeSnackBarBlack(holder.getView(R.id.tvShowTime), "收藏成功");
+                    } else {
+                        upView.setUnlike();
+                        MySnackbar.makeSnackBarRed(holder.getView(R.id.tvShowTime), "收藏失败");
+                    }
+                } else {
+                    boolean deleteResult = likeDao.delete(o);
+                    if (deleteResult) {
+                        MySnackbar.makeSnackBarBlack(holder.getView(R.id.tvShowTime), "取消收藏成功");
+                    } else {
+                        upView.setLike();
+                        MySnackbar.makeSnackBarRed(holder.getView(R.id.tvShowTime), "取消收藏失败");
+                    }
+                }
+            }
+        });
 
     }
 }
