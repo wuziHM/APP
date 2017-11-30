@@ -13,14 +13,12 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-import allenhu.app.bean.AreaBean;
-import allenhu.app.bean.CityBean;
 import allenhu.app.bean.ImageBean;
-import allenhu.app.bean.ProvinceBean;
+import allenhu.app.bean.debean.ILikeType;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final String TABLE_NAME = "sqlite-test.db";
-    private static final int TABLE_VERSION = 7;
+    private static final int TABLE_VERSION = 12;
 
     private Map<String, Dao> daos = new HashMap<String, Dao>();
 
@@ -33,13 +31,14 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                          ConnectionSource connectionSource)
 
     {
-        MLogUtil.e("onCreate---->TABLE_VERSION:" + TABLE_VERSION);
+        MLogUtil.i("onCreate---->TABLE_VERSION:" + TABLE_VERSION);
 
         try {
-            TableUtils.createTable(connectionSource, ProvinceBean.class);
-            TableUtils.createTable(connectionSource, CityBean.class);
-            TableUtils.createTable(connectionSource, AreaBean.class);
+//            TableUtils.createTable(connectionSource, ProvinceBean.class);
+//            TableUtils.createTable(connectionSource, CityBean.class);
+//            TableUtils.createTable(connectionSource, AreaBean.class);
             TableUtils.createTable(connectionSource, ImageBean.class);
+            TableUtils.createTable(connectionSource, ILikeType.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -50,11 +49,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                           ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
 
-            MLogUtil.e("onUpgrade---->oldVersion:" + oldVersion + "    newVersion" + newVersion);
-            TableUtils.dropTable(connectionSource, ProvinceBean.class, true);
-            TableUtils.dropTable(connectionSource, CityBean.class, true);
-            TableUtils.dropTable(connectionSource, AreaBean.class, true);
+            MLogUtil.i("onUpgrade---->oldVersion:" + oldVersion + "    newVersion" + newVersion);
+//            TableUtils.dropTable(connectionSource, ProvinceBean.class, true);
+//            TableUtils.dropTable(connectionSource, CityBean.class, true);
+//            TableUtils.dropTable(connectionSource, AreaBean.class, true);
             TableUtils.dropTable(connectionSource, ImageBean.class, true);
+            TableUtils.dropTable(connectionSource, ILikeType.class, true);
             onCreate(database, connectionSource);
         } catch (SQLException e) {
             e.printStackTrace();

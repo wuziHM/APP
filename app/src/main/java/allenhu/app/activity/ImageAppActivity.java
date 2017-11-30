@@ -181,7 +181,6 @@ public class ImageAppActivity extends BaseActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            MLogUtil.e("name:" + titles.get(position).getName());
             return titles.get(position).getName();
 //            return TITLES[position];
         }

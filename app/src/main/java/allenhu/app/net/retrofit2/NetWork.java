@@ -1,7 +1,5 @@
 package allenhu.app.net.retrofit2;
 
-import com.hlib.util.MLogUtil;
-
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -56,7 +54,7 @@ public class NetWork {
                     @Override
                     public void log(String message) {
                         //打印retrofit日志
-                        MLogUtil.e("retrofitBack = " + message);
+//                        MLogUtil.e("retrofitBack = " + message);
                     }
                 }).setLevel(HttpLoggingInterceptor.Level.BODY))
                 .connectTimeout(4, TimeUnit.SECONDS)

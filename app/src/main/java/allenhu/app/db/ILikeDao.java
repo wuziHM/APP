@@ -28,7 +28,7 @@ public class ILikeDao {
     public boolean add(ImageBean bean) {
         try {
             int i = cDaoOpe.create(bean);
-            MLogUtil.e("add-->i=" + i);
+            MLogUtil.i("add-->i=" + i);
             if (i == 1) {
                 return true;
             }
@@ -41,7 +41,7 @@ public class ILikeDao {
     public boolean delete(ImageBean bean) {
         try {
             int i = cDaoOpe.delete(bean);
-            MLogUtil.e("删除：" + i + "");
+            MLogUtil.i("删除：" + i + "");
             if(i==1){
                 return true;
             }

@@ -33,6 +33,7 @@ public class TestDemo extends AndroidTestCase {
 
     @SmallTest
     public void testAdd() {
+        System.out.println("xxxxxxxxxxx");
         assertEquals(2, 1 + 1);
     }
 
@@ -72,29 +73,29 @@ public class TestDemo extends AndroidTestCase {
         first = System.currentTimeMillis();
         linkedList.remove(30);
         later = System.currentTimeMillis();
-        Log.e("wuzi", "linkedList删除操作花的时间:" + (later - first));
+        MLogUtil.out("linkedList删除操作花的时间:" + (later - first));
 
 
         first = System.currentTimeMillis();
         arrayList.get(30000);
         later = System.currentTimeMillis();
-        Log.e("wuzi", "arrayList查找操作花的时间是:" + (later - first));
+        MLogUtil.out( "arrayList查找操作花的时间是:" + (later - first));
 
 
         first = System.currentTimeMillis();
         linkedList.get(30000);
         later = System.currentTimeMillis();
-        Log.e("wuzi", "linkedList查找操作花的时间是:" + (later - first));
+        MLogUtil.out( "linkedList查找操作花的时间是:" + (later - first));
     }
 
     public void testString() {
         String s = "aaa=222&ddd=555&123=111&eee=666&ccc=444&bbb=333";
         String[] ss = s.split("&");
-        Log.e("wuzi", ss.length + "");
+        MLogUtil.out( ss.length + "");
         for (String s1 : ss) {
             String[] sss = s1.split("=");
             for (String s2 : sss) {
-                Log.e("wuzi", s2);
+                MLogUtil.out( s2);
             }
         }
     }

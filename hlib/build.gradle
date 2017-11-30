@@ -28,6 +28,8 @@ dependencies {
     compile config.appcompat_v7
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.orhanobut:logger:2.1.1'
+
     testCompile 'junit:junit:4.12'
     compile config.design
 }

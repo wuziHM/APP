@@ -51,6 +51,11 @@ android {
         wandoujia { dimension "color" }
         anzhi { dimension "color" }
     }
+
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 // 改包名end
@@ -114,8 +119,6 @@ dependencies {
     compile 'com.ldoublem.thumbUplib:ThumbUplib:0.5'
 
     compile 'com.github.lsjwzh.RecyclerViewPager:lib:v1.1.2@aar'
-
-    compile 'com.orhanobut:logger:2.1.1'
 
 //    /*提示库*/
 //    compile 'com.bigkoo:svprogresshud:1.0.4'

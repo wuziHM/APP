@@ -34,6 +34,7 @@ public class ShowImgBean implements Serializable {
                     date = entity.getCt().substring(0, 10);
                 }
                 e.setDate(date);
+                e.setTypeName(entity.getTypeName());
                 arrayList.add(e);
             }
         }

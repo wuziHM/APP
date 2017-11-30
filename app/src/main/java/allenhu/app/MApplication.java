@@ -3,7 +3,9 @@ package allenhu.app;
 import android.app.Application;
 
 import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
+import com.orhanobut.logger.PrettyFormatStrategy;
 
 /**
  * Author：HM $ on 17/11/29 10:32
@@ -20,8 +22,14 @@ public class MApplication extends Application {
     }
 
     private void initLogger() {
-        Logger.addLogAdapter(new AndroidLogAdapter() {
-            @Override public boolean isLoggable(int priority, String tag) {
+
+        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+                .tag("wuzi")   // (Optional) Global tag for every log. Default PRETTY_LOGGER
+                .build();
+
+        Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy) {
+            @Override
+            public boolean isLoggable(int priority, String tag) {
                 return BuildConfig.DEBUG;
             }
         });

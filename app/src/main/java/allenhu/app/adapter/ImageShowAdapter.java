@@ -16,6 +16,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.hlib.util.MUnitConversionUtil;
 import com.ldoublem.thumbUplib.ThumbUpView;
+import com.orhanobut.logger.Logger;
 import com.zhy.base.adapter.ViewHolder;
 import com.zhy.base.adapter.recyclerview.CommonAdapter;
 
@@ -24,7 +25,9 @@ import java.util.List;
 import allenhu.app.R;
 import allenhu.app.bean.ImageBean;
 import allenhu.app.bean.PicSizeEntity;
+import allenhu.app.bean.debean.ILikeType;
 import allenhu.app.db.ILikeDao;
+import allenhu.app.db.TypeDao;
 import allenhu.app.util.MySnackbar;
 
 /**
@@ -40,6 +43,7 @@ public class ImageShowAdapter extends CommonAdapter<ImageBean> {
     private int screenWidth;
 
     private ILikeDao likeDao;
+    private TypeDao typeDao;
     private ArrayMap<String, PicSizeEntity> picSizeEntityArrayMap = new ArrayMap<>();
 
 
@@ -52,6 +56,7 @@ public class ImageShowAdapter extends CommonAdapter<ImageBean> {
         screenWidth = MUnitConversionUtil.getWidth(context);
 
         likeDao = new ILikeDao(mContext);
+        typeDao = new TypeDao(mContext);
 
 
     }
@@ -62,10 +67,10 @@ public class ImageShowAdapter extends CommonAdapter<ImageBean> {
 //    }
 
     @Override
-    public void convert(final ViewHolder holder, final ImageBean o) {
-        holder.setText(R.id.tvShowTime, o.getDate());
-        String url = o.getMiddle();
-        PicSizeEntity picSizeEntity = picSizeEntityArrayMap.get(o.getMiddle());
+    public void convert(final ViewHolder holder, final ImageBean imageBean) {
+        holder.setText(R.id.tvShowTime, imageBean.getDate());
+        String url = imageBean.getMiddle();
+        PicSizeEntity picSizeEntity = picSizeEntityArrayMap.get(imageBean.getMiddle());
         if (picSizeEntity != null && !picSizeEntity.isNull()) {
             int width = picSizeEntity.getPicWidth();
             int height = picSizeEntity.getPicHeight();
@@ -82,13 +87,14 @@ public class ImageShowAdapter extends CommonAdapter<ImageBean> {
                 .thumbnail(0.2f)
                 .listener(new RequestListener<Bitmap>() {
                     @Override
-                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model,
+                                                Target<Bitmap> target, boolean isFirstResource) {
                         return false;
                     }
 
                     @Override
                     public boolean onResourceReady(Bitmap resource, Object model, Target<Bitmap> target, DataSource dataSource, boolean isFirstResource) {
-                        PicSizeEntity picSizeEntity = picSizeEntityArrayMap.get(o.getMiddle());
+                        PicSizeEntity picSizeEntity = picSizeEntityArrayMap.get(imageBean.getMiddle());
                         if (picSizeEntity == null || picSizeEntity.isNull()) {
                             int width = resource.getWidth();
                             int height = resource.getHeight();
@@ -96,37 +102,44 @@ public class ImageShowAdapter extends CommonAdapter<ImageBean> {
                             int finalHeight = (screenWidth / 2) * height / width;
                             ViewGroup.LayoutParams layoutParams = holder.getView(R.id.rl_root).getLayoutParams();
                             layoutParams.height = finalHeight;
-                            picSizeEntityArrayMap.put(o.getMiddle(), new PicSizeEntity(width, height));
+                            picSizeEntityArrayMap.put(imageBean.getMiddle(), new PicSizeEntity(width, height));
                         }
                         return false;
                     }
                 })
                 .into((ImageView) holder.getView(R.id.image));
 
-        final ThumbUpView upView = holder.getView(R.id.btn_collect2);
-        boolean isLike = likeDao.isExist(o.getBig());
+        ;
+        boolean isLike = likeDao.isExist(imageBean.getBig());
         if (isLike)
-            upView.Like();
+            ((ThumbUpView) holder.getView(R.id.btn_collect2)).setLike();
         else {
-            upView.UnLike();
+            ((ThumbUpView) holder.getView(R.id.btn_collect2)).setUnlike();
         }
-        upView.setOnThumbUp(new ThumbUpView.OnThumbUp() {
+        ((ThumbUpView) holder.getView(R.id.btn_collect2)).setOnThumbUp(new ThumbUpView.OnThumbUp() {
             @Override
             public void like(boolean like) {
+
+
+                Logger.d("image-->" + imageBean.toString());
+
                 if (like) {
-                    boolean insertResult = likeDao.add(o);
+
+                    ILikeType type = typeDao.getTypeAndAdd(imageBean.getTypeName());
+                    imageBean.setType(type);
+                    boolean insertResult = likeDao.add(imageBean);
                     if (insertResult) {
                         MySnackbar.makeSnackBarBlack(holder.getView(R.id.tvShowTime), "收藏成功");
                     } else {
-                        upView.setUnlike();
                         MySnackbar.makeSnackBarRed(holder.getView(R.id.tvShowTime), "收藏失败");
+                        ((ThumbUpView) holder.getView(R.id.btn_collect2)).setUnlike();
                     }
                 } else {
-                    boolean deleteResult = likeDao.delete(o);
+                    boolean deleteResult = likeDao.delete(imageBean);
                     if (deleteResult) {
                         MySnackbar.makeSnackBarBlack(holder.getView(R.id.tvShowTime), "取消收藏成功");
                     } else {
-                        upView.setLike();
+                        ((ThumbUpView) holder.getView(R.id.btn_collect2)).setLike();
                         MySnackbar.makeSnackBarRed(holder.getView(R.id.tvShowTime), "取消收藏失败");
                     }
                 }
