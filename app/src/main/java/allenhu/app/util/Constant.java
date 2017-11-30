@@ -9,6 +9,10 @@ import allenhu.app.bean.Product;
 
 public final class Constant {
 
+    //每页的条数
+    public static final int PAGE_SIZE = 15;
+
+
 
     public static final String APP_ID = "wxa84b103c1fbded80";
 

@@ -77,7 +77,7 @@ public class ImgListFragment extends Fragment {
     }
 
     private void initView() {
-        adapter = new ImgCategoryAdapter(getContext(), R.layout.item_recycler, listEntity.getList());
+        adapter = new ImgCategoryAdapter(getContext(), R.layout.item_recycler, listEntity.getList(), ImgCategoryAdapter.TYPE_CATEGORY);
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(ViewGroup parent, View view, Object o, int position) {

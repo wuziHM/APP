@@ -57,14 +57,7 @@ public class ImageShowAdapter extends CommonAdapter<ImageBean> {
 
         likeDao = new ILikeDao(mContext);
         typeDao = new TypeDao(mContext);
-
-
     }
-
-//    public void setDate(String date) {
-//        this.date = date;
-//        notifyDataSetChanged();
-//    }
 
     @Override
     public void convert(final ViewHolder holder, final ImageBean imageBean) {

@@ -21,18 +21,25 @@ import com.zhy.base.adapter.recyclerview.EmptyRecyclerView;
 import com.zhy.base.adapter.recyclerview.OnItemClickListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.adapter.ImageShowAdapter;
 import allenhu.app.bean.ImageBean;
 import allenhu.app.bean.request.ShowImgBean;
+import allenhu.app.db.ILikeDao;
 import allenhu.app.net.retrofit2.NetWork;
+import allenhu.app.util.Constant;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class ImageCateActivity extends BaseActivity implements OnRefreshListener, OnLoadMoreListener {
@@ -56,15 +63,39 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
 
     private ImageShowAdapter adapter;
 
-    private int maxPage;
-
+    //是否是从本地数据库去拿数据
+    private boolean isFromDB;
 
     private ArrayList<ImageBean> imgList;
 
     private String typeId;
+
+    private int likeType;
+
+    //数据库查询工具
+    private ILikeDao dao;
+
     private int page = 1;
 
+    /**
+     * 根据接口的id去服务器请求数据
+     *
+     * @param context
+     * @param id
+     */
     public static void toImageCateActivity(Context context, String id) {
+        Intent intent = new Intent(context, ImageCateActivity.class);
+        intent.putExtra(PARAM1, id);
+        context.startActivity(intent);
+    }
+
+    /**
+     * 根据本地数据库的数据去查询数据
+     *
+     * @param context
+     * @param id
+     */
+    public static void toImageCateActivity(Context context, int id) {
         Intent intent = new Intent(context, ImageCateActivity.class);
         intent.putExtra(PARAM1, id);
         context.startActivity(intent);
@@ -79,14 +110,23 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-        initView();
 
+        if (getIntent().getExtras().get(PARAM1) instanceof Integer) {
+            isFromDB = true;
+            likeType = getIntent().getIntExtra(PARAM1, 0);
+        } else if (getIntent().getExtras().get(PARAM1) instanceof String) {
+            isFromDB = false;
+            typeId = getIntent().getExtras().getString(PARAM1);
+
+        }
+
+        initView();
     }
 
 
     private void initView() {
+        dao = new ILikeDao(this);
 
-        typeId = getIntent().getExtras().getString(PARAM1);
         imgList = new ArrayList<>();
 
         swipeToLoadLayout.setOnRefreshListener(this);
@@ -134,15 +174,30 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
 
     @Override
     public void onRefresh() {
-        dealPage(false);
-        getData();
+        if (isFromDB) {
+            page = 1;
+            imgList.clear();
+            refreshObs.subscribeOn(Schedulers.newThread())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(consumer);
+        } else {
+            dealPage(false);
+            getData();
+        }
     }
 
 
     @Override
     public void onLoadMore() {
-        dealPage(true);
-        getData();
+        if (isFromDB) {
+            page++;
+            loadObs.subscribeOn(Schedulers.newThread())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(consumer);
+        } else {
+            dealPage(true);
+            getData();
+        }
     }
 
     private void dealPage(boolean isLoadMore) {
@@ -164,6 +219,44 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
         swipeToLoadLayout.setLoadingMore(false);
 
     }
+
+
+    /**
+     * 加载更多的时候的操作
+     */
+    Observable loadObs = Observable.create(new ObservableOnSubscribe() {
+        @Override
+        public void subscribe(ObservableEmitter e) throws Exception {
+            e.onNext(dao.getTypeByPage(likeType, page, Constant.PAGE_SIZE));
+        }
+    });
+
+    /**
+     * 数据库刷新的时候的操作
+     */
+    Observable<List<ImageBean>> refreshObs = Observable.create(new ObservableOnSubscribe() {
+        @Override
+        public void subscribe(ObservableEmitter e) throws Exception {
+            e.onNext(dao.getTypeByPage(likeType, page, Constant.PAGE_SIZE));
+        }
+    });
+
+    /**
+     * 处理
+     */
+    Consumer consumer = new Consumer<List<ImageBean>>() {
+        @Override
+        public void accept(List<ImageBean> imageBeans) throws Exception {
+            overRefresh();
+            if (imageBeans == null || imageBeans.size() < Constant.PAGE_SIZE) {
+                swipeToLoadLayout.setLoadMoreEnabled(false);
+            } else {
+                swipeToLoadLayout.setLoadMoreEnabled(true);
+            }
+            imgList.addAll(imageBeans);
+            adapter.notifyDataSetChanged();
+        }
+    };
 
 
     Observer<ShowImgBean> mImgObserver = new Observer<ShowImgBean>() {
@@ -197,7 +290,6 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
 
         @Override
         public void onError(Throwable e) {
-
             overRefresh();
         }
 

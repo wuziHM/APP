@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import allenhu.app.R;
+import allenhu.app.activity.CollectActivity;
 import allenhu.app.activity.ImageAppActivity;
 import allenhu.app.adapter.DividerItemDecoration;
 import allenhu.app.adapter.HomeAdapter;
@@ -84,6 +85,9 @@ public class FragmentD extends Fragment {
 
         listContent.add("图图大全");
         listActivity.add(ImageAppActivity.class);
+
+        listContent.add("我喜欢");
+        listActivity.add(CollectActivity.class);
 
 
     }
