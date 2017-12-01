@@ -8,6 +8,11 @@
     android:orientation="vertical"
     tools:context="allenhu.app.activity.ImageAppActivity">
 
+    <include
+        android:id="@+id/emptyView"
+        layout="@layout/empty_view"
+        android:visibility="gone"/>
+
     <com.ogaclejapan.smarttablayout.SmartTabLayout
         android:id="@+id/smartTabLayout"
         android:layout_width="match_parent"
@@ -28,19 +33,21 @@
 
     </com.ogaclejapan.smarttablayout.SmartTabLayout>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipe"
+    <!--<android.support.v4.widget.SwipeRefreshLayout-->
+    <!--android:id="@+id/swipe"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <allenhu.app.view.MyViewPager
+        android:id="@+id/viewPage"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+    </allenhu.app.view.MyViewPager>
 
-        <allenhu.app.view.MyViewPager
-            android:id="@+id/viewPage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </allenhu.app.view.MyViewPager>
+    <!--
 
-
-    </android.support.v4.widget.SwipeRefreshLayout>
+        </android.support.v4.widget.SwipeRefreshLayout>
+    -->
 
 
 </LinearLayout>

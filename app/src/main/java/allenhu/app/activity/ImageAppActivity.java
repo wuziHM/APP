@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.View;
 
 import com.google.gson.Gson;
 import com.hlib.util.MLogUtil;
@@ -29,14 +29,18 @@ import io.reactivex.schedulers.Schedulers;
 public class ImageAppActivity extends BaseActivity {
 
 
-
-
     @BindView(R.id.smartTabLayout)
     SmartTabLayout smartTabLayout;
+
     @BindView(R.id.viewPage)
     ViewPager viewPage;
-    @BindView(R.id.swipe)
-    SwipeRefreshLayout swipe;
+
+    @BindView(R.id.emptyView)
+    View emptyView;
+
+
+//    @BindView(R.id.swipe)
+//    SwipeRefreshLayout swipe;
 
     private ArrayList<ImgListBean.ShowapiResBodyEntity.ListEntity> titles;
     private MyAdapter adapter;
@@ -64,16 +68,12 @@ public class ImageAppActivity extends BaseActivity {
 
         @Override
         public void onNext(ImgListBean imgListBean) {
-
-            if (swipe.isRefreshing()) {
-                swipe.setRefreshing(false);
-            }
-
+            hideProgress();
             if (imgListBean != null && imgListBean.getShowapi_res_code() == 0) {
+                hideErrorView();
                 MLogUtil.i("response:" + new Gson().toJson(imgListBean));
                 titles.addAll(imgListBean.getShowapi_res_body().getList());
                 adapter.notifyDataSetChanged();
-
                 smartTabLayout.setViewPager(viewPage);
             } else {
                 MToastUtil.show(ImageAppActivity.this, "请求失败了");
@@ -83,10 +83,7 @@ public class ImageAppActivity extends BaseActivity {
 
         @Override
         public void onError(Throwable e) {
-
-            if (swipe.isRefreshing()) {
-                swipe.setRefreshing(false);
-            }
+            hideProgress();
             MLogUtil.i("请求失败了-->e:" + e.toString());
             d.dispose();
             onErrorView();
@@ -94,16 +91,21 @@ public class ImageAppActivity extends BaseActivity {
 
         @Override
         public void onComplete() {
+            hideProgress();
             d.dispose();
         }
 
     };
 
+    private void hideErrorView() {
+        emptyView.setVisibility(View.GONE);
+    }
+
     /**
      * 加载失败
      */
     private void onErrorView() {
-
+        emptyView.setVisibility(View.VISIBLE);
     }
 
 
@@ -116,6 +118,7 @@ public class ImageAppActivity extends BaseActivity {
      * 请求网络数据
      */
     private void requestData() {
+        showProgress();
         NetWork.getImageApi()
                 .getImageList()
                 .subscribeOn(Schedulers.io())
@@ -133,13 +136,20 @@ public class ImageAppActivity extends BaseActivity {
     }
 
     private void initView() {
-        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                requestData();
+//            }
+//        });
+
+
+        emptyView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onRefresh() {
+            public void onClick(View v) {
                 requestData();
             }
         });
-
 
         adapter = new MyAdapter(getSupportFragmentManager());
         viewPage.setAdapter(adapter);

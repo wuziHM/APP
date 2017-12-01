@@ -26,15 +26,15 @@ public class MyViewPager extends ViewPager {
     public boolean onInterceptTouchEvent(MotionEvent ev) {
 
         boolean res = super.onInterceptTouchEvent(ev);
-        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
-            preX = ev.getX();
-        } else {
-            if (Math.abs(ev.getX() - preX) > 4) {
-                return true;
-            } else {
-                preX = ev.getX();
-            }
-        }
+//        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+//            preX = ev.getX();
+//        } else {
+//            if (Math.abs(ev.getX() - preX) > 4) {
+//                return true;
+//            } else {
+//                preX = ev.getX();
+//            }
+//        }
         return res;
     }
 

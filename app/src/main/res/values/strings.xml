@@ -43,4 +43,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+
+    <string name="empty_network_error">网络错误，点击重试！</string>
+    <string name="empty_no_data">没有请求到数据，点击重试...</string>
+
 </resources>
