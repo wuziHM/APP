@@ -14,10 +14,12 @@ import com.orhanobut.logger.PrettyFormatStrategy;
  * use to...
  */
 public class MApplication extends Application {
+    private static MApplication application;
+
     @Override
     public void onCreate() {
         super.onCreate();
-
+        application = this;
         initLogger();
     }
 
@@ -33,5 +35,9 @@ public class MApplication extends Application {
                 return BuildConfig.DEBUG;
             }
         });
+    }
+
+    public static MApplication getIntstance() {
+        return application;
     }
 }
