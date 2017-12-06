@@ -52,7 +52,7 @@ public class MLogUtil {
      * @param msg
      */
     public static void e(String msg) {
-        com.orhanobut.logger.Logger.e(tag, msg);
+        Logger.e(tag, msg);
     }
 
     public static void out(String msg) {

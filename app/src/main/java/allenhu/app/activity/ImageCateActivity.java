@@ -17,6 +17,7 @@ import com.aspsine.swipetoloadlayout.OnLoadMoreListener;
 import com.aspsine.swipetoloadlayout.OnRefreshListener;
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.hlib.util.MToastUtil;
+import com.orhanobut.logger.Logger;
 import com.zhy.base.adapter.recyclerview.EmptyRecyclerView;
 import com.zhy.base.adapter.recyclerview.OnItemClickListener;
 
@@ -76,11 +77,12 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
     private ILikeDao dao;
 
     private int page = 1;
+    private Disposable disobs;
+    private Disposable disRef;
 
     /**
      * 根据接口的id去服务器请求数据
      *
-     * @param context
      * @param id
      */
     public static void toImageCateActivity(Context context, String id) {
@@ -114,6 +116,7 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
         if (getIntent().getExtras().get(PARAM1) instanceof Integer) {
             isFromDB = true;
             likeType = getIntent().getIntExtra(PARAM1, 0);
+            Logger.d("likeType:"+likeType);
         } else if (getIntent().getExtras().get(PARAM1) instanceof String) {
             isFromDB = false;
             typeId = getIntent().getExtras().getString(PARAM1);
@@ -177,7 +180,7 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
         if (isFromDB) {
             page = 1;
             imgList.clear();
-            refreshObs.subscribeOn(Schedulers.newThread())
+            disRef = refreshObs.subscribeOn(Schedulers.newThread())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(consumer);
         } else {
@@ -191,7 +194,7 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
     public void onLoadMore() {
         if (isFromDB) {
             page++;
-            loadObs.subscribeOn(Schedulers.newThread())
+            disobs = loadObs.subscribeOn(Schedulers.newThread())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(consumer);
         } else {
@@ -300,4 +303,15 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
         }
 
     };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (disobs != null) {
+            disobs.dispose();
+        }
+        if (disRef != null) {
+            disRef.dispose();
+        }
+    }
 }

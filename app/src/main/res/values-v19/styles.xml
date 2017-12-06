@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+
+    <!--</style>-->
+
+    <!--<style name="AppTheme" parent="RootAppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+        &lt;!&ndash;<item name="android:windowTranslucentNavigation">true</item>&ndash;&gt;
+    </style>-->
+    <style name="DayTheme" parent="RootAppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+    </style>
+    <!--<style name="NightTheme" parent="NightThemeBase">-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--&lt;!&ndash;<item name="android:windowTranslucentNavigation">true</item>&ndash;&gt;-->
+    <!--</style>-->
+
+    <style name="WeatherBaseTheme" parent="android:Theme.Holo.NoActionBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+    </style>
+</resources>
