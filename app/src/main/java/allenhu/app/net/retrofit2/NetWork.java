@@ -1,5 +1,7 @@
 package allenhu.app.net.retrofit2;
 
+import android.support.annotation.NonNull;
+
 import com.orhanobut.logger.Logger;
 
 import java.io.File;
@@ -34,11 +36,11 @@ public class NetWork {
     public static final String ROOT_URL = "http://apis.baidu.com/";
 
 
-    //    private static OkHttpClient okHttpClient = new OkHttpClient();
     private static Converter.Factory gsonConverterFactory = GsonConverterFactory.create();
     private static CallAdapter.Factory rxJavaCallAdapterFactory = RxJava2CallAdapterFactory.create();
 
     private static ImageApi imageApi;
+    private static FindBgApi findBgApi;
 
 
     private static final Interceptor REWRITE_CACHE_CONTROL_INTERCEPTOR = new Interceptor() {
@@ -88,30 +90,40 @@ public class NetWork {
         }
     };
 
-    private static final Interceptor LoggingInterceptor = new Interceptor() {
-        @Override
-        public Response intercept(Interceptor.Chain chain) throws IOException {
-            Request request = chain.request()
-                    .newBuilder()
-                    .addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
-                    .addHeader("Accept-Encoding", "gzip, deflate")
-                    .addHeader("Connection", "keep-alive")
+//    getInterceptor();
+
+    @NonNull
+    private static Interceptor getInterceptor(final boolean isUTF) {
+        return new Interceptor() {
+            @Override
+            public Response intercept(Chain chain) throws IOException {
+                Request request = getRequest(chain, isUTF);
+                long t1 = System.nanoTime();
+                Response response = chain.proceed(request);
+                long t2 = System.nanoTime();
+                Logger.i("-----LoggingInterceptor----- :\nrequest url:"
+                        + request.url() + "\ntime:" + (t2 - t1) / 1e6d
+                        + "    response:" + response.body().string());
+                //            return response;
+                return chain.proceed(request);
+            }
+        };
+    }
+
+    private static Request getRequest(Interceptor.Chain chain, boolean isUtf) {
+        Logger.d("isUtf:" + isUtf);
+        Request.Builder builder = chain.request().newBuilder();
+        if (isUtf)
+            builder.addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
                     .addHeader("apikey", Constant.BAIDU_API_ID)
-                    .build();
-            long t1 = System.nanoTime();
-            Response response = chain.proceed(request);
-            long t2 = System.nanoTime();
-//            String content = response.body().string();
-            Logger.i("-----LoggingInterceptor----- :\nrequest url:" + request.url() + "\ntime:" + (t2 - t1) / 1e6d);
-////            return response.newBuilder()
-////                    .body(okhttp3.ResponseBody.create(mediaType, content))
-////                    .build();
-            return response;
-        }
-    };
+                    .addHeader("Accept-Encoding", "gzip, deflate")
+                    .addHeader("Connection", "keep-alive");
+
+        return builder.build();
+    }
 
 
-    public static OkHttpClient genericClient() {
+    public static OkHttpClient genericClient(boolean isUTF) {
 
         //设置缓存路径
         File httpCacheDirectory = new File(MApplication.getIntstance().getCacheDir(), "okhttpCache");
@@ -119,10 +131,11 @@ public class NetWork {
         Cache cache = new Cache(httpCacheDirectory, 10 * 1024 * 1024);
 
         OkHttpClient httpClient = new OkHttpClient.Builder()
-                .addInterceptor(LoggingInterceptor)
+                .addInterceptor(getInterceptor(isUTF))
                 .addInterceptor(new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
                     @Override
                     public void log(String message) {
+//                        Logger.d("request-->message:" + message);
                         //打印retrofit日志
 //                        MLogUtil.e("retrofitBack = " + message);
                     }
@@ -135,6 +148,33 @@ public class NetWork {
 
         return httpClient;
     }
+
+
+//    public static OkHttpClient genericClient(int i) {
+//
+//        //设置缓存路径
+//        File httpCacheDirectory = new File(MApplication.getIntstance().getCacheDir(), "okhttpCache");
+//        //设置缓存 10M
+//        Cache cache = new Cache(httpCacheDirectory, 10 * 1024 * 1024);
+//
+//        OkHttpClient httpClient = new OkHttpClient.Builder()
+//                .addInterceptor(LoggingInterceptor)
+//                .addInterceptor(new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+//                    @Override
+//                    public void log(String message) {
+//                        Logger.d("request-->message:"+message);
+//                        //打印retrofit日志
+////                        MLogUtil.e("retrofitBack = " + message);
+//                    }
+//                }).setLevel(HttpLoggingInterceptor.Level.BODY))
+//                .addNetworkInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
+//                .addInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
+//                .connectTimeout(4, TimeUnit.SECONDS)
+//                .cache(cache)
+//                .build();
+//
+//        return httpClient;
+//    }
 
 
 //    public static OkHttpClient genericClient() {
@@ -175,7 +215,7 @@ public class NetWork {
 
         if (imageApi == null) {
             Retrofit retrofit = new Retrofit.Builder()
-                    .client(genericClient())
+                    .client(genericClient(true))
                     .baseUrl(ROOT_URL)
                     .addCallAdapterFactory(rxJavaCallAdapterFactory)
                     .addConverterFactory(gsonConverterFactory)
@@ -183,6 +223,25 @@ public class NetWork {
             imageApi = retrofit.create(ImageApi.class);
         }
         return imageApi;
+    }
+
+    /**
+     * 获取图片分类
+     *
+     * @return
+     */
+    public static FindBgApi getIFindApi() {
+
+        if (findBgApi == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .client(genericClient(false))
+                    .baseUrl("http://www.bing.com/")
+                    .addCallAdapterFactory(rxJavaCallAdapterFactory)
+                    .addConverterFactory(gsonConverterFactory)
+                    .build();
+            findBgApi = retrofit.create(FindBgApi.class);
+        }
+        return findBgApi;
     }
 
 }

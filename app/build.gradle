@@ -62,68 +62,51 @@ android {
 // 改包名end
 
 dependencies {
-    implementation 'com.android.support:support-v4:25.4.0'
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-//    compile config.design
-    compile files('libs/umeng-analytics-v5.6.4.jar')
-    compile files('libs/libammsdk.jar')
-    compile project(':base-adapter-library')
-    compile project(path: ':car-library')
+    //    compile config.design
     // butterknife
-    compile files('libs/ormlite-android-4.48.jar')
-    compile files('libs/ormlite-core-4.48.jar')
-    compile project(path: ':library')
-    compile project(':library_swipe')
-    compile project(':hlib')
     //可选，用于生成application类
     //tinker的核心库
-
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.5'
-
-
-    compile 'com.github.razerdp:BasePopup:v1.1.5'
-
-    compile 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-
-
-    compile 'jp.wasabeef:glide-transformations:3.0.1'
-
-    compile 'com.commit451:PhotoView:1.2.4'
-    compile 'com.isseiaoki:simplecropview:1.0.13'
-    compile 'com.yongchun:com.yongchun.imageselector:1.1.0'
-    compile 'com.github.PhilJay:MPAndroidChart:v3.0.0-beta1'
-    compile 'cn.zhouchaoyuan:excelpanel:1.0.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
-
-    compile 'com.wang.avi:library:2.1.3'
-
-    compile 'com.github.maning0303:MNProgressHUD:V1.0.2'
-
-
-
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
-//    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-//
-    compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
-
+    //    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    //
     //Optional: see how to use the utility.
-    compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
-
     /*下拉刷新框架*/
-    compile 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
     /*点赞收藏按钮*/
-    compile 'com.ldoublem.thumbUplib:ThumbUplib:0.5'
-
-    compile 'com.github.lsjwzh.RecyclerViewPager:lib:v1.1.2@aar'
-
 //    /*提示库*/
 //    compile 'com.bigkoo:svprogresshud:1.0.4'
-
-
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile files('libs/libammsdk.jar')
+    compile files('libs/ormlite-android-4.48.jar')
+    compile files('libs/ormlite-core-4.48.jar')
+    compile files('libs/umeng-analytics-v5.6.4.jar')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':base-adapter-library')
+    compile project(':hlib')
+    compile project(':library_swipe')
+    compile project(path: ':car-library')
+    compile project(path: ':library')
+    compile 'cn.zhouchaoyuan:excelpanel:1.0.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.commit451:PhotoView:1.2.4'
+    compile 'com.flaviofaria:kenburnsview:1.0.7'
+    compile 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.0-beta1'
+    compile 'com.github.lsjwzh.RecyclerViewPager:lib:v1.1.2@aar'
+    compile 'com.github.maning0303:MNProgressHUD:V1.0.2'
+    compile 'com.github.razerdp:BasePopup:v1.1.5'
+    compile 'com.isseiaoki:simplecropview:1.0.13'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    compile 'com.ldoublem.thumbUplib:ThumbUplib:0.5'
+    compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
+    compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.wang.avi:library:2.1.3'
+    compile 'com.yongchun:com.yongchun.imageselector:1.1.0'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.5'
+    compile 'jp.wasabeef:glide-transformations:3.0.1'
+    implementation 'com.android.support:support-v4:25.4.0'
+    testCompile 'junit:junit:4.12'
 }
