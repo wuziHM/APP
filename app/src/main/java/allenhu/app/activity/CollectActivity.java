@@ -18,7 +18,6 @@ import java.util.List;
 
 import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
-import allenhu.app.adapter.DividerItemDecoration;
 import allenhu.app.adapter.ImgCategoryAdapter;
 import allenhu.app.bean.debean.ILikeType;
 import allenhu.app.db.TypeDao;
@@ -103,7 +102,6 @@ public class CollectActivity extends BaseActivity implements OnRefreshListener, 
             }
         });
         swipeTarget.setLayoutManager(new LinearLayoutManager(this));
-        swipeTarget.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
 
         swipeTarget.setAdapter(adapter);
 

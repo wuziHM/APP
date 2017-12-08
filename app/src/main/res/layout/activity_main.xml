@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                tools:context="allenhu.app.MainActivity">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/div_tab_bar">
+
+        <include layout="@layout/part_tab_layout"/>
+
+
+        <FrameLayout
+            android:id="@+id/fy_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/div_tab_bar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        </FrameLayout>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
 
     <LinearLayout
         android:id="@+id/ly_tab_bar"
@@ -59,12 +80,4 @@
         android:layout_above="@id/ly_tab_bar"
         android:background="@color/div_white"/>
 
-
-    <FrameLayout
-        android:id="@+id/fy_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/div_tab_bar">
-
-    </FrameLayout>
 </RelativeLayout>

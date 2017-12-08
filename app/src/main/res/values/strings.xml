@@ -46,6 +46,7 @@
 
     <string name="empty_network_error">网络错误，点击重试！</string>
     <string name="empty_no_data">没有请求到数据，点击重试...</string>
+    <string name="s_purpose">何以解忧 唯有暴富</string>
     <string name="title_activity_coor_layout">CoorLayoutActivity</string>
 
 </resources>

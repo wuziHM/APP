@@ -3,6 +3,7 @@ package allenhu.app;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -26,6 +27,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private TextView textView1, textView2, textView3, textView4;
     private FragmentManager fragmentManager;
+
+    private Toolbar toolbar;
 //    private HomeWatcher mHomeWatcher;
 
     @Override
@@ -129,6 +132,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
     private void initView() {
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         textView1 = (TextView) findViewById(R.id.txt_channel);
         textView2 = (TextView) findViewById(R.id.txt_channe2);
         textView3 = (TextView) findViewById(R.id.txt_channe3);
