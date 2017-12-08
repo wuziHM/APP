@@ -30,7 +30,6 @@ import allenhu.app.activity.ServiceDemoActivity;
 import allenhu.app.activity.TimerDemoActivity;
 import allenhu.app.activity.WebActivity;
 import allenhu.app.activity.WeixinActivity;
-import allenhu.app.adapter.DividerItemDecoration;
 import allenhu.app.adapter.HomeAdapter;
 import allenhu.app.listener.OnItemClickListener;
 
@@ -71,7 +70,7 @@ public class FragmentA extends Fragment {
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recycle);
         HomeAdapter homeAdapter = new HomeAdapter(listContent, context);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL_LIST));
+//        recyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL_LIST));
         recyclerView.setAdapter(homeAdapter);
         //设置监听，监听是自己写的
         homeAdapter.setOnItemClickListener(new OnItemClickListener() {

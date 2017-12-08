@@ -17,7 +17,6 @@ import java.util.List;
 import allenhu.app.R;
 import allenhu.app.activity.CollectActivity;
 import allenhu.app.activity.ImageAppActivity;
-import allenhu.app.adapter.DividerItemDecoration;
 import allenhu.app.adapter.HomeAdapter;
 import allenhu.app.listener.OnItemClickListener;
 import butterknife.BindView;
@@ -64,7 +63,7 @@ public class FragmentD extends Fragment {
     private void initAdapter() {
         adapter = new HomeAdapter(listContent, getContext());
         recycle.setLayoutManager(new LinearLayoutManager(getContext()));
-        recycle.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL_LIST));
+//        recycle.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL_LIST));
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {

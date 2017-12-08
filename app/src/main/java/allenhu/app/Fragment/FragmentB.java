@@ -12,8 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zhy.base.adapter.recyclerview.DividerItemDecoration;
-
 import java.util.ArrayList;
 
 import allenhu.app.R;
@@ -81,7 +79,7 @@ public class FragmentB extends Fragment {
         recyclerView.initLoadingMoreViewDefault();
         recyclerView.showLoadingMoreView();
         recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL_LIST));
+//        recyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL_LIST));
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         initData();

@@ -14,7 +14,6 @@ import com.zhy.base.adapter.recyclerview.OnItemClickListener;
 
 import allenhu.app.R;
 import allenhu.app.activity.ImageCateActivity;
-import allenhu.app.adapter.DividerItemDecoration;
 import allenhu.app.adapter.ImgCategoryAdapter;
 import allenhu.app.bean.request.ImgListBean;
 import butterknife.BindView;
@@ -93,7 +92,7 @@ public class ImgListFragment extends Fragment {
             }
         });
         recycle.setLayoutManager(new LinearLayoutManager(getContext()));
-        recycle.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL_LIST));
+//        recycle.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL_LIST));
 
         recycle.setAdapter(adapter);
     }

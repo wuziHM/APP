@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.Random;
 
 import allenhu.app.R;
-import allenhu.app.adapter.DividerItemDecoration;
 import allenhu.app.adapter.HomeAdapter;
 import allenhu.app.bean.request.FindBg;
 import allenhu.app.net.retrofit2.NetWork;
@@ -94,7 +93,7 @@ public class CoorLayoutActivity extends AppCompatActivity {
 
         HomeAdapter adapter = new HomeAdapter(list, this);
         recycle.setLayoutManager(new LinearLayoutManager(this));
-        recycle.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
+//        recycle.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
         recycle.setAdapter(adapter);
 
         swipe.setColorSchemeResources(
