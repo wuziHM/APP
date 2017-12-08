@@ -3,7 +3,9 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="allenhu.app">
 
-    <uses-sdk tools:overrideLibrary="com.yongchun.library,com.j256.ormlite,cn.zhouchaoyuan.excelpanel,com.maning.mndialoglibrary"/>
+    <uses-sdk
+        tools:overrideLibrary="com.yongchun.library,com.j256.ormlite,cn.zhouchaoyuan.excelpanel,com.maning.mndialoglibrary"
+        />
 
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>

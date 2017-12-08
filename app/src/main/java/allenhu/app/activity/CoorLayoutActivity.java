@@ -6,6 +6,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.flaviofaria.kenburnsview.KenBurnsView;
@@ -70,7 +71,12 @@ public class CoorLayoutActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         initView();
         requestData();
@@ -83,7 +89,7 @@ public class CoorLayoutActivity extends AppCompatActivity {
         list = new ArrayList<>();
         for (int i = 0; i < 30; i++) {
             Random random = new Random();
-            list.add("第" + i + "个随机数:" + random.nextInt());
+            list.add("第" + (i + 1) + "个随机数:" + random.nextInt(100));
         }
 
         HomeAdapter adapter = new HomeAdapter(list, this);

@@ -136,13 +136,6 @@ public class ImageAppActivity extends BaseActivity {
     }
 
     private void initView() {
-//        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                requestData();
-//            }
-//        });
-
 
         emptyView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">APP</string>
+    <string name="app_name">穷醒</string>
     <string name="spin_title">分段选择</string>
 
     <string name="cube_ptr_pull_down">下拉</string>
