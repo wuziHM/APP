@@ -20,6 +20,7 @@ import allenhu.app.activity.CityPickerActivity;
 import allenhu.app.activity.CoorLayoutActivity;
 import allenhu.app.activity.ExcelActivity;
 import allenhu.app.activity.HyperTranslateActivity;
+import allenhu.app.activity.OkGoActivity;
 import allenhu.app.activity.RXjavaActivity;
 import allenhu.app.activity.ShoppingCar2;
 import allenhu.app.activity.ShoppingCarActivity;
@@ -107,7 +108,7 @@ public class FragmentB extends Fragment {
 
                 iRefreshView.setRefreshing(false);
             }
-        },1000);
+        }, 1000);
     }
 
     private void initData() {
@@ -122,6 +123,7 @@ public class FragmentB extends Fragment {
         list.add("RXJava");
 //        list.add("高德地图");
         list.add("Material Design");
+        list.add("ok go上传下载");
 
         classes = new ArrayList<Class>();
         classes.add(AccelerometerPlayActivity.class);
@@ -133,5 +135,6 @@ public class FragmentB extends Fragment {
         classes.add(ExcelActivity.class);
         classes.add(RXjavaActivity.class);
         classes.add(CoorLayoutActivity.class);
+        classes.add(OkGoActivity.class);
     }
 }

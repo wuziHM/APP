@@ -31,22 +31,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Toolbar toolbar;
 //    private HomeWatcher mHomeWatcher;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_main;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-        setSwipeBackEnable(false);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-//        this.getWindow().setFlags(FLAG_HOMEKEY_DISPATCHED, FLAG_HOMEKEY_DISPATCHED);//关键代码
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setSwipeBackEnable(false);
         fragmentManager = getSupportFragmentManager();
+
         initFragment();
         initView();
         textView1.performClick();       //模拟点击一次  新学的方法

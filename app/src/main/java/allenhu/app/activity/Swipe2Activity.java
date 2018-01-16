@@ -29,19 +29,11 @@ public class Swipe2Activity extends BaseActivity {
         alert.show();
     }
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_swipe2;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_swipe2);
 
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         final RecyclerView anotherRecyclerView = (RecyclerView) findViewById(R.id.recyclerHorizontalView);

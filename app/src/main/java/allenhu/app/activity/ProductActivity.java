@@ -27,19 +27,11 @@ public class ProductActivity extends BaseActivity {
     Button bOrder;
     Product product;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_product;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_product);
 
         Bundle data = getIntent().getExtras();
         product = (Product) data.getSerializable("product");

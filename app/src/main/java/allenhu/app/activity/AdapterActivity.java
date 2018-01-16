@@ -14,6 +14,7 @@ public class AdapterActivity extends BaseActivity implements View.OnClickListene
 
     /**
      * 内存恢复
+     *
      * @param level
      */
     @Override
@@ -22,12 +23,9 @@ public class AdapterActivity extends BaseActivity implements View.OnClickListene
     }
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.activity_adapter;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_adapter);
         initView();
     }
 
@@ -38,9 +36,9 @@ public class AdapterActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn1:
-                startActivity(new Intent(AdapterActivity.this,AlmightyAdapterActivity.class));
+                startActivity(new Intent(AdapterActivity.this, AlmightyAdapterActivity.class));
                 break;
         }
     }

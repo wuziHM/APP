@@ -103,20 +103,17 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
         context.startActivity(intent);
     }
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_image_cate;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_image_cate);
         ButterKnife.bind(this);
 
         if (getIntent().getExtras().get(PARAM1) instanceof Integer) {
             isFromDB = true;
             likeType = getIntent().getIntExtra(PARAM1, 0);
-            Logger.d("likeType:"+likeType);
+            Logger.d("likeType:" + likeType);
         } else if (getIntent().getExtras().get(PARAM1) instanceof String) {
             isFromDB = false;
             typeId = getIntent().getExtras().getString(PARAM1);

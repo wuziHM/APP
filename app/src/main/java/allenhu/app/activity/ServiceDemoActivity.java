@@ -30,24 +30,15 @@ public class ServiceDemoActivity extends BaseActivity implements View.OnClickLis
         }
     };
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_service_demo;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_service_demo);
         btnService1 = (Button) findViewById(R.id.btn_service1);
         btnService1.setOnClickListener(this);
 
-        btnService2  = (Button) findViewById(R.id.btnService2);
+        btnService2 = (Button) findViewById(R.id.btnService2);
         btnService2.setOnClickListener(this);
 
     }
@@ -58,7 +49,7 @@ public class ServiceDemoActivity extends BaseActivity implements View.OnClickLis
             case R.id.btn_service1:
 
                 Intent intent = new Intent(ServiceDemoActivity.this, MyService1.class);
-                bindService(intent,connection,BIND_AUTO_CREATE);
+                bindService(intent, connection, BIND_AUTO_CREATE);
 
                 break;
 

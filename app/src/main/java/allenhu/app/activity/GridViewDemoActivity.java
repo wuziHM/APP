@@ -25,18 +25,9 @@ public class GridViewDemoActivity extends BaseActivity {
 
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.activity_gird_view_demo;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_gird_view_demo);
         recycle = (MyRecyclerView) findViewById(R.id.re_gallery);
         image = (ImageView) findViewById(R.id.id_content);
         initData();

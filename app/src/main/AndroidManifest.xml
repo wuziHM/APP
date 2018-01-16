@@ -3,9 +3,7 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="allenhu.app">
 
-    <uses-sdk
-        tools:overrideLibrary="com.yongchun.library,com.j256.ormlite,cn.zhouchaoyuan.excelpanel,com.maning.mndialoglibrary"
-        />
+    <uses-sdk tools:overrideLibrary="com.yongchun.library,com.j256.ormlite,cn.zhouchaoyuan.excelpanel,com.maning.mndialoglibrary"/>
 
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -176,6 +174,13 @@
             android:name=".activity.CoorLayoutActivity"
             android:label="@string/title_activity_coor_layout"
             android:theme="@style/DrawerHeaderTheme">
+        </activity>
+        <activity android:name=".activity.LuckActivity">
+        </activity>
+        <activity
+            android:name=".activity.OkGoActivity"
+            android:label="@string/title_activity_ok_go_acitivity"
+            android:theme="@style/AppTheme">
         </activity>
     </application>
 

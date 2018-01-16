@@ -25,20 +25,11 @@ public class RecyclerViewActivity extends BaseActivity {
     private RecyclerView mRecyclerView;
     private List<String> mDatas = new ArrayList<>();
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_recyclerview;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_recyclerview);
         initDatas();
 
         mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
@@ -55,7 +46,7 @@ public class RecyclerViewActivity extends BaseActivity {
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(ViewGroup parent, View view, Object o, int position) {
-                Toast.makeText(RecyclerViewActivity.this,mDatas.get(position)+"",Toast.LENGTH_SHORT).show();
+                Toast.makeText(RecyclerViewActivity.this, mDatas.get(position) + "", Toast.LENGTH_SHORT).show();
             }
 
             @Override

@@ -27,20 +27,11 @@ public class TimerDemoActivity extends BaseActivity implements View.OnClickListe
     private Message msg;
     private int f = 0;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_timer_demo;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_timer_demo);
         initView();
 
     }

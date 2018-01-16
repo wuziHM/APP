@@ -32,19 +32,11 @@ public class View2Activity extends BaseActivity implements AdapterView.OnItemSel
     private MeiziAdapter mAdapter;
     private int index = 0;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_view2;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_view2);
         initView();
     }
 
@@ -75,7 +67,7 @@ public class View2Activity extends BaseActivity implements AdapterView.OnItemSel
 
     @Override
     public void onClick(View v) {
-        Intent it = new Intent(mContext,CaClothes.class);
+        Intent it = new Intent(mContext, CaClothes.class);
         Bundle bundle = new Bundle();
         bundle.putCharSequence("num", Integer.toString(index));
         it.putExtras(bundle);

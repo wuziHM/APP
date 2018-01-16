@@ -2,18 +2,13 @@ package allenhu.app.activity;
 
 import android.os.Bundle;
 
+import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
 
 public class LEDActivity extends BaseActivity {
-
     @Override
-    protected int getLayoutId() {
-        return 0;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_led);
     }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
-
 }

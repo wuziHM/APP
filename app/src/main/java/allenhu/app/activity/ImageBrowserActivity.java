@@ -79,15 +79,10 @@ public class ImageBrowserActivity extends BaseActivity {
 
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.activity_image_browser;
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         setWindowFullScreen();
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_image_browser);
+        setContentView(R.layout.activity_image_browser);
         ButterKnife.bind(this);
         initIntent();
         initView();

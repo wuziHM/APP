@@ -61,13 +61,6 @@ public abstract class BaseActivity extends HActivity {
 //                        mHandler.removeCallbacksAndMessages(null);
                     }
                 }).build();
-//        mMProgressDialog.show();
-
-
-//        progressDialog = new AlertDialog(this);
-////        progressDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
-////        progressDialog.setTitleText("加载中...");
-//        progressDialog.setCancelable(false);
     }
 
     @Override

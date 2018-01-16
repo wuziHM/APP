@@ -25,19 +25,11 @@ public class ContentProviderActivity extends BaseActivity implements View.OnClic
     private RecyclerView recyclerView;
     private Button read, write;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_content_provider;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_content_provider);
         initView();
         initData();
     }

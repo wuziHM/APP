@@ -41,6 +41,7 @@ public class NetWork {
 
     private static ImageApi imageApi;
     private static FindBgApi findBgApi;
+    private static FileUploadService fileUploadService;
 
 
     private static final Interceptor REWRITE_CACHE_CONTROL_INTERCEPTOR = new Interceptor() {
@@ -242,6 +243,21 @@ public class NetWork {
             findBgApi = retrofit.create(FindBgApi.class);
         }
         return findBgApi;
+    }
+
+
+    public static FileUploadService getFileUploadService() {
+
+        if (fileUploadService == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .client(genericClient(false))
+                    .baseUrl("http://www.bing.com/")
+                    .addCallAdapterFactory(rxJavaCallAdapterFactory)
+                    .addConverterFactory(gsonConverterFactory)
+                    .build();
+            fileUploadService = retrofit.create(FileUploadService.class);
+        }
+        return fileUploadService;
     }
 
 }

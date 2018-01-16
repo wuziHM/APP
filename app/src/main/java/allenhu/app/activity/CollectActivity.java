@@ -57,15 +57,12 @@ public class CollectActivity extends BaseActivity implements OnRefreshListener, 
     private ImgCategoryAdapter adapter;
     private List list;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_image_cate;
-    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_image_cate);
         ButterKnife.bind(this);
 
         initView();

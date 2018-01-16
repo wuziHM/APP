@@ -7,15 +7,6 @@ import allenhu.app.activity.base.BaseActivity;
 
 public class EditTextActvity extends BaseActivity {
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_edit_text_actvity;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

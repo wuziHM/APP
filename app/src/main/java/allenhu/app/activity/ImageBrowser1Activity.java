@@ -71,15 +71,11 @@ public class ImageBrowser1Activity extends BaseActivity {
 
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.activity_image_browser1;
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         setWindowFullScreen();
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_image_browser);
+
+        setContentView(R.layout.activity_image_browser);
         ButterKnife.bind(this);
         initIntent();
         initView();
@@ -154,7 +150,6 @@ public class ImageBrowser1Activity extends BaseActivity {
 
             }
         });
-
 
 
         LinearLayoutManager layout = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,

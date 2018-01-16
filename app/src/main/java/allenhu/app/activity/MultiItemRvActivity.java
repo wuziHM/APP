@@ -15,41 +15,28 @@ import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.bean.ChatMessage;
 
 
-public class MultiItemRvActivity extends BaseActivity
-{
+public class MultiItemRvActivity extends BaseActivity {
     private RecyclerView mRecyclerView;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_recyclerview;
-    }
 
     @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_recyclerview);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         ChatAdapterForRv adapter = new ChatAdapterForRv(this, ChatMessage.MOCK_DATAS);
-        adapter.setOnItemClickListener(new OnItemClickListener<ChatMessage>()
-        {
+        adapter.setOnItemClickListener(new OnItemClickListener<ChatMessage>() {
             @Override
-            public void onItemClick(ViewGroup parent, View view, ChatMessage o, int position)
-            {
+            public void onItemClick(ViewGroup parent, View view, ChatMessage o, int position) {
                 Toast.makeText(MultiItemRvActivity.this, "Click:" + position + " => " + o.getContent(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public boolean onItemLongClick(ViewGroup parent, View view, ChatMessage o, int position)
-            {
+            public boolean onItemLongClick(ViewGroup parent, View view, ChatMessage o, int position) {
                 Toast.makeText(MultiItemRvActivity.this, "LongClick:" + position + " => " + o.getContent(), Toast.LENGTH_SHORT).show();
                 return false;
             }

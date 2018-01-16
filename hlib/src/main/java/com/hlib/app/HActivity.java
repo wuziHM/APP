@@ -31,33 +31,30 @@ public abstract class HActivity extends SwipeBackActivity implements HActivityAb
 //    private RelativeLayout mRootView;
 //    protected MHeaderViewAble mHeaderViewAble;
 
-
-    /**
-     * 获取初始化Layout id
-     *
-     * @return
-     */
-    protected abstract int getLayoutId();
-
-    /**
-     * 对应系统onCreate
-     *
-     * @param savedInstanceState
-     */
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
+//
+//    /**
+//     * 获取初始化Layout id
+//     *
+//     * @return
+//     */
+//    protected abstract int getLayoutId();
+//
+//    /**
+//     * 对应系统onCreate
+//     *
+//     * @param savedInstanceState
+//     */
+//    protected void onMCreate(Bundle savedInstanceState) {
+//
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         context = this;
-        setContentView(getLayoutId());
-
         initSwipeBackLayout();
 //        initHeaderView();
-        onMCreate(savedInstanceState);
     }
 
 

@@ -17,18 +17,9 @@ import allenhu.app.util.Constant;
 public class ShoppingCarActivity extends BaseActivity {
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.activity_activity_car;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_activity_car);
 
         ListView lvProducts = (ListView) findViewById(R.id.lvProducts);
         lvProducts.addHeaderView(getLayoutInflater().inflate(R.layout.product_list_header, lvProducts, false));

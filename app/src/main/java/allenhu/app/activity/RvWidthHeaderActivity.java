@@ -27,19 +27,11 @@ public class RvWidthHeaderActivity extends BaseActivity {
     private RecyclerView mRecyclerView;
     private List<String> mDatas = new ArrayList<>();
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_recyclerview;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_recyclerview);
 
         initDatas();
         mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/fileDownload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开始下载"
+        android:textAllCaps="false"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/downloadSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="--M/--M"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:id="@+id/netSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="---K/s"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:id="@+id/tvProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="--.--%"
+            android:textSize="10sp"/>
+
+    </RelativeLayout>
+
+    <allenhu.app.widget.NumberProgressBar
+        android:id="@+id/pbProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:progress_reached_bar_height="1.5dp"
+        app:progress_reached_color="#3498DB"
+        app:progress_text_color="#3498DB"
+        app:progress_text_size="10sp"
+        app:progress_unreached_bar_height="0.75dp"
+        app:progress_unreached_color="#CCCCCC"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#888"
+            android:text="请求状态"
+            android:textColor="#FFF"/>
+
+        <TextView
+            android:id="@+id/requestState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="--"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#888"
+            android:text="请求头"
+            android:textColor="#FFF"/>
+
+        <TextView
+            android:id="@+id/requestHeaders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="--"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#888"
+            android:text="响应数据"
+            android:textColor="#FFF"/>
+
+        <TextView
+            android:id="@+id/responseData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="--"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#888"
+            android:text="响应头"
+            android:textColor="#FFF"/>
+
+        <TextView
+            android:id="@+id/responseHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="--"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_100"
+            android:text="11111"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_100"
+            android:text="2222"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_100"
+            android:text="333"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_100"
+            android:text="5555"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -12,19 +12,11 @@ public class MultiItemListViewActivity extends BaseActivity {
 
     private ListView mListView;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_almighty_adapter;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_almighty_adapter);
 
         mListView = (ListView) findViewById(R.id.id_listview_list);
         mListView.setDivider(null);

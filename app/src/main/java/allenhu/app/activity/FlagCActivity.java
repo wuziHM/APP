@@ -25,19 +25,11 @@ public class FlagCActivity extends BaseActivity {
     @BindView(R.id.text)
     TextView text;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_flag;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_flag);
         ButterKnife.bind(this);
         text.setText("C界面");
     }

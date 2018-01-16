@@ -20,19 +20,11 @@ public class HongbaoActivity extends BaseActivity {
     private Button btnShare;
     private TextView tvShow;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_hongbao;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_hongbao);
         initView();
 
 
@@ -78,6 +70,7 @@ public class HongbaoActivity extends BaseActivity {
 
     /**
      * 生成随机红包
+     *
      * @param count 红包个数
      * @param fen   红包金额（分）
      */

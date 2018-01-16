@@ -6,15 +6,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'key0'
+            keyAlias 'key_release'
             keyPassword 'allenrelease'
-            storeFile file('/Users/minhu/Documents/E/keystore/发布/release.jks')
+            storeFile file('/Users/minhu/Documents/E/keystore/release/release.jks')
             storePassword 'allenrelease'
         }
         debug {
             keyAlias 'allen'
             keyPassword 'allen123'
-            storeFile file('/Users/minhu/Documents/E/keystore/测试/allen.jks')
+            storeFile file('/Users/minhu/Documents/E/keystore/test/allen.jks')
             storePassword 'allen123'
         }
     }

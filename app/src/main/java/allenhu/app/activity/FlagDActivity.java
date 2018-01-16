@@ -36,19 +36,11 @@ public class FlagDActivity extends BaseActivity {
     @BindView(R.id.btn_operate)
     Button btnOperate;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_flag;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_flag);
         ButterKnife.bind(this);
         text.setText("D界面");
     }

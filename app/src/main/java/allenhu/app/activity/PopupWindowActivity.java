@@ -39,19 +39,11 @@ public class PopupWindowActivity extends BaseActivity {
     private String[] ss = {"燕青", "武松", "关胜", "朱仝", "吴用"};
     private LinearLayout linearLayout;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_popup_window;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_popup_window);
         initView();
         initFragment();
 
@@ -72,7 +64,7 @@ public class PopupWindowActivity extends BaseActivity {
         View view = layoutInflater.inflate(R.layout.layout_pop_list, null);
         ListView listView = (ListView) view.findViewById(R.id.lv_test);
         listView.setDivider(null);
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.item2,R.id.tv_item2_text, ss);
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.item2, R.id.tv_item2_text, ss);
         listView.setAdapter(adapter);
         popupWindow = new PopupWindow(view, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         popupWindow.setFocusable(true);

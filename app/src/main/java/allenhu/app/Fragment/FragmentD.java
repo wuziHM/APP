@@ -17,6 +17,7 @@ import java.util.List;
 import allenhu.app.R;
 import allenhu.app.activity.CollectActivity;
 import allenhu.app.activity.ImageAppActivity;
+import allenhu.app.activity.LuckActivity;
 import allenhu.app.adapter.HomeAdapter;
 import allenhu.app.listener.OnItemClickListener;
 import butterknife.BindView;
@@ -87,6 +88,9 @@ public class FragmentD extends Fragment {
 
         listContent.add("我喜欢");
         listActivity.add(CollectActivity.class);
+
+        listContent.add("抽奖");
+        listActivity.add(LuckActivity.class);
 
 
     }

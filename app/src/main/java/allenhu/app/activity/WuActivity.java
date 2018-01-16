@@ -17,20 +17,12 @@ public class WuActivity extends BaseActivity {
 
     private WuziqiPanel panel;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_wu;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        setContentView(R.layout.activity_wu);
         panel = (WuziqiPanel) findViewById(R.id.wuzi);
         findViewById(R.id.btn_again).setOnClickListener(new View.OnClickListener() {
             @Override

@@ -45,17 +45,6 @@ public class ImageAppActivity extends BaseActivity {
     private ArrayList<ImgListBean.ShowapiResBodyEntity.ListEntity> titles;
     private MyAdapter adapter;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_image_app;
-    }
-
-    @Override
-    protected void onMCreate(Bundle savedInstanceState) {
-        initData();
-
-    }
-
 
     Observer<ImgListBean> mImgObserver = new Observer<ImgListBean>() {
 
@@ -131,8 +120,11 @@ public class ImageAppActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_image_app);
         ButterKnife.bind(this);
         initView();
+        initData();
+
     }
 
     private void initView() {
