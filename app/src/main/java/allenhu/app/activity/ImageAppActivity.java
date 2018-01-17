@@ -99,7 +99,6 @@ public class ImageAppActivity extends BaseActivity {
 
 
     private void initData() {
-        titles = new ArrayList();
         requestData();
     }
 
@@ -128,6 +127,8 @@ public class ImageAppActivity extends BaseActivity {
     }
 
     private void initView() {
+
+        titles = new ArrayList();
 
         emptyView.setOnClickListener(new View.OnClickListener() {
             @Override

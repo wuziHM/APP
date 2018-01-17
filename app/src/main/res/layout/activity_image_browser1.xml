@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="#00000000"
     android:fitsSystemWindows="true"
-    tools:context="allenhu.app.activity.ImageBrowserActivity">
+    tools:context="allenhu.app.activity.ImageBrowser1Activity">
 
 
     <RelativeLayout
@@ -52,7 +52,7 @@
         android:ellipsize="end"
         android:lines="1"
         android:textColor="@color/white"
-        android:textSize="@dimen/middle_text_size"/>
+        android:textSize="14sp"/>
 
     <TextView
         android:id="@+id/tvNumShow"

@@ -3,7 +3,10 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="allenhu.app">
 
-    <uses-sdk tools:overrideLibrary="com.yongchun.library,com.j256.ormlite,cn.zhouchaoyuan.excelpanel,com.maning.mndialoglibrary"/>
+    <uses-sdk tools:overrideLibrary="com.lzy.imagepicker,
+        com.j256.ormlite,
+        cn.zhouchaoyuan.excelpanel,
+        com.maning.mndialoglibrary"/>
 
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -18,6 +21,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
 
     <application
         android:name=".MApplication"
@@ -150,6 +154,7 @@
         <activity android:name=".activity.ExcelActivity"/>
         <activity android:name=".activity.RXjavaActivity"/>
         <activity android:name=".activity.HLibTestActivity"/>
+        <activity android:name=".activity.MatrixActivity"/>
         <activity android:name=".activity.LEDActivity">
         </activity>
         <activity
@@ -159,10 +164,6 @@
         </activity>
         <activity android:name=".activity.ImageCateActivity">
         </activity>
-        <activity
-            android:name=".activity.ImageBrowserActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ImageBrowserTheme"/>
         <activity
             android:name=".activity.ImageBrowser1Activity"
             android:screenOrientation="portrait"

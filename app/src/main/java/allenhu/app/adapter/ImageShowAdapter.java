@@ -73,6 +73,7 @@ public class ImageShowAdapter extends CommonAdapter<ImageBean> {
             layoutParams.height = finalHeight;
         }
 
+
         Glide.with(mContext)
                 .asBitmap()
                 .load(url)

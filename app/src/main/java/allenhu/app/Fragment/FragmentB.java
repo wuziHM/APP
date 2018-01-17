@@ -20,6 +20,7 @@ import allenhu.app.activity.CityPickerActivity;
 import allenhu.app.activity.CoorLayoutActivity;
 import allenhu.app.activity.ExcelActivity;
 import allenhu.app.activity.HyperTranslateActivity;
+import allenhu.app.activity.MatrixActivity;
 import allenhu.app.activity.OkGoActivity;
 import allenhu.app.activity.RXjavaActivity;
 import allenhu.app.activity.ShoppingCar2;
@@ -124,6 +125,7 @@ public class FragmentB extends Fragment {
 //        list.add("高德地图");
         list.add("Material Design");
         list.add("ok go上传下载");
+        list.add("Matrix 矩阵设置图片");
 
         classes = new ArrayList<Class>();
         classes.add(AccelerometerPlayActivity.class);
@@ -136,5 +138,6 @@ public class FragmentB extends Fragment {
         classes.add(RXjavaActivity.class);
         classes.add(CoorLayoutActivity.class);
         classes.add(OkGoActivity.class);
+        classes.add(MatrixActivity.class);
     }
 }

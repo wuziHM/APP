@@ -75,7 +75,7 @@ public class ImageBrowser1Activity extends BaseActivity {
         setWindowFullScreen();
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_image_browser);
+        setContentView(R.layout.activity_image_browser1);
         ButterKnife.bind(this);
         initIntent();
         initView();

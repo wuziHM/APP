@@ -52,7 +52,7 @@ public class MLogUtil {
      * @param msg
      */
     public static void e(String msg) {
-        Logger.e(tag, msg);
+        Logger.e(msg);
     }
 
     public static void out(String msg) {
