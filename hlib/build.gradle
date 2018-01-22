@@ -26,11 +26,11 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile config.appcompat_v7
-    compile 'com.loopj.android:android-async-http:1.4.9'
-    compile 'com.google.code.gson:gson:2.8.0'
-    compile 'com.orhanobut:logger:2.1.1'
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+    implementation 'com.google.code.gson:gson:2.8.0'
+    api 'com.orhanobut:logger:2.1.1'
 
-    compile 'com.lzy.net:okgo:3.0.4'
+    api 'com.lzy.net:okgo:3.0.4'
 
     testCompile 'junit:junit:4.12'
     compile config.design

@@ -1,6 +1,8 @@
 package allenhu.app.util;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -15,6 +17,10 @@ import android.graphics.RectF;
 import android.media.ThumbnailUtils;
 import android.os.Environment;
 
+import com.lzy.imagepicker.ImagePicker;
+import com.lzy.imagepicker.ui.ImageGridActivity;
+import com.orhanobut.logger.Logger;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -28,6 +34,7 @@ import java.util.UUID;
  */
 public class PhotoUtil {
 
+    public static final int OPEN_IMAGE_REQUEST_CODER = 1001;
 
     /**
      * 将图片变为圆角
@@ -757,5 +764,32 @@ public class PhotoUtil {
             // TODO: handle exception
             return null;
         }
+    }
+
+    /**
+     * 打开微信类似的选择图片框
+     *
+     * @param activity
+     * @param glideImageLoader
+     * @param multi            是否多选
+     * @param showTakePhoto    是否显示拍照
+     * @param count            选择的数量，最多9张
+     * @param isCrop           是否裁剪
+     */
+    public static void openImg(Activity activity, GlideImageLoader glideImageLoader,
+                               boolean multi, boolean showTakePhoto, int count, boolean isCrop, int requestCode) {
+        if (count < 1 || count > 9) {
+            Logger.d("选择的数量必须是1~9之间");
+            return;
+        }
+        ImagePicker imagePicker = ImagePicker.getInstance();
+        imagePicker.setImageLoader(glideImageLoader);
+        imagePicker.setMultiMode(multi);   //多选
+        imagePicker.setShowCamera(showTakePhoto);  //显示拍照按钮
+        imagePicker.setSelectLimit(count);    //最多选择9张
+        imagePicker.setCrop(isCrop);       //不进行裁剪
+        Intent intent = new Intent(activity, ImageGridActivity.class);
+        activity.startActivityForResult(intent, requestCode);
+
     }
 }

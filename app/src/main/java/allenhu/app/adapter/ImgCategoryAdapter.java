@@ -17,7 +17,7 @@ import allenhu.app.bean.request.ImgListBean;
  * <p>
  * use to...
  */
-public class ImgCategoryAdapter extends CommonAdapter {
+public class ImgCategoryAdapter extends CommonAdapter<Object> {
 
 
     public static final int TYPE_CATEGORY = -1;

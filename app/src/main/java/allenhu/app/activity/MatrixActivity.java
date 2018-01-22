@@ -19,7 +19,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
-import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -30,6 +29,7 @@ import java.util.ArrayList;
 import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.util.GlideImageLoader;
+import allenhu.app.util.PhotoUtil;
 import allenhu.app.util.ToastUtils;
 import io.reactivex.functions.Consumer;
 
@@ -116,7 +116,8 @@ public class MatrixActivity extends BaseActivity implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_open_image:
-                openImg();
+                PhotoUtil.openImg(this, glideImageLoader, false,
+                        true, 1, false, PhotoUtil.OPEN_IMAGE_REQUEST_CODER);
                 break;
 
             case R.id.btn_big:
@@ -221,17 +222,18 @@ public class MatrixActivity extends BaseActivity implements View.OnClickListener
         ivAfter.setImageBitmap(createBmp);
     }
 
-    private void openImg() {
-        ImagePicker imagePicker = ImagePicker.getInstance();
-        imagePicker.setImageLoader(glideImageLoader);
-        imagePicker.setMultiMode(false);   //多选
-        imagePicker.setShowCamera(true);  //显示拍照按钮
-        imagePicker.setSelectLimit(1);    //最多选择9张
-        imagePicker.setCrop(false);       //不进行裁剪
-        Intent intent = new Intent(this, ImageGridActivity.class);
-        startActivityForResult(intent, 100);
-
-    }
+//    private void openImg() {
+//
+//        ImagePicker imagePicker = ImagePicker.getInstance();
+//        imagePicker.setImageLoader(glideImageLoader);
+//        imagePicker.setMultiMode(false);   //多选
+//        imagePicker.setShowCamera(true);  //显示拍照按钮
+//        imagePicker.setSelectLimit(1);    //最多选择9张
+//        imagePicker.setCrop(false);       //不进行裁剪
+//        Intent intent = new Intent(this, ImageGridActivity.class);
+//        startActivityForResult(intent, 100);
+//
+//    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -241,34 +243,11 @@ public class MatrixActivity extends BaseActivity implements View.OnClickListener
         int width = dm.widthPixels;    //手机屏幕水平分辨率
         int height = dm.heightPixels;  //手机屏幕垂直分辨率
         if (resultCode == ImagePicker.RESULT_CODE_ITEMS) {
-            if (data != null && requestCode == 100) {
+            if (data != null && requestCode == PhotoUtil.OPEN_IMAGE_REQUEST_CODER) {
                 imageItems = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
                 if (imageItems != null && imageItems.size() > 0) {
 
-                    BitmapFactory.Options option = new BitmapFactory.Options();
-                    option.inJustDecodeBounds = true;
-                    Logger.d(imageItems.get(0).path);
-                    bmp = BitmapFactory.decodeFile(imageItems.get(0).path, option);
-                    File file = new File(imageItems.get(0).path);
-                    Logger.d("exists:" + file.exists());
-                    if (bmp == null) {
-                        Logger.d("bmp还是空的");
-                    }
-
-                    int heightRatio = (int) Math.ceil(option.outHeight / (float) height);
-                    int widthRatio = (int) Math.ceil(option.outWidth / (float) width);
-                    if (heightRatio > 1 && widthRatio > 1) {
-                        if (heightRatio > widthRatio) {
-                            option.inSampleSize = heightRatio * 2;
-                        } else {
-                            option.inSampleSize = widthRatio * 2;
-                        }
-                    }
-                    option.inJustDecodeBounds = false;
-
-                    //设置好option之后再赋值一次，第一次是空的，根据屏幕大小去适应出来
-                    bmp = BitmapFactory.decodeFile(imageItems.get(0).path, option);
-                    ivAfter.setImageBitmap(bmp);
+                    setImageMap(width, height);
                     Glide.with(MatrixActivity.this).load(new File(imageItems.get(0).path)).into(ivOrigin);
                     ToastUtils.ToastMessage(this, "图片加载完成");
                 } else {
@@ -278,6 +257,35 @@ public class MatrixActivity extends BaseActivity implements View.OnClickListener
                 Toast.makeText(this, "没有选择图片", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    /**
+     * @param width  手机屏幕宽度
+     * @param height 手机屏幕高度
+     */
+    private void setImageMap(float width, float height) {
+        BitmapFactory.Options option = new BitmapFactory.Options();
+        option.inJustDecodeBounds = true;
+        Logger.d(imageItems.get(0).path);
+        bmp = BitmapFactory.decodeFile(imageItems.get(0).path, option);
+        if (bmp == null) {
+            Logger.d("bmp还是空的");
+        }
+
+        int heightRatio = (int) Math.ceil(option.outHeight / height);
+        int widthRatio = (int) Math.ceil(option.outWidth / width);
+        if (heightRatio > 1 && widthRatio > 1) {
+            if (heightRatio > widthRatio) {
+                option.inSampleSize = heightRatio * 2;
+            } else {
+                option.inSampleSize = widthRatio * 2;
+            }
+        }
+        option.inJustDecodeBounds = false;
+
+        //设置好option之后再赋值一次，第一次是空的，根据屏幕大小去适应出来
+        bmp = BitmapFactory.decodeFile(imageItems.get(0).path, option);
+        ivAfter.setImageBitmap(bmp);
     }
 
 }

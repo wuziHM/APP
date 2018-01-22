@@ -23,13 +23,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private FragmentB fragmentB;
     private FragmentC fragmentC;
     private FragmentD fragmentD;
-    public static final int FLAG_HOMEKEY_DISPATCHED = 0x80000000; //需要自己定义标志
 
     private TextView textView1, textView2, textView3, textView4;
     private FragmentManager fragmentManager;
 
     private Toolbar toolbar;
-//    private HomeWatcher mHomeWatcher;
 
 
     @Override
@@ -47,73 +45,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         initHomeEvent();
 
-//        getWindow().setExitTransition(TransitionInflater.from(this).inflateTransition(R.transition.slide));
     }
 
     private void initHomeEvent() {
 
 
-//        showProgress();
-
-
-//        Observable observable = Observable.create(new ObservableOnSubscribe() {
-//            @Override
-//            public void subscribe(final ObservableEmitter e) throws Exception {
-//                new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        try {
-//                            Thread.sleep(5000);
-//                            e.onNext(1);
-//                        } catch (InterruptedException e1) {
-//                            e1.printStackTrace();
-//                        }
-//                    }
-//                }).start();
-//            }
-//        });
-//
-//        Observer observer = new Observer() {
-//            @Override
-//            public void onSubscribe(Disposable d) {
-//
-//            }
-//
-//            @Override
-//            public void onNext(Object o) {
-//                hideProgress();
-//            }
-//
-//            @Override
-//            public void onError(Throwable e) {
-//
-//            }
-//
-//            @Override
-//            public void onComplete() {
-//
-//            }
-//        };
-//
-//        observable.subscribeOn(Schedulers.newThread())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(observer);
-
-//        mHomeWatcher = new HomeWatcher(this);
-//        mHomeWatcher.setOnHomePressedListener(new HomeWatcher.OnHomePressedListener() {
-//            @Override
-//            public void onHomePressed() {
-//                //按了HOME键
-//                ToastUtils.ToastMessage(MainActivity.this, "按了home键");
-//            }
-//
-//            @Override
-//            public void onHomeLongPressed() {
-//                //长按HOME键
-//                ToastUtils.ToastMessage(MainActivity.this, "长按home键");
-//            }
-//        });
-//        mHomeWatcher.startWatch();
     }
 
     private void initFragment() {
@@ -212,7 +148,5 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        if (mHomeWatcher != null)
-//            mHomeWatcher.stopWatch();// 在销毁时停止监听，不然会报错的。
     }
 }

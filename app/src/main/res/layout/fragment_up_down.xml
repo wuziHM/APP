@@ -86,6 +86,77 @@
             android:layout_height="wrap_content"
             android:text="--"/>
 
+        <allenhu.app.view.MyRecyclerView
+            android:id="@+id/re_images"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_300"
+            android:layout_marginTop="@dimen/dp_5"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#888"
+                android:text="请求状态"
+                android:textColor="#FFF"/>
+
+            <TextView
+                android:id="@+id/requestState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="--"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#888"
+                android:text="请求头"
+                android:textColor="#FFF"/>
+
+            <TextView
+                android:id="@+id/requestHeaders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="--"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#888"
+                android:text="响应数据"
+                android:textColor="#FFF"/>
+
+            <TextView
+                android:id="@+id/responseData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="--"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#888"
+                android:text="响应头"
+                android:textColor="#FFF"/>
+
+            <TextView
+                android:id="@+id/responseHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="--"/>
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>
