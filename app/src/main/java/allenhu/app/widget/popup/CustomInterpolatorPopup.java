@@ -1,13 +1,13 @@
-package allenhu.app.widget;
+package allenhu.app.widget.popup;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 
+import razerdp.basepopup.BasePopupWindow;
 import allenhu.app.R;
 import allenhu.app.util.ToastUtils;
-import razerdp.basepopup.BasePopupWindow;
 
 /**
  * Created by 大灯泡 on 2016/1/15.
@@ -25,23 +25,23 @@ public class CustomInterpolatorPopup extends BasePopupWindow implements View.OnC
 
 
     @Override
-    protected Animation getShowAnimation() {
+    protected Animation initShowAnimation() {
         return mAnimation;
     }
 
     @Override
-    protected View getClickToDismissView() {
+    public View getClickToDismissView() {
         return popupView.findViewById(R.id.click_to_dismiss);
     }
 
     @Override
-    public View getPopupView() {
-        popupView= LayoutInflater.from(mContext).inflate(R.layout.popup_normal,null);
+    public View onCreatePopupView() {
+        popupView= LayoutInflater.from(getContext()).inflate(R.layout.popup_normal,null);
         return popupView;
     }
 
     @Override
-    public View getAnimaView() {
+    public View initAnimaView() {
         return popupView.findViewById(R.id.popup_anima);
     }
 
@@ -54,20 +54,20 @@ public class CustomInterpolatorPopup extends BasePopupWindow implements View.OnC
     }
 
     public void setCustomAnimation(Animation anima){
-        curAnima=anima;
+        setShowAnimation(anima);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.tx_1:
-                ToastUtils.ToastMessage(mContext,"click tx_1");
+                ToastUtils.ToastMessage(getContext(),"click tx_1");
                 break;
             case R.id.tx_2:
-                ToastUtils.ToastMessage(mContext,"click tx_2");
+                ToastUtils.ToastMessage(getContext(),"click tx_2");
                 break;
             case R.id.tx_3:
-                ToastUtils.ToastMessage(mContext,"click tx_3");
+                ToastUtils.ToastMessage(getContext(),"click tx_3");
                 break;
             default:
                 break;

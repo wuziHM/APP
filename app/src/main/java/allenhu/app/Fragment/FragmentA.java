@@ -26,6 +26,7 @@ import allenhu.app.activity.FlagAActivity;
 import allenhu.app.activity.GameActivity;
 import allenhu.app.activity.HLibTestActivity;
 import allenhu.app.activity.HongbaoActivity;
+import allenhu.app.activity.PrinterActivity;
 import allenhu.app.activity.ServiceDemoActivity;
 import allenhu.app.activity.TimerDemoActivity;
 import allenhu.app.activity.WebActivity;
@@ -114,6 +115,7 @@ public class FragmentA extends Fragment {
         listContent.add("Intent Flag");
         listContent.add("EditText总结");
         listContent.add("框架测试");
+        listContent.add("指纹识别");
 
 
         listActivity = new ArrayList<>();
@@ -132,6 +134,7 @@ public class FragmentA extends Fragment {
         listActivity.add(FlagAActivity.class);
         listActivity.add(EditTextActvity.class);
         listActivity.add(HLibTestActivity.class);
+        listActivity.add(PrinterActivity.class);
 
     }
 }

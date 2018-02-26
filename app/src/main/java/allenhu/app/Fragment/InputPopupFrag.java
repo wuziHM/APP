@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.Button;
 
 import allenhu.app.R;
-import allenhu.app.widget.InputPopup;
+import allenhu.app.widget.popup.InputPopup;
 import razerdp.basepopup.BasePopupWindow;
 
 /**
@@ -20,7 +20,10 @@ public class InputPopupFrag extends SimpleBaseFrag {
 
     @Override
     public BasePopupWindow getPopup() {
-        return new InputPopup(mContext);
+        InputPopup inputPop= new InputPopup(mContext);
+        inputPop.setPopupWindowFullScreen(false);
+        inputPop.setAdjustInputMethod(true);
+        return inputPop;
     }
 
     @Override

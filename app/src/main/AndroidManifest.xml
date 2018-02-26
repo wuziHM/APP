@@ -3,10 +3,7 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="allenhu.app">
 
-    <uses-sdk tools:overrideLibrary="com.lzy.imagepicker,
-        com.j256.ormlite,
-        cn.zhouchaoyuan.excelpanel,
-        com.maning.mndialoglibrary"/>
+    <uses-sdk tools:overrideLibrary="com.lzy.imagepicker,         com.j256.ormlite,         cn.zhouchaoyuan.excelpanel,         com.maning.mndialoglibrary"/>
 
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -21,7 +18,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
 
     <application
         android:name=".MApplication"
@@ -65,8 +62,7 @@
         <activity android:name=".activity.SpinnerActivity"/>
         <activity android:name=".activity.AnimationActivity"/>
         <activity
-            android:name=".activity.CustomerViewActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:name=".activity.CustomerViewActivity"/>
         <activity android:name=".activity.View1Activity"/>
         <activity android:name=".activity.View2Activity"/>
         <activity android:name=".activity.CaClothes"/>
@@ -96,7 +92,10 @@
         <activity android:name=".activity.ScrollerActivity"/>
         <activity android:name=".activity.TimerDemoActivity"/>
         <activity android:name=".activity.AccelerometerPlayActivity"/>
-        <activity android:name=".activity.ControlsActivity"/>
+        <activity
+            android:name=".activity.ControlsActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
         <activity android:name=".activity.RotateAnimationActivity"/>
         <activity android:name=".activity.VoiceViewActivity"/>
         <activity android:name=".activity.RecycleActivity"/>
@@ -182,6 +181,8 @@
             android:name=".activity.OkGoActivity"
             android:label="@string/title_activity_ok_go_acitivity"
             android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name=".activity.PrinterActivity">
         </activity>
     </application>
 

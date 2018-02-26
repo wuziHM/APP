@@ -9,6 +9,8 @@ import android.widget.TextView;
 import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.util.ObjectFormatUtil;
+import allenhu.app.widget.popup.VerPopup;
+import razerdp.basepopup.BasePopupWindow;
 
 public class ControlsActivity extends BaseActivity implements View.OnClickListener {
 
@@ -26,7 +28,6 @@ public class ControlsActivity extends BaseActivity implements View.OnClickListen
     }
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,7 @@ public class ControlsActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.btn_recycle).setOnClickListener(this);
         findViewById(R.id.btn_listView).setOnClickListener(this);
         findViewById(R.id.btn_popupWindow).setOnClickListener(this);
+        findViewById(R.id.tv_pop).setOnClickListener(this);
         final EditText editText = (EditText) findViewById(R.id.edt_test);
         editText.setText("是不是设置成了final就不能改变值了？");
         assignViews();
@@ -66,6 +68,63 @@ public class ControlsActivity extends BaseActivity implements View.OnClickListen
             case R.id.btn_popupWindow:
                 intent = new Intent(ControlsActivity.this, PopupWindowActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.tv_pop:
+
+
+                final VerPopup verPopup = new VerPopup(this);
+                verPopup.setPopupWindowFullScreen(false);
+                verPopup.setAdjustInputMethod(true);
+
+                verPopup.setOnDismissListener(new BasePopupWindow.OnDismissListener() {
+                    @Override
+                    public void onDismiss() {
+
+                    }
+                });
+
+
+                verPopup.setOnBeforeShowCallback(new BasePopupWindow.OnBeforeShowCallback() {
+                    @Override
+                    public boolean onBeforeShow(View popupRootView, View anchorView, boolean hasShowAnima) {
+                        verPopup.setDismissWhenTouchOutside(true); //是否点击外部消失
+                        verPopup.setBackPressEnable(true);         //是否可以返回键消失
+                        verPopup.setInterceptTouchEvent(true);     //是否拦截事件
+                        return true;
+                    }
+                });
+
+                verPopup.showPopupWindow();
+
+//                final InputPopup verPopup = new InputPopup(this);
+//                verPopup.getPopupWindow().setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);
+//                verPopup.setOnBeforeShowCallback(new BasePopupWindow.OnBeforeShowCallback() {
+//                    @Override
+//                    public boolean onBeforeShow(View popupRootView, View anchorView, boolean hasShowAnima) {
+//                        verPopup.setDismissWhenTouchOutside(true); //是否点击外部消失
+//                        verPopup.setBackPressEnable(true);         //是否可以返回键消失
+//                        verPopup.setInterceptTouchEvent(true);     //是否拦截事件
+//                        return true;
+//                    }
+//                });
+//
+//                verPopup.showPopupWindow();
+//
+//
+//                final DismissControlPopup dismissControlPopup = new DismissControlPopup(this);
+//                dismissControlPopup.setOnBeforeShowCallback(new BasePopupWindow.OnBeforeShowCallback() {
+//                    @Override
+//                    public boolean onBeforeShow(View popupRootView, View anchorView, boolean hasShowAnima) {
+//                        dismissControlPopup.setDismissWhenTouchOutside(true); //是否点击外部消失
+//                        dismissControlPopup.setBackPressEnable(true);         //是否可以返回键消失
+//                        dismissControlPopup.setInterceptTouchEvent(true);     //是否拦截事件
+//                        return true;
+//                    }
+//                });
+//
+//                dismissControlPopup.showPopupWindow();
+////                intent = new Intent(ControlsActivity.this, PopupWindowActivity.class);
+////                startActivity(intent);
                 break;
         }
     }

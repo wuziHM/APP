@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -31,12 +32,15 @@ public class WebActivity extends BaseActivity {
         //设置本地调用对象及其接口
         mWebView.addJavascriptInterface(new JavaScriptObject(this), "myObj");
         //载入js
-        mWebView.loadUrl("file:///android_asset/web/FirstWeb/web/h5test.html");
+        mWebView.loadUrl("http://www.hao123.com");
+//        mWebView.loadUrl("http://app-health.daanlab.com/view/home/index.html");
     }
 
     private void initView() {
         mWebView = (WebView) findViewById(R.id.web);
         btnWeb = (Button) findViewById(R.id.btn_to_web);
+
+
         btnWeb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,5 +48,24 @@ public class WebActivity extends BaseActivity {
                 Toast.makeText(WebActivity.this, "调用javascript:funFromjs()", Toast.LENGTH_LONG).show();
             }
         });
+
+        mWebView.setWebViewClient(new WebViewClient() {
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+
+
+        });
+
+
+
+//        mWebView.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                Logger.d("y:" + mWebView.getScrollY());
+//                return false;
+//            }
+//        });
     }
 }

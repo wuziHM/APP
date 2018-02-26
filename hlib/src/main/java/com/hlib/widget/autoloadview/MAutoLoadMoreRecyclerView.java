@@ -12,6 +12,8 @@ import android.widget.AbsListView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.hlib.adapter.MRecyclerViewAdapter;
+import com.hlib.adapter.MRecyclerViewAdapterAble;
 import com.hlib.util.MLogUtil;
 import com.hlib.util.MStringUtil;
 

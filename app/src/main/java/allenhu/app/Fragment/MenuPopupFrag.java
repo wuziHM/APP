@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.Button;
 
 import allenhu.app.R;
-import allenhu.app.widget.MenuPopup;
+import allenhu.app.widget.popup.MenuPopup;
 import razerdp.basepopup.BasePopupWindow;
 
 /**

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/root_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#8f000000">
+
+    <RelativeLayout
+        android:id="@+id/popup_anima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="25dp"
+        android:background="@drawable/bg_dialog">
+
+        <LinearLayout
+            android:id="@+id/ly_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_finger"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="指纹验证"
+                android:textColor="@drawable/selector_text1"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tv_pwd"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_toRightOf="@id/tv_finger"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="密码验证"
+                android:textColor="@drawable/selector_text1"
+                android:textSize="18sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ly_top"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/line_finger"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:background="#3dd1a5"/>
+
+            <View
+                android:id="@+id/line_pwd"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_toRightOf="@id/line_finger"
+                android:layout_weight="1"
+                android:background="#3dd1a5"
+                android:visibility="invisible"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ly_finger"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_below="@id/ly_line"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:src="@mipmap/fingerprint_normal"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="请进行指纹验证..."/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_below="@id/ly_line"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="60dp"
+                android:text="请输入密码"
+                android:textColor="#333333"
+                android:textSize="18sp"/>
+
+            <com.jungly.gridpasswordview.GridPasswordView
+                android:id="@+id/pswView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="50dp"
+                app:gpvGridColor="#ffffff"
+                app:gpvLineColor="#2196F3"
+                app:gpvLineWidth="1dp"
+                app:gpvPasswordLength="6"
+                app:gpvPasswordType="numberPassword"
+                app:gpvTextColor="#2196F3"
+                app:gpvTextSize="16sp"/>
+            <!--app:gpvPasswordType="numberPassword / textPassword / textVisiblePassword / textWebPassword"/>
+                            app:gpvPasswordTransformation="$"
+    -->
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

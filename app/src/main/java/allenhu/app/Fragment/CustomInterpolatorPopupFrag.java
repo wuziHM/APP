@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import allenhu.app.R;
 import allenhu.app.interpolator.CustomInterpolatorFactory;
-import allenhu.app.widget.CustomInterpolatorPopup;
+import allenhu.app.widget.popup.CustomInterpolatorPopup;
 import razerdp.basepopup.BasePopupWindow;
 
 /**

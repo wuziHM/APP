@@ -63,7 +63,7 @@ android {
                     if (!variant.flavorName.isEmpty()) {
                         apkName += ('_' + variant.flavorName)
                     }
-                    outputFileName = apkName + "_"+getCurrentTime() + '.apk'
+                    outputFileName = apkName + "_" + getCurrentTime() + '.apk'
                 }
             }
     }
@@ -116,7 +116,7 @@ dependencies {
     //进度条
     implementation 'com.github.maning0303:MNProgressHUD:V1.0.2'
     //通用的popupWindow,有动画效果
-    implementation 'com.github.razerdp:BasePopup:v1.1.5'
+    implementation 'com.github.razerdp:BasePopup:1.9.3'
     //图片处理，可以截取，旋转等，可以结合RxJava一起用
     implementation 'com.isseiaoki:simplecropview:1.0.13'
     implementation 'com.jakewharton:butterknife:8.8.1'
@@ -144,4 +144,6 @@ dependencies {
     //仿微信图片选择
     implementation 'com.lzy.widget:imagepicker:0.6.1'
     implementation 'com.lzy.widget:ninegridview:0.2.0'
+    compile 'com.jungly:gridPasswordView:0.3'
+
 }

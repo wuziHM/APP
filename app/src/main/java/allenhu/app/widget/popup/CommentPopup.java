@@ -1,9 +1,7 @@
-package allenhu.app.widget;
+package allenhu.app.widget.popup;
 
 import android.app.Activity;
 import android.os.Handler;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +9,15 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
+import android.view.animation.DecelerateInterpolator;
 import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import allenhu.app.R;
-import allenhu.app.util.DimensUtils;
 import razerdp.basepopup.BasePopupWindow;
+import allenhu.app.R;
 
 /**
  * Created by 大灯泡 on 2016/1/16.
@@ -32,11 +31,11 @@ public class CommentPopup extends BasePopupWindow implements View.OnClickListene
     private RelativeLayout mLikeClikcLayout;
     private RelativeLayout mCommentClickLayout;
 
-    private int[] viewLocation;
 
     private OnCommentPopupClickListener mOnCommentPopupClickListener;
 
     private Handler mHandler;
+
     public CommentPopup(Activity context) {
         this(context, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     }
@@ -44,19 +43,21 @@ public class CommentPopup extends BasePopupWindow implements View.OnClickListene
     public CommentPopup(Activity context, int w, int h) {
         super(context, w, h);
 
-        viewLocation = new int[2];
-        mHandler=new Handler();
+        mHandler = new Handler();
 
-        mLikeAnimaView = (ImageView) mPopupView.findViewById(R.id.iv_like);
-        mLikeText = (TextView) mPopupView.findViewById(R.id.tv_like);
+        mLikeAnimaView = (ImageView) findViewById(R.id.iv_like);
+        mLikeText = (TextView) findViewById(R.id.tv_like);
 
-        mLikeClikcLayout = (RelativeLayout) mPopupView.findViewById(R.id.item_like);
-        mCommentClickLayout = (RelativeLayout) mPopupView.findViewById(R.id.item_comment);
+        mLikeClikcLayout = (RelativeLayout) findViewById(R.id.item_like);
+        mCommentClickLayout = (RelativeLayout) findViewById(R.id.item_comment);
 
         mLikeClikcLayout.setOnClickListener(this);
         mCommentClickLayout.setOnClickListener(this);
 
         buildAnima();
+        setDismissWhenTouchOutside(true);
+        setInterceptTouchEvent(false);
+        setBlurBackgroundEnable(true);
     }
 
     private AnimationSet mAnimationSet;
@@ -73,7 +74,7 @@ public class CommentPopup extends BasePopupWindow implements View.OnClickListene
         mAlphaAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
         mAlphaAnimation.setFillAfter(false);
 
-        mAnimationSet=new AnimationSet(false);
+        mAnimationSet = new AnimationSet(false);
         mAnimationSet.setDuration(400);
         mAnimationSet.addAnimation(mScaleAnimation);
         mAnimationSet.addAnimation(mAlphaAnimation);
@@ -103,43 +104,36 @@ public class CommentPopup extends BasePopupWindow implements View.OnClickListene
 
     @Override
     public void showPopupWindow(View v) {
-        try {
-            //得到v的位置
-            v.getLocationOnScreen(viewLocation);
-            //展示位置：
-            //参照点为view的右上角，偏移值为：x方向距离参照view的一定倍数距离
-            //垂直方向自身减去popup自身高度的一半（确保在中间）
-            mPopupWindow.showAtLocation(v, Gravity.RIGHT | Gravity.TOP, (int) (v.getWidth() * 1.8),
-                    viewLocation[1] - DimensUtils.dipToPx(mContext,15f));
+        setOffsetX(-getWidth() - v.getWidth() / 2);
+        setOffsetY((int) (-getHeight() / 1.5));
+        super.showPopupWindow(v);
+    }
 
-            if (getShowAnimation() != null && getAnimaView() != null) {
-                getAnimaView().startAnimation(getShowAnimation());
-            }
-        } catch (Exception e) {
-            Log.w("error","error");
-        }
+
+    @Override
+    protected Animation initShowAnimation() {
+        TranslateAnimation showAnima = new TranslateAnimation(dipToPx(180f), 0, 0, 0);
+        showAnima.setInterpolator(new DecelerateInterpolator());
+        showAnima.setDuration(350);
+        return showAnima;
     }
 
     @Override
-    protected Animation getShowAnimation() {
-        return getScaleAnimation(0.0f, 1.0f, 1.0f, 1.0f, Animation.RELATIVE_TO_SELF, 1.0f,
-                Animation.RELATIVE_TO_SELF, 0.0f);
+    protected Animation initExitAnimation() {
+        TranslateAnimation exitAnima = new TranslateAnimation(0, dipToPx(180f), 0, 0);
+        exitAnima.setInterpolator(new DecelerateInterpolator());
+        exitAnima.setDuration(350);
+        return exitAnima;
     }
 
     @Override
-    public Animation getExitAnimation() {
-        return getScaleAnimation(1.0f, 0.0f, 1.0f, 1.0f, Animation.RELATIVE_TO_SELF, 1.0f,
-                Animation.RELATIVE_TO_SELF, 0.0f);
+    public View onCreatePopupView() {
+        return LayoutInflater.from(getContext()).inflate(R.layout.popup_comment, null);
     }
 
     @Override
-    public View getPopupView() {
-        return LayoutInflater.from(mContext).inflate(R.layout.popup_comment, null);
-    }
-
-    @Override
-    public View getAnimaView() {
-        return mPopupView.findViewById(R.id.comment_popup_contianer);
+    public View initAnimaView() {
+        return getPopupWindowView().findViewById(R.id.comment_popup_contianer);
     }
     //=============================================================Getter/Setter
 
@@ -180,7 +174,7 @@ public class CommentPopup extends BasePopupWindow implements View.OnClickListene
     //=============================================================abortMethods
 
     @Override
-    protected View getClickToDismissView() {
+    public View getClickToDismissView() {
         return null;
     }
 }

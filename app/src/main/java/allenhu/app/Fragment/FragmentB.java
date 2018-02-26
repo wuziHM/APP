@@ -83,6 +83,8 @@ public class FragmentB extends Fragment {
         recyclerView.setHasFixedSize(true);
 //        recyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL_LIST));
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
+//        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(context));
+
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         initData();
         adapter = new HomeAdapter(list, context);

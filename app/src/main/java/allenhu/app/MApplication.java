@@ -37,7 +37,7 @@ public class MApplication extends Application {
         });
     }
 
-    public static MApplication getIntstance() {
+    public static MApplication getInstance() {
         return application;
     }
 }

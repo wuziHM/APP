@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import allenhu.app.R;
-import allenhu.app.widget.DialogPopup;
+import allenhu.app.widget.popup.DialogPopup;
 import razerdp.basepopup.BasePopupWindow;
 
 /**

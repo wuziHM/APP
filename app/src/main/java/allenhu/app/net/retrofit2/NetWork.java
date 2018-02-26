@@ -64,7 +64,7 @@ public class NetWork {
 //                        .build();
 
             //方案二：无网读缓存，有网根据过期时间重新请求
-            boolean netWorkConection = NetWorkUtil.isNetworkConnected(MApplication.getIntstance());
+            boolean netWorkConection = NetWorkUtil.isNetworkConnected(MApplication.getInstance());
             Request request = chain.request();
             if (!netWorkConection) {
                 request = request.newBuilder()
@@ -127,7 +127,7 @@ public class NetWork {
     public static OkHttpClient genericClient(boolean isUTF) {
 
         //设置缓存路径
-        File httpCacheDirectory = new File(MApplication.getIntstance().getCacheDir(), "okhttpCache");
+        File httpCacheDirectory = new File(MApplication.getInstance().getCacheDir(), "okhttpCache");
         //设置缓存 10M
         Cache cache = new Cache(httpCacheDirectory, 10 * 1024 * 1024);
 
@@ -154,7 +154,7 @@ public class NetWork {
 //    public static OkHttpClient genericClient(int i) {
 //
 //        //设置缓存路径
-//        File httpCacheDirectory = new File(MApplication.getIntstance().getCacheDir(), "okhttpCache");
+//        File httpCacheDirectory = new File(MApplication.getInstance().getCacheDir(), "okhttpCache");
 //        //设置缓存 10M
 //        Cache cache = new Cache(httpCacheDirectory, 10 * 1024 * 1024);
 //

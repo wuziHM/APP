@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import allenhu.app.R;
 import allenhu.app.util.ToastUtils;
-import allenhu.app.widget.CommentPopup;
+import allenhu.app.widget.popup.CommentPopup;
 import razerdp.basepopup.BasePopupWindow;
 
 /**

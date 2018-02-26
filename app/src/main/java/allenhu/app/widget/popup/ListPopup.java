@@ -1,4 +1,4 @@
-package allenhu.app.widget;
+package allenhu.app.widget.popup;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -18,8 +18,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import allenhu.app.R;
 import razerdp.basepopup.BasePopupWindow;
+import allenhu.app.R;
 
 /**
  * Created by 大灯泡 on 2016/1/20.
@@ -36,7 +36,7 @@ public class ListPopup extends BasePopupWindow {
 
     private ListPopup(Activity context, Builder builder) {
         this(context);
-        mListView = (ListView) mPopupView.findViewById(R.id.popup_list);
+        mListView = (ListView) findViewById(R.id.popup_list);
         setAdapter(context, builder);
     }
 
@@ -177,40 +177,40 @@ public class ListPopup extends BasePopupWindow {
 
     //=============================================================super methods
     @Override
-    protected Animation getShowAnimation() {
+    protected Animation initShowAnimation() {
         return null;
     }
 
     @Override
-    public Animator getShowAnimator() {
+    public Animator initShowAnimator() {
         AnimatorSet set = new AnimatorSet();
         set.playTogether(ObjectAnimator.ofFloat(mAnimaView, "rotationX", 90f, 0f).setDuration(400),
-                ObjectAnimator.ofFloat(mAnimaView, "translationY", 250f, 0f).setDuration(400),
-                ObjectAnimator.ofFloat(mAnimaView, "alpha", 0f, 1f).setDuration(400 * 3 / 2));
+                         ObjectAnimator.ofFloat(mAnimaView, "translationY", 250f, 0f).setDuration(400),
+                         ObjectAnimator.ofFloat(mAnimaView, "alpha", 0f, 1f).setDuration(400 * 3 / 2));
         return set;
     }
 
     @Override
-    protected View getClickToDismissView() {
-        return mPopupView;
+    public View getClickToDismissView() {
+        return getPopupWindowView();
     }
 
     @Override
-    public View getPopupView() {
-        return getPopupViewById(R.layout.popup_list);
+    public View onCreatePopupView() {
+        return createPopupById(R.layout.popup_list);
     }
 
     @Override
-    public View getAnimaView() {
-        return mPopupView.findViewById(R.id.popup_anima);
+    public View initAnimaView() {
+        return findViewById(R.id.popup_anima);
     }
 
     @Override
-    public Animator getExitAnimator() {
+    public Animator initExitAnimator() {
         AnimatorSet set = new AnimatorSet();
         set.playTogether(ObjectAnimator.ofFloat(mAnimaView, "rotationX", 0f, 90f).setDuration(400),
-                ObjectAnimator.ofFloat(mAnimaView, "translationY", 0f, 250f).setDuration(400),
-                ObjectAnimator.ofFloat(mAnimaView, "alpha", 1f, 0f).setDuration(400 * 3 / 2));
+                         ObjectAnimator.ofFloat(mAnimaView, "translationY", 0f, 250f).setDuration(400),
+                         ObjectAnimator.ofFloat(mAnimaView, "alpha", 1f, 0f).setDuration(400 * 3 / 2));
         return set;
     }
 

@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import allenhu.app.R;
+import allenhu.app.widget.popup.DialogPopup;
 
 /**
  * Created by jeanboy on 2017/4/20.

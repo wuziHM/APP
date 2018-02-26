@@ -28,12 +28,11 @@ public class DeleteView extends LinearLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        int x = 0, y;
-        int shiftX, shiftY;
+        int x = 0;
+        int shiftX;
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 x = (int) event.getX();
-                y = (int) event.getY();
                 break;
             case MotionEvent.ACTION_UP:
 

@@ -242,7 +242,7 @@ public class FourthView extends View {
 
             case MotionEvent.ACTION_UP:
                 xUp = (int) event.getY();
-                if (xUp > xDown)// 下滑
+                if (xUp > xDown)        // 下滑
                 {
                     down();
                 } else {
