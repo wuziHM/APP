@@ -31,6 +31,7 @@ dependencies {
     api 'com.orhanobut:logger:2.1.1'
 
     api 'com.lzy.net:okgo:3.0.4'
+    api 'com.lzy.net:okserver:2.0.5'
 
     testCompile 'junit:junit:4.12'
     compile config.design

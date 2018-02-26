@@ -43,6 +43,9 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * 分类图片缩略图的界面
+ */
 public class ImageCateActivity extends BaseActivity implements OnRefreshListener, OnLoadMoreListener {
 
 

@@ -2,6 +2,7 @@ package allenhu.app;
 
 import android.app.Application;
 
+import com.lzy.okgo.OkGo;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
@@ -20,6 +21,8 @@ public class MApplication extends Application {
     public void onCreate() {
         super.onCreate();
         application = this;
+
+        OkGo.getInstance().init(this);
         initLogger();
     }
 

@@ -61,8 +61,7 @@
         <activity android:name=".activity.GridViewDemoActivity"/>
         <activity android:name=".activity.SpinnerActivity"/>
         <activity android:name=".activity.AnimationActivity"/>
-        <activity
-            android:name=".activity.CustomerViewActivity"/>
+        <activity android:name=".activity.CustomerViewActivity"/>
         <activity android:name=".activity.View1Activity"/>
         <activity android:name=".activity.View2Activity"/>
         <activity android:name=".activity.CaClothes"/>
@@ -94,8 +93,7 @@
         <activity android:name=".activity.AccelerometerPlayActivity"/>
         <activity
             android:name=".activity.ControlsActivity"
-            android:windowSoftInputMode="adjustPan"
-            />
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".activity.RotateAnimationActivity"/>
         <activity android:name=".activity.VoiceViewActivity"/>
         <activity android:name=".activity.RecycleActivity"/>
@@ -183,6 +181,8 @@
             android:theme="@style/AppTheme">
         </activity>
         <activity android:name=".activity.PrinterActivity">
+        </activity>
+        <activity android:name=".activity.MultiDownloadActivity">
         </activity>
     </application>
 
