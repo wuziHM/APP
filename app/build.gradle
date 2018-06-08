@@ -27,7 +27,6 @@ android {
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
-
         multiDexEnabled true
     }
     buildTypes {
@@ -69,8 +68,22 @@ android {
     }
 
 
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+        exclude 'android/databinding/DataBinderMapper.java'
+        exclude 'android/databinding/DataBindingComponent.java'
+        exclude 'android/databinding/DynamicUtil.java'
+    }
+
     testOptions {
         unitTests.returnDefaultValues = true
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -81,16 +94,7 @@ def getCurrentTime() {
 
 // 改包名end
 dependencies {
-    //    compile config.design
-    // butterknife
-    //可选，用于生成application类
-    //tinker的核心库
-    //    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-    //
-    //Optional: see how to use the utility.
-    /*下拉刷新框架*/
-    /*点赞收藏按钮*/
-    //    /*提示库*/
+
     //    compile 'com.bigkoo:svprogresshud:1.0.4'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile files('libs/libammsdk.jar')
@@ -102,48 +106,61 @@ dependencies {
     compile project(':hlib')
     compile project(':library_swipe')
     compile project(path: ':car-library')
-    compile project(path: ':library')
+
+    //    compile project(path: ':library')
     implementation 'cn.zhouchaoyuan:excelpanel:1.0.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
     //背景会移动的放大图的view
     implementation 'com.flaviofaria:kenburnsview:1.0.7'
+
     //干货app里面下拉刷新的库
     implementation 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
+
     //图表库
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.0-beta1'
+
     //viewpager的效果，但是每一项是一个recyclerView的item
     implementation 'com.github.lsjwzh.RecyclerViewPager:lib:v1.1.2@aar'
+
     //进度条
-    implementation 'com.github.maning0303:MNProgressHUD:V1.0.2'
+    compile 'com.github.maning0303:MNProgressHUD:V1.0.7'
+
     //通用的popupWindow,有动画效果
     implementation 'com.github.razerdp:BasePopup:1.9.3'
+
     //图片处理，可以截取，旋转等，可以结合RxJava一起用
     implementation 'com.isseiaoki:simplecropview:1.0.13'
     implementation 'com.jakewharton:butterknife:8.8.1'
+
     //点赞、喜欢的view
     implementation 'com.ldoublem.thumbUplib:ThumbUplib:0.5'
+
     //tabLayout的升级版
     implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
     implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
-
     implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
     implementation 'com.squareup.retrofit2:retrofit:2.1.0'
     implementation 'com.wang.avi:library:2.1.3'
+
+    //Android的加载动画AVLoadingIndicatorView
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.5'
+
     //权限申请
     implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+
     //把图片处理成各种形状
     implementation 'jp.wasabeef:glide-transformations:3.0.1'
     testCompile 'junit:junit:4.12'
-
     implementation 'com.android.support:cardview-v7:25.3.1'
 
     //仿微信图片选择
     implementation 'com.lzy.widget:imagepicker:0.6.1'
     implementation 'com.lzy.widget:ninegridview:0.2.0'
     compile 'com.jungly:gridPasswordView:0.3'
-
+//    implementation 'com.github.aii1991:AndroidRapidDev:v1.1.10'
+    implementation 'org.jsoup:jsoup:1.11.2'
 }

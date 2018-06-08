@@ -10,6 +10,7 @@ android {
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -18,10 +19,13 @@ android {
         }
     }
 }
+//def supportLibraryVersion = "25.1.0"
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile config.appcompat_v7
+//    compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
+
     compile config.recyclerview_v7
 
 }

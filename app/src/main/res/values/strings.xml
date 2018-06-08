@@ -50,4 +50,8 @@
     <string name="title_activity_coor_layout">CoorLayoutActivity</string>
     <string name="title_activity_ok_go_acitivity">OkGoAcitivity</string>
 
+    <string name="text_page_indicator">%1$d/%2$d</string>
+    <string name="text_loading">"正在加载中&#8230;"</string>
+    <string name="title_index">首页</string>
+
 </resources>

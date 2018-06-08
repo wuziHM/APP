@@ -6,27 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/div_tab_bar">
-
-        <include layout="@layout/part_tab_layout"/>
-
-
-        <FrameLayout
-            android:id="@+id/fy_content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/div_tab_bar"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        </FrameLayout>
-
-
-    </android.support.design.widget.CoordinatorLayout>
-
-
     <LinearLayout
         android:id="@+id/ly_tab_bar"
         android:layout_width="match_parent"
@@ -79,5 +58,26 @@
         android:layout_height="2px"
         android:layout_above="@id/ly_tab_bar"
         android:background="@color/div_white"/>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/div_tab_bar">
+
+        <include layout="@layout/part_tab_layout"/>
+
+
+        <FrameLayout
+            android:id="@+id/fy_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        </FrameLayout>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
 
 </RelativeLayout>

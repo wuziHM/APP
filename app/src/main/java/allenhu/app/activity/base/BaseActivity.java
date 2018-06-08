@@ -7,6 +7,8 @@ import android.os.Handler;
 import com.hlib.app.HActivity;
 import com.hlib.util.MStringUtil;
 import com.maning.mndialoglibrary.MProgressDialog;
+import com.maning.mndialoglibrary.config.MDialogConfig;
+import com.maning.mndialoglibrary.listeners.OnDialogDismissListener;
 
 import allenhu.app.R;
 
@@ -18,8 +20,7 @@ public abstract class BaseActivity extends HActivity {
     protected static final String PARAM1 = "data_param";
     protected static final String PARAM2 = "data_param2";
 
-    //    private AlertDialog progressDialog;
-    private MProgressDialog mMProgressDialog;
+    private MDialogConfig mDialogConfig;
 
 
     @Override
@@ -30,8 +31,7 @@ public abstract class BaseActivity extends HActivity {
 
     protected void initProgressView() {
 
-        //新建一个Dialog
-        mMProgressDialog = new MProgressDialog.Builder(this)
+        mDialogConfig = new MDialogConfig.Builder()
                 //点击外部是否可以取消
                 .isCanceledOnTouchOutside(true)
                 //全屏背景窗体的颜色
@@ -55,23 +55,20 @@ public abstract class BaseActivity extends HActivity {
                 //文字的颜色
                 .setTextColor(getResources().getColor(R.color.white))
                 //取消的监听
-                .setOnDialogDismissListener(new MProgressDialog.OnDialogDismissListener() {
-                    @Override
-                    public void dismiss() {
-//                        mHandler.removeCallbacksAndMessages(null);
-                    }
+                .setOnDialogDismissListener((OnDialogDismissListener) () -> {
+
                 }).build();
+
+
     }
 
     @Override
     public void showProgress() {
         try {
-            if (MStringUtil.isObjectNull(getMContext()) || MStringUtil.isObjectNull(mMProgressDialog)) {
-                return;
-            }
             if (!MStringUtil.isObjectNull(getMContext())) {
-                if (mMProgressDialog != null)
-                    mMProgressDialog.show();
+                if (mDialogConfig != null)
+                    MProgressDialog.showProgress(this, "加载中...", mDialogConfig);
+//                    mMProgressDialog.show();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -84,8 +81,9 @@ public abstract class BaseActivity extends HActivity {
             @Override
             public void run() {
                 try {
-                    if (mMProgressDialog != null)
-                        mMProgressDialog.dismiss();
+                    MProgressDialog.dismissProgress();
+//                    if (mMProgressDialog != null)
+//                        mMProgressDialog.dismiss();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

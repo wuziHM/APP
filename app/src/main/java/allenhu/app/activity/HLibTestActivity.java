@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.text.Html;
 import android.widget.TextView;
 
-import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
@@ -18,8 +17,8 @@ public class HLibTestActivity extends BaseActivity {
     @BindView(R.id.textView)
     TextView textView;
 
-    @BindView(R.id.textView3)
-    HtmlTextView textView3;
+//    @BindView(R.id.textView3)
+//    HtmlTextView textView3;
 
 
     @Override

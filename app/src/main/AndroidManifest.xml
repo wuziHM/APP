@@ -184,6 +184,8 @@
         </activity>
         <activity android:name=".activity.MultiDownloadActivity">
         </activity>
+        <activity android:name=".activity.WelfareActivity">
+        </activity>
     </application>
 
 </manifest>

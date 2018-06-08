@@ -1,12 +1,15 @@
 package allenhu.app;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.lzy.okgo.OkGo;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
+
 
 /**
  * Author：HM $ on 17/11/29 10:32
@@ -17,6 +20,7 @@ import com.orhanobut.logger.PrettyFormatStrategy;
 public class MApplication extends Application {
     private static MApplication application;
 
+    public static final String BASE_URL = "http://www.mzitu.com/";
     @Override
     public void onCreate() {
         super.onCreate();
@@ -24,6 +28,21 @@ public class MApplication extends Application {
 
         OkGo.getInstance().init(this);
         initLogger();
+
+//        BFConfig.INSTANCE.init(new BaseConfig.Builder()
+//                .setBaseUrl(BASE_URL)
+//                .setPageSize(24)
+//                .setApiQueryCacheMode(BaseConfig.CacheMode.CACHE_ELSE_NETWORK)
+//                .setConverter(DocumentConverter.create())
+//                .setDebug(true)
+//                .build()
+//        );
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 
     private void initLogger() {

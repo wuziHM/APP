@@ -92,6 +92,12 @@ public class FragmentD extends Fragment {
         listContent.add("抽奖");
         listActivity.add(LuckActivity.class);
 
+        listContent.add("我自己写的接口");
+        listActivity.add(LuckActivity.class);
+
+        listContent.add("抓数据");
+        listActivity.add(WelfareActivity.class);
+
 
     }
 }
