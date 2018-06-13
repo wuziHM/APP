@@ -4,10 +4,11 @@
              android:layout_height="match_parent"
              tools:context="allenhu.app.fragment.ImgListFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <com.zhy.base.adapter.recyclerview.EmptyRecyclerView
-        android:id="@+id/recycle"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+
+        <!-- TODO: Update blank fragment layout -->
+        <com.zhy.base.adapter.recyclerview.EmptyRecyclerView
+            android:id="@+id/recycle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
 </FrameLayout>

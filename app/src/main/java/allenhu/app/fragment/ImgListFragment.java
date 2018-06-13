@@ -21,6 +21,9 @@ import butterknife.ButterKnife;
 
 /**
  * 图片列表的界面
+ *
+ *
+ * 用的百度的接口的图片列表页面
  */
 public class ImgListFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

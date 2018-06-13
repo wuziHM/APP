@@ -1,6 +1,7 @@
 package com.hlib.util;
 
 import java.text.DecimalFormat;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +26,19 @@ public class MStringUtil {
     }
 
     /**
+     * 判断list是否是空的，list的size是0也返回true
+     *
+     * @param list
+     * @return
+     */
+    public static boolean isEmptyList(List list) {
+        if (list == null || list.size() < 1) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * 判断对象是否为空
      *
      * @param object
@@ -42,11 +56,11 @@ public class MStringUtil {
     /**
      * 格式化金额字符串
      *
-     * @return 10,333.00
+     * @return 10, 333.00
      */
-    public static String formatMoneyString(String money){
+    public static String formatMoneyString(String money) {
 
-        if(isEmpty(money)){
+        if (isEmpty(money)) {
             return money;
         }
 

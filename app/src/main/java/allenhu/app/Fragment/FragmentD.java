@@ -18,6 +18,7 @@ import allenhu.app.R;
 import allenhu.app.activity.CollectActivity;
 import allenhu.app.activity.ImageAppActivity;
 import allenhu.app.activity.LuckActivity;
+import allenhu.app.activity.WelfareActivity;
 import allenhu.app.adapter.HomeAdapter;
 import allenhu.app.listener.OnItemClickListener;
 import butterknife.BindView;
