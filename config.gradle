@@ -20,6 +20,7 @@ def initProjectEnvironment() {
     gradle.ext.gridlayout_v7 = properties.getProperty('gridlayout_v7')
     gradle.ext.recyclerview_v7 = properties.getProperty('recyclerview_v7')
     gradle.ext.design = properties.getProperty('design')
+    gradle.ext.constraint = properties.getProperty('constraint')
     //打印log
     println "initialize  Gradle Environment completes..."
 }
