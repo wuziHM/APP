@@ -60,7 +60,7 @@ public class ImgBrowserFragment extends Fragment {
 
     private String mUrl;
     private String mTitle;
-    private String mPosition;
+//    private String mPosition;
 
 
     public ImgBrowserFragment() {
@@ -82,7 +82,7 @@ public class ImgBrowserFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mUrl = getArguments().getString(PARAM_URL);
-            mPosition = getArguments().getString(PARAM_POSITION);
+//            mPosition = getArguments().getInt(PARAM_POSITION,0);
             mTitle = getArguments().getString(PARAM_URL);
         }
     }

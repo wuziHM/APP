@@ -18,7 +18,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.hlib.util.MUnitConversionUtil;
 import com.ldoublem.thumbUplib.ThumbUpView;
-import com.orhanobut.logger.Logger;
 import com.zhy.base.adapter.ViewHolder;
 import com.zhy.base.adapter.recyclerview.CommonAdapter;
 
@@ -101,9 +100,6 @@ public class ImageShowAdapter extends CommonAdapter<ImageBean> {
         ((ThumbUpView) holder.getView(R.id.btn_collect2)).setOnThumbUp(new ThumbUpView.OnThumbUp() {
             @Override
             public void like(boolean like) {
-
-
-                Logger.d("image-->" + imageBean.toString());
 
                 if (like) {
 

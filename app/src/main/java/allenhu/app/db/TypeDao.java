@@ -118,7 +118,6 @@ public class TypeDao {
         }
 
 
-        Logger.d("likeType--->" + type.toString());
         return type;
     }
 
