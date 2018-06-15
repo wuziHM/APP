@@ -32,15 +32,9 @@ import butterknife.OnClick;
 public class ImageBrowser1Activity extends BaseActivity {
 
 
-//    protected static final String PARAM1 = "data_param";
-//    protected static final String PARAM2 = "data_param2";
 
     @BindView(R.id.rl_black_bg)
     RelativeLayout rlBlackBg;
-
-
-//    @BindView(R.id.mnGestureView)
-//    MNGestureView mnGestureView;
 
     @BindView(R.id.tvNumShow)
     TextView tvNumShow;
@@ -95,13 +89,9 @@ public class ImageBrowser1Activity extends BaseActivity {
 
     private void initIntent() {
 
-
         arrayList = (ArrayList<ImageBean>) getIntent().getExtras().get(PARAM1);
         position = getIntent().getIntExtra(PARAM2, 1);
-
-
         tvNumShow.setText(String.valueOf((position + 1) + "/" + arrayList.size()));
-
         tvTitle.setText(arrayList.get(position).getTitle());
 
     }
@@ -209,12 +199,7 @@ public class ImageBrowser1Activity extends BaseActivity {
             } else if (!mFragmentCache.containsKey(i)) {
                 f.setInitialSavedState(savedState);
             }
-            f.setListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startAnima();
-                }
-            });
+            f.setListener(v -> startAnima());
             mFragmentCache.put(i, f);
             return f;
         }

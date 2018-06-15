@@ -86,15 +86,7 @@ public class ImageListPresent extends BasePresentImpl<ImageListView> {
 
                     @Override
                     public void onNext(Response<Document> documentResponse) {
-//                        Logger.d("" + documentResponse.code() + documentResponse.body());
-//                        com.orhanobut.logger.Logger.d("=====onNext\n" + documentResponse.body().toString());
-//                        List<Type> types = parseTypes(documentResponse.body());
-//                        Logger.d("=======onNext======size"+types.size());
-//                        mView.showData(documentResponse.body());
-//                        mView.setTypes(types);
                         List<Atlas> list = parseAtlasData(documentResponse.body(), page);
-
-
                         mView.showData(getListEn(list), page == 1);
 
                     }
@@ -126,6 +118,8 @@ public class ImageListPresent extends BasePresentImpl<ImageListView> {
             imageBean.setMiddle(atlas.getCover());
             imageBean.setSmall(atlas.getCover());
             imageBean.setTitle(atlas.getTitle());
+            imageBean.setMeiziDetailUrl(atlas.getDetailUrl());
+            imageBean.setMeiziUrl(atlas.getUrl());
             imageBean.setDate(DateUtils.formatDateTime(context, System.currentTimeMillis(), DateUtils.FORMAT_SHOW_YEAR));
             if (type == null) {
                 type = new TypeDao(context).getTypeAndAdd("妹子图");
@@ -188,8 +182,6 @@ public class ImageListPresent extends BasePresentImpl<ImageListView> {
                 continue;
             }
             String text = element.text();
-            Logger.d("text:" + text);
-
             try {
                 int page = Integer.parseInt(text);
                 if (page > maxPage) {

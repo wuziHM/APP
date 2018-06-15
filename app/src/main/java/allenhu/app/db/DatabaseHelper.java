@@ -18,7 +18,7 @@ import allenhu.app.bean.debean.ILikeType;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final String TABLE_NAME = "sqlite-test.db";
-    private static final int TABLE_VERSION = 12;
+    private static final int TABLE_VERSION = 13;
 
     private Map<String, Dao> daos = new HashMap<String, Dao>();
 
@@ -34,9 +34,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         MLogUtil.i("onCreate---->TABLE_VERSION:" + TABLE_VERSION);
 
         try {
-//            TableUtils.createTable(connectionSource, ProvinceBean.class);
-//            TableUtils.createTable(connectionSource, CityBean.class);
-//            TableUtils.createTable(connectionSource, AreaBean.class);
             TableUtils.createTable(connectionSource, ImageBean.class);
             TableUtils.createTable(connectionSource, ILikeType.class);
         } catch (SQLException e) {
@@ -48,11 +45,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public void onUpgrade(SQLiteDatabase database,
                           ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
-
             MLogUtil.i("onUpgrade---->oldVersion:" + oldVersion + "    newVersion" + newVersion);
-//            TableUtils.dropTable(connectionSource, ProvinceBean.class, true);
-//            TableUtils.dropTable(connectionSource, CityBean.class, true);
-//            TableUtils.dropTable(connectionSource, AreaBean.class, true);
             TableUtils.dropTable(connectionSource, ImageBean.class, true);
             TableUtils.dropTable(connectionSource, ILikeType.class, true);
             onCreate(database, connectionSource);

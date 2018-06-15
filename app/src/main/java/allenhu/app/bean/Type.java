@@ -2,6 +2,7 @@ package allenhu.app.bean;
 
 /**
  * Created by jason on 2018/3/17.
+ * 妹子图用到的实体类
  */
 
 public class Type {

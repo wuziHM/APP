@@ -24,21 +24,23 @@ import com.zhy.base.adapter.recyclerview.CommonAdapter;
 import java.util.List;
 
 import allenhu.app.R;
+import allenhu.app.bean.Atlas;
 import allenhu.app.bean.ImageBean;
 import allenhu.app.bean.PicSizeEntity;
-import allenhu.app.bean.debean.ILikeType;
 import allenhu.app.bean.enumBean.ImageTypeEnum;
 import allenhu.app.db.ILikeDao;
 import allenhu.app.db.TypeDao;
-import allenhu.app.util.MySnackbar;
 
 /**
  * Author：HM $ on 17/11/22 14:26
  * E-mail：359222347@qq.com
  * <p>
- * use to...
+ * use to...妹子图图片列表适配器
  */
-public class ImageShowAdapter extends CommonAdapter<ImageBean> {
+public class WelImageListAdapter extends CommonAdapter<Atlas> {
+
+//    public static final short WELFARE_TYPE = 1;
+//    public static final short BAIDU_TYPE = 0;
 
     private RequestOptions options;
     private int screenWidth;
@@ -48,7 +50,7 @@ public class ImageShowAdapter extends CommonAdapter<ImageBean> {
     private ArrayMap<String, PicSizeEntity> picSizeEntityArrayMap = new ArrayMap<>();
     private int adapterType;
 
-    public ImageShowAdapter(Context context, int layoutId, List datas, int type) {
+    public WelImageListAdapter(Context context, int layoutId, List datas, int type) {
         super(context, layoutId, datas);
         options = new RequestOptions();
         options.fitCenter();
@@ -61,15 +63,15 @@ public class ImageShowAdapter extends CommonAdapter<ImageBean> {
         this.adapterType = type;
     }
 
-    public ImageShowAdapter(Context context, int layoutId, List datas) {
+    public WelImageListAdapter(Context context, int layoutId, List datas) {
         this(context, layoutId, datas, ImageTypeEnum.BAIDU.getCode());
     }
 
     @Override
-    public void convert(final ViewHolder holder, final ImageBean imageBean) {
-        holder.setText(R.id.tvShowTime, imageBean.getDate());
-        String url = imageBean.getMiddle();
-        PicSizeEntity picSizeEntity = picSizeEntityArrayMap.get(imageBean.getMiddle());
+    public void convert(final ViewHolder holder, final Atlas imageBean) {
+//        holder.setText(R.id.tvShowTime, imageBean.getDate());
+        String url = imageBean.getCover();
+        PicSizeEntity picSizeEntity = picSizeEntityArrayMap.get(imageBean.getCover());
         if (picSizeEntity != null && !picSizeEntity.isNull()) {
             int width = picSizeEntity.getPicWidth();
             int height = picSizeEntity.getPicHeight();
@@ -81,42 +83,44 @@ public class ImageShowAdapter extends CommonAdapter<ImageBean> {
 
         if (adapterType == ImageTypeEnum.BAIDU.getCode()) {
             loadBaiduImage(url, imageBean, holder);
+
         } else if (adapterType == ImageTypeEnum.MEIZI.getCode()) {
-            loadWelfareImage(url, imageBean, holder);
+//                loadWelfareImage(url, imageBean, holder);
+
         }
 
-        boolean isLike = likeDao.isExist(imageBean.getBig());
+        boolean isLike = likeDao.isExist(imageBean.getCover());
         if (isLike)
             ((ThumbUpView) holder.getView(R.id.btn_collect2)).setLike();
         else {
             ((ThumbUpView) holder.getView(R.id.btn_collect2)).setUnlike();
         }
-        ((ThumbUpView) holder.getView(R.id.btn_collect2)).setOnThumbUp(new ThumbUpView.OnThumbUp() {
-            @Override
-            public void like(boolean like) {
-
-                if (like) {
-
-                    ILikeType type = typeDao.getTypeAndAdd(imageBean.getTypeName());
-                    imageBean.setType(type);
-                    boolean insertResult = likeDao.add(imageBean);
-                    if (insertResult) {
-                        MySnackbar.makeSnackBarBlack(holder.getView(R.id.tvShowTime), "收藏成功");
-                    } else {
-                        MySnackbar.makeSnackBarRed(holder.getView(R.id.tvShowTime), "收藏失败");
-                        ((ThumbUpView) holder.getView(R.id.btn_collect2)).setUnlike();
-                    }
-                } else {
-                    boolean deleteResult = likeDao.delete(imageBean);
-                    if (deleteResult) {
-                        MySnackbar.makeSnackBarBlack(holder.getView(R.id.tvShowTime), "取消收藏成功");
-                    } else {
-                        ((ThumbUpView) holder.getView(R.id.btn_collect2)).setLike();
-                        MySnackbar.makeSnackBarRed(holder.getView(R.id.tvShowTime), "取消收藏失败");
-                    }
-                }
-            }
-        });
+//        ((ThumbUpView) holder.getView(R.id.btn_collect2)).setOnThumbUp(new ThumbUpView.OnThumbUp() {
+//            @Override
+//            public void like(boolean like) {
+//
+//                if (like) {
+//
+//                    ILikeType type = typeDao.getTypeAndAdd(imageBean.getTypeName());
+//                    imageBean.setType(type);
+//                    boolean insertResult = likeDao.add(imageBean);
+//                    if (insertResult) {
+//                        MySnackbar.makeSnackBarBlack(holder.getView(R.id.tvShowTime), "收藏成功");
+//                    } else {
+//                        MySnackbar.makeSnackBarRed(holder.getView(R.id.tvShowTime), "收藏失败");
+//                        ((ThumbUpView) holder.getView(R.id.btn_collect2)).setUnlike();
+//                    }
+//                } else {
+//                    boolean deleteResult = likeDao.delete(imageBean);
+//                    if (deleteResult) {
+//                        MySnackbar.makeSnackBarBlack(holder.getView(R.id.tvShowTime), "取消收藏成功");
+//                    } else {
+//                        ((ThumbUpView) holder.getView(R.id.btn_collect2)).setLike();
+//                        MySnackbar.makeSnackBarRed(holder.getView(R.id.tvShowTime), "取消收藏失败");
+//                    }
+//                }
+//            }
+//        });
 
     }
 
@@ -174,7 +178,7 @@ public class ImageShowAdapter extends CommonAdapter<ImageBean> {
      * @param imageBean
      * @param holder
      */
-    private void loadBaiduImage(String url, ImageBean imageBean, ViewHolder holder) {
+    private void loadBaiduImage(String url, Atlas imageBean, ViewHolder holder) {
         Glide.with(mContext)
                 .asBitmap()
                 .load(url)
@@ -189,7 +193,7 @@ public class ImageShowAdapter extends CommonAdapter<ImageBean> {
 
                     @Override
                     public boolean onResourceReady(Bitmap resource, Object model, Target<Bitmap> target, DataSource dataSource, boolean isFirstResource) {
-                        PicSizeEntity picSizeEntity = picSizeEntityArrayMap.get(imageBean.getMiddle());
+                        PicSizeEntity picSizeEntity = picSizeEntityArrayMap.get(imageBean.getCover());
                         if (picSizeEntity == null || picSizeEntity.isNull()) {
                             int width = resource.getWidth();
                             int height = resource.getHeight();
@@ -197,7 +201,7 @@ public class ImageShowAdapter extends CommonAdapter<ImageBean> {
                             int finalHeight = (screenWidth / 2) * height / width;
                             ViewGroup.LayoutParams layoutParams = holder.getView(R.id.rl_root).getLayoutParams();
                             layoutParams.height = finalHeight;
-                            picSizeEntityArrayMap.put(imageBean.getMiddle(), new PicSizeEntity(width, height));
+                            picSizeEntityArrayMap.put(imageBean.getCover(), new PicSizeEntity(width, height));
                         }
                         return false;
                     }

@@ -1,16 +1,16 @@
 apply plugin: 'com.android.library'
 
-def config = gradle.ext
+//def config = gradle.ext
 
 android {
-    compileSdkVersion config.compileSdkVersion
-    buildToolsVersion config.buildToolsVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion config.minSdkVersion
-        targetSdkVersion config.targetSdkVersion
-        versionCode config.versionCode
-        versionName config.versionName
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
         multiDexEnabled true
     }
     buildTypes {
@@ -23,7 +23,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile config.appcompat_v7
+    compile "com.android.support:appcompat-v7:$supportVersion"
     implementation 'com.loopj.android:android-async-http:1.4.9'
     implementation 'com.google.code.gson:gson:2.8.0'
     api 'com.orhanobut:logger:2.1.1'
@@ -31,5 +31,7 @@ dependencies {
     api 'com.lzy.net:okrx2:2.0.2'
     api 'com.lzy.net:okserver:2.0.5'
     testCompile 'junit:junit:4.12'
-    compile config.design
+    api 'com.android.support:design:25.3.0'
+
+//    compile config.design
 }

@@ -2,7 +2,7 @@ package allenhu.app.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +13,9 @@ import allenhu.app.fragment.ImageListFragment;
 
 /**
  * Created by zjh on 2018/3/17.
- *
  */
 
-public class ImagePagerAdapter extends FragmentPagerAdapter {
+public class ImagePagerAdapter extends FragmentStatePagerAdapter {
     List<Type> mDatas;
     List<String> mDetailDatas;
 
@@ -28,7 +27,7 @@ public class ImagePagerAdapter extends FragmentPagerAdapter {
         super(fm);
     }
 
-    public static ImagePagerAdapter createDetailPageAdapter(FragmentManager fm, List<String> datas){
+    public static ImagePagerAdapter createDetailPageAdapter(FragmentManager fm, List<String> datas) {
         ImagePagerAdapter imagePagerAdapter = new ImagePagerAdapter(fm);
         imagePagerAdapter.mDetailDatas = datas;
         imagePagerAdapter.isDetail = true;
@@ -36,7 +35,7 @@ public class ImagePagerAdapter extends FragmentPagerAdapter {
         return imagePagerAdapter;
     }
 
-    public static ImagePagerAdapter createPageAdapter(FragmentManager fm, List<Type> datas){
+    public static ImagePagerAdapter createPageAdapter(FragmentManager fm, List<Type> datas) {
         ImagePagerAdapter imagePagerAdapter = new ImagePagerAdapter(fm);
         imagePagerAdapter.mDatas = datas;
         imagePagerAdapter.isDetail = false;
@@ -69,9 +68,9 @@ public class ImagePagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        if (!isDetail){
+        if (!isDetail) {
             return mDatas.get(position).getName();
-        }else {
+        } else {
             return String.valueOf(position);
         }
     }

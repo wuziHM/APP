@@ -180,12 +180,15 @@
             android:label="@string/title_activity_ok_go_acitivity"
             android:theme="@style/AppTheme">
         </activity>
-        <activity android:name=".activity.PrinterActivity">
-        </activity>
-        <activity android:name=".activity.MultiDownloadActivity">
-        </activity>
-        <activity android:name=".activity.WelfareActivity">
-        </activity>
+        <activity android:name=".activity.PrinterActivity"/>
+        <activity android:name=".activity.MultiDownloadActivity"/>
+        <activity
+            android:name=".activity.WelfareActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.MeiziImgDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ImageBrowserTheme"/>
     </application>
 
 </manifest>

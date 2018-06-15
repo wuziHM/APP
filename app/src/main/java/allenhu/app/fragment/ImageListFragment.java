@@ -19,14 +19,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import allenhu.app.R;
+import allenhu.app.activity.MeiziImgDetailActivity;
 import allenhu.app.adapter.ImageShowAdapter;
 import allenhu.app.bean.ImageBean;
+import allenhu.app.bean.enumBean.ImageTypeEnum;
 import allenhu.app.mvp.present.ImageListPresent;
 import allenhu.app.mvp.view.ImageListView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
+ * 妹子图 图片列表
  */
 public class ImageListFragment extends Fragment implements ImageListView {
     private static final String PARAM_VALUE = "url";
@@ -75,11 +78,12 @@ public class ImageListFragment extends Fragment implements ImageListView {
         present.getData(url, page);
 
         list = new ArrayList<>();
-        adapter = new ImageShowAdapter(getContext(), R.layout.item_img_staggered, list, ImageShowAdapter.WELFARE_TYPE);
+        adapter = new ImageShowAdapter(getContext(), R.layout.item_img_staggered, list, ImageTypeEnum.MEIZI.getCode());
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(ViewGroup parent, View view, Object o, int position) {
-
+                ImageBean bean = (ImageBean) o;
+                MeiziImgDetailActivity.toMeiziImgDetailActivity(getContext(), bean.getMeiziDetailUrl());
             }
 
             @Override

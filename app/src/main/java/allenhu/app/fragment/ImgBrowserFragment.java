@@ -131,8 +131,6 @@ public class ImgBrowserFragment extends Fragment {
         photoImageView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
             @Override
             public void onPhotoTap(View view, float x, float y) {
-//                    finishBrowser();
-//                startAnima();
 
                 if(listener!=null){
                     listener.onClick(view);

@@ -1,15 +1,15 @@
 apply plugin: 'com.android.library'
-def config = gradle.ext
+//def config = gradle.ext
 
 android {
-    compileSdkVersion config.compileSdkVersion
-    buildToolsVersion config.buildToolsVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion config.minSdkVersion
-        targetSdkVersion config.targetSdkVersion
-        versionCode config.versionCode
-        versionName config.versionName
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
         multiDexEnabled true
     }
     buildTypes {
@@ -23,10 +23,11 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile config.appcompat_v7
+//    compile rootProject.ext.appcompat_v7
 //    compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
 
-    compile config.recyclerview_v7
+    compile "com.android.support:recyclerview-v7:$supportVersion"
+    compile "com.android.support:appcompat-v7:$supportVersion"
 
 }
 

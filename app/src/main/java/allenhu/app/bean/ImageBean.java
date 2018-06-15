@@ -33,6 +33,19 @@ public class ImageBean implements Serializable {
     @DatabaseField(columnName = "date_time")
     private String date;
 
+    //妹子图才会存在的字段
+    @DatabaseField(columnName = "meizi_detail_url")
+    private String meiziDetailUrl;
+
+    //妹子图才会存在的字段
+    @DatabaseField(columnName = "meizi_url")
+    private String meiziUrl;
+
+    //判断是妹子图来的图片还是 百度api来的图片
+    @DatabaseField(columnName = "flag")
+    private int flag;
+
+
     private String typeName;
 
     public String getTypeName() {
@@ -99,9 +112,43 @@ public class ImageBean implements Serializable {
         this.small = small;
     }
 
+    public String getMeiziDetailUrl() {
+        return meiziDetailUrl;
+    }
+
+    public void setMeiziDetailUrl(String meiziDetailUrl) {
+        this.meiziDetailUrl = meiziDetailUrl;
+    }
+
+    public String getMeiziUrl() {
+        return meiziUrl;
+    }
+
+    public void setMeiziUrl(String meiziUrl) {
+        this.meiziUrl = meiziUrl;
+    }
+
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
 
     @Override
     public String toString() {
-        return "big:" + big + "     middle:" + middle + "    title" + title + "     typeName:" + typeName;
+        return "ImageBean{" +
+                "big='" + big + '\'' +
+                ", middle='" + middle + '\'' +
+                ", small='" + small + '\'' +
+                ", date='" + date + '\'' +
+                ", meiziDetailUrl='" + meiziDetailUrl + '\'' +
+                ", meiziUrl='" + meiziUrl + '\'' +
+                ", flag=" + flag +
+                ", typeName='" + typeName + '\'' +
+                ", type=" + type +
+                ", title='" + title + '\'' +
+                '}';
     }
 }
