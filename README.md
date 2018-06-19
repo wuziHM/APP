@@ -22,6 +22,20 @@
 #### 实例
 ![实例](./screenshot/four_fragment.jpg)
 实例目前只做了几个关于图片的东西。
-1.图图大全是用的百度api上的接口一个图片的查看器。其中用到SmartTabLayout、SwipeToLoadLayout、RecyclerViewPager、PhotoView等开源控件。
+
+1. 图图大全是用的百度api上的接口一个图片的查看器。
+
+    其中用到[SmartTabLayout](https://github.com/ogaclejapan/SmartTabLayout)、[SwipeToLoadLayout](https://github.com/Aspsine/SwipeToLoadLayout)、[RecyclerViewPager](https://github.com/lsjwzh/RecyclerViewPager)、[PhotoView](https://github.com/chrisbanes/PhotoView)、[ThumbUpView](https://github.com/ldoublem/ThumbUp)等开源控件。
+    
+    网络请求框架用的是Retrofit，Retrofit的client是Okhttp，再结合Rxjava2
+
+	其中图片预览最开始使用的是ViewPager，但是发现手感不好，有时候不能有效的滑动过去。于是找到了RecyclerViewPager这个框架。
+
+2. 我喜欢 其实就是把图图大全里的图片把图片地址存在sqlite里面，然后可以浏览存在本地的地址的图片。
+3. 使用[LuckyMonkeyPanelView](./app/src/main/java/allenhu/app/widget/LuckyMonkeyPanelView.java)做的一个抽奖界面
+4. 暂时还未实现，
+5. 仿照[welfare](https://github.com/boildcoffee/welfare)项目写的，抓取妹子图的照片，利用Jsoup解析。
+![截图](./screenshot/meizitu.gif)
+
 
 
