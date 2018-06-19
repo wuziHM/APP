@@ -9,7 +9,7 @@
 #### 下面是一些界面的截图和说明总结：
 ### 首页
 
-<img src="./screenshot/main.jpg" width="576" hegiht="1024" align=center />
+<img src="./screenshot/main.jpg" width="432" hegiht="768" align=center />
 
 **首页分为4个部分，基础知识，进阶特效、高级、实例**
 
@@ -25,7 +25,7 @@
 
 实例目前只做了几个关于图片的东西。
 
-<img src="./screenshot/four_fragment.jpg" width="576" hegiht="1024" align=center />
+<img src="./screenshot/four_fragment.jpg" width="432" hegiht="768" align=center />
 
 1. 图图大全是用的百度api上的接口一个图片的查看器。
 
@@ -42,7 +42,7 @@
 
 截图
 
-<img src="./screenshot/meizitu.gif" width="576" hegiht="1024" align=center />
+<img src="./screenshot/meizitu.gif" width="432" hegiht="768" align=center />
 
 
 
