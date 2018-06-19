@@ -8,7 +8,7 @@
 
 #### 下面是一些界面的截图和说明总结：
 ### 首页
-![首页](./screenshot/main.jpg)
+![首页](./screenshot/main.jpg =500x)
 
 **首页分为4个部分，基础知识，进阶特效、高级、实例**
 
@@ -20,7 +20,7 @@
 
 	
 #### 实例
-![实例](./screenshot/four_fragment.jpg)
+![实例](./screenshot/four_fragment.jpg =500x)
 实例目前只做了几个关于图片的东西。
 
 1. 图图大全是用的百度api上的接口一个图片的查看器。
@@ -35,7 +35,7 @@
 3. 使用[LuckyMonkeyPanelView](./app/src/main/java/allenhu/app/widget/LuckyMonkeyPanelView.java)做的一个抽奖界面
 4. 暂时还未实现，
 5. 仿照[welfare](https://github.com/boildcoffee/welfare)项目写的，抓取妹子图的照片，利用Jsoup解析。
-![截图](./screenshot/meizitu.gif)
+![截图](./screenshot/meizitu.gif =500x)
 
 
 
