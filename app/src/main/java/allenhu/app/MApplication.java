@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
+import com.facebook.stetho.Stetho;
 import com.lzy.okgo.OkGo;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
@@ -28,6 +29,7 @@ public class MApplication extends Application {
 
         OkGo.getInstance().init(this);
         initLogger();
+        Stetho.initializeWithDefaults(this);
 
 //        BFConfig.INSTANCE.init(new BaseConfig.Builder()
 //                .setBaseUrl(BASE_URL)

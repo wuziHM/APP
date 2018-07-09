@@ -168,12 +168,12 @@ public class CoorLayoutActivity extends AppCompatActivity {
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<List<FindBg.ImagesEntity>>() {
-                    @Override
-                    public void accept(List<FindBg.ImagesEntity> imagesBeans) throws Exception {
-                        swipe.setRefreshing(false);
-                        images = imagesBeans;
-                    }
+                .subscribe(imagesBeans -> {
+//                    @Override
+//                    public void accept(List<FindBg.ImagesEntity> imagesBeans) throws Exception {
+                    swipe.setRefreshing(false);
+                    images = imagesBeans;
+//                    }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {

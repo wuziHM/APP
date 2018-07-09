@@ -31,6 +31,8 @@ import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Author：燕青 $ on 16/7/22 16:17
@@ -744,6 +746,18 @@ public class JavaTest extends TestCase {
         return problems;
     }
 
+
+    public void testPatterns() {
+        String str = "000007020300";
+//        String pattern = "^(\\d{3})-(\\d{3,8})$";
+//        String pattern = "\\d{3}-\\d{3,8}";
+//        String pattern = "^(0[1-9]|1[0-2]|[0-9])-(0[1-9]|1[0-9]|2[0-9]|3[0-1]|[0-9])$";
+        String pattern = "\\d{10}00$";
+
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(str);
+        System.out.println(m.matches());
+    }
 
     public void testArrange() {
 //        Arrange arrange = new Arrange();

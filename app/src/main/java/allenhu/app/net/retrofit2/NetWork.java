@@ -2,6 +2,7 @@ package allenhu.app.net.retrofit2;
 
 import android.support.annotation.NonNull;
 
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.orhanobut.logger.Logger;
 
 import java.io.File;
@@ -142,6 +143,7 @@ public class NetWork {
                     }
                 }).setLevel(HttpLoggingInterceptor.Level.BODY))
                 .addNetworkInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
+                .addNetworkInterceptor(new StethoInterceptor())
                 .addInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
                 .connectTimeout(4, TimeUnit.SECONDS)
                 .cache(cache)

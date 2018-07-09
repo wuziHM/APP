@@ -31,7 +31,7 @@ dependencies {
     api 'com.lzy.net:okrx2:2.0.2'
     api 'com.lzy.net:okserver:2.0.5'
     testCompile 'junit:junit:4.12'
-    api 'com.android.support:design:25.3.0'
+    api "com.android.support:design:25.3.0"
 
 //    compile config.design
 }

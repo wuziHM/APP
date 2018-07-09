@@ -162,4 +162,8 @@ dependencies {
     compile 'com.jungly:gridPasswordView:0.3'
 //    implementation 'com.github.aii1991:AndroidRapidDev:v1.1.10'
     implementation 'org.jsoup:jsoup:1.11.2'
+
+    //facebook的stetho工具
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+    implementation 'com.facebook.stetho:stetho:1.5.0'
 }
