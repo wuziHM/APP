@@ -9,6 +9,7 @@ package com.hlib.app;
 public interface HActivityAble {
 
     public void showProgress();
+    public void showProgress(String msg);
 
     public void hideProgress();
 }

@@ -39,11 +39,11 @@ public class ImageBrowser1Activity extends BaseActivity {
     @BindView(R.id.tvNumShow)
     TextView tvNumShow;
 
-    @BindView(R.id.view_bottom_bg)
-    View viewBottomBg;
+//    @BindView(R.id.view_bottom_bg)
+//    View viewBottomBg;
 
-    @BindView(R.id.browser_root)
-    RelativeLayout browserRoot;
+//    @BindView(R.id.browser_root)
+//    RelativeLayout browserRoot;
 
     @BindView(R.id.tv_title)
     TextView tvTitle;

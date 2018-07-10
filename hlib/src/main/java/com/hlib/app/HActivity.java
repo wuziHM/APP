@@ -22,7 +22,7 @@ import com.hlib.util.MCommonUtil;
  * <p>
  * use to...
  */
-public abstract class HActivity extends SwipeBackActivity implements HActivityAble {
+public abstract class HActivity extends SwipeBackActivity implements IBaseView {
 
 
     private static final String TAG = HActivity.class.getSimpleName();

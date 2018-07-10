@@ -57,10 +57,11 @@ public class WelfarePresenter extends BasePresentImpl<WelfareView> {
                     return Jsoup.parse(s);
                 })
                 .adapt(new ObservableResponse<>())
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.newThread())
                 .doOnSubscribe(disposable -> {
                     //开始执行请求
                     Logger.d("=======doOnSubscribe-->accept======");
+                    mView.showProgress();
 
                 })
                 .observeOn(AndroidSchedulers.mainThread())
@@ -73,7 +74,6 @@ public class WelfarePresenter extends BasePresentImpl<WelfareView> {
                     @Override
                     public void onNext(Response<Document> documentResponse) {
                         List<Type> types = parseTypes(documentResponse.body());
-                        Logger.d("=======onNext======size"+types.size());
                         mView.showData(documentResponse.body());
                         mView.setTypes(types);
 
@@ -82,13 +82,11 @@ public class WelfarePresenter extends BasePresentImpl<WelfareView> {
                     @Override
                     public void onError(Throwable e) {
 
-                        Logger.d("=======onError======" + e.toString());
                     }
 
                     @Override
                     public void onComplete() {
-                        mView.hideBaseProgressDialog();
-                        Logger.d("=======onComplete======");
+                        mView.hideProgress();
                     }
                 });
     }

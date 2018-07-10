@@ -1,5 +1,6 @@
 package allenhu.app.activity;
 
+import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.hlib.util.MLogUtil;
+import com.orhanobut.logger.Logger;
+import com.tbruyelle.rxpermissions2.Permission;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.util.List;
 
@@ -19,6 +23,7 @@ import allenhu.app.adapter.DividerItemDecoration;
 import allenhu.app.bean.ContactBean;
 import allenhu.app.listener.OnItemClickListener;
 import allenhu.app.util.ContactUtil;
+import io.reactivex.functions.Consumer;
 
 public class ContentProviderActivity extends BaseActivity implements View.OnClickListener {
 
@@ -31,7 +36,35 @@ public class ContentProviderActivity extends BaseActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content_provider);
         initView();
-        initData();
+    }
+
+
+
+    private void requestPermissions() {
+        RxPermissions rxPermission = new RxPermissions(this);
+        rxPermission
+                .requestEach(
+                        Manifest.permission.READ_CONTACTS,
+                        Manifest.permission.WRITE_CONTACTS)
+                .subscribe(new Consumer<Permission>() {
+                    @Override
+                    public void accept(Permission permission) throws Exception {
+                        if (permission.granted) {
+
+                            initData();
+                            // 用户已经同意该权限
+                            Logger.d(permission.name + " is granted.");
+                        } else if (permission.shouldShowRequestPermissionRationale) {
+                            // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
+                            Logger.d(permission.name + " is denied. More info should be provided.");
+                        } else {
+                            // 用户拒绝了该权限，并且选中『不再询问』
+                            Logger.d(permission.name + " is denied.");
+                        }
+                    }
+                });
+
+
     }
 
     private void initView() {

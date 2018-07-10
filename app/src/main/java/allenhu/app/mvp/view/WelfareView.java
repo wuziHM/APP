@@ -1,5 +1,7 @@
 package allenhu.app.mvp.view;
 
+import com.hlib.app.IBaseView;
+
 import org.jsoup.nodes.Document;
 
 import java.util.List;
@@ -12,7 +14,7 @@ import allenhu.app.bean.Type;
  * <p>
  * use to...
  */
-public interface WelfareView extends IBaseView{
+public interface WelfareView extends IBaseView {
 
     void showData(Document object);
 

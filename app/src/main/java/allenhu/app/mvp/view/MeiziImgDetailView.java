@@ -1,5 +1,7 @@
 package allenhu.app.mvp.view;
 
+import com.hlib.app.IBaseView;
+
 import java.util.List;
 
 import allenhu.app.bean.Image;
@@ -10,10 +12,8 @@ import allenhu.app.bean.Image;
  * <p>
  * use to...
  */
-public interface MeiziImgDetailView {
+public interface MeiziImgDetailView extends IBaseView {
 
-
-//    void showData(List<ImageBean> imageBeans, boolean isRefresh);
 
     void complete();
 

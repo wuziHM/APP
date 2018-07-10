@@ -166,8 +166,6 @@
     <!--亮蓝色 -->
     <color name="darkgray">#A9A9A9</color>
     <!--暗灰色 -->
-    <color name="darkgrey">#A9A9A9</color>
-    <!--暗灰色 -->
     <color name="brown">#A52A2A</color>
     <!--褐色 -->
     <color name="sienna">#A0522D</color>
@@ -225,8 +223,6 @@
     <color name="slateblue">#6A5ACD</color>
     <!--石蓝色 -->
     <color name="dimgray">#696969</color>
-    <!--暗灰色 -->
-    <color name="dimgrey">#696969</color>
     <!--暗灰色 -->
     <color name="mediumaquamarine">#66CDAA</color>
     <!--中绿色 -->

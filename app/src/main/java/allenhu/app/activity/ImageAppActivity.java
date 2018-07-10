@@ -109,7 +109,7 @@ public class ImageAppActivity extends BaseActivity {
         showProgress();
         NetWork.getImageApi()
                 .getImageList()
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(mImgObserver);
 

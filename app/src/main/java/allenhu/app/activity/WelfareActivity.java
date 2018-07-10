@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 
 import com.hlib.util.MToastUtil;
+import com.orhanobut.logger.Logger;
 
 import org.jsoup.nodes.Document;
 
@@ -44,22 +45,23 @@ public class WelfareActivity extends BaseActivity implements WelfareView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welfare);
         ButterKnife.bind(this);
+        Logger.d("---->WelfareActivity--->onCreate");
 
         presenter = new WelfarePresenter(this, this);
         presenter.getData();
 
     }
 
-    @Override
-    public void showBaseProgressDialog(String msg) {
-        showProgress();
-    }
-
-    @Override
-    public void hideBaseProgressDialog() {
-        hideProgress();
-    }
-
+//    @Override
+//    public void showProgress(String msg) {
+//        showProgress();
+//    }
+//
+//    @Override
+//    public void hideProgress() {
+//        hideProgress();
+//    }
+//
     @Override
     public void showData(Document object) {
 

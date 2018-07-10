@@ -83,7 +83,7 @@ public class ImageListFragment extends Fragment implements ImageListView {
             @Override
             public void onItemClick(ViewGroup parent, View view, Object o, int position) {
                 ImageBean bean = (ImageBean) o;
-                MeiziImgDetailActivity.toMeiziImgDetailActivity(getContext(), bean.getMeiziDetailUrl());
+                MeiziImgDetailActivity.toMeiziImgDetailActivity(getContext(), bean.getMeiziDetailUrl(),bean.getTitle());
             }
 
             @Override

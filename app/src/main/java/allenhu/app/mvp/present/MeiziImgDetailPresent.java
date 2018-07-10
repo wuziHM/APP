@@ -50,19 +50,19 @@ public class MeiziImgDetailPresent extends BasePresentImpl<MeiziImgDetailView> {
 
     public void getImage(String pageUrl) {
 
-
         OkGo.<Document>get(pageUrl)
                 .converter(response -> {
                     ResponseBody body = response.body();
                     String s = body.string();
-                    Logger.d("getImage--->body:" + s);
+//                    Logger.d("getImage--->body:" + s);
                     return Jsoup.parse(s);
                 })
                 .adapt(new ObservableResponse<>())
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.newThread())
                 .doOnSubscribe(disposable -> {
                     //开始执行请求
 //                    Logger.d("=======doOnSubscribe-->accept======");
+                    mView.showProgress("加载中...");
 
                 })
                 .observeOn(AndroidSchedulers.mainThread())
@@ -88,6 +88,7 @@ public class MeiziImgDetailPresent extends BasePresentImpl<MeiziImgDetailView> {
 
                     @Override
                     public void onComplete() {
+                        mView.hideProgress();
                         mView.complete();
                         Logger.d("=======onComplete======");
                     }
@@ -106,11 +107,11 @@ public class MeiziImgDetailPresent extends BasePresentImpl<MeiziImgDetailView> {
                 .converter(response -> {
                     ResponseBody body = response.body();
                     String s = body.string();
-                    Logger.d("getData--->body:" + s);
+//                    Logger.d("getData--->body:" + s);
                     return Jsoup.parse(s);
                 })
                 .adapt(new ObservableResponse<>())
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.newThread())
                 .doOnSubscribe(disposable -> {
                     //开始执行请求
 //                    Logger.d("=======doOnSubscribe-->accept======");
@@ -126,7 +127,6 @@ public class MeiziImgDetailPresent extends BasePresentImpl<MeiziImgDetailView> {
 
                     @Override
                     public void onNext(Response<Document> documentResponse) {
-                        Logger.d("=======onNext======");
 //                        List<Atlas> list = parseAtlasData(documentResponse.body(), page);
 //                        mView.showData(getListEn(list), page == 1);
                         mView.setImageUrls(parseDetailUrl(documentResponse.body()));
@@ -143,7 +143,6 @@ public class MeiziImgDetailPresent extends BasePresentImpl<MeiziImgDetailView> {
                     @Override
                     public void onComplete() {
                         mView.complete();
-                        Logger.d("=======onComplete======");
                     }
                 });
     }

@@ -122,7 +122,7 @@ dependencies {
     implementation 'com.github.lsjwzh.RecyclerViewPager:lib:v1.1.2@aar'
 
     //进度条
-    compile 'com.github.maning0303:MNProgressHUD:V1.0.7'
+    implementation 'com.github.maning0303:MNProgressHUD:V1.1.0'
 
     //通用的popupWindow,有动画效果
     implementation 'com.github.razerdp:BasePopup:1.9.3'
@@ -138,7 +138,8 @@ dependencies {
     implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
     implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
 
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+//    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
     implementation 'com.squareup.retrofit2:retrofit:2.1.0'

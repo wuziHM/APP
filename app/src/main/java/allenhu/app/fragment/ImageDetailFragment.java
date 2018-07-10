@@ -2,7 +2,6 @@ package allenhu.app.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,16 +20,24 @@ import allenhu.app.mvp.view.MeiziImgDetailView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import uk.co.senab.photoview.PhotoView;
+import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
  */
-public class ImageDetailFragment extends Fragment implements MeiziImgDetailView {
+public class ImageDetailFragment extends BaseFragment implements MeiziImgDetailView {
 
     @BindView(R.id.photoImageView)
     PhotoView photoImageView;
-    private String url;
-    MeiziImgDetailPresent detailPresent;
 
+    private String url;
+    private MeiziImgDetailPresent detailPresent;
+
+    private View.OnClickListener listener;
+    private View rootView;
+
+    public void setListener(View.OnClickListener listener) {
+        this.listener = listener;
+    }
 
     public ImageDetailFragment() {
     }
@@ -55,15 +62,16 @@ public class ImageDetailFragment extends Fragment implements MeiziImgDetailView 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_image_detail, container, false);
-        ButterKnife.bind(this, view);
-        return view;
+        rootView = inflater.inflate(R.layout.fragment_image_detail, container, false);
+        ButterKnife.bind(this, rootView);
+        return rootView;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Logger.d("detail:" + url);
+
         detailPresent.getImage(url);
     }
 
@@ -85,6 +93,24 @@ public class ImageDetailFragment extends Fragment implements MeiziImgDetailView 
                 .addHeader("user-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36")
                 .build()
         );
+        /*很快的滑动，ImageDetailFragment的实例A被创建了，
+            开始请求图片接口，接口还没请求完的时候实例A已经被销毁了，
+            所以需要判断 getActivity() == null
+            要不然会闪退
+         */
+        if (getActivity() == null) {
+            Logger.e("activity已经销毁");
+            return;
+        }
         Glide.with(getContext()).load(glideUrl).into(photoImageView);
+        photoImageView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
+            @Override
+            public void onPhotoTap(View view, float x, float y) {
+
+                if (listener != null) {
+                    listener.onClick(view);
+                }
+            }
+        });
     }
 }

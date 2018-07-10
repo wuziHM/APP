@@ -211,7 +211,7 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
         showProgress();
         NetWork.getImageApi()
                 .getImageShow(typeId, page)
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(mImgObserver);
     }

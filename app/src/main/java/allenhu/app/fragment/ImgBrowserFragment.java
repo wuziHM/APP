@@ -15,6 +15,7 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.orhanobut.logger.Logger;
 
 import allenhu.app.R;
 import allenhu.app.view.ganhuo.ProgressWheel;
@@ -91,7 +92,7 @@ public class ImgBrowserFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        Logger.d("=====ImgBrowserFragment=====onActivityCreated====");
         initView();
 
     }
@@ -127,12 +128,11 @@ public class ImgBrowserFragment extends Fragment {
                 .into(photoImageView);
 
 
-
         photoImageView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
             @Override
             public void onPhotoTap(View view, float x, float y) {
 
-                if(listener!=null){
+                if (listener != null) {
                     listener.onClick(view);
                 }
             }

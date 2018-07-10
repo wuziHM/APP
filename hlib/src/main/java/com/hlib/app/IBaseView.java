@@ -1,4 +1,4 @@
-package allenhu.app.mvp.view;
+package com.hlib.app;
 
 /**
  * Author：HM $ on 18/6/11 15:35
@@ -8,9 +8,11 @@ package allenhu.app.mvp.view;
  */
 public interface IBaseView {
 
-    void showBaseProgressDialog(String msg);
+    void showProgress(String msg);
 
-    void hideBaseProgressDialog();
+    void showProgress();
+
+    void hideProgress();
 
 
 }

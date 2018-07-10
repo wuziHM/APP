@@ -3,11 +3,13 @@ package allenhu.app.net.retrofit2;
 import android.support.annotation.NonNull;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
+import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 import com.orhanobut.logger.Logger;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 import allenhu.app.MApplication;
 import allenhu.app.util.Constant;
@@ -18,12 +20,13 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.CallAdapter;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+//import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
  * Author：HM $ on 17/11/20 15:59
@@ -132,16 +135,13 @@ public class NetWork {
         //设置缓存 10M
         Cache cache = new Cache(httpCacheDirectory, 10 * 1024 * 1024);
 
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("wuzi");
+        loggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);        //log打印级别，决定了log显示的详细程度
+        loggingInterceptor.setColorLevel(Level.INFO);                               //log颜色级别，决定了log在控制台显示的颜色
+
         OkHttpClient httpClient = new OkHttpClient.Builder()
                 .addInterceptor(getInterceptor(isUTF))
-                .addInterceptor(new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-                    @Override
-                    public void log(String message) {
-//                        Logger.d("request-->message:" + message);
-                        //打印retrofit日志
-//                        MLogUtil.e("retrofitBack = " + message);
-                    }
-                }).setLevel(HttpLoggingInterceptor.Level.BODY))
+                .addInterceptor(loggingInterceptor)
                 .addNetworkInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
                 .addNetworkInterceptor(new StethoInterceptor())
                 .addInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)

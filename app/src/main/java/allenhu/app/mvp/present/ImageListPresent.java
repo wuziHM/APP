@@ -70,7 +70,7 @@ public class ImageListPresent extends BasePresentImpl<ImageListView> {
                     return Jsoup.parse(s);
                 })
                 .adapt(new ObservableResponse<>())
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.newThread())
                 .doOnSubscribe(disposable -> {
                     //开始执行请求
 //                    Logger.d("=======doOnSubscribe-->accept======");
