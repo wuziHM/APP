@@ -16,12 +16,16 @@
 package allenhu.app.util;
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.lzy.imagepicker.loader.ImageLoader;
+import com.lzy.ninegrid.NineGridView;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 
@@ -36,7 +40,7 @@ import allenhu.app.R;
  * 修订历史：
  * ================================================
  */
-public class GlideImageLoader implements ImageLoader {
+public class GlideImageLoader implements ImageLoader, NineGridView.ImageLoader {
     private final RequestOptions options;
 
     public GlideImageLoader() {
@@ -44,9 +48,10 @@ public class GlideImageLoader implements ImageLoader {
         options.fitCenter();
         options.error(R.drawable.ic_error);
         options.placeholder(R.drawable.ic_default_image);
-        options.dontAnimate();
+//        options.dontAnimate();
         options.diskCacheStrategy(DiskCacheStrategy.ALL);
     }
+
     @Override
     public void displayImage(Activity activity, String path, ImageView imageView, int width, int height) {
         Glide.with(activity).load(new File(path))
@@ -63,4 +68,40 @@ public class GlideImageLoader implements ImageLoader {
     public void clearMemoryCache() {
     }
 
+    @Override
+    public void onDisplayImage(Context context, ImageView imageView, String url) {
+
+
+        Picasso.with(context).load(url)
+                .placeholder(R.drawable.ic_default_image)
+                .error(R.drawable.ic_error)
+                .fit()
+                .centerInside()
+                .into(imageView);
+
+
+//            Glide.with(context)
+//                    .asBitmap()
+//                    .load(url)
+//                    .listener(new RequestListener<Bitmap>() {
+//                        @Override
+//                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
+//                            Logger.d(e.getMessage());
+//                            return false;
+//                        }
+//
+//                        @Override
+//                        public boolean onResourceReady(Bitmap resource, Object model, Target<Bitmap> target, DataSource dataSource, boolean isFirstResource) {
+//                            return false;
+//                        }
+//                    })
+//                    .thumbnail(0.2f)
+//                    .apply(options)//
+//                    .into(imageView);
+    }
+
+    @Override
+    public Bitmap getCacheImage(String url) {
+        return null;
+    }
 }

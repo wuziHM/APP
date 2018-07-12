@@ -5,15 +5,11 @@ package allenhu.app.bean;
  * Created by maning on 2017/10/18.
  * 首页加载图片缓存宽高，防止出现滑动图片改变高度问题
  */
-
 public class PicSizeEntity {
 
     private String picUrl;
     private int picWidth;
     private int picHeight;
-
-    public PicSizeEntity() {
-    }
 
     public PicSizeEntity(int picWidth, int picHeight) {
         this.picWidth = picWidth;

@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,8 +83,8 @@ public class FragmentB extends Fragment {
         recyclerView.showLoadingMoreView();
         recyclerView.setHasFixedSize(true);
 //        recyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL_LIST));
-        recyclerView.setLayoutManager(new LinearLayoutManager(context));
-//        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(context));
+//        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         initData();
@@ -126,10 +126,11 @@ public class FragmentB extends Fragment {
         list.add("excel表格");
         list.add("RXJava");
 //        list.add("高德地图");
-        list.add("Material Design");
+        list.add("Material Design + 时间轴 + 九宫格");
         list.add("ok go上传下载");
         list.add("Matrix 矩阵设置图片");
         list.add("多图片下载");
+//        list.add("时间轴+九宫格");
 
         classes = new ArrayList<Class>();
         classes.add(AccelerometerPlayActivity.class);
@@ -144,5 +145,6 @@ public class FragmentB extends Fragment {
         classes.add(OkGoActivity.class);
         classes.add(MatrixActivity.class);
         classes.add(MultiDownloadActivity.class);
+//        classes.add(NineViewActivity.class);
     }
 }

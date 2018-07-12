@@ -1,28 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="allenhu.app.activity.HyperTranslateActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/activity_vertical_margin"
+              android:paddingLeft="@dimen/activity_horizontal_margin"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:paddingTop="@dimen/activity_vertical_margin"
+              tools:context="allenhu.app.activity.HyperTranslateActivity">
 
 
     <TextView
         android:id="@+id/text_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:gravity="left"
         android:includeFontPadding="false"
         android:text="本项目模拟实现该功能，即：开机自动启动的 Service
         监听剪切板。复制之后，在屏幕顶部显示一个悬浮窗，
-        显示剪贴板内容。点击悬浮窗，跳转到 Activity 页面显示。"
+        显示剪贴板内容。点击悬浮窗，跳转到 Activity 页面显示。\n 使用以下代码可以实现复制 \n
+\t\t ClipboardManager cm =(ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+\t\t cm.setText(“要复制的内容”);"
         android:textColor="#000"
         android:textIsSelectable="true"
-        android:textSize="13sp" />
+        android:textSize="13sp"/>
 
-</RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

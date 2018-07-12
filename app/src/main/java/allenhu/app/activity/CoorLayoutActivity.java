@@ -11,23 +11,24 @@ import android.view.View;
 import com.bumptech.glide.Glide;
 import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.hlib.util.MToastUtil;
+import com.lzy.ninegrid.ImageInfo;
+import com.lzy.ninegrid.NineGridView;
 import com.orhanobut.logger.Logger;
 import com.zhy.base.adapter.recyclerview.EmptyRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import allenhu.app.R;
-import allenhu.app.adapter.HomeAdapter;
+import allenhu.app.adapter.NineViewAdapter;
+import allenhu.app.bean.NineViewBean;
 import allenhu.app.bean.request.FindBg;
 import allenhu.app.net.retrofit2.NetWork;
+import allenhu.app.util.GlideImageLoader;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 public class CoorLayoutActivity extends AppCompatActivity {
@@ -49,11 +50,24 @@ public class CoorLayoutActivity extends AppCompatActivity {
     SwipeRefreshLayout swipe;
 
     private List<FindBg.ImagesEntity> images;
+    private List<NineViewBean> beans;
+//    private List<ImageInfo> infos;
 
 
-    private List<String> list;
+//    private List<String> list;
 
     private int position;
+
+    private String[] nineImages = {
+            "http://i2.meizitu.net/2018/07/06a01.jpg",
+            "http://i2.meizitu.net/2018/07/06a02.jpg",
+            "http://i2.meizitu.net/2018/07/06a03.jpg",
+            "http://i2.meizitu.net/2018/07/06a04.jpg",
+            "http://i2.meizitu.net/2018/07/06a05.jpg",
+            "http://i2.meizitu.net/2018/07/06a06.jpg",
+            "http://i2.meizitu.net/2018/07/06a07.jpg",
+            "http://i2.meizitu.net/2018/07/06a08.jpg",
+            "http://i2.meizitu.net/2018/07/06a09.jpg"};
 
 
     private String imgURL = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512559134864&di=5f611d0878216f50163856b48daddbc3&imgtype=0&src=http%3A%2F%2Fc.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F48540923dd54564e38493e2ab9de9c82d1584ff1.jpg";
@@ -67,7 +81,7 @@ public class CoorLayoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coor_layout);
         ButterKnife.bind(this);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -83,18 +97,24 @@ public class CoorLayoutActivity extends AppCompatActivity {
     }
 
     private void initView() {
-
-
-        list = new ArrayList<>();
-        for (int i = 0; i < 30; i++) {
-            Random random = new Random();
-            list.add("第" + (i + 1) + "个随机数:" + random.nextInt(100));
+        beans = new ArrayList<>();
+        List<ImageInfo> infos = new ArrayList<>();
+        for (String s : nineImages) {
+            ImageInfo info = new ImageInfo();
+            info.setBigImageUrl(s);
+            info.setThumbnailUrl(s);
+            infos.add(info);
         }
 
-        HomeAdapter adapter = new HomeAdapter(list, this);
+        for (int i = 0; i < 3; i++) {
+            beans.add(new NineViewBean("2018-01-05 12:33", infos));
+        }
+
+        NineGridView.setImageLoader(new GlideImageLoader());
+        NineViewAdapter adapter = new NineViewAdapter(this, R.layout.item_nineview_timeline, beans);
         recycle.setLayoutManager(new LinearLayoutManager(this));
-//        recycle.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
         recycle.setAdapter(adapter);
+
 
         swipe.setColorSchemeResources(
                 android.R.color.holo_orange_light,
@@ -160,27 +180,18 @@ public class CoorLayoutActivity extends AppCompatActivity {
     private void requestData() {
         d = NetWork.getIFindApi().getFindBg("js", 0, 30)
                 .subscribeOn(Schedulers.newThread())
-                .map(new Function<FindBg, List<FindBg.ImagesEntity>>() {
-                    @Override
-                    public List<FindBg.ImagesEntity> apply(FindBg findBg) throws Exception {
-                        com.orhanobut.logger.Logger.d(findBg);
-                        return findBg.getImages();
-                    }
+                .map(findBg -> {
+                    Logger.d(findBg);
+                    return findBg.getImages();
                 })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(imagesBeans -> {
-//                    @Override
-//                    public void accept(List<FindBg.ImagesEntity> imagesBeans) throws Exception {
                     swipe.setRefreshing(false);
                     images = imagesBeans;
-//                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        swipe.setRefreshing(false);
-                        Logger.d("throwable" + throwable.getMessage());
-                        MToastUtil.show(CoorLayoutActivity.this, "数据请求失败");
-                    }
+                }, throwable -> {
+                    swipe.setRefreshing(false);
+                    Logger.d("throwable" + throwable.getMessage());
+                    MToastUtil.show(CoorLayoutActivity.this, "数据请求失败");
                 });
 //        d = NetWork.getIFindApi().getFindBg("js", 0, 8)
 //                .subscribeOn(Schedulers.newThread())

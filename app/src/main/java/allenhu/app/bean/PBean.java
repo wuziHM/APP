@@ -6,7 +6,7 @@ import java.util.List;
  * Author：燕青 $ on 2016/10/13  15:05
  * E-mail：359222347@qq.com
  * <p/>
- * use to...
+ * use to...省份实体类
  */
 public class PBean {
 

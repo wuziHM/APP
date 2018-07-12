@@ -95,6 +95,7 @@ dependencies {
 
     //    compile 'com.bigkoo:svprogresshud:1.0.4'
 //    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile files('libs/libammsdk.jar')
     compile files('libs/ormlite-android-4.48.jar')
@@ -167,4 +168,8 @@ dependencies {
     //facebook的stetho工具
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
     implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
+
 }
