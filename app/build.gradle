@@ -95,12 +95,13 @@ dependencies {
 
     //    compile 'com.bigkoo:svprogresshud:1.0.4'
 //    implementation 'com.android.support:support-v4:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+//    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    compile files('libs/libammsdk.jar')
+//    compile files('libs/libammsdk.jar')
     compile files('libs/ormlite-android-4.48.jar')
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
     compile files('libs/ormlite-core-4.48.jar')
-    compile files('libs/umeng-analytics-v5.6.4.jar')
+//    compile files('libs/umeng-analytics-v5.6.4.jar')
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':base-adapter-library')
     compile project(':hlib')

@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.hlib.util.MLogUtil;
 import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.umeng.analytics.MobclickAgent;
+//import com.umeng.analytics.MobclickAgent;
 
 import allenhu.app.activity.base.BaseActivity;
 import allenhu.app.fragment.FragmentA;

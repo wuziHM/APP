@@ -33,23 +33,45 @@ public class MHeaderView extends RelativeLayout implements MHeaderViewAble {
     private TextView tvHeaderViewTitle;
     private View headerViewLineAtBottom;
 
-    public MHeaderView(Context context, RelativeLayout rootView) {
+    public MHeaderView(Context context) {
         super(context);
-        addToRootView(rootView);
+        inflate(context, R.layout.m_header_view, this);
+        init();
     }
 
-    public MHeaderView(Context context, AttributeSet attrs, RelativeLayout rootView) {
+    public MHeaderView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        addToRootView(rootView);
+        inflate(context, R.layout.m_header_view, this);
+        init();
     }
 
-    public MHeaderView(Context context, AttributeSet attrs, int defStyleAttr, RelativeLayout rootView) {
+    public MHeaderView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        addToRootView(rootView);
+        inflate(context, R.layout.m_header_view, this);
+
+        init();
     }
 
-    private void init(RelativeLayout parentView) {
-        headerView = LayoutInflater.from(getContext()).inflate(R.layout.m_header_view, parentView, false);
+//    public MHeaderView(Context context, RelativeLayout rootView) {
+//        super(context);
+//        init();
+////        addToRootView(rootView);
+//    }
+//
+//    public MHeaderView(Context context, AttributeSet attrs, RelativeLayout rootView) {
+//        super(context, attrs);
+//        init();
+////        addToRootView(rootView);
+//    }
+//
+//    public MHeaderView(Context context, AttributeSet attrs, int defStyleAttr, RelativeLayout rootView) {
+//        super(context, attrs, defStyleAttr);
+//        init();
+////        addToRootView(rootView);
+//    }
+
+    private void init() {
+        headerView = LayoutInflater.from(getContext()).inflate(R.layout.m_header_view, this, false);
         headerViewLeftView = (LinearLayout) headerView.findViewById(R.id.headerViewLeftView);
         ivHeaderViewLeft = (ImageView) headerView.findViewById(R.id.ivHeaderViewLeft);
         tvHeaderViewLeft = (TextView) headerView.findViewById(R.id.tvHeaderViewLeft);
@@ -68,7 +90,13 @@ public class MHeaderView extends RelativeLayout implements MHeaderViewAble {
                 HActivity.finishActivity(getContext());
             }
         });
+//        addView(headerView);
     }
+
+//    @Override
+//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//    }
 
     @Override
     public void setOnClickLeftViewListener(OnClickListener onClickListener) {
@@ -158,26 +186,26 @@ public class MHeaderView extends RelativeLayout implements MHeaderViewAble {
         tvHeaderViewTitle.setText(title);
     }
 
-    @Override
-    public void addToRootView(RelativeLayout rootView) {
-        if (rootView != null) {
-            this.rootView = rootView;
-            init(rootView);
-            View childView = rootView.getChildAt(0);
-            rootView.addView(headerView, 0);
-
-            LayoutParams params = (LayoutParams) childView.getLayoutParams();
-            params.addRule(RelativeLayout.BELOW, headerView.getId());
-            childView.setLayoutParams(params);
-        }
-    }
-
-    @Override
-    public void removeFromRootView(RelativeLayout rootView) {
-        if (rootView != null) {
-            rootView.removeView(headerView);
-        }
-    }
+//    @Override
+//    public void addToRootView(RelativeLayout rootView) {
+//        if (rootView != null) {
+//            this.rootView = rootView;
+//            init(rootView);
+//            View childView = rootView.getChildAt(0);
+//            rootView.addView(headerView, 0);
+//
+//            LayoutParams params = (LayoutParams) childView.getLayoutParams();
+//            params.addRule(RelativeLayout.BELOW, headerView.getId());
+//            childView.setLayoutParams(params);
+//        }
+//    }
+//
+//    @Override
+//    public void removeFromRootView(RelativeLayout rootView) {
+//        if (rootView != null) {
+//            rootView.removeView(headerView);
+//        }
+//    }
 
     @Override
     public TextView getLeftViewTextView() {

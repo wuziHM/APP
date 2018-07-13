@@ -21,15 +21,20 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.lzy.imagepicker.loader.ImageLoader;
 import com.lzy.ninegrid.NineGridView;
-import com.squareup.picasso.Picasso;
+import com.orhanobut.logger.Logger;
 
 import java.io.File;
 
 import allenhu.app.R;
+import io.reactivex.annotations.Nullable;
 
 /**
  * ================================================
@@ -72,32 +77,32 @@ public class GlideImageLoader implements ImageLoader, NineGridView.ImageLoader {
     public void onDisplayImage(Context context, ImageView imageView, String url) {
 
 
-        Picasso.with(context).load(url)
-                .placeholder(R.drawable.ic_default_image)
-                .error(R.drawable.ic_error)
-                .fit()
-                .centerInside()
-                .into(imageView);
+//        Picasso.with(context).load(url)
+//                .placeholder(R.drawable.ic_default_image)
+//                .error(R.drawable.ic_error)
+//                .fit()
+//                .centerInside()
+//                .into(imageView);
 
 
-//            Glide.with(context)
-//                    .asBitmap()
-//                    .load(url)
-//                    .listener(new RequestListener<Bitmap>() {
-//                        @Override
-//                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
-//                            Logger.d(e.getMessage());
-//                            return false;
-//                        }
-//
-//                        @Override
-//                        public boolean onResourceReady(Bitmap resource, Object model, Target<Bitmap> target, DataSource dataSource, boolean isFirstResource) {
-//                            return false;
-//                        }
-//                    })
-//                    .thumbnail(0.2f)
-//                    .apply(options)//
-//                    .into(imageView);
+            Glide.with(context)
+                    .asBitmap()
+                    .load(url)
+                    .listener(new RequestListener<Bitmap>() {
+                        @Override
+                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
+                            Logger.d(e.getMessage());
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onResourceReady(Bitmap resource, Object model, Target<Bitmap> target, DataSource dataSource, boolean isFirstResource) {
+                            return false;
+                        }
+                    })
+                    .thumbnail(0.2f)
+                    .apply(options)//
+                    .into(imageView);
     }
 
     @Override

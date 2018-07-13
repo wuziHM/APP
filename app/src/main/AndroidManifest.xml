@@ -189,6 +189,8 @@
             android:name=".activity.MeiziImgDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ImageBrowserTheme"/>
+        <activity android:name=".activity.MeiziMainActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_new"
+        android:icon="@drawable/ic_new"
+        android:title="最新"/>
+
+    <item
+        android:id="@+id/navigation_rec"
+        android:icon="@drawable/ic_recommend"
+        android:title="推荐"/>
+
+    <item
+        android:id="@+id/navigation_find"
+        android:icon="@drawable/ic_find"
+        android:title="发现"/>
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_hot"
+        android:title="热门"/>
+
+    <item
+        android:id="@+id/navigation_me"
+        android:icon="@drawable/ic_camera"
+        android:title="自拍"/>
+
+</menu>

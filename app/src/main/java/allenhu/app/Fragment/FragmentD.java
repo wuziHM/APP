@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +18,7 @@ import allenhu.app.R;
 import allenhu.app.activity.CollectActivity;
 import allenhu.app.activity.ImageAppActivity;
 import allenhu.app.activity.LuckActivity;
+import allenhu.app.activity.MeiziMainActivity;
 import allenhu.app.activity.WelfareActivity;
 import allenhu.app.adapter.HomeAdapter;
 import allenhu.app.listener.OnItemClickListener;
@@ -64,7 +65,7 @@ public class FragmentD extends Fragment {
 
     private void initAdapter() {
         adapter = new HomeAdapter(listContent, getContext());
-        recycle.setLayoutManager(new LinearLayoutManager(getContext()));
+        recycle.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 //        recycle.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL_LIST));
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -98,6 +99,9 @@ public class FragmentD extends Fragment {
 
         listContent.add("抓数据");
         listActivity.add(WelfareActivity.class);
+
+        listContent.add("妹子图客户端");
+        listActivity.add(MeiziMainActivity.class);
 
 
     }

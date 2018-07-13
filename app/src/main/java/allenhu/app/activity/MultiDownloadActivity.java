@@ -35,6 +35,10 @@ public class MultiDownloadActivity extends BaseActivity {
             "http://image.tianjimedia.com/uploadImages/2014/090/49/48NJD223D503_680x500.jpg",
             "http://image.tianjimedia.com/uploadImages/2014/090/50/5FL76PO6519X_680x500.jpg",
             "http://image.tianjimedia.com/uploadImages/2014/090/50/X4W0465U1S5D_680x500.jpg",
+            "http://i2.meizitu.net/2018/07/06a04.jpg",
+            "http://i2.meizitu.net/2018/07/06a01.jpg",
+            "http://i2.meizitu.net/2018/07/06a02.jpg",
+            "http://i2.meizitu.net/2018/07/06a03.jpg",
             "http://image.tianjimedia.com/uploadImages/2014/090/50/3X9943E0WIZ5_680x500.jpg",
             "http://image.tianjimedia.com/uploadImages/2014/090/50/61IJ21I0QK79_680x500.jpg",
             "http://image.tianjimedia.com/uploadImages/2014/090/51/3NU5DPYCIN8A_680x500.jpg",
@@ -107,7 +111,6 @@ public class MultiDownloadActivity extends BaseActivity {
 
         @Override
         public void onError(Progress progress) {
-
             Logger.i("异常了");
 
         }

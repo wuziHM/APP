@@ -13,15 +13,22 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.hlib.util.MLogUtil;
-import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
-import com.tencent.mm.sdk.modelmsg.WXImageObject;
-import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
-import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
-import com.tencent.mm.sdk.openapi.IWXAPI;
-import com.tencent.mm.sdk.openapi.WXAPIFactory;
+import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
+import com.tencent.mm.opensdk.modelmsg.WXImageObject;
+import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
+import com.tencent.mm.opensdk.modelmsg.WXWebpageObject;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
 import allenhu.app.R;
 import allenhu.app.util.Constant;
+
+//import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
+//import com.tencent.mm.sdk.modelmsg.WXImageObject;
+//import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
+//import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
+//import com.tencent.mm.sdk.openapi.IWXAPI;
+//import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
 public class WeixinActivity extends Activity {
 

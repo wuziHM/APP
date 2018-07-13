@@ -3,7 +3,6 @@ package com.hlib.widget.header;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
@@ -47,9 +46,9 @@ public interface MHeaderViewAble {
 
     void setTitle(String title);
 
-    void addToRootView(RelativeLayout rootView);
+//    void addToRootView(RelativeLayout rootView);
 
-    void removeFromRootView(RelativeLayout rootView);
+//    void removeFromRootView(RelativeLayout rootView);
 
     TextView getLeftViewTextView();
 
