@@ -17,7 +17,7 @@
         android:title="发现"/>
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_hot"
         android:icon="@drawable/ic_hot"
         android:title="热门"/>
 

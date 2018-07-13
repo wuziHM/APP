@@ -2,6 +2,16 @@ apply plugin: 'com.android.application'
 
 android {
 
+
+    defaultConfig {
+        applicationId "allenhu.app"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        multiDexEnabled true
+    }
+
     signingConfigs {
         release {
             keyAlias 'key_release'
@@ -19,14 +29,7 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
-    defaultConfig {
-        applicationId "allenhu.app"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode rootProject.ext.versionCode
-        versionName rootProject.ext.versionName
-        multiDexEnabled true
-    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -42,8 +45,16 @@ android {
 
     //多渠道打包
     productFlavors {
-        _360 { dimension "color" }
-        baidu { dimension "color" }
+        app_dev {
+            dimension "color"
+            buildConfigField "String", "MEIZI_API_URL", "\"http://adr.meizitu.net/wp-json/wp/v2/\""
+            buildConfigField "boolean", "DEBUG_MODE", "true"
+        }
+        app_release {
+            dimension "color"
+            buildConfigField "String", "MEIZI_API_URL", "\"http://adr.meizitu.net/wp-json/wp/v2/\""
+            buildConfigField "boolean", "DEBUG_MODE", "false"
+        }
     }
 
     applicationVariants.all {

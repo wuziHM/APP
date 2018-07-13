@@ -23,13 +23,6 @@ import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import allenhu.app.R;
 import allenhu.app.util.Constant;
 
-//import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
-//import com.tencent.mm.sdk.modelmsg.WXImageObject;
-//import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
-//import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
-//import com.tencent.mm.sdk.openapi.IWXAPI;
-//import com.tencent.mm.sdk.openapi.WXAPIFactory;
-
 public class WeixinActivity extends Activity {
 
     private ImageView ivChoose;

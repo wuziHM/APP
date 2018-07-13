@@ -33,7 +33,7 @@ public abstract class BaseActivity extends HActivity {
                 //点击外部是否可以取消
                 .isCanceledOnTouchOutside(true)
                 //全屏背景窗体的颜色
-                .setBackgroundWindowColor(getResources().getColor(R.color.half_transparent))
+                .setBackgroundWindowColor(getResources().getColor(R.color.transparent))
                 //View背景的颜色
                 .setBackgroundViewColor(getResources().getColor(R.color.darkgray))
                 //View背景的圆角

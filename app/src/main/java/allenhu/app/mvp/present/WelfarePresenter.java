@@ -35,13 +35,15 @@ import static allenhu.app.MApplication.BASE_URL;
 public class WelfarePresenter extends BasePresentImpl<WelfareView> {
 
 
+    /**
+     * 用jsoup抓妹子图数据的跟地址
+     */
     public static final String MEIZI_BASE_URL = "http://www.mzitu.com/";
-    private Context context;
+
     private static HashMap mTypeMap;
 
 
     public WelfarePresenter(Context context, WelfareView view) {
-        this.context = context;
         attachView(view);
     }
 

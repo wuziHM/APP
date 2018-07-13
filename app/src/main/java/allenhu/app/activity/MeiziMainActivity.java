@@ -11,6 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.hlib.widget.BottomNavigationViewEx;
+import com.hlib.widget.header.MHeaderView;
 
 import allenhu.app.R;
 import allenhu.app.activity.base.BaseActivity;
@@ -25,9 +26,6 @@ import butterknife.ButterKnife;
 public class MeiziMainActivity extends BaseActivity {
 
 
-//    @BindView(R.id.title_view)
-//    TitleView headerView;
-
     @BindView(R.id.fr_content)
     FrameLayout frContent;
 
@@ -36,6 +34,8 @@ public class MeiziMainActivity extends BaseActivity {
 
     @BindView(R.id.container)
     LinearLayout container;
+    @BindView(R.id.headerView)
+    MHeaderView headerView;
 
     private Fragment[] fragments;
     private int lastShowFragment;
@@ -94,10 +94,9 @@ public class MeiziMainActivity extends BaseActivity {
      * 初始化控件
      */
     private void initView() {
-//        MHeaderView headerView = new MHeaderView(this,get)
 
-//        headerView.hideLeftView();
-//        headerView.setTitle("妹子图客户端");
+        headerView.hideLeftView();
+        headerView.setTitle("最新");
 
         ColorStateList csl = createColorStateList();
         navigation = (BottomNavigationViewEx) findViewById(R.id.navigation);
@@ -135,25 +134,36 @@ public class MeiziMainActivity extends BaseActivity {
                 case R.id.navigation_new:
                     if (lastShowFragment != 0) {
                         switchFragment(lastShowFragment, 0);
+                        headerView.setTitle("最新");
                         lastShowFragment = 0;
                     }
                     return true;
                 case R.id.navigation_rec:
                     if (lastShowFragment != 1) {
                         switchFragment(lastShowFragment, 1);
+                        headerView.setTitle("推荐");
                         lastShowFragment = 1;
                     }
                     return true;
                 case R.id.navigation_find:
                     if (lastShowFragment != 2) {
                         switchFragment(lastShowFragment, 2);
+                        headerView.setTitle("发现");
                         lastShowFragment = 2;
                     }
                     return true;
-                case R.id.navigation_me:
+                case R.id.navigation_hot:
                     if (lastShowFragment != 3) {
                         switchFragment(lastShowFragment, 3);
+                        headerView.setTitle("热门");
                         lastShowFragment = 3;
+                    }
+                    return true;
+                case R.id.navigation_me:
+                    if (lastShowFragment != 4) {
+                        switchFragment(lastShowFragment, 4);
+                        headerView.setTitle("自拍");
+                        lastShowFragment = 4;
                     }
                     return true;
             }

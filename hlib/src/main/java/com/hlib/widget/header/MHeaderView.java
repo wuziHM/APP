@@ -2,7 +2,6 @@ package com.hlib.widget.header;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,8 +20,7 @@ import com.hlib.util.MKeyboardUtil;
  */
 public class MHeaderView extends RelativeLayout implements MHeaderViewAble {
 
-    private RelativeLayout rootView;
-    private View headerView;
+//    private View headerView;
 
     private LinearLayout headerViewLeftView;
     private ImageView ivHeaderViewLeft;
@@ -48,40 +46,22 @@ public class MHeaderView extends RelativeLayout implements MHeaderViewAble {
     public MHeaderView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         inflate(context, R.layout.m_header_view, this);
-
         init();
     }
 
-//    public MHeaderView(Context context, RelativeLayout rootView) {
-//        super(context);
-//        init();
-////        addToRootView(rootView);
-//    }
-//
-//    public MHeaderView(Context context, AttributeSet attrs, RelativeLayout rootView) {
-//        super(context, attrs);
-//        init();
-////        addToRootView(rootView);
-//    }
-//
-//    public MHeaderView(Context context, AttributeSet attrs, int defStyleAttr, RelativeLayout rootView) {
-//        super(context, attrs, defStyleAttr);
-//        init();
-////        addToRootView(rootView);
-//    }
 
     private void init() {
-        headerView = LayoutInflater.from(getContext()).inflate(R.layout.m_header_view, this, false);
-        headerViewLeftView = (LinearLayout) headerView.findViewById(R.id.headerViewLeftView);
-        ivHeaderViewLeft = (ImageView) headerView.findViewById(R.id.ivHeaderViewLeft);
-        tvHeaderViewLeft = (TextView) headerView.findViewById(R.id.tvHeaderViewLeft);
+//        headerView = LayoutInflater.from(getContext()).inflate(R.layout.m_header_view, this, false);
+        headerViewLeftView = findViewById(R.id.headerViewLeftView);
+        ivHeaderViewLeft = findViewById(R.id.ivHeaderViewLeft);
+        tvHeaderViewLeft = findViewById(R.id.tvHeaderViewLeft);
 
-        headerViewRightView = (LinearLayout) headerView.findViewById(R.id.headerViewRightView);
-        ivHeaderViewRight = (ImageView) headerView.findViewById(R.id.ivHeaderViewRight);
-        tvHeaderViewRight = (TextView) headerView.findViewById(R.id.tvHeaderViewRight);
+        headerViewRightView = findViewById(R.id.headerViewRightView);
+        ivHeaderViewRight = findViewById(R.id.ivHeaderViewRight);
+        tvHeaderViewRight = findViewById(R.id.tvHeaderViewRight);
 
-        tvHeaderViewTitle = (TextView) headerView.findViewById(R.id.tvHeaderViewTitle);
-        headerViewLineAtBottom = headerView.findViewById(R.id.headerViewLineAtBottom);
+        tvHeaderViewTitle = findViewById(R.id.tvHeaderViewTitle);
+        headerViewLineAtBottom = findViewById(R.id.headerViewLineAtBottom);
 
         headerViewLeftView.setOnClickListener(new OnClickListener() {
             @Override
@@ -155,7 +135,7 @@ public class MHeaderView extends RelativeLayout implements MHeaderViewAble {
     @Override
     public void setBgColor(int colorId) {
         try {
-            headerView.setBackgroundColor(colorId);
+            setBackgroundColor(colorId);
         } catch (Exception e) {
             e.printStackTrace();
         }

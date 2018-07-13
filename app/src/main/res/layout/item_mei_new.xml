@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/rl_root"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/dp_400"
+              android:layout_marginBottom="@dimen/dp_5"
+              android:layout_marginTop="@dimen/dp_5"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/shape_bg_gray_10_corner"
+            android:paddingBottom="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_10"
+            android:paddingRight="@dimen/dp_10"
+            android:paddingTop="@dimen/dp_5"
+            android:text="45P"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_des"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/c_454545"
+        android:textSize="@dimen/sp_14"
+        android:layout_marginTop="@dimen/dp_10"
+        tools:text="fjaojffaodsjfoajsdofjaofjaosjfdoasjfaisjfoiasjfoasjofidjasoifjasojfoasijojsdofajso述"/>
+
+
+</LinearLayout>

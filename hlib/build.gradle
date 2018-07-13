@@ -23,15 +23,16 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile "com.android.support:appcompat-v7:$supportVersion"
     implementation 'com.loopj.android:android-async-http:1.4.9'
-    implementation 'com.google.code.gson:gson:2.8.0'
+    api 'com.google.code.gson:gson:2.8.0'
     api 'com.orhanobut:logger:2.1.1'
     api 'com.lzy.net:okgo:3.0.4'
     api 'com.lzy.net:okrx2:2.0.2'
     api 'com.lzy.net:okserver:2.0.5'
     testCompile 'junit:junit:4.12'
+
     api "com.android.support:design:$supportVersion"
+    api "com.android.support:appcompat-v7:$supportVersion"
 
 //    compile config.design
 }
