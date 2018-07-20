@@ -191,6 +191,10 @@
             android:theme="@style/ImageBrowserTheme"/>
         <activity android:name=".activity.MeiziMainActivity">
         </activity>
+        <activity android:name=".activity.TopicActivity">
+        </activity>
+        <activity android:name=".activity.TopicDetailActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

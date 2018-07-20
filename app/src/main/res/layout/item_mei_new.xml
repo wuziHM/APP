@@ -3,9 +3,8 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:id="@+id/rl_root"
               android:layout_width="match_parent"
-              android:layout_height="@dimen/dp_400"
-              android:layout_marginBottom="@dimen/dp_5"
-              android:layout_marginTop="@dimen/dp_5"
+              android:layout_height="@dimen/dp_200"
+              android:paddingBottom="@dimen/dp_10"
               android:background="@color/white"
               android:orientation="vertical">
 

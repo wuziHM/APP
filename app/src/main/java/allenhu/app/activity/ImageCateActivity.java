@@ -71,9 +71,7 @@ public class ImageCateActivity extends BaseActivity implements OnRefreshListener
     private boolean isFromDB;
 
     private ArrayList<ImageBean> imgList;
-
     private String typeId;
-
     private int likeType;
 
     //数据库查询工具

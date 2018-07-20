@@ -32,8 +32,9 @@ public class WebActivity extends BaseActivity {
         //设置本地调用对象及其接口
         mWebView.addJavascriptInterface(new JavaScriptObject(this), "myObj");
         //载入js
-        mWebView.loadUrl("http://www.hao123.com");
+//        mWebView.loadUrl("http://www.hao123.com");
 //        mWebView.loadUrl("http://app-health.daanlab.com/view/home/index.html");
+        mWebView.loadUrl("file:///android_asset/web/FirstWeb/index.html");
     }
 
     private void initView() {
@@ -44,8 +45,8 @@ public class WebActivity extends BaseActivity {
         btnWeb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mWebView.loadUrl("javascript:funFromjs()");
-                Toast.makeText(WebActivity.this, "调用javascript:funFromjs()", Toast.LENGTH_LONG).show();
+                mWebView.loadUrl("javascript:funFromjs(\"从安卓里面传过去的文字，你让我说点什么好呢？\")");
+                Toast.makeText(WebActivity.this, "调用javascript:funFromjs(content)", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -57,7 +58,6 @@ public class WebActivity extends BaseActivity {
 
 
         });
-
 
 
 //        mWebView.setOnTouchListener(new View.OnTouchListener() {

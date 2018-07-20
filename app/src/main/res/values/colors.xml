@@ -329,8 +329,11 @@
     <color name="c_fafafa">#fafafa</color>
     <color name="c_a3181818">#a3181818</color>
     <color name="c_454545">#454545</color>
+    <color name="c_bfbfbf">#bfbfbf</color>
     <color name="c_eaeaea">#eaeaea</color>
+    <color name="c_efefef">#efefef</color>
     <color name="c_c6c6c6">#c6c6c6</color>
     <color name="c_fa4242">#fa4242</color>
+    <color name="c_999">#999999</color>
 
 </resources>

@@ -37,7 +37,7 @@ public class MeiziURL {
     }
 
     public static String getMeiNum() {
-        return BuildConfig.MEIZI_API_URL.concat(MEI_NUM);
+        return MEI_NUM;
     }
 
     public static String getMeiCombo() {

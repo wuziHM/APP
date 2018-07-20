@@ -61,8 +61,8 @@ function clickCounter2() {
 }
 
 
-function funFromjs(){
-    document.getElementById("helloweb").innerHTML="HelloWebView,i'm from js";
+function funFromjs(content){
+    document.getElementById("helloweb").innerHTML=""+content;
 
 }
 

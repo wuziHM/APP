@@ -23,12 +23,12 @@ import io.reactivex.schedulers.Schedulers;
  * Author：HM $ on 18/7/13 10:39
  * E-mail：359222347@qq.com
  * <p>
- * use to...妹子图最新部分的presenter
+ * 专题部分的
  */
-public class MeiRecPresenter extends BasePresentImpl<MeiNewView> {
+public class MeiTopicPresenter extends BasePresentImpl<MeiNewView> {
 
 
-    public MeiRecPresenter(MeiNewView view) {
+    public MeiTopicPresenter(MeiNewView view) {
         attachView(view);
     }
 
@@ -37,16 +37,15 @@ public class MeiRecPresenter extends BasePresentImpl<MeiNewView> {
     /**
      * 获取数据
      */
-    public void getData(int page) {
-
+    public void getData(String tags,int page) {
         Type type = new TypeToken<List<MeiNewBean>>() {
         }.getType();
 
 
-        OkGo.<String>get(MeiziURL.getMeiRec())
-                .params("page", page)
-                .params("per_page", pageSize)
-                .cacheMode(CacheMode.REQUEST_FAILED_READ_CACHE)
+        OkGo.<String>get(MeiziURL.getMeiSpecial())
+                .cacheMode(CacheMode.FIRST_CACHE_THEN_REQUEST)
+                .params("tags",tags)
+                .params("page",page)
                 .converter(new StringConvert())
                 .adapt(new ObservableResponse<>())
                 .subscribeOn(Schedulers.newThread())
@@ -64,7 +63,7 @@ public class MeiRecPresenter extends BasePresentImpl<MeiNewView> {
                     @Override
                     public void onNext(Response<String> stringResponse) {
                         Gson gson = new Gson();
-                        List<MeiNewBean> list1 = gson.fromJson(stringResponse.body(),type);
+                        List<MeiNewBean> list1 = gson.fromJson(stringResponse.body(), type);
                         mView.setData(list1);
                     }
 
@@ -75,32 +74,9 @@ public class MeiRecPresenter extends BasePresentImpl<MeiNewView> {
 
                     @Override
                     public void onComplete() {
-
+                        mView.finishRequest();
                     }
                 });
-//                .subscribe(new Observer<String>() {
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//                    }
-//
-//                    @Override
-//                    public void onNext(String s) {
-////
-//
-//                    }
-//
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        Logger.d("onError:"+e.getMessage());
-//                        mView.hideProgress();
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//                        mView.hideProgress();
-//                    }
-//                });
 
 
     }

@@ -105,4 +105,9 @@ public class MeiNewFragment extends BaseFragment implements MeiNewView {
             adapter.notifyDataSetChanged();
         }
     }
+
+    @Override
+    public void finishRequest() {
+
+    }
 }

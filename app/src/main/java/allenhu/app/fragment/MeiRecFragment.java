@@ -2,7 +2,7 @@ package allenhu.app.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,7 +79,7 @@ public class MeiRecFragment extends BaseFragment implements MeiNewView {
             presenter.getData(page);
         });
         adapter = new MeiziNewAdapter(getContext(), R.layout.item_mei_new, list, MeiziNewAdapter.TYPE_REC);
-        swipeTarget.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        swipeTarget.setLayoutManager(new GridLayoutManager(getContext(),2));
         swipeTarget.setAdapter(adapter);
         swipeTarget.setEmptyView(new EmptyView(getContext()));
     }
@@ -102,8 +102,9 @@ public class MeiRecFragment extends BaseFragment implements MeiNewView {
             adapter.notifyDataSetChanged();
         }
     }
-//    @Override
-//    public void setData(List<MeiNewBean> meiNewBeanList) {
-//
-//    }
+
+    @Override
+    public void finishRequest() {
+
+    }
 }

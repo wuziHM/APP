@@ -7,6 +7,7 @@ import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.convert.StringConvert;
 import com.lzy.okgo.model.Response;
 import com.lzy.okrx2.adapter.ObservableResponse;
+import com.orhanobut.logger.Logger;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -62,8 +63,13 @@ public class MeiNewPresenter extends BasePresentImpl<MeiNewView> {
                     @Override
                     public void onNext(Response<String> stringResponse) {
                         Gson gson = new Gson();
-                        List<MeiNewBean> list1 = gson.fromJson(stringResponse.body(),type);
-                        mView.setData(list1);
+                        try {
+                            List<MeiNewBean> list1 = gson.fromJson(stringResponse.body(), type);
+                            mView.setData(list1);
+                        } catch (Exception e) {
+                            Logger.d("Exception:" + e.toString());
+                            throw e;
+                        }
                     }
 
                     @Override

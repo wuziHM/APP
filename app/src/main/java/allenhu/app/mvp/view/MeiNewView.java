@@ -16,4 +16,6 @@ public interface MeiNewView extends IBaseView {
 
     void setData(List<MeiNewBean> meiNewBeanList);
 
+    void finishRequest();
+
 }
