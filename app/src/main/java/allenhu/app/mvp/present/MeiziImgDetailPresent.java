@@ -31,38 +31,24 @@ import okhttp3.ResponseBody;
  */
 public class MeiziImgDetailPresent extends BasePresentImpl<MeiziImgDetailView> {
 
-    //
-//    private static Map<String, String> mTypeMap;
-//    private static List<Type> mTypeList;
-    private Context context;
     private String mCurrentUrl;
 
-//    private String mCurrentUrl;
-//    private Map<String, Integer> mTypeMaxPageMap;
-//    private ArrayList<ImageBean> imageBeans;
-//    private ILikeDao iLikeDao;
-//    private ILikeType type;
-
     public MeiziImgDetailPresent(Context context, MeiziImgDetailView view) {
-        this.context = context;
         attachView(view);
     }
 
     public void getImage(String pageUrl) {
-
         OkGo.<Document>get(pageUrl)
                 .converter(response -> {
                     ResponseBody body = response.body();
                     String s = body.string();
-//                    Logger.d("getImage--->body:" + s);
                     return Jsoup.parse(s);
                 })
                 .adapt(new ObservableResponse<>())
                 .subscribeOn(Schedulers.newThread())
                 .doOnSubscribe(disposable -> {
                     //开始执行请求
-//                    Logger.d("=======doOnSubscribe-->accept======");
-                    mView.showProgress("加载中...");
+//                    mView.showProgress("加载中...");
 
                 })
                 .observeOn(AndroidSchedulers.mainThread())
@@ -82,15 +68,12 @@ public class MeiziImgDetailPresent extends BasePresentImpl<MeiziImgDetailView> {
 
                     @Override
                     public void onError(Throwable e) {
-
-                        Logger.d("=======onError======" + e.toString());
                     }
 
                     @Override
                     public void onComplete() {
-                        mView.hideProgress();
+//                        mView.hideProgress();
                         mView.complete();
-                        Logger.d("=======onComplete======");
                     }
                 });
 
@@ -100,14 +83,11 @@ public class MeiziImgDetailPresent extends BasePresentImpl<MeiziImgDetailView> {
         Logger.d("url:" + url);
         url = WelfarePresenter.MEIZI_BASE_URL + url;
         mCurrentUrl = url;
-//        String value = page <= 1 ? url : url + "page/" + page;
-
 
         OkGo.<Document>get(url)
                 .converter(response -> {
                     ResponseBody body = response.body();
                     String s = body.string();
-//                    Logger.d("getData--->body:" + s);
                     return Jsoup.parse(s);
                 })
                 .adapt(new ObservableResponse<>())

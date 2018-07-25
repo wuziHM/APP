@@ -6,7 +6,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.flaviofaria.kenburnsview.KenBurnsView;
@@ -84,12 +83,7 @@ public class CoorLayoutActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        toolbar.setNavigationOnClickListener(v -> finish());
 
         initView();
         requestData();
@@ -123,15 +117,13 @@ public class CoorLayoutActivity extends AppCompatActivity {
                 android.R.color.holo_blue_bright
         );
 
-        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                if (images == null || images.size() == 0) {
-                    requestData();
-                } else {
-                    loadImage();
-                    swipe.setRefreshing(false);
-                }
+        swipe.setOnRefreshListener(() -> {
+            if (images == null || images.size() == 0) {
+                requestData();
+            } else {
+                loadImage();
+                swipe.setRefreshing(false);
+            }
 
 //                io.reactivex.Observable.timer(2, TimeUnit.SECONDS)
 //                        .subscribeOn(Schedulers.newThread())
@@ -142,7 +134,6 @@ public class CoorLayoutActivity extends AppCompatActivity {
 //                                swipe.setRefreshing(false);
 //                            }
 //                        });
-            }
         });
         loadImage();
 

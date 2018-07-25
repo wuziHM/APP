@@ -31,27 +31,6 @@ public class NineViewAdapter extends CommonAdapter<NineViewBean> {
     public void convert(ViewHolder holder, NineViewBean o) {
         NineGridView gridView = holder.getView(R.id.nine_view);
         gridView.setAdapter(new NineGridViewClickAdapter(mContext, o.getInfos()));
-//        gridView.setAdapter(new NineGridViewAdapter() {
-//            @Override
-//            protected void onImageItemClick(Context context, NineGridView nineGridView, int index, List<ImageInfo> imageInfo) {
-//                super.onImageItemClick(context, nineGridView, index, imageInfo);
-//            }
-//
-//            @Override
-//            protected ImageView generateImageView(Context context) {
-//                return super.generateImageView(context);
-//            }
-//
-//            @Override
-//            public List<ImageInfo> getImageInfo() {
-//                return super.getImageInfo();
-//            }
-//
-//            @Override
-//            public void setImageInfoList(List<ImageInfo> imageInfo) {
-//                super.setImageInfoList(imageInfo);
-//            }
-//        });
     }
 
 }

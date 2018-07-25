@@ -18,6 +18,7 @@ public class MeiziURL {
 
     public static final String MEI_NUM = "http://adr.meizitu.net/json/x.json";     //专题编号
     public static final String MEI_COMBO = "i";     //套图详情
+    public static final String MEI_CAMERA = "comments";     //套图详情
 
 
     public static String getMeiNew() {
@@ -42,5 +43,9 @@ public class MeiziURL {
 
     public static String getMeiCombo() {
         return BuildConfig.MEIZI_API_URL.concat(MEI_COMBO);
+    }
+
+    public static String getMeiCamera() {
+        return  BuildConfig.MEIZI_API_URL.concat(MEI_CAMERA);
     }
 }

@@ -21,6 +21,7 @@ public class MeiNewBean {
     private String thumb_src;
     private String thumb_src_min;
     private String title;
+    private String date;
 
     public int getId() {
         return id;
@@ -60,5 +61,13 @@ public class MeiNewBean {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

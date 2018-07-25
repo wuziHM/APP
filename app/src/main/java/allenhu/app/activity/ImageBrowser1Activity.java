@@ -172,11 +172,6 @@ public class ImageBrowser1Activity extends BaseActivity {
         dialog.show("保存成功", getResources().getDrawable(R.drawable.gank_icon_pull_refresh_success_white));
     }
 
-    private void finishBrowser() {
-        tvNumShow.setVisibility(View.GONE);
-        rlBlackBg.setAlpha(0);
-        finish();
-    }
 
     @OnClick(R.id.list)
     public void onClick() {

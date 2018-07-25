@@ -9,11 +9,13 @@ import android.view.ViewGroup;
 
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.zhy.base.adapter.recyclerview.EmptyRecyclerView;
+import com.zhy.base.adapter.recyclerview.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import allenhu.app.R;
+import allenhu.app.activity.MeiBrowser1Activity;
 import allenhu.app.adapter.MeiziNewAdapter;
 import allenhu.app.bean.request.MeiNewBean;
 import allenhu.app.mvp.present.MeiNewPresenter;
@@ -82,6 +84,18 @@ public class MeiNewFragment extends BaseFragment implements MeiNewView {
             presenter.getData(page);
         });
         adapter = new MeiziNewAdapter(getContext(), R.layout.item_mei_new, list, MeiziNewAdapter.TYPE_NEW);
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(ViewGroup parent, View view, Object o, int position) {
+                MeiNewBean bean = (MeiNewBean) o;
+                MeiBrowser1Activity.toMeiBrowser(getContext(),bean.getId());
+            }
+
+            @Override
+            public boolean onItemLongClick(ViewGroup parent, View view, Object o, int position) {
+                return false;
+            }
+        });
         swipeTarget.setLayoutManager(new LinearLayoutManager(getContext()));
         swipeTarget.setAdapter(adapter);
         swipeTarget.setEmptyView(new EmptyView(getContext()));

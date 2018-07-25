@@ -64,7 +64,7 @@ public class MeiRecPresenter extends BasePresentImpl<MeiNewView> {
                     @Override
                     public void onNext(Response<String> stringResponse) {
                         Gson gson = new Gson();
-                        List<MeiNewBean> list1 = gson.fromJson(stringResponse.body(),type);
+                        List<MeiNewBean> list1 = gson.fromJson(stringResponse.body(), type);
                         mView.setData(list1);
                     }
 
@@ -78,31 +78,53 @@ public class MeiRecPresenter extends BasePresentImpl<MeiNewView> {
 
                     }
                 });
-//                .subscribe(new Observer<String>() {
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//                    }
-//
-//                    @Override
-//                    public void onNext(String s) {
-////
-//
-//                    }
-//
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        Logger.d("onError:"+e.getMessage());
-//                        mView.hideProgress();
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//                        mView.hideProgress();
-//                    }
-//                });
 
 
+    }
+
+    /**
+     * 获取数据
+     */
+    public void getHotData(int page) {
+
+        Type type = new TypeToken<List<MeiNewBean>>() {
+        }.getType();
+
+
+        OkGo.<String>get(MeiziURL.getMeiHot())
+                .params("page", page)
+                .cacheMode(CacheMode.REQUEST_FAILED_READ_CACHE)
+                .converter(new StringConvert())
+                .adapt(new ObservableResponse<>())
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe(disposable -> {
+                    //开始请求
+//                    mView.showProgress();
+                })
+                .subscribe(new Observer<Response<String>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Response<String> stringResponse) {
+                        Gson gson = new Gson();
+                        List<MeiNewBean> list1 = gson.fromJson(stringResponse.body(), type);
+                        mView.setData(list1);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        mView.finishRequest();
+                    }
+                });
     }
 
 }

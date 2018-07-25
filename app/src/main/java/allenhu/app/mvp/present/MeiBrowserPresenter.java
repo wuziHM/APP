@@ -12,8 +12,9 @@ import com.orhanobut.logger.Logger;
 import java.lang.reflect.Type;
 import java.util.List;
 
-import allenhu.app.bean.request.MeiNewBean;
-import allenhu.app.mvp.view.MeiNewView;
+import allenhu.app.bean.request.MeiBrowserBean;
+import allenhu.app.bean.request.MeiCameraBean;
+import allenhu.app.mvp.view.MeiBrowserView;
 import allenhu.app.net.MeiziURL;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -24,12 +25,12 @@ import io.reactivex.schedulers.Schedulers;
  * Author：HM $ on 18/7/13 10:39
  * E-mail：359222347@qq.com
  * <p>
- * use to...妹子图最新部分的presenter
+ * use to...妹子图自拍部分图片
  */
-public class MeiNewPresenter extends BasePresentImpl<MeiNewView> {
+public class MeiBrowserPresenter extends BasePresentImpl<MeiBrowserView> {
 
 
-    public MeiNewPresenter(MeiNewView view) {
+    public MeiBrowserPresenter(MeiBrowserView view) {
         attachView(view);
     }
 
@@ -37,14 +38,14 @@ public class MeiNewPresenter extends BasePresentImpl<MeiNewView> {
     /**
      * 获取数据
      */
-    public void getData(int page) {
+    public void getData(int id) {
 
-        Type type = new TypeToken<List<MeiNewBean>>() {
+        Type type = new TypeToken<List<MeiCameraBean>>() {
         }.getType();
 
 
-        OkGo.<String>get(MeiziURL.getMeiNew())
-                .params("page", page)
+        OkGo.<String>get(MeiziURL.getMeiCombo())
+                .params("id", id)
                 .cacheMode(CacheMode.REQUEST_FAILED_READ_CACHE)
                 .converter(new StringConvert())
                 .adapt(new ObservableResponse<>())
@@ -63,13 +64,9 @@ public class MeiNewPresenter extends BasePresentImpl<MeiNewView> {
                     @Override
                     public void onNext(Response<String> stringResponse) {
                         Gson gson = new Gson();
-                        try {
-                            List<MeiNewBean> list1 = gson.fromJson(stringResponse.body(), type);
-                            mView.setData(list1);
-                        } catch (Exception e) {
-                            Logger.d("Exception:" + e.toString());
-                            throw e;
-                        }
+                        Logger.d("body:"+stringResponse.body());
+                        MeiBrowserBean browserBean = gson.fromJson(stringResponse.body(),MeiBrowserBean.class);
+                        mView.setData(browserBean);
                     }
 
                     @Override
@@ -81,7 +78,7 @@ public class MeiNewPresenter extends BasePresentImpl<MeiNewView> {
                     @Override
                     public void onComplete() {
                         mView.hideProgress();
-
+                        mView.finishRequest();
                     }
                 });
 

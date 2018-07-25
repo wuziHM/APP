@@ -70,8 +70,6 @@ public class ImageDetailFragment extends BaseFragment implements MeiziImgDetailV
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Logger.d("detail:" + url);
-
         detailPresent.getImage(url);
     }
 

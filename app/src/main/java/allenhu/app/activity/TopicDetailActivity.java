@@ -4,10 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.hlib.widget.header.MHeaderView;
 import com.zhy.base.adapter.recyclerview.EmptyRecyclerView;
+import com.zhy.base.adapter.recyclerview.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,6 +77,18 @@ public class TopicDetailActivity extends BaseActivity implements MeiNewView {
             presenter.getData(tags, page);
         });
         adapter = new MeiziNewAdapter(this, R.layout.item_mei_new, list, MeiziNewAdapter.TYPE_REC);
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(ViewGroup parent, View view, Object o, int position) {
+                MeiNewBean bean = (MeiNewBean) o;
+                MeiBrowser1Activity.toMeiBrowser(TopicDetailActivity.this, bean.getId());
+            }
+
+            @Override
+            public boolean onItemLongClick(ViewGroup parent, View view, Object o, int position) {
+                return false;
+            }
+        });
         swipeTarget.setLayoutManager(new GridLayoutManager(this, 2));
         swipeTarget.setAdapter(adapter);
         swipeTarget.setEmptyView(new EmptyView(this));
